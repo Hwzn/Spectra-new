@@ -7,6 +7,7 @@ class ContactUs extends StatefulWidget {
   _ContactUsState createState() => _ContactUsState();
 }
 
+
 class _ContactUsState extends State<ContactUs> {
   final ContactUsData contactUsData = ContactUsData();
 
