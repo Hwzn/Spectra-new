@@ -9,7 +9,7 @@ abstract class GenericState<T> extends Equatable {
 }
 
 class GenericInitialState<T> extends GenericState<T> {
-  GenericInitialState(T data) : super(data, false, "");
+  const GenericInitialState(T data) : super(data, false, "");
 
   @override
   List<Object> get props => [changed];
@@ -17,14 +17,14 @@ class GenericInitialState<T> extends GenericState<T> {
 
 
 class GenericUpdateState<T> extends GenericState<T> {
-  GenericUpdateState(T data, bool changed, String error) : super(data, changed, error);
+  const GenericUpdateState(T data, bool changed, String error) : super(data, changed, error);
 
   @override
   List<Object> get props => [changed];
 }
 
 class GenericFailedState<T> extends GenericState<T> {
-  GenericFailedState(T data, bool changed, String error) : super(data, changed, error);
+  const GenericFailedState(T data, bool changed, String error) : super(data, changed, error);
 
   @override
   List<Object> get props => [changed, error];

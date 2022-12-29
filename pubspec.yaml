@@ -105,6 +105,9 @@ dependencies:
   cached_network_image:
   stop_watch_timer:
   circle_progress_bar:
+  firebase_dynamic_links: ^2.0.9
+  firebase_analytics: ^9.1.7
+  #firebase_crashlytics:
 
 
 

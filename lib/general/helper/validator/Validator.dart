@@ -8,14 +8,14 @@ extension Validator on String {
   }
 
   String? validateEmpty(BuildContext context,{String? message}) {
-    if (this.trim().isEmpty) {
+    if (trim().isEmpty) {
       return message ?? "Please fill this field";
     }
     return null;
   }
 
   String? validatePassword(BuildContext context,{String? message}) {
-    if (this.trim().isEmpty) {
+    if (trim().isEmpty) {
       return message ?? "Please fill this field";
     } else if (!RegExp(r'^(?=.*?[a-z])(?=.*?[0-9]).{6,}$')
         .hasMatch(this)) {
@@ -25,7 +25,7 @@ extension Validator on String {
   }
 
   String? validateEmail(BuildContext context,{String? message}) {
-    if (this.trim().isEmpty) {
+    if (trim().isEmpty) {
       return message ?? "Please fill this field";
     } else if (!RegExp(
         r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
@@ -36,7 +36,7 @@ extension Validator on String {
   }
 
   String? validateEmailORNull(BuildContext context,{String? message}) {
-    if (this.trim().isNotEmpty) {
+    if (trim().isNotEmpty) {
       if (!RegExp(
           r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
           .hasMatch(this)) {
@@ -47,7 +47,7 @@ extension Validator on String {
   }
 
   String? validatePhone(BuildContext context,{String? message}) {
-    if (this.trim().isEmpty) {
+    if (trim().isEmpty) {
       return message ?? "Please fill this field";
     } else if (!startsWith("05", 0) ||
         this.length > 14 || this.length < 9) {
@@ -57,7 +57,7 @@ extension Validator on String {
   }
 
   String? validatePasswordConfirm(BuildContext context,{required String pass, String? message}) {
-    if (this.trim().isEmpty) {
+    if (trim().isEmpty) {
       return message ?? "Please fill this field";
     } else if (this != pass) {
       return message ?? tr(context,"confirmValidation");

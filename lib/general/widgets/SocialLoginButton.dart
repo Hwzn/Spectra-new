@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hwzn_base/general/blocks/lang_cubit/lang_cubit.dart';
 
 /// All Supported Button Types
-enum SocialLoginButtonType {
+  enum SocialLoginButtonType {
   /// Facebook
   facebook,
 

@@ -34,8 +34,8 @@ class GenericTextField extends StatelessWidget {
   final String? fontFamily;
   final TextDirection? textDirection;
 
-  GenericTextField(
-      { this.label,
+  const GenericTextField(
+      {Key? key,  this.label,
         this.hint,
         required this.fieldTypes,
         this.controller,
@@ -64,16 +64,16 @@ class GenericTextField extends StatelessWidget {
         required this.action,
         this.enableBorderColor,
         this.focusBorderColor,
-        required this.validate});
+        required this.validate}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: margin ?? EdgeInsets.all(0),
+      margin: margin ?? const EdgeInsets.all(0),
       child: Visibility(
         visible: fieldTypes==FieldTypes.clickable,
-        child: buildClickableView(),
         replacement: buildFormFiled(),
+        child: buildClickableView(),
       ),
     );
   }

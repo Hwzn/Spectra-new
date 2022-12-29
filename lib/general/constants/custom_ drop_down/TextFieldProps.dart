@@ -53,7 +53,7 @@ class TextFieldProps {
     this.scrollPhysics,
     this.autofillHints,
     this.restorationId,
-  }) : this.controller = controller ?? TextEditingController();
+  }) : controller = controller ?? TextEditingController();
 
   final TextEditingController? controller;
 

@@ -7,7 +7,7 @@ part 'notify_state.dart';
 class NotifyCubit extends Cubit<NotifyState> {
   NotifyCubit() : super(NotifyInitial());
 
-  onUpdateNotifyData(int count){
+  void onUpdateNotifyData(int count){
     count>0?FlutterAppBadger.updateBadgeCount(count):FlutterAppBadger.removeBadge();
     emit(NotifyUpdateState(count: count,changed: !state.changed));
   }

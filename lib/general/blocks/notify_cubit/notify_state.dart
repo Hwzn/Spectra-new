@@ -7,13 +7,13 @@ abstract class NotifyState extends Equatable {
 }
 
 class NotifyInitial extends NotifyState {
-  NotifyInitial() : super(count: 0,changed: false);
+  const NotifyInitial() : super(count: 0,changed: false);
   @override
   List<Object> get props => [count,changed];
 }
 
 class NotifyUpdateState extends NotifyState {
-  NotifyUpdateState({required int count,required bool changed}) : super(count: count,changed: changed);
+  const NotifyUpdateState({required int count,required bool changed}) : super(count: count,changed: changed);
   @override
   List<Object> get props => [count,changed];
 }
