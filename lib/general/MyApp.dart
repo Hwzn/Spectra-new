@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
           return MaterialApp.router(
               debugShowCheckedModeBanner: false,
               theme: InitUtils.defaultThem,
-              title: "Hwzn Base",
+              title: "Spectra",
               supportedLocales: const [
                 Locale('en', 'US'),
                 Locale('ar', 'EG')

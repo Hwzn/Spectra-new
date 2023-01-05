@@ -60,12 +60,12 @@ dependencies:
   pin_code_fields:
   url_launcher:
   flutter_launcher_icons:
-  path_provider:
+#  path_provider:
 #  permission_handler:
   file_picker:
   flutter_svg:
   smooth_page_indicator:
-  country_calling_code_picker:
+#  country_calling_code_picker:
   flutter_slidable:
   get_it:
   injectable:
@@ -74,8 +74,8 @@ dependencies:
   google_maps_flutter:
   geocode:
   animated_bottom_navigation_bar:
-  new_version:
-  rate_my_app:
+#  new_version:
+#  rate_my_app:
   badges:
   flutter_app_badger:
   flutter_rounded_date_picker:
@@ -83,7 +83,7 @@ dependencies:
   bloc:
   photo_view:
   intl:
-  flutter_swiper:
+#  flutter_swiper:
   share:
   material_design_icons_flutter:
   map_launcher:
@@ -91,15 +91,15 @@ dependencies:
   image_picker:
   platform:
   flutter_share:
-  mask_text_input_formatter:
-  accordion:
-  carousel_slider:
-  flutter_rating_bar:
-  flutter_expanded_tile:
-  syncfusion_flutter_sliders:
-  infinite_scroll_pagination:
-  shimmer:
-  webview_flutter:
+#  mask_text_input_formatter:
+#  accordion:
+#  carousel_slider:
+#  flutter_rating_bar:
+#  flutter_expanded_tile:
+#  syncfusion_flutter_sliders:
+#  infinite_scroll_pagination:
+#  shimmer:
+#  webview_flutter:
   modal_bottom_sheet:
   flutter_staggered_animations:
   cached_network_image:
