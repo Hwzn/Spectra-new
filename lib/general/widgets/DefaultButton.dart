@@ -46,10 +46,20 @@ class DefaultButton extends StatelessWidget {
         height: height ?? 45,
         margin:
             margin ?? const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.centerRight,
+              end: Alignment.centerLeft,
+              colors: [
+                Color(0xff635971),
+                Color(0xff957785),
+              ]
+          ),
+        ),
         child: ElevatedButton(
           onPressed: onTap,
           style: ElevatedButton.styleFrom(
-            primary: color ?? DecorationUtils.primaryColor,
+            // primary: color ?? DecorationUtils.primaryColor,
             shape: RoundedRectangleBorder(
               borderRadius: borderRadius ?? BorderRadius.circular(10),
               side: BorderSide(

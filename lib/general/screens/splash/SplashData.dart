@@ -16,17 +16,16 @@ class SplashController {
     var lang = await Storage.getLang();
     InitUtils.initDio(lang: lang ?? "ar");
     InitUtils.initCustomWidgets(language: lang ?? "ar");
-    Utils.changeLanguage(lang ?? "ar",context);
+    Utils.changeLanguage(lang ?? "ar", context);
     await GeneralRepository(context).getAppSetting();
     var strUser = prefs.get("user");
     if (strUser != null) {
       UserModel data = UserModel.fromJson(json.decode("$strUser"));
       GlobalState.instance.set("token", data.token);
-      Utils.setCurrentUserData(data,context);
+      Utils.setCurrentUserData(data, context);
     } else {
       context.read<AuthCubit>().onUpdateAuth(false);
       AutoRouter.of(context).push(const WelcomePageRoute());
     }
   }
-
 }

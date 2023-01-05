@@ -32,9 +32,13 @@ class _SplashState extends State<Splash> {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(Res.onboardingOne),
-            fit: BoxFit.fill,
+          gradient: LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+            colors: [
+              Color(0xff635971),
+              Color(0xff957785),
+            ]
           ),
         ),
         child: Center(
