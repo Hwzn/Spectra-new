@@ -8,7 +8,7 @@ class MyColors{
   static Color yellow = const Color(0xffE8CB3A);
   static Color txtColor = const Color(0xff1a201d);
   static Color headerColor =  const Color(0xff6e7c87);
-  static Color bg=const Color(0xfffffafa);
+  static Color bg=const Color(0xffF3F5F5);
   static Color offWhite=const Color(0xffF2F2F2);
   static Color gold=const Color(0xffe4aa69);
   static Color grey=Colors.grey;

@@ -13,6 +13,10 @@ class LoginData {
   // blocs
   final GenericBloc<bool> passwordCubit = GenericBloc(false);
 
+  // variables
+  String initialCountry = 'EG';
+  PhoneNumber phoneNumber = PhoneNumber(isoCode: 'EG');
+
   // methods
   void userLogin(BuildContext context) async {
     FocusScope.of(context).requestFocus(FocusNode());
@@ -36,4 +40,11 @@ class LoginData {
 
     }
   }
+
+  void getPhoneNumber(String phoneNumber) async {
+    PhoneNumber number =
+    await PhoneNumber.getRegionInfoFromPhoneNumber(phoneNumber, 'US');
+    this.phoneNumber = number;
+  }
+
 }

@@ -14,6 +14,7 @@ import 'package:hwzn_base/general/resources/GeneralRepoImports.dart';
 import 'package:hwzn_base/general/utilities/routers/RouterImports.gr.dart';
 import 'package:hwzn_base/general/widgets/AuthScaffold.dart';
 import 'package:hwzn_base/general/widgets/MyText.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 import '../../widgets/AuthAppBar.dart';
 import '../../widgets/HeaderLogo.dart';

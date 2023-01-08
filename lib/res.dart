@@ -17,4 +17,5 @@ class Res {
   static const String twitter = "assets/images/twitter.png";
   static const String upload = "assets/images/upload.png";
   static const String sliderImage = "assets/images/sliderImage.png";
+  static const String forgetPass = "assets/images/forgetPass.png";
 }

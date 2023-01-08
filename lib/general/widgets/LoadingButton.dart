@@ -7,8 +7,6 @@ import 'package:hwzn_base/general/widgets/MyText.dart';
 
 import '../constants/MyColors.dart';
 
-
-
 class LoadingButton extends StatelessWidget {
   final GlobalKey<CustomButtonState> btnKey;
   final String title;
@@ -45,7 +43,17 @@ class LoadingButton extends StatelessWidget {
     Color border = color ?? DecorationUtils.primaryColor;
     return Container(
       margin:
-      margin ?? const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          margin ?? const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+            begin: Alignment.centerRight,
+            end: Alignment.centerLeft,
+            colors: [
+              Color(0xff635971),
+              Color(0xff957785),
+            ]),
+        borderRadius: BorderRadius.circular(15),
+      ),
       child: Column(
         children: [
           CustomButtonAnimation(
@@ -53,24 +61,26 @@ class LoadingButton extends StatelessWidget {
             onTap: onTap,
             width: width ?? MediaQuery.of(context).size.width,
             minWidth: 45,
-            height: 45,
-            color: color ?? DecorationUtils.primaryColor,
-            borderRadius: borderRadius?? 0,
+            height: 50,
+            color: Colors.transparent,
+            elevation: 0,
+            borderRadius: borderRadius ?? 15,
             borderSide: BorderSide(color: borderColor ?? border, width: 1),
-            child: child?? MyText(
-              title: "$title",
-              size: fontSize??11,
-              color: textColor ?? MyColors.black,
-              fontFamily: fontFamily,
-              fontWeight: fontWeight?? FontWeight.w600,
-            ),
             loader: Container(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(20),
               child: const SpinKitRotatingCircle(
                 color: Colors.white,
                 size: 20,
               ),
             ),
+            child: child ??
+                MyText(
+                  title: title,
+                  size: fontSize ?? 13,
+                  color: textColor ?? MyColors.black,
+                  fontFamily: fontFamily,
+                  fontWeight: fontWeight ?? FontWeight.w600,
+                ),
           ),
         ],
       ),

@@ -38,8 +38,8 @@ class MyText extends StatelessWidget {
           decoration: decoration ?? TextDecoration.none,
           fontWeight: fontWeight ??
               (DecorationUtils.lang == "ar"
-                  ? FontWeight.w500
-                  : FontWeight.w200),
+                  ? FontWeight.w600
+                  : FontWeight.w600),
           fontFamily: fontFamily ??
               (DecorationUtils.lang == "ar"
                   ? GoogleFonts.tajawal().fontFamily

@@ -8,15 +8,14 @@ class BuildLoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LoadingButton(
-      borderRadius: 8,
-        borderColor: MyColors.primary,
-        title: tr(context,"login"),
-        onTap: ()=>loginData.userLogin(context),
-        color: MyColors.primary,
-        textColor: MyColors.white,
-        btnKey: loginData.btnKey,
-        margin: const EdgeInsets.only(top: 40),
-        fontSize: 13,
+      borderColor: MyColors.primary,
+      title: "SIGN IN",
+      onTap: () => loginData.userLogin(context),
+      color: MyColors.primary,
+      textColor: MyColors.white,
+      btnKey: loginData.btnKey,
+      margin: const EdgeInsets.only(top: 40),
+      fontSize: 13,
     );
   }
 }

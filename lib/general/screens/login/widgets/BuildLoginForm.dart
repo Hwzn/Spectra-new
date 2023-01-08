@@ -11,15 +11,48 @@ class BuildLoginForm extends StatelessWidget {
       key: loginData.formKey,
       child: Column(
         children: [
-          GenericTextField(
-            contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-            controller: loginData.phone,
-            fieldTypes: FieldTypes.normal,
-            type: TextInputType.text,
-            action: TextInputAction.next,
-            validate: (value) => value?.validatePhone(context),
-            label: tr(context, "phone"),
-            margin: const EdgeInsets.only(top: 20),
+          // GenericTextField(
+          //   contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+          //   controller: loginData.phone,
+          //   fieldTypes: FieldTypes.normal,
+          //   type: TextInputType.text,
+          //   action: TextInputAction.next,
+          //   validate: (value) => value?.validatePhone(context),
+          //   label: tr(context, "phone"),
+          //   margin: const EdgeInsets.only(top: 20),
+          // ),
+          Container(
+            decoration: BoxDecoration(
+              color: MyColors.white,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            // padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: InternationalPhoneNumberInput(
+              onInputChanged: (PhoneNumber number) {
+                print(number.phoneNumber);
+              },
+              onInputValidated: (bool value) {
+                print(value);
+              },
+              selectorConfig: const SelectorConfig(
+                  selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
+                  useEmoji: true,
+                leadingPadding: 15
+              ),
+              ignoreBlank: false,
+              autoValidateMode: AutovalidateMode.disabled,
+              initialValue: loginData.phoneNumber,
+              textFieldController: loginData.phone,
+              formatInput: false,
+              inputBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide.none
+              ),
+              onSaved: (PhoneNumber number) {
+                print('On Saved: $number');
+              },
+              validator: (value) => value?.validatePhone(context),
+            ),
           ),
           BlocBuilder<GenericBloc<bool>, GenericState<bool>>(
             bloc: loginData.passwordCubit,
@@ -32,7 +65,10 @@ class BuildLoginForm extends StatelessWidget {
                 type: TextInputType.visiblePassword,
                 action: TextInputAction.done,
                 validate: (value) => value?.validatePassword(context),
-                label: tr(context, "password"),
+                hint: tr(context, "password"),
+                enableBorderColor: MyColors.white,
+                focusBorderColor: MyColors.white,
+                fillColor: MyColors.white,
                 margin: const EdgeInsets.only(top: 20),
                 suffixIcon: IconButton(
                   onPressed: () =>

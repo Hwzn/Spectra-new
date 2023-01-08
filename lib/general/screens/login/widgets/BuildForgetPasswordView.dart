@@ -11,11 +11,17 @@ class BuildForgetPasswordView extends StatelessWidget {
         onTap: () => AutoRouter.of(context).push(const ForgetPasswordRoute()),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20),
-          child: MyText(
-            title: "هل نسيت كلمه المرور ؟",
-            color: MyColors.blackOpacity,
-            size: 12,
-            decoration: TextDecoration.underline,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image.asset(Res.forgetPass, width: 15),
+              const SizedBox(width: 10),
+              MyText(
+                title: "Forgot password ?",
+                color: MyColors.grey,
+                size: 12,
+              ),
+            ],
           ),
         ),
       ),
