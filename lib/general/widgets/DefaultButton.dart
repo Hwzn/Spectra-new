@@ -43,23 +43,22 @@ class DefaultButton extends StatelessWidget {
       ignoring: disabled ?? false,
       child: Container(
         width: width ?? MediaQuery.of(context).size.width,
-        height: height ?? 45,
+        height: height ?? 50,
         margin:
-            margin ?? const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
+            margin ?? const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
               begin: Alignment.centerRight,
               end: Alignment.centerLeft,
               colors: [
                 Color(0xff635971),
                 Color(0xff957785),
-              ]
-          ),
+              ]),
+          borderRadius: BorderRadius.circular(10),
         ),
         child: ElevatedButton(
           onPressed: onTap,
           style: ElevatedButton.styleFrom(
-            // primary: color ?? DecorationUtils.primaryColor,
             shape: RoundedRectangleBorder(
               borderRadius: borderRadius ?? BorderRadius.circular(10),
               side: BorderSide(
@@ -67,11 +66,12 @@ class DefaultButton extends StatelessWidget {
                 width: 1,
               ),
             ),
+            backgroundColor: Colors.transparent,
             elevation: elevation ?? 0,
           ),
           child: MyText(
             title: title,
-            size: fontSize ?? 11,
+            size: fontSize ?? 14,
             color: textColor ?? Colors.white,
             fontFamily: fontFamily,
             fontWeight: fontWeight,

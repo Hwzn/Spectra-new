@@ -2,61 +2,15 @@ part of 'WelcomePageImports.dart';
 
 class WelcomePageData {
   // blocs
-  final GenericBloc<int> pagesCubit = GenericBloc(0);
+  final GenericBloc<double> dotsBloc = GenericBloc(0);
+
+  // controllers
+  final CarouselController carouselController = CarouselController();
 
   // variables
-  List<Widget> data = [];
-
-  void initPagesData(BuildContext context) {
-    var pages = context.read<SettingCubit>().state.model.onboardPages;
-    if(pages!=null){
-      pages.reversed;
-      data = List.generate(pages.length, (index) => BuildPageView(
-      key:  Key("$index"),
-      model: WelcomeEntity(
-          title: pages[index].title,
-          desc:pages[index].desc,
-          image: index == 0 ? Res.onboardingOne:index==1?Res.onboardingTwo:Res.onboardingThree,
-          index: index,
-          last: index == pages.length-1,
-          pageCubit: pagesCubit),
-    ));
-      return;
-    }
-
-    data = [
-      BuildPageView(
-        key: const Key("1"),
-        model: WelcomeEntity(
-            title: "العالم بين يديك",
-            desc:
-                " العالم بين يديك في مجمع الراشد ينبغي ان تحصل على يوم لا ينسى ",
-            image: Res.onboardingOne,
-            index: 0,
-            pageCubit: pagesCubit),
-      ),
-      BuildPageView(
-        key: const Key("2"),
-        model: WelcomeEntity(
-            title: "العالم بين يديك",
-            desc:
-                " العالم بين يديك في مجمع الراشد ينبغي ان تحصل على يوم لا ينسى ",
-            image: Res.onboardingTwo,
-            index: 1,
-            pageCubit: pagesCubit),
-      ),
-      BuildPageView(
-        key: const Key("3"),
-        model: WelcomeEntity(
-            title: "العالم بين يديك",
-            desc:
-                " العالم بين يديك في مجمع الراشد ينبغي ان تحصل على يوم لا ينسى ",
-            image: Res.onboardingThree,
-            last: true,
-            index: 2,
-            pageCubit: pagesCubit),
-      ),
-    ];
-
-  }
+  List<String> data = [
+    "https://img.freepik.com/free-photo/veterinarian-check-ing-puppy-s-health_23-2148728396.jpg?w=2000",
+    "https://www.germanvet.ae/wp-content/uploads/2022/10/vet-in-khalifa-city-001.jpg",
+    "https://lazypawvet.com/wp-content/uploads/2019/11/juaine_hunter_350-214x300.jpg",
+  ];
 }

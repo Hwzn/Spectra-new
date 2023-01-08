@@ -13,10 +13,13 @@ class SplashController {
   Future<void> manipulateSplashData(BuildContext context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await location.requestPermission();
-    var lang = await Storage.getLang();
-    InitUtils.initDio(lang: lang ?? "ar");
-    InitUtils.initCustomWidgets(language: lang ?? "ar");
-    Utils.changeLanguage(lang ?? "ar", context);
+    // var lang = await Storage.getLang();
+    // InitUtils.initDio(lang: lang ?? "en");
+    InitUtils.initDio(lang: "en");
+    // InitUtils.initCustomWidgets(language: lang ?? "en");
+    InitUtils.initCustomWidgets(language: "en");
+    // Utils.changeLanguage(lang ?? "en", context);
+    Utils.changeLanguage("en", context);
     await GeneralRepository(context).getAppSetting();
     var strUser = prefs.get("user");
     if (strUser != null) {

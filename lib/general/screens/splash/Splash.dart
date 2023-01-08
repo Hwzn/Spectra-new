@@ -48,9 +48,9 @@ class _SplashState extends State<Splash> {
             duration: const Duration(milliseconds: 800),
             distance: MediaQuery.of(context).size.height * .3,
             child: Hero(
-              tag: Res.logo,
+              tag: Res.logoWhite,
               child: Image.asset(
-                Res.logo,
+                Res.logoWhite,
                 width: 250,
                 height: 250,
               ),

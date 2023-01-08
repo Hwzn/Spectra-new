@@ -7,6 +7,7 @@ class Res {
   static const String facebook = "assets/images/facebook.svg";
   static const String icon = "assets/images/icon.png";
   static const String logo = "assets/images/logo.png";
+  static const String logoWhite = "assets/images/logoWhite.png";
   static const String marker = "assets/images/marker.png";
   static const String mobile = "assets/images/mobile.svg";
   static const String onboardingOne = "assets/images/onboardingOne.jpeg";
@@ -15,4 +16,5 @@ class Res {
   static const String password = "assets/images/password.svg";
   static const String twitter = "assets/images/twitter.png";
   static const String upload = "assets/images/upload.png";
+  static const String sliderImage = "assets/images/sliderImage.png";
 }

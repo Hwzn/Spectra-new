@@ -12,7 +12,6 @@ class _WelcomePageState extends State<WelcomePage> {
 
   @override
   void initState() {
-    welcomePageData.initPagesData(context);
     super.initState();
   }
 
@@ -20,17 +19,17 @@ class _WelcomePageState extends State<WelcomePage> {
   Widget build(BuildContext context) {
     return WillPopScope(
       child: Scaffold(
-        body: BlocBuilder<GenericBloc<int>, GenericState<int>>(
-          bloc: welcomePageData.pagesCubit,
-          builder: (_, state) => AnimatedSwitcher(
-            duration: const Duration(milliseconds: 1500),
-            reverseDuration: const Duration(milliseconds: 1500),
-            transitionBuilder: (child, animation) =>
-                FadeTransition(opacity: animation, child: child),
-            switchInCurve: Curves.easeIn,
-            switchOutCurve: Curves.easeOut,
-            child: welcomePageData.data[state.data],
-          ),
+        body: ListView(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(top: 30, bottom: 20),
+              child: Image.asset(Res.logo, width: 100, height: 100),
+            ),
+            BuildSlider(welcomePageData: welcomePageData),
+            BuildDotsIndicator(welcomePageData: welcomePageData),
+            const BuildButton(),
+            const BuildJoinText(),
+          ],
         ),
       ),
       onWillPop: () async => false,

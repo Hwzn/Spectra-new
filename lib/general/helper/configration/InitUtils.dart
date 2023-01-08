@@ -45,7 +45,7 @@ class InitUtils {
               EdgeInsets? padding,
               Color? enableColor}) =>
           CustomInputDecoration(
-              lang: "ar",
+              lang: "en",
               labelTxt: label,
               hint: hint,
               prefixIcon: prefixIcon,
