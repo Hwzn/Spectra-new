@@ -17,14 +17,13 @@ class BuildVerifyButton extends StatelessWidget {
     return Column(
       children: [
         LoadingButton(
-            borderRadius: 8,
             borderColor: MyColors.primary,
-            title:"تفعيل",
+            title:"Confirm",
             onTap: () => verifyCodeData.onActiveAccount(context, email),
             color: MyColors.primary,
             textColor: MyColors.white,
             btnKey: verifyCodeData.btnKey,
-            margin: const EdgeInsets.only(top: 40),
+            margin: const EdgeInsets.symmetric(horizontal: 20),
             fontSize: 14),
         BlocBuilder<GenericBloc<String>, GenericState<String>>(
             bloc: verifyCodeData.timeCubit,
@@ -32,12 +31,22 @@ class BuildVerifyButton extends StatelessWidget {
                 if(stopWatchTimer.isRunning){
                   return Container(
                     padding:
-                    const EdgeInsets.symmetric(horizontal: 5, vertical: 50),
-                    child: MyText(
-                      title: "اعاده ارسال الكود بعد ${state.data} ثانيه ",
-                      color: MyColors.black,
-                      size: 13,
-                      decoration: TextDecoration.underline,
+                    const EdgeInsets.symmetric(horizontal: 5),
+                    margin: const EdgeInsets.only(top: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        MyText(
+                          title: "Try again after  ",
+                          color: MyColors.grey,
+                          size: 13,
+                        ),
+                        MyText(
+                          title: state.data,
+                          color: MyColors.primary,
+                          size: 13,
+                        ),
+                      ],
                     ),
                   );
                 }else{
@@ -47,12 +56,12 @@ class BuildVerifyButton extends StatelessWidget {
                     },
                     child: Container(
                       padding:
-                      const EdgeInsets.symmetric(horizontal: 5, vertical: 50),
+                      const EdgeInsets.symmetric(horizontal: 5),
+                      margin: const EdgeInsets.only(top: 20),
                       child: MyText(
-                        title:"ارسال الكود",
-                        color: MyColors.black,
+                        title: "Resend Code",
+                        color: MyColors.primary,
                         size: 13,
-                        decoration: TextDecoration.underline,
                       ),
                     ),
                   );

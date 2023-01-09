@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:hwzn_base/general/constants/MyColors.dart';
 import 'package:hwzn_base/general/helper/configration/DecorationUtils.dart';
 
 class GenericTextField extends StatelessWidget {
@@ -128,7 +129,7 @@ class GenericTextField extends StatelessWidget {
           suffixIcon: suffixIcon,
           enableColor: enableBorderColor,
           focusBorderColor: focusBorderColor,
-          fillColor: fillColor,
+          fillColor: fillColor ?? MyColors.white,
           padding: contentPadding,
           hintColor: hintColor,
           radius: radius),

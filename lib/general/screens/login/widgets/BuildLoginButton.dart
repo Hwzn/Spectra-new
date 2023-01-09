@@ -14,7 +14,7 @@ class BuildLoginButton extends StatelessWidget {
       color: MyColors.primary,
       textColor: MyColors.white,
       btnKey: loginData.btnKey,
-      margin: const EdgeInsets.only(top: 40),
+      margin: const EdgeInsets.only(top: 100, right: 20, left: 20),
       fontSize: 13,
     );
   }

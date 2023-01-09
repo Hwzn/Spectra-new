@@ -12,7 +12,7 @@ class BuildCodeField extends StatelessWidget {
         onComplete: verifyCodeData.onComplete,
         margin: const EdgeInsets.symmetric(
           horizontal: 20,
-          vertical: 15,
+          vertical: 10,
         ),
       ),
     );

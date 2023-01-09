@@ -9,7 +9,7 @@ class BuildRegisterButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LoadingButton(
-      borderRadius: 8,
+
       borderColor: MyColors.primary,
       title: "انشاء الحساب",
       onTap: () => registerDate.onRegister(context),

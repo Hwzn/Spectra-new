@@ -15,15 +15,14 @@ class BuildResetPasswordButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LoadingButton(
-      borderRadius: 8,
       borderColor: MyColors.primary,
-      title: tr(context, "confirm"),
+      title: "Update Password",
       onTap: () => resetPasswordData.onResetPassword(context, email),
       color: MyColors.primary,
       textColor: MyColors.white,
       btnKey: resetPasswordData.btnKey,
       margin: const EdgeInsets.only(top: 40),
-      fontSize: 14,
+      fontSize: 13,
     );
   }
 }

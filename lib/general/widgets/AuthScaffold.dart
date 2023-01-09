@@ -10,6 +10,9 @@ class AuthScaffold extends StatelessWidget {
   final bool showTitle;
   final bool showLogo;
   final double? logoTopPadding;
+  final Widget? logo;
+  final Widget? bottom;
+  final double? bottomHeight;
 
   const AuthScaffold({
     Key? key,
@@ -19,6 +22,9 @@ class AuthScaffold extends StatelessWidget {
     this.showTitle = true,
     this.showLogo = true,
     this.logoTopPadding,
+    this.logo,
+    this.bottom,
+    this.bottomHeight,
   }) : super(key: key);
 
   @override
@@ -29,12 +35,23 @@ class AuthScaffold extends StatelessWidget {
       body: ListView(
         children: [
           Visibility(
-              visible: showLogo, child: HeaderLogo(topPadding: logoTopPadding)),
+            visible: showLogo && logo == null,
+            replacement: logo ?? Container(),
+            child: HeaderLogo(topPadding: logoTopPadding),
+          ),
           Visibility(
               visible: showTitle, child: AuthHeaderText(title: title ?? '')),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15), child: body),
         ],
+      ),
+      bottomNavigationBar: Visibility(
+        visible: bottom != null,
+        child: Container(
+          height: bottomHeight ?? 80,
+          margin: const EdgeInsets.only(bottom: 20),
+          child: bottom,
+        ),
       ),
     );
   }

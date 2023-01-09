@@ -13,7 +13,7 @@ class ForgetPasswordData {
 
   // methods
   void resetPassword(BuildContext context) async {
-    AutoRouter.of(context).push(ResetPasswordRoute(email: "", code: ""));
+    AutoRouter.of(context).push(VerifyCodeRoute(email: ''));
     return;
     if (formKey.currentState!.validate()) {
       btnKey.currentState!.animateForward();

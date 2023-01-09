@@ -9,15 +9,13 @@ class BuildForgetPasswordButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LoadingButton(
-      borderRadius: 8,
       borderColor: MyColors.primary,
-      title: tr(context, "send"),
+      title: "Reset Password",
       onTap: () => forgetPasswordData.resetPassword(context),
       color: MyColors.primary,
       textColor: MyColors.white,
       btnKey: forgetPasswordData.btnKey,
-      margin: const EdgeInsets.only(top: 40),
-      fontSize: 14,
+      margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
     );
   }
 }

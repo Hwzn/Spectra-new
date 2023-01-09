@@ -28,7 +28,7 @@ class ResetPasswordData {
   }
 
   void onResetPassword(BuildContext context, String phone) async {
-    AutoRouter.of(context).pushAndPopUntil(const LoginRoute(), predicate: (_)=>false);
+    AutoRouter.of(context).popUntilRouteWithName(LoginRoute.name);
     return;
     FocusScope.of(context).requestFocus(FocusNode());
     if (formKey.currentState!.validate()) {

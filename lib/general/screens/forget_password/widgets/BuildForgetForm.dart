@@ -18,7 +18,8 @@ class BuildForgetForm extends StatelessWidget {
         type: TextInputType.emailAddress,
         action: TextInputAction.next,
         validate: (value) => value?.validateEmail(context),
-        label: tr(context, "mail"),
+        hint: "Phone Number",
+        margin: const EdgeInsets.only(top: 20),
       ),
     );
   }

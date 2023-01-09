@@ -64,8 +64,8 @@ class LoadingButton extends StatelessWidget {
             height: 50,
             color: Colors.transparent,
             elevation: 0,
-            borderRadius: borderRadius ?? 15,
-            borderSide: BorderSide(color: borderColor ?? border, width: 1),
+            borderRadius: borderRadius ?? 20,
+            borderSide: BorderSide(color: borderColor ?? border, width: 0),
             loader: Container(
               padding: const EdgeInsets.all(20),
               child: const SpinKitRotatingCircle(

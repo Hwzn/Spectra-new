@@ -17,6 +17,7 @@ class AuthHeaderText extends StatelessWidget {
         size: 17,
         color: MyColors.primary,
         fontWeight: FontWeight.bold,
+        alien: TextAlign.center,
       ),
     );
   }

@@ -10,8 +10,11 @@ import 'package:hwzn_base/general/widgets/AuthAppBar.dart';
 import 'package:hwzn_base/general/widgets/HeaderLogo.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 
+import '../../../res.dart';
+import '../../constants/MyColors.dart';
 import '../../widgets/AuthScaffold.dart';
 import '../../widgets/BuildHeaderTitle.dart';
+import '../../widgets/MyText.dart';
 
 part 'ResetPassword.dart';
 part 'ResetPasswordData.dart';

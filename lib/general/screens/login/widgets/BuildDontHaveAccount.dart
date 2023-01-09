@@ -6,14 +6,14 @@ class BuildDontHaveAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(40),
+      padding: const EdgeInsets.symmetric(vertical: 50),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           MyText(
             title: "Don't have account yet ? ",
-            color: MyColors.blackOpacity,
+            color: MyColors.grey,
             size: 13,
           ),
           InkWell(
@@ -22,7 +22,7 @@ class BuildDontHaveAccount extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 5),
               child: MyText(
                 title: "Sign up now",
-                color: MyColors.primary,
+                color: MyColors.secondary,
                 size: 13,
                 // decoration: TextDecoration.underline,
               ),

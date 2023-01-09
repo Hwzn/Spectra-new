@@ -21,7 +21,7 @@ class _ContactUsState extends State<ContactUs> {
             BuildContactUsInputs(contactUsData: contactUsData),
             const BuildContactSocial(),
             LoadingButton(
-              borderRadius: 8,
+
               borderColor: MyColors.primary,
               title: tr(context, "send"),
               onTap: () => contactUsData.addContactUs(context),

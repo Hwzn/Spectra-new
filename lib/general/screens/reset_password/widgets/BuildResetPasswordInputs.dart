@@ -15,23 +15,12 @@ class BuildResetPasswordInputs extends StatelessWidget {
           GenericTextField(
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-            fieldTypes: FieldTypes.normal,
-            type: TextInputType.text,
-            action: TextInputAction.next,
-            controller: resetPasswordData.code,
-            validate: (value) => value?.validateEmpty(context),
-            label: "كود التحقيق ",
-            margin: const EdgeInsets.only(top: 20),
-          ),
-          GenericTextField(
-            contentPadding:
-                const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
             fieldTypes: FieldTypes.password,
             type: TextInputType.text,
             action: TextInputAction.next,
             controller: resetPasswordData.password,
             validate: (value) => value?.validatePassword(context),
-            label: "كلمه المرور ",
+            hint: "New Password",
             margin: const EdgeInsets.only(top: 20),
           ),
           GenericTextField(
@@ -41,7 +30,7 @@ class BuildResetPasswordInputs extends StatelessWidget {
             type: TextInputType.text,
             action: TextInputAction.done,
             validate: (value) => value?.validatePasswordConfirm(context, pass: resetPasswordData.password.text),
-            label: "تاكيد كلمه المرور",
+            hint: "Re-enter New Password",
             margin: const EdgeInsets.only(top: 20),
             controller: resetPasswordData.confirmPassword,
           ),

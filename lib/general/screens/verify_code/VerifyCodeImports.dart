@@ -10,11 +10,14 @@ import 'package:hwzn_base/general/utilities/routers/RouterImports.gr.dart';
 import 'package:hwzn_base/general/widgets/AuthScaffold.dart';
 import 'package:hwzn_base/general/widgets/AuthAppBar.dart';
 import 'package:hwzn_base/general/widgets/HeaderLogo.dart';
+import 'package:hwzn_base/res.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 
 
+import '../../constants/MyColors.dart';
 import '../../utilities/utils_functions/LoadingDialog.dart';
 import '../../widgets/BuildHeaderTitle.dart';
+import '../../widgets/MyText.dart';
 
 part 'VerifyCode.dart';
 part 'VerifyCodeData.dart';

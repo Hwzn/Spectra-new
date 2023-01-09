@@ -25,9 +25,9 @@ class BuildPinField extends StatelessWidget {
           animationType: AnimationType.fade,
           pinTheme: PinTheme(
               shape: PinCodeFieldShape.box,
-              borderRadius: BorderRadius.circular(5),
-              fieldHeight: 50,
-              fieldWidth: 50,
+              borderRadius: BorderRadius.circular(10),
+              fieldHeight: 70,
+              fieldWidth: 70,
               inactiveColor: MyColors.greyWhite,
               activeColor: MyColors.primary,
               selectedColor: MyColors.primary,

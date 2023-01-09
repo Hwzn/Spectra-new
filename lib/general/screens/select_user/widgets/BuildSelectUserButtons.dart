@@ -13,7 +13,7 @@ class BuildSelectUserButtons extends StatelessWidget {
       child: Column(
         children: [
           LoadingButton(
-              borderRadius: 8,
+
               title: "مدير",
               onTap: () => selectUserData.onSelectManager(context),
               color: MyColors.primary,
@@ -22,7 +22,7 @@ class BuildSelectUserButtons extends StatelessWidget {
               margin: const EdgeInsets.symmetric(vertical: 10),
               fontSize: 14),
           LoadingButton(
-              borderRadius: 8,
+
               title: "موظف",
               onTap: () => selectUserData.onSelectUser(context),
               color: MyColors.primary,

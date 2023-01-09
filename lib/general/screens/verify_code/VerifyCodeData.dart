@@ -34,14 +34,15 @@ class VerifyCodeData {
   }
 
   void onActiveAccount(BuildContext context, String email) async {
-    if (formKey.currentState!.validate()) {
-      btnKey.currentState?.animateForward();
-      var result =  await GeneralRepository(context).activeAccount(code??'', email);
-      btnKey.currentState?.animateReverse();
-      if(result){
-        AutoRouter.of(context).popUntilRouteWithName(LoginRoute.name);
-      }
-    }
+    AutoRouter.of(context).push(ResetPasswordRoute(email: "", code: code??''));
+    // if (formKey.currentState!.validate()) {
+    //   btnKey.currentState?.animateForward();
+    //   var result =  await GeneralRepository(context).activeAccount(code??'', email);
+    //   btnKey.currentState?.animateReverse();
+    //   if(result){
+    //     AutoRouter.of(context).popUntilRouteWithName(LoginRoute.name);
+    //   }
+    // }
   }
 
   void onResendCode(BuildContext context, String email) async {
