@@ -9,8 +9,30 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   MainPageData mainPageData = MainPageData();
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: MyColors.bg,
+      body: Column(
+        children: [
+          Stack(
+            children: [
+              Container(height: MediaQuery.of(context).size.height * .23),
+              const BuildMainAppBar(),
+              const BuildMainSearch(),
+            ],
+          ),
+          Flexible(
+            child: ListView(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              children: const [
+                BuildMainImage(),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

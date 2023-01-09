@@ -20,4 +20,7 @@ class Res {
   static const String forgetPass = "assets/images/forgetPass.png";
   static const String verification = "assets/images/verification.png";
   static const String bottomShape = "assets/images/bottomShape.png";
+  static const String chat = "assets/images/chat.png";
+  static const String homeLogoWhite = "assets/images/homeLogoWhite.png";
+  static const String filter = "assets/images/filter.png";
 }
