@@ -28,6 +28,8 @@ class _MainPageState extends State<MainPage> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               children: const [
                 BuildMainImage(),
+                BuildSpecializationSection(),
+                BuildDoctorsSection(),
               ],
             ),
           ),
