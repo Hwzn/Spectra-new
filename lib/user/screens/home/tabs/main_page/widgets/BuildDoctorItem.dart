@@ -1,7 +1,9 @@
 part of 'MainWidgetsImports.dart';
 
 class BuildDoctorItem extends StatelessWidget {
-  const BuildDoctorItem({Key? key}) : super(key: key);
+  final bool isFavorite;
+
+  const BuildDoctorItem({Key? key, this.isFavorite = false}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +22,7 @@ class BuildDoctorItem extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 5),
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Row(
             children: [
@@ -36,32 +39,42 @@ class BuildDoctorItem extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 10),
-              Column(
-                children: [
-                  RatingBar.builder(
-                    initialRating: 2,
-                    minRating: 0,
-                    direction: Axis.horizontal,
-                    allowHalfRating: false,
-                    updateOnDrag: false,
-                    itemCount: 5,
-                    itemSize: 12,
-                    itemPadding: const EdgeInsets.symmetric(horizontal: 1.0),
-                    itemBuilder: (context, _) => const Icon(
-                      Icons.star,
-                      color: Colors.amber,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    RatingBar.builder(
+                      initialRating: 2,
+                      minRating: 0,
+                      direction: Axis.horizontal,
+                      allowHalfRating: false,
+                      updateOnDrag: false,
+                      itemCount: 5,
+                      itemSize: 12,
+                      itemPadding: const EdgeInsets.symmetric(horizontal: 1.0),
+                      itemBuilder: (context, _) => const Icon(
+                        Icons.star,
+                        color: Colors.amber,
+                      ),
+                      ignoreGestures: true,
+                      onRatingUpdate: (index) {},
                     ),
-                    ignoreGestures: true,
-                    onRatingUpdate: (index) {},
-                  ),
-                  const SizedBox(height: 5),
-                  MyText(
-                    title: "Aya Hamed",
-                    color: MyColors.black,
-                    size: 12,
-                    fontWeight: FontWeight.normal,
-                  ),
-                ],
+                    const SizedBox(height: 5),
+                    MyText(
+                      title: "Aya Hamed",
+                      color: MyColors.black,
+                      size: 12,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ],
+                ),
+              ),
+              Visibility(
+                visible: isFavorite,
+                child: const Icon(
+                  Icons.favorite,
+                  color: Colors.red,
+                ),
               ),
             ],
           ),

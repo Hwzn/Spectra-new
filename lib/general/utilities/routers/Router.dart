@@ -19,6 +19,7 @@ part of 'RouterImports.dart';
     // user routes
     AdaptiveRoute(page: Register),
     AdaptiveRoute(page: Home),
+    AdaptiveRoute(page: Specialization),
 
 
   ],

@@ -11,14 +11,14 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double? size;
   final bool showLeading;
 
-  const DefaultAppBar({Key? key,
+  const DefaultAppBar({
+    Key? key,
     required this.title,
     this.actions = const [],
     this.leading,
     this.size,
     this.showLeading = true,
-  })
-      : super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,15 +42,23 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
               InkWell(
                 onTap: () => AutoRouter.of(context).pop(),
                 child: Icon(
-                  Icons.arrow_back,
+                  Icons.arrow_back_ios,
                   color: MyColors.white,
+                  size: 18,
                 ),
               ),
         ),
         leadingWidth: showLeading == true ? 55 : 10,
         elevation: 0,
         backgroundColor: Colors.transparent,
-        title: MyText(title: title, size: 16, color: MyColors.white),
+        title: Container(
+          margin: const EdgeInsets.only(top: 8),
+          child: MyText(
+            title: title,
+            size: 16,
+            color: MyColors.white,
+          ),
+        ),
         centerTitle: false,
         actions: actions,
         titleTextStyle: GoogleFonts.tajawal(
@@ -70,5 +78,5 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => Size.fromHeight(size ?? 75);
+  Size get preferredSize => Size.fromHeight(size ?? 70);
 }
