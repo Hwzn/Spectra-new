@@ -14,10 +14,11 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: About),
     AdaptiveRoute(page: ContactUs),
     AdaptiveRoute(page: ImageZoom),
+    AdaptiveRoute(page: VerifyCode),
 
     // user routes
     AdaptiveRoute(page: Register),
-    AdaptiveRoute(page: VerifyCode),
+    AdaptiveRoute(page: Home),
 
 
   ],
