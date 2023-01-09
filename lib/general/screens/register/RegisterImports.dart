@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hwzn_base/general/constants/modals/LoadingDialog.dart';
@@ -11,6 +12,7 @@ import 'package:hwzn_base/general/resources/GeneralRepoImports.dart';
 import 'package:hwzn_base/general/screens/register/widgets/RegisterWidgetsImports.dart';
 import 'package:hwzn_base/general/widgets/AuthAppBar.dart';
 import '../../constants/custom_ drop_down/CustomDropDown.dart';
+import '../../utilities/routers/RouterImports.gr.dart';
 import '../../widgets/AuthScaffold.dart';
 
 part 'Register.dart';

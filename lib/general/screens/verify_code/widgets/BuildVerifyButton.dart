@@ -4,12 +4,13 @@ class BuildVerifyButton extends StatelessWidget {
   final VerifyCodeData verifyCodeData;
   final String email;
   final StopWatchTimer stopWatchTimer;
+  final bool? fromRegister;
 
   const BuildVerifyButton(
       {Key? key,
       required this.verifyCodeData,
       required this.email,
-      required this.stopWatchTimer})
+      required this.stopWatchTimer, this.fromRegister})
       : super(key: key);
 
   @override
@@ -19,7 +20,7 @@ class BuildVerifyButton extends StatelessWidget {
         LoadingButton(
             borderColor: MyColors.primary,
             title:"Confirm",
-            onTap: () => verifyCodeData.onActiveAccount(context, email),
+            onTap: () => verifyCodeData.onActiveAccount(context, email, fromRegister: fromRegister),
             color: MyColors.primary,
             textColor: MyColors.white,
             btnKey: verifyCodeData.btnKey,

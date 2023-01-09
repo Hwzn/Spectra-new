@@ -5,7 +5,6 @@ class VerifyCodeData {
   String? code;
   StopWatchTimer? stopWatchTimer;
 
-
   // blocs
   final GenericBloc<bool> codeCubit = GenericBloc(false);
 
@@ -15,7 +14,7 @@ class VerifyCodeData {
   GenericBloc<String> timeCubit = GenericBloc("0");
 
   // methods
-  void handleStopWatchConfig(){
+  void handleStopWatchConfig() {
     stopWatchTimer = StopWatchTimer(
       mode: StopWatchMode.countDown,
       onChange: (value) {
@@ -33,8 +32,13 @@ class VerifyCodeData {
     code = value;
   }
 
-  void onActiveAccount(BuildContext context, String email) async {
-    AutoRouter.of(context).push(ResetPasswordRoute(email: "", code: code??''));
+  void onActiveAccount(BuildContext context, String email,
+      {bool? fromRegister}) async {
+    fromRegister == true
+        ? AutoRouter.of(context)
+            .popUntilRouteWithName(LoginRoute.name)
+        : AutoRouter.of(context)
+            .push(ResetPasswordRoute(email: "", code: code ?? ''));
     // if (formKey.currentState!.validate()) {
     //   btnKey.currentState?.animateForward();
     //   var result =  await GeneralRepository(context).activeAccount(code??'', email);

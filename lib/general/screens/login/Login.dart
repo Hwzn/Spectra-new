@@ -23,10 +23,15 @@ class _LoginState extends State<Login> {
           children: [
             BuildLoginForm(loginData: loginData),
             const BuildForgetPasswordView(),
-            BuildLoginButton(loginData: loginData),
-            const BuildDontHaveAccount(),
           ],
         ),
+      ),
+      bottomHeight: 100,
+      bottom: Column(
+        children: [
+          BuildLoginButton(loginData: loginData),
+          const BuildDontHaveAccount(),
+        ],
       ),
     );
   }

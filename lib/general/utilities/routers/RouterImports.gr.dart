@@ -134,6 +134,7 @@ class AppRouter extends _i13.RootStackRouter {
         child: _i12.VerifyCode(
           key: args.key,
           email: args.email,
+          fromRegister: args.fromRegister,
         ),
         opaque: true,
       );
@@ -382,12 +383,14 @@ class VerifyCodeRoute extends _i13.PageRouteInfo<VerifyCodeRouteArgs> {
   VerifyCodeRoute({
     _i14.Key? key,
     required String email,
+    bool? fromRegister,
   }) : super(
           VerifyCodeRoute.name,
           path: '/verify-code',
           args: VerifyCodeRouteArgs(
             key: key,
             email: email,
+            fromRegister: fromRegister,
           ),
         );
 
@@ -398,14 +401,17 @@ class VerifyCodeRouteArgs {
   const VerifyCodeRouteArgs({
     this.key,
     required this.email,
+    this.fromRegister,
   });
 
   final _i14.Key? key;
 
   final String email;
 
+  final bool? fromRegister;
+
   @override
   String toString() {
-    return 'VerifyCodeRouteArgs{key: $key, email: $email}';
+    return 'VerifyCodeRouteArgs{key: $key, email: $email, fromRegister: $fromRegister}';
   }
 }

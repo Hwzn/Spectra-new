@@ -9,6 +9,14 @@ class BuildSliderImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10),
+      child: CachedImage(
+        url: image,
+        haveRadius: true,
+        borderRadius: BorderRadius.circular(15),
+      ),
+    );
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         image: DecorationImage(

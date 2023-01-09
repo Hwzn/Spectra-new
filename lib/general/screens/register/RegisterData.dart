@@ -16,6 +16,7 @@ class RegisterDate {
   final TextEditingController lastNameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController codeController = TextEditingController();
   final TextEditingController jobController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
@@ -47,45 +48,49 @@ class RegisterDate {
     }
   }
 
-  void onRegister(BuildContext context) async {
-    // get device id
-    // FirebaseMessaging messaging = FirebaseMessaging.instance;
-
-    // check if terms are accepted
-    if (!termCubit.state.data) {
-      CustomToast.showSimpleToast(msg: "برجاء الموافقة على الشروط والاحكام");
-      return;
-    }
-
-    // fields validation
-    if (formKey.currentState!.validate()) {
-      // convert arabic digits to latin
-      String phoneEn = HelperMethods.convertDigitsToLatin(phoneController.text);
-
-      // animate button
-      btnKey.currentState!.animateForward();
-
-      // add values to the model
-      RegisterModel model = RegisterModel(
-        firstName: firstNameController.text,
-        lastName: lastNameController.text,
-        userType: selectedUserType?.id ?? 0,
-        email: emailController.text,
-        job: jobController.text,
-        phone: phoneEn,
-        password: passwordController.text,
-        confirmPassword: confirmPasswordController.text,
-        deviceId: "test device id",
-        deviceType: Platform.isIOS ? "ios" : "android",
-      );
-
-      // call api
-      await GeneralRepository(context).register(model);
-
-      // animate button back
-      btnKey.currentState!.animateReverse();
-    }
+  void onRegister(BuildContext context) {
+    AutoRouter.of(context).push(VerifyCodeRoute(email: ''));
   }
+
+  // void onRegister(BuildContext context) async {
+  //   // get device id
+  //   // FirebaseMessaging messaging = FirebaseMessaging.instance;
+  //
+  //   // check if terms are accepted
+  //   if (!termCubit.state.data) {
+  //     CustomToast.showSimpleToast(msg: "برجاء الموافقة على الشروط والاحكام");
+  //     return;
+  //   }
+  //
+  //   // fields validation
+  //   if (formKey.currentState!.validate()) {
+  //     // convert arabic digits to latin
+  //     String phoneEn = HelperMethods.convertDigitsToLatin(phoneController.text);
+  //
+  //     // animate button
+  //     btnKey.currentState!.animateForward();
+  //
+  //     // add values to the model
+  //     RegisterModel model = RegisterModel(
+  //       firstName: firstNameController.text,
+  //       lastName: lastNameController.text,
+  //       userType: selectedUserType?.id ?? 0,
+  //       email: emailController.text,
+  //       job: jobController.text,
+  //       phone: phoneEn,
+  //       password: passwordController.text,
+  //       confirmPassword: confirmPasswordController.text,
+  //       deviceId: "test device id",
+  //       deviceType: Platform.isIOS ? "ios" : "android",
+  //     );
+  //
+  //     // call api
+  //     await GeneralRepository(context).register(model);
+  //
+  //     // animate button back
+  //     btnKey.currentState!.animateReverse();
+  //   }
+  // }
 
 
 }

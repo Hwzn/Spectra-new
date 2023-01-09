@@ -6,21 +6,21 @@ class BuildHaveAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(30),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           MyText(
-            title: tr(context, "haven'tAccount?"),
-            color: MyColors.black,
+            title: "Already user ?",
+            color: MyColors.grey,
             size: 13,
           ),
           const SizedBox(width: 5),
           InkWell(
-            onTap: () => AutoRouter.of(context).push(const LoginRoute()),
+            onTap: () => AutoRouter.of(context).pop(),
             child: MyText(
-              title: tr(context, "SignIn"),
+              title: "Sign in now",
               color: MyColors.primary,
               size: 13,
             ),
