@@ -143,7 +143,7 @@ class AppRouter extends _i14.RootStackRouter {
     HomeRoute.name: (routeData) {
       return _i14.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i13.Home(),
+        child:  _i13.Home(),
         opaque: true,
       );
     },

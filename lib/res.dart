@@ -19,4 +19,5 @@ class Res {
   static const String sliderImage = "assets/images/sliderImage.png";
   static const String forgetPass = "assets/images/forgetPass.png";
   static const String verification = "assets/images/verification.png";
+  static const String bottomShape = "assets/images/bottomShape.png";
 }
