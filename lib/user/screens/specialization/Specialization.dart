@@ -14,11 +14,22 @@ class _SpecializationState extends State<Specialization> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const DefaultAppBar(title: "Specialization"),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-        children: List.generate(
-          10,
-          (index) => const BuildDoctorItem(),
+      body: AnimationLimiter(
+        child: ListView.builder(
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          itemCount: 10,
+          itemBuilder: (BuildContext context, int index) {
+            return AnimationConfiguration.staggeredList(
+              position: index,
+              duration: const Duration(milliseconds: 375),
+              child: const SlideAnimation(
+                verticalOffset: 50.0,
+                child: FadeInAnimation(
+                  child: BuildDoctorItem(),
+                ),
+              ),
+            );
+          },
         ),
       ),
     );

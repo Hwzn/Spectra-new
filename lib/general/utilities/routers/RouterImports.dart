@@ -15,6 +15,7 @@ import 'package:hwzn_base/user/screens/notifications/NotificationsImports.dart';
 
 import '../../../user/screens/all_chats/AllChatsImports.dart';
 import '../../../user/screens/home/HomeImports.dart';
+import '../../../user/screens/profile/ProfileImports.dart';
 import '../../../user/screens/specialization/SpecializationImports.dart';
 
 part 'Router.dart';

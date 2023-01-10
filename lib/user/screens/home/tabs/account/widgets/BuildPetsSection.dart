@@ -47,12 +47,24 @@ class BuildPetsSection extends StatelessWidget {
                 child: Container(
                   height: 150,
                   margin: const EdgeInsets.symmetric(horizontal: 10),
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: state.data.length,
-                    itemBuilder: (_, index) => BuildPetItem(
-                      index: index,
-                      accountData: accountData,
+                  child: AnimationLimiter(
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: state.data.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return AnimationConfiguration.staggeredList(
+                          position: index,
+                          duration: const Duration(milliseconds: 375),
+                          child: SlideAnimation(
+                            child: FadeInAnimation(
+                              child: BuildPetItem(
+                                index: index,
+                                accountData: accountData,
+                              ),
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ),

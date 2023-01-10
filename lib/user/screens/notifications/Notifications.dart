@@ -12,12 +12,12 @@ class _NotificationsState extends State<Notifications> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.bg,
-      appBar: DefaultAppBar(title: "Notifications", showLeading: false),
+      appBar: const DefaultAppBar(title: "Notifications"),
       body: ListView(
         padding: const EdgeInsets.only(top: 20),
         children: List.generate(
           4,
-              (index) => BuildNotificationItem(),
+              (index) => const BuildNotificationItem(),
         ),
       ),
     );

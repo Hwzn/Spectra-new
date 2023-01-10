@@ -22,7 +22,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         length: 5,
         child: Scaffold(
           backgroundColor: MyColors.grey.withOpacity(0.8),
-          // resizeToAvoidBottomInset: false,
           body: BuildTabBarPages(homeData: homeData),
           bottomNavigationBar: BuildTabBarBody(homeData: homeData),
         ),

@@ -29,24 +29,33 @@ class _AccountState extends State<Account> {
         children: [
           BuildPetsSection(accountData: accountData),
           Flexible(
-            child: ListView(
-              children: [
-                ...List.generate(
-                  accountData.settingList(context).length,
-                  (index) => accountData.settingList(context)[index],
-                ),
-                Container(
-                  margin: const EdgeInsets.only(top: 25, bottom: 15),
-                  child: MyText(
-                    title: "Sign out",
-                    color: MyColors.grey,
-                    size: 14,
-                    alien: TextAlign.center,
-                  ),
-                )
-              ],
+            child: AnimationLimiter(
+              child: ListView.builder(
+                itemCount: accountData.settingList(context).length,
+                itemBuilder: (BuildContext context, int index) {
+                  return AnimationConfiguration.staggeredList(
+                    position: index,
+                    duration: const Duration(milliseconds: 375),
+                    child: SlideAnimation(
+                      verticalOffset: 50.0,
+                      child: FadeInAnimation(
+                        child: accountData.settingList(context)[index],
+                      ),
+                    ),
+                  );
+                },
+              ),
             ),
           ),
+          Container(
+            margin: const EdgeInsets.only(top: 25, bottom: 15),
+            child: MyText(
+              title: "Sign out",
+              color: MyColors.grey,
+              size: 14,
+              alien: TextAlign.center,
+            ),
+          )
         ],
       ),
     );

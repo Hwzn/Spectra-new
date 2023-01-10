@@ -111,6 +111,7 @@ dependencies:
   dots_indicator:
   intl_phone_number_input: ^0.7.1
   flutter_rating_bar:
+#  animation_list:
 
 
 

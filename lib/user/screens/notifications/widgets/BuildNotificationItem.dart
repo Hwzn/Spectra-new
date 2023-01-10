@@ -27,7 +27,6 @@ class BuildNotificationItem extends StatelessWidget {
           ],
         ),
         child: Container(
-          // margin: const EdgeInsets.symmetric(horizontal: 5),
           padding: const EdgeInsets.all(15),
           decoration: BoxDecoration(
               color: MyColors.white,
