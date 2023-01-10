@@ -54,7 +54,7 @@ class DefaultButton extends StatelessWidget {
                 Color(0xff635971),
                 Color(0xff957785),
               ]),
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: borderRadius ?? BorderRadius.circular(10),
         ),
         child: ElevatedButton(
           onPressed: onTap,

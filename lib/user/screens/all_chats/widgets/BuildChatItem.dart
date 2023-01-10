@@ -65,12 +65,12 @@ class BuildChatItem extends StatelessWidget {
               Icon(
                 Icons.access_time_sharp,
                 size: 17,
-                color: MyColors.grey.withOpacity(0.5),
+                color: MyColors.lightGrey,
               ),
               const SizedBox(width: 5),
               MyText(
                 title: "3 Hours ago",
-                color: MyColors.grey.withOpacity(0.5),
+                color: MyColors.lightGrey,
                 size: 10,
               ),
             ],

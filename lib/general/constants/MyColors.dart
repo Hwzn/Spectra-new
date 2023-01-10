@@ -12,6 +12,7 @@ class MyColors{
   static Color offWhite=const Color(0xffF2F2F2);
   static Color gold=const Color(0xffe4aa69);
   static Color grey=Colors.grey;
+  static Color lightGrey=Colors.grey.withOpacity(0.5);
   static Color greyWhite=Colors.grey.withOpacity(.2);
   static Color black=const Color(0xff031626);
   static Color blackOpacity=Colors.black54;

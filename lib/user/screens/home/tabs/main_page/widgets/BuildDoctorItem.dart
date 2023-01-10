@@ -85,7 +85,7 @@ class BuildDoctorItem extends StatelessWidget {
                 transform: Matrix4.rotationY(math.pi),
                 child: Icon(
                   MdiIcons.tagMultiple,
-                  color: MyColors.grey.withOpacity(0.5),
+                  color: MyColors.lightGrey,
                   size: 20,
                 ),
               ),
@@ -94,7 +94,7 @@ class BuildDoctorItem extends StatelessWidget {
                 flex: 2,
                 child: MyText(
                   title: "30 SAR/Hour",
-                  color: MyColors.grey.withOpacity(0.5),
+                  color: MyColors.lightGrey,
                   size: 12,
                 ),
               ),
@@ -109,7 +109,7 @@ class BuildDoctorItem extends StatelessWidget {
                 flex: 1,
                 child: MyText(
                   title: "Specialization",
-                  color: MyColors.grey.withOpacity(0.5),
+                  color: MyColors.lightGrey,
                   size: 12,
                 ),
               ),
