@@ -37,13 +37,27 @@ class BuildMainAppBar extends StatelessWidget {
         ),
         leadingWidth: 70,
         leading: InkWell(
-          onTap: ()=> AutoRouter.of(context).push(AllChatsRoute()),
+          onTap: () => AutoRouter.of(context).push(AllChatsRoute()),
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 20),
             child: Image.asset(Res.chat),
           ),
         ),
-        title: Image.asset(Res.homeLogoWhite, height: 50,),
+        title: Image.asset(
+          Res.homeLogoWhite,
+          height: 50,
+        ),
+        actions: [
+          IconButton(
+            onPressed: ()=> AutoRouter.of(context).push(NotificationsRoute()),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            icon: Icon(
+              Icons.notifications_rounded,
+              color: MyColors.white,
+              size: 28,
+            ),
+          ),
+        ],
       ),
     );
   }

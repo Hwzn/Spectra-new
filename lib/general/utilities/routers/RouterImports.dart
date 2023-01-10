@@ -11,6 +11,7 @@ import 'package:hwzn_base/general/screens/splash/SplashImports.dart';
 import 'package:hwzn_base/general/screens/terms/TermsImports.dart';
 import 'package:hwzn_base/general/screens/verify_code/VerifyCodeImports.dart';
 import 'package:hwzn_base/general/screens/welcome_page/WelcomePageImports.dart';
+import 'package:hwzn_base/user/screens/notifications/NotificationsImports.dart';
 
 import '../../../user/screens/all_chats/AllChatsImports.dart';
 import '../../../user/screens/home/HomeImports.dart';
