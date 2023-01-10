@@ -24,6 +24,7 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: Notifications),
     AdaptiveRoute(page: Profile),
     AdaptiveRoute(page: AddPet),
+    AdaptiveRoute(page: Session),
 
 
   ],

@@ -11,8 +11,8 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i19;
-import 'package:flutter/material.dart' as _i20;
+import 'package:auto_route/auto_route.dart' as _i20;
+import 'package:flutter/material.dart' as _i21;
 import 'package:hwzn_base/general/screens/about/AboutImports.dart' as _i8;
 import 'package:hwzn_base/general/screens/contact_us/ContactUsImports.dart'
     as _i9;
@@ -38,42 +38,43 @@ import 'package:hwzn_base/user/screens/home/HomeImports.dart' as _i13;
 import 'package:hwzn_base/user/screens/notifications/NotificationsImports.dart'
     as _i16;
 import 'package:hwzn_base/user/screens/profile/ProfileImports.dart' as _i17;
+import 'package:hwzn_base/user/screens/session/SessionImports.dart' as _i19;
 import 'package:hwzn_base/user/screens/specialization/SpecializationImports.dart'
     as _i14;
 
-class AppRouter extends _i19.RootStackRouter {
-  AppRouter([_i20.GlobalKey<_i20.NavigatorState>? navigatorKey])
+class AppRouter extends _i20.RootStackRouter {
+  AppRouter([_i21.GlobalKey<_i21.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i19.PageFactory> pagesMap = {
+  final Map<String, _i20.PageFactory> pagesMap = {
     SplashRoute.name: (routeData) {
       final args = routeData.argsAs<SplashRouteArgs>();
-      return _i19.AdaptivePage<dynamic>(
+      return _i20.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i1.Splash(navigatorKey: args.navigatorKey),
         opaque: true,
       );
     },
     WelcomePageRoute.name: (routeData) {
-      return _i19.AdaptivePage<dynamic>(
+      return _i20.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i2.WelcomePage(),
         opaque: true,
       );
     },
     SelectUserRoute.name: (routeData) {
-      return _i19.CustomPage<dynamic>(
+      return _i20.CustomPage<dynamic>(
         routeData: routeData,
         child: const _i3.SelectUser(),
-        transitionsBuilder: _i19.TransitionsBuilders.fadeIn,
+        transitionsBuilder: _i20.TransitionsBuilders.fadeIn,
         durationInMilliseconds: 1500,
         opaque: true,
         barrierDismissible: false,
       );
     },
     LoginRoute.name: (routeData) {
-      return _i19.CustomPage<dynamic>(
+      return _i20.CustomPage<dynamic>(
         routeData: routeData,
         child: const _i4.Login(),
         opaque: true,
@@ -81,7 +82,7 @@ class AppRouter extends _i19.RootStackRouter {
       );
     },
     ForgetPasswordRoute.name: (routeData) {
-      return _i19.AdaptivePage<dynamic>(
+      return _i20.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i5.ForgetPassword(),
         opaque: true,
@@ -89,7 +90,7 @@ class AppRouter extends _i19.RootStackRouter {
     },
     ResetPasswordRoute.name: (routeData) {
       final args = routeData.argsAs<ResetPasswordRouteArgs>();
-      return _i19.AdaptivePage<dynamic>(
+      return _i20.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i6.ResetPassword(
           key: args.key,
@@ -100,21 +101,21 @@ class AppRouter extends _i19.RootStackRouter {
       );
     },
     TermsRoute.name: (routeData) {
-      return _i19.AdaptivePage<dynamic>(
+      return _i20.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i7.Terms(),
         opaque: true,
       );
     },
     AboutRoute.name: (routeData) {
-      return _i19.AdaptivePage<dynamic>(
+      return _i20.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i8.About(),
         opaque: true,
       );
     },
     ContactUsRoute.name: (routeData) {
-      return _i19.AdaptivePage<dynamic>(
+      return _i20.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i9.ContactUs(),
         opaque: true,
@@ -122,7 +123,7 @@ class AppRouter extends _i19.RootStackRouter {
     },
     ImageZoomRoute.name: (routeData) {
       final args = routeData.argsAs<ImageZoomRouteArgs>();
-      return _i19.AdaptivePage<dynamic>(
+      return _i20.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i10.ImageZoom(images: args.images),
         opaque: true,
@@ -130,7 +131,7 @@ class AppRouter extends _i19.RootStackRouter {
     },
     VerifyCodeRoute.name: (routeData) {
       final args = routeData.argsAs<VerifyCodeRouteArgs>();
-      return _i19.AdaptivePage<dynamic>(
+      return _i20.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i11.VerifyCode(
           key: args.key,
@@ -141,137 +142,148 @@ class AppRouter extends _i19.RootStackRouter {
       );
     },
     RegisterRoute.name: (routeData) {
-      return _i19.AdaptivePage<dynamic>(
+      return _i20.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i12.Register(),
         opaque: true,
       );
     },
     HomeRoute.name: (routeData) {
-      return _i19.AdaptivePage<dynamic>(
+      return _i20.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i13.Home(),
         opaque: true,
       );
     },
     SpecializationRoute.name: (routeData) {
-      return _i19.AdaptivePage<dynamic>(
+      return _i20.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i14.Specialization(),
         opaque: true,
       );
     },
     AllChatsRoute.name: (routeData) {
-      return _i19.AdaptivePage<dynamic>(
+      return _i20.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i15.AllChats(),
         opaque: true,
       );
     },
     NotificationsRoute.name: (routeData) {
-      return _i19.AdaptivePage<dynamic>(
+      return _i20.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i16.Notifications(),
         opaque: true,
       );
     },
     ProfileRoute.name: (routeData) {
-      return _i19.AdaptivePage<dynamic>(
+      return _i20.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i17.Profile(),
         opaque: true,
       );
     },
     AddPetRoute.name: (routeData) {
-      return _i19.AdaptivePage<dynamic>(
+      return _i20.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i18.AddPet(),
+        opaque: true,
+      );
+    },
+    SessionRoute.name: (routeData) {
+      return _i20.AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const _i19.Session(),
         opaque: true,
       );
     },
   };
 
   @override
-  List<_i19.RouteConfig> get routes => [
-        _i19.RouteConfig(
+  List<_i20.RouteConfig> get routes => [
+        _i20.RouteConfig(
           SplashRoute.name,
           path: '/',
         ),
-        _i19.RouteConfig(
+        _i20.RouteConfig(
           WelcomePageRoute.name,
           path: '/welcome-page',
         ),
-        _i19.RouteConfig(
+        _i20.RouteConfig(
           SelectUserRoute.name,
           path: '/select-user',
         ),
-        _i19.RouteConfig(
+        _i20.RouteConfig(
           LoginRoute.name,
           path: '/Login',
         ),
-        _i19.RouteConfig(
+        _i20.RouteConfig(
           ForgetPasswordRoute.name,
           path: '/forget-password',
         ),
-        _i19.RouteConfig(
+        _i20.RouteConfig(
           ResetPasswordRoute.name,
           path: '/reset-password',
         ),
-        _i19.RouteConfig(
+        _i20.RouteConfig(
           TermsRoute.name,
           path: '/Terms',
         ),
-        _i19.RouteConfig(
+        _i20.RouteConfig(
           AboutRoute.name,
           path: '/About',
         ),
-        _i19.RouteConfig(
+        _i20.RouteConfig(
           ContactUsRoute.name,
           path: '/contact-us',
         ),
-        _i19.RouteConfig(
+        _i20.RouteConfig(
           ImageZoomRoute.name,
           path: '/image-zoom',
         ),
-        _i19.RouteConfig(
+        _i20.RouteConfig(
           VerifyCodeRoute.name,
           path: '/verify-code',
         ),
-        _i19.RouteConfig(
+        _i20.RouteConfig(
           RegisterRoute.name,
           path: '/Register',
         ),
-        _i19.RouteConfig(
+        _i20.RouteConfig(
           HomeRoute.name,
           path: '/Home',
         ),
-        _i19.RouteConfig(
+        _i20.RouteConfig(
           SpecializationRoute.name,
           path: '/Specialization',
         ),
-        _i19.RouteConfig(
+        _i20.RouteConfig(
           AllChatsRoute.name,
           path: '/all-chats',
         ),
-        _i19.RouteConfig(
+        _i20.RouteConfig(
           NotificationsRoute.name,
           path: '/Notifications',
         ),
-        _i19.RouteConfig(
+        _i20.RouteConfig(
           ProfileRoute.name,
           path: '/Profile',
         ),
-        _i19.RouteConfig(
+        _i20.RouteConfig(
           AddPetRoute.name,
           path: '/add-pet',
+        ),
+        _i20.RouteConfig(
+          SessionRoute.name,
+          path: '/Session',
         ),
       ];
 }
 
 /// generated route for
 /// [_i1.Splash]
-class SplashRoute extends _i19.PageRouteInfo<SplashRouteArgs> {
-  SplashRoute({required _i20.GlobalKey<_i20.NavigatorState> navigatorKey})
+class SplashRoute extends _i20.PageRouteInfo<SplashRouteArgs> {
+  SplashRoute({required _i21.GlobalKey<_i21.NavigatorState> navigatorKey})
       : super(
           SplashRoute.name,
           path: '/',
@@ -284,7 +296,7 @@ class SplashRoute extends _i19.PageRouteInfo<SplashRouteArgs> {
 class SplashRouteArgs {
   const SplashRouteArgs({required this.navigatorKey});
 
-  final _i20.GlobalKey<_i20.NavigatorState> navigatorKey;
+  final _i21.GlobalKey<_i21.NavigatorState> navigatorKey;
 
   @override
   String toString() {
@@ -294,7 +306,7 @@ class SplashRouteArgs {
 
 /// generated route for
 /// [_i2.WelcomePage]
-class WelcomePageRoute extends _i19.PageRouteInfo<void> {
+class WelcomePageRoute extends _i20.PageRouteInfo<void> {
   const WelcomePageRoute()
       : super(
           WelcomePageRoute.name,
@@ -306,7 +318,7 @@ class WelcomePageRoute extends _i19.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.SelectUser]
-class SelectUserRoute extends _i19.PageRouteInfo<void> {
+class SelectUserRoute extends _i20.PageRouteInfo<void> {
   const SelectUserRoute()
       : super(
           SelectUserRoute.name,
@@ -318,7 +330,7 @@ class SelectUserRoute extends _i19.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.Login]
-class LoginRoute extends _i19.PageRouteInfo<void> {
+class LoginRoute extends _i20.PageRouteInfo<void> {
   const LoginRoute()
       : super(
           LoginRoute.name,
@@ -330,7 +342,7 @@ class LoginRoute extends _i19.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i5.ForgetPassword]
-class ForgetPasswordRoute extends _i19.PageRouteInfo<void> {
+class ForgetPasswordRoute extends _i20.PageRouteInfo<void> {
   const ForgetPasswordRoute()
       : super(
           ForgetPasswordRoute.name,
@@ -342,9 +354,9 @@ class ForgetPasswordRoute extends _i19.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i6.ResetPassword]
-class ResetPasswordRoute extends _i19.PageRouteInfo<ResetPasswordRouteArgs> {
+class ResetPasswordRoute extends _i20.PageRouteInfo<ResetPasswordRouteArgs> {
   ResetPasswordRoute({
-    _i20.Key? key,
+    _i21.Key? key,
     required String email,
     required String code,
   }) : super(
@@ -367,7 +379,7 @@ class ResetPasswordRouteArgs {
     required this.code,
   });
 
-  final _i20.Key? key;
+  final _i21.Key? key;
 
   final String email;
 
@@ -381,7 +393,7 @@ class ResetPasswordRouteArgs {
 
 /// generated route for
 /// [_i7.Terms]
-class TermsRoute extends _i19.PageRouteInfo<void> {
+class TermsRoute extends _i20.PageRouteInfo<void> {
   const TermsRoute()
       : super(
           TermsRoute.name,
@@ -393,7 +405,7 @@ class TermsRoute extends _i19.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i8.About]
-class AboutRoute extends _i19.PageRouteInfo<void> {
+class AboutRoute extends _i20.PageRouteInfo<void> {
   const AboutRoute()
       : super(
           AboutRoute.name,
@@ -405,7 +417,7 @@ class AboutRoute extends _i19.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i9.ContactUs]
-class ContactUsRoute extends _i19.PageRouteInfo<void> {
+class ContactUsRoute extends _i20.PageRouteInfo<void> {
   const ContactUsRoute()
       : super(
           ContactUsRoute.name,
@@ -417,7 +429,7 @@ class ContactUsRoute extends _i19.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i10.ImageZoom]
-class ImageZoomRoute extends _i19.PageRouteInfo<ImageZoomRouteArgs> {
+class ImageZoomRoute extends _i20.PageRouteInfo<ImageZoomRouteArgs> {
   ImageZoomRoute({required List<dynamic> images})
       : super(
           ImageZoomRoute.name,
@@ -441,9 +453,9 @@ class ImageZoomRouteArgs {
 
 /// generated route for
 /// [_i11.VerifyCode]
-class VerifyCodeRoute extends _i19.PageRouteInfo<VerifyCodeRouteArgs> {
+class VerifyCodeRoute extends _i20.PageRouteInfo<VerifyCodeRouteArgs> {
   VerifyCodeRoute({
-    _i20.Key? key,
+    _i21.Key? key,
     required String email,
     bool? fromRegister,
   }) : super(
@@ -466,7 +478,7 @@ class VerifyCodeRouteArgs {
     this.fromRegister,
   });
 
-  final _i20.Key? key;
+  final _i21.Key? key;
 
   final String email;
 
@@ -480,7 +492,7 @@ class VerifyCodeRouteArgs {
 
 /// generated route for
 /// [_i12.Register]
-class RegisterRoute extends _i19.PageRouteInfo<void> {
+class RegisterRoute extends _i20.PageRouteInfo<void> {
   const RegisterRoute()
       : super(
           RegisterRoute.name,
@@ -492,7 +504,7 @@ class RegisterRoute extends _i19.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i13.Home]
-class HomeRoute extends _i19.PageRouteInfo<void> {
+class HomeRoute extends _i20.PageRouteInfo<void> {
   const HomeRoute()
       : super(
           HomeRoute.name,
@@ -504,7 +516,7 @@ class HomeRoute extends _i19.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i14.Specialization]
-class SpecializationRoute extends _i19.PageRouteInfo<void> {
+class SpecializationRoute extends _i20.PageRouteInfo<void> {
   const SpecializationRoute()
       : super(
           SpecializationRoute.name,
@@ -516,7 +528,7 @@ class SpecializationRoute extends _i19.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i15.AllChats]
-class AllChatsRoute extends _i19.PageRouteInfo<void> {
+class AllChatsRoute extends _i20.PageRouteInfo<void> {
   const AllChatsRoute()
       : super(
           AllChatsRoute.name,
@@ -528,7 +540,7 @@ class AllChatsRoute extends _i19.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i16.Notifications]
-class NotificationsRoute extends _i19.PageRouteInfo<void> {
+class NotificationsRoute extends _i20.PageRouteInfo<void> {
   const NotificationsRoute()
       : super(
           NotificationsRoute.name,
@@ -540,7 +552,7 @@ class NotificationsRoute extends _i19.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i17.Profile]
-class ProfileRoute extends _i19.PageRouteInfo<void> {
+class ProfileRoute extends _i20.PageRouteInfo<void> {
   const ProfileRoute()
       : super(
           ProfileRoute.name,
@@ -552,7 +564,7 @@ class ProfileRoute extends _i19.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i18.AddPet]
-class AddPetRoute extends _i19.PageRouteInfo<void> {
+class AddPetRoute extends _i20.PageRouteInfo<void> {
   const AddPetRoute()
       : super(
           AddPetRoute.name,
@@ -560,4 +572,16 @@ class AddPetRoute extends _i19.PageRouteInfo<void> {
         );
 
   static const String name = 'AddPetRoute';
+}
+
+/// generated route for
+/// [_i19.Session]
+class SessionRoute extends _i20.PageRouteInfo<void> {
+  const SessionRoute()
+      : super(
+          SessionRoute.name,
+          path: '/Session',
+        );
+
+  static const String name = 'SessionRoute';
 }

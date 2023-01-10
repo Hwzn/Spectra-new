@@ -1,13 +1,7 @@
-part of 'ReservationsWidgetsImports.dart';
+part of 'SessionWidgetsImports.dart';
 
-class BuildReservationItem extends StatelessWidget {
-  final String status;
-  final Color statusColor;
-  final bool ended;
-
-  const BuildReservationItem(
-      {Key? key, required this.status, required this.statusColor, this.ended = false})
-      : super(key: key);
+class BuildSessionDoctor extends StatelessWidget {
+  const BuildSessionDoctor({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,36 +22,12 @@ class BuildReservationItem extends StatelessWidget {
       child: Column(
         children: [
           Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Icon(
-                Icons.access_time_sharp,
-                size: 20,
-                color: MyColors.lightGrey,
-              ),
-              Expanded(
-                child: Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 5),
-                  child: MyText(
-                    title: "22/02/2022  8:00 PM",
-                    color: MyColors.lightGrey,
-                    size: 11,
-                  ),
-                ),
-              ),
-              BuildReservationStatus(
-                status: status,
-                color: statusColor,
-              ),
-            ],
-          ),
-          Row(
             children: [
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 10),
                 child: const CachedImage(
                   url:
-                      "https://www.freshpondanimalhospital.com/uploads/SiteAssets/17/images/staff/804198.jpg",
+                  "https://www.freshpondanimalhospital.com/uploads/SiteAssets/17/images/staff/804198.jpg",
                   height: 50,
                   width: 50,
                   haveRadius: false,
@@ -99,7 +69,7 @@ class BuildReservationItem extends StatelessWidget {
                       children: [
                         const CachedImage(
                           url:
-                              "https://images.ctfassets.net/rt5zmd3ipxai/q6gWiPMWCl0vRTBgwhO9K/2bed2b68c9e0324a40e1f9804a49cce5/All_Creatures_Logo_Final-01_2.png",
+                          "https://images.ctfassets.net/rt5zmd3ipxai/q6gWiPMWCl0vRTBgwhO9K/2bed2b68c9e0324a40e1f9804a49cce5/All_Creatures_Logo_Final-01_2.png",
                           height: 25,
                           width: 25,
                           haveRadius: false,
@@ -119,17 +89,44 @@ class BuildReservationItem extends StatelessWidget {
               ),
             ],
           ),
-          Visibility(
-            visible: !ended,
-            replacement: SizedBox(height: 10),
-            child: DefaultButton(
-              title: "Join Session",
-              height: 40,
-              fontSize: 12,
-              borderRadius: BorderRadius.circular(15),
-              onTap: ()=> AutoRouter.of(context).push(SessionRoute()),
-            ),
-          )
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              Transform(
+                alignment: Alignment.center,
+                transform: Matrix4.rotationY(math.pi),
+                child: Icon(
+                  MdiIcons.tagMultiple,
+                  color: MyColors.lightGrey,
+                  size: 20,
+                ),
+              ),
+              const SizedBox(width: 5),
+              Expanded(
+                flex: 2,
+                child: MyText(
+                  title: "30 SAR/Hour",
+                  color: MyColors.lightGrey,
+                  size: 12,
+                ),
+              ),
+              Image.asset(
+                Res.paw,
+                // height: 15,
+                width: 15,
+                color: MyColors.grey.withOpacity(0.8),
+              ),
+              const SizedBox(width: 5),
+              Expanded(
+                flex: 1,
+                child: MyText(
+                  title: "Specialization",
+                  color: MyColors.lightGrey,
+                  size: 12,
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );

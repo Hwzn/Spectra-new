@@ -67,7 +67,8 @@ class BuildVerifyButton extends StatelessWidget {
                     ),
                   );
                 }
-            })
+            },
+        ),
       ],
     );
   }
