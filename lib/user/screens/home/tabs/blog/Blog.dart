@@ -12,6 +12,23 @@ class _BlogState extends State<Blog> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: DefaultAppBar(
+        title: "Blog",
+        showLeading: false,
+        actions: [
+          IconButton(
+            onPressed: () {},
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            icon: Icon(
+              MdiIcons.plusCircle,
+              color: Colors.grey[300],
+              size: 28,
+            ),
+          ),
+        ],
+      ),
+      body: ListView(),
+    );
   }
 }

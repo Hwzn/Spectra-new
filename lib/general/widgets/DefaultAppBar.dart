@@ -10,6 +10,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actions;
   final double? size;
   final bool showLeading;
+  final Widget? child;
 
   const DefaultAppBar({
     Key? key,
@@ -18,6 +19,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.leading,
     this.size,
     this.showLeading = true,
+    this.child,
   }) : super(key: key);
 
   @override
@@ -51,7 +53,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
         leadingWidth: showLeading == true ? 55 : 10,
         elevation: 0,
         backgroundColor: Colors.transparent,
-        title: Container(
+        title: child ?? Container(
           margin: const EdgeInsets.only(top: 8),
           child: MyText(
             title: title,
