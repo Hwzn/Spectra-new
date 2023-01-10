@@ -20,6 +20,7 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: Register),
     AdaptiveRoute(page: Home),
     AdaptiveRoute(page: Specialization),
+    AdaptiveRoute(page: AllChats),
 
 
   ],

@@ -36,9 +36,12 @@ class BuildMainAppBar extends StatelessWidget {
           ),
         ),
         leadingWidth: 70,
-        leading: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 20),
-          child: Image.asset(Res.chat),
+        leading: InkWell(
+          onTap: ()=> AutoRouter.of(context).push(AllChatsRoute()),
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 20),
+            child: Image.asset(Res.chat),
+          ),
         ),
         title: Image.asset(Res.homeLogoWhite, height: 50,),
       ),
