@@ -46,4 +46,48 @@ class Utils {
     Storage.setLang(lang);
     context.read<LangCubit>().onUpdateLanguage(lang);
   }
+
+  static void navigateToMapWithDirection(
+      {required String lat,
+        required String lng,
+        required BuildContext context}) async {
+    if (lat == "0") return;
+    try {
+      final coords = Coords(double.parse(lat), double.parse(lng));
+      final title = "Destination";
+      final availableMaps = await MapLauncher.installedMaps;
+
+      showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context) {
+          return SafeArea(
+            child: SingleChildScrollView(
+              child: Container(
+                child: Wrap(
+                  children: <Widget>[
+                    for (var map in availableMaps)
+                      ListTile(
+                        onTap: () => map.showMarker(
+                          coords: coords,
+                          title: title,
+                        ),
+                        title: Text(map.mapName),
+                        leading: SvgPicture.asset(
+                          map.icon,
+                          height: 30.0,
+                          width: 30.0,
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      );
+    } catch (e) {
+      CustomToast.showSimpleToast(msg: "$e");
+    }
+  }
+
 }

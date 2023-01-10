@@ -13,6 +13,7 @@ class _BlogState extends State<Blog> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: MyColors.bg,
       appBar: DefaultAppBar(
         title: "Blog",
         showLeading: false,
@@ -28,7 +29,13 @@ class _BlogState extends State<Blog> {
           ),
         ],
       ),
-      body: ListView(),
+      body: ListView(
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        children: const [
+          BuildPostItem(),
+          BuildPostItem(isArticle: true),
+        ],
+      ),
     );
   }
 }
