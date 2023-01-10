@@ -14,11 +14,22 @@ class _AllChatsState extends State<AllChats> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const DefaultAppBar(title: "Chats"),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-        children: List.generate(
-          4,
-              (index) => const BuildChatItem(),
+      body: AnimationLimiter(
+        child: ListView.builder(
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          itemCount: 4,
+          itemBuilder: (BuildContext context, int index) {
+            return AnimationConfiguration.staggeredList(
+              position: index,
+              duration: const Duration(milliseconds: 375),
+              child: const SlideAnimation(
+                verticalOffset: 50.0,
+                child: FadeInAnimation(
+                  child: BuildChatItem(),
+                ),
+              ),
+            );
+          },
         ),
       ),
     );

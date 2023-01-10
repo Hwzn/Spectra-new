@@ -22,10 +22,13 @@ class BuildPetsSection extends StatelessWidget {
                   color: MyColors.black,
                   size: 14,
                 ),
-                MyText(
-                  title: "+ add a pet",
-                  color: MyColors.primary,
-                  size: 14,
+                InkWell(
+                  onTap: ()=> AutoRouter.of(context).push(AddPetRoute()),
+                  child: MyText(
+                    title: "+ add a pet",
+                    color: MyColors.primary,
+                    size: 14,
+                  ),
                 ),
               ],
             ),

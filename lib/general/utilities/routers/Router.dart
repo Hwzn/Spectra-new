@@ -23,6 +23,7 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: AllChats),
     AdaptiveRoute(page: Notifications),
     AdaptiveRoute(page: Profile),
+    AdaptiveRoute(page: AddPet),
 
 
   ],
