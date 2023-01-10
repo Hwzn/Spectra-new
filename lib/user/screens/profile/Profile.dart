@@ -18,7 +18,7 @@ class _ProfileState extends State<Profile> {
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         children: [
-          const BuildProfilePhoto(),
+          BuildProfilePhoto(profileData: profileData),
           BuildProfileInputs(profileData: profileData),
         ],
       ),

@@ -1,7 +1,10 @@
 part of 'ProfileWidgetsImports.dart';
 
 class BuildProfilePhoto extends StatelessWidget {
-  const BuildProfilePhoto({Key? key}) : super(key: key);
+  final ProfileData profileData;
+
+  const BuildProfilePhoto({Key? key, required this.profileData})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,32 +18,75 @@ class BuildProfilePhoto extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(
-            width: 150,
-            child: CachedImage(
-              url:
-                  "https://www.freshpondanimalhospital.com/uploads/SiteAssets/17/images/staff/804198.jpg",
-              height: 130,
-              width: 130,
-              haveRadius: false,
-              boxShape: BoxShape.circle,
-              fit: BoxFit.cover,
-              alignment: Alignment.bottomLeft,
-              child: Container(
-                height: 35,
-                width: 35,
-                margin: const EdgeInsets.only(bottom: 8),
-                decoration: BoxDecoration(
-                  color: Colors.grey[700],
-                  shape: BoxShape.circle,
-                ),
-                child: Icon(
-                  Icons.camera_alt,
-                  color: MyColors.white,
-                  size: 20,
-                ),
-              ),
-            ),
+          BlocBuilder<GenericBloc<File?>, GenericState<File?>>(
+            bloc: profileData.imageBloc,
+            builder: (context, state) {
+              if(state is GenericUpdateState){
+                return SizedBox(
+                  width: 150,
+                  child: Container(
+                    height: 130,
+                    width: 130,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        image: FileImage(state.data?? File('')),
+                        fit: BoxFit.cover,
+                      )
+                    ),
+                    alignment: Alignment.bottomLeft,
+                    child: InkWell(
+                      onTap: () => profileData.setProfileImage(),
+                      child: Container(
+                        height: 35,
+                        width: 35,
+                        margin: const EdgeInsets.only(bottom: 8),
+                        decoration: BoxDecoration(
+                          color: Colors.grey[700],
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(
+                          Icons.camera_alt,
+                          color: MyColors.white,
+                          size: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              } else {
+                return SizedBox(
+                  width: 150,
+                  child: CachedImage(
+                    url:
+                    "https://www.freshpondanimalhospital.com/uploads/SiteAssets/17/images/staff/804198.jpg",
+                    height: 130,
+                    width: 130,
+                    haveRadius: false,
+                    boxShape: BoxShape.circle,
+                    fit: BoxFit.cover,
+                    alignment: Alignment.bottomLeft,
+                    child: InkWell(
+                      onTap: () => profileData.setProfileImage(),
+                      child: Container(
+                        height: 35,
+                        width: 35,
+                        margin: const EdgeInsets.only(bottom: 8),
+                        decoration: BoxDecoration(
+                          color: Colors.grey[700],
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(
+                          Icons.camera_alt,
+                          color: MyColors.white,
+                          size: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              }
+            },
           ),
         ],
       ),
