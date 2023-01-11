@@ -2,8 +2,8 @@ part of 'BlogWidgetsImports.dart';
 
 class BuildPostItem extends StatelessWidget {
   final bool isArticle;
-
-  const BuildPostItem({Key? key, this.isArticle = false}) : super(key: key);
+  final BlogData blogData;
+  const BuildPostItem({Key? key, this.isArticle = false, required this.blogData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,12 +43,15 @@ class BuildPostItem extends StatelessWidget {
             ),
           ),
           Divider(color: MyColors.grey.withOpacity(0.2)),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              BuildBlogActions(icon: Icons.favorite, title: "20  Likes"),
-              BuildBlogActions(icon: Icons.comment, title: "5  Comments"),
-            ],
+          InkWell(
+            onTap: ()=> blogData.viewComments(context),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                BuildBlogActions(icon: Icons.favorite, title: "20  Likes"),
+                BuildBlogActions(icon: Icons.comment, title: "5  Comments"),
+              ],
+            ),
           )
         ],
       ),

@@ -31,9 +31,9 @@ class _BlogState extends State<Blog> {
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 10),
-        children: const [
-          BuildPostItem(),
-          BuildPostItem(isArticle: true),
+        children: [
+          BuildPostItem(blogData: blogData),
+          BuildPostItem(isArticle: true, blogData: blogData),
         ],
       ),
     );
