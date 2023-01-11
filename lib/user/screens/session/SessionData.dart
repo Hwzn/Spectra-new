@@ -31,8 +31,4 @@ class SessionData {
     stopWatchTimer!.onExecute.add(StopWatchExecute.start);
   }
 
-  void onComplete(String value) {
-    codeCubit.onUpdateData(value.length == 4);
-    code = value;
-  }
 }
