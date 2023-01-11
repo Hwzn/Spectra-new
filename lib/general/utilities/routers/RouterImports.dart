@@ -15,6 +15,7 @@ import 'package:hwzn_base/user/screens/notifications/NotificationsImports.dart';
 
 import '../../../user/screens/add_pet/AddPetImports.dart';
 import '../../../user/screens/add_post/AddPostImports.dart';
+import '../../../user/screens/add_reservation/AddReservationImports.dart';
 import '../../../user/screens/all_chats/AllChatsImports.dart';
 import '../../../user/screens/doctor_details/DoctorDetailsImports.dart';
 import '../../../user/screens/home/HomeImports.dart';
