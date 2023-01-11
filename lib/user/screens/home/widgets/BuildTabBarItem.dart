@@ -21,7 +21,7 @@ class BuildTabBarItem extends StatelessWidget {
         vertical: 10,
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Visibility(
             visible: active,
@@ -41,10 +41,11 @@ class BuildTabBarItem extends StatelessWidget {
               child: Icon(
                 homeData.tabs[index].iconData,
                 color: MyColors.white,
-                size: 25,
+                size: 20,
               ),
             ),
           ),
+          const SizedBox(height: 2),
           MyText(
             title: homeData.tabs[index].title!,
             color: color,
