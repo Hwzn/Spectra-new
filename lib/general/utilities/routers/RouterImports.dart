@@ -15,9 +15,11 @@ import 'package:hwzn_base/user/screens/notifications/NotificationsImports.dart';
 
 import '../../../user/screens/add_pet/AddPetImports.dart';
 import '../../../user/screens/all_chats/AllChatsImports.dart';
+import '../../../user/screens/doctor_details/DoctorDetailsImports.dart';
 import '../../../user/screens/home/HomeImports.dart';
 import '../../../user/screens/profile/ProfileImports.dart';
 import '../../../user/screens/review_session/ReviewSessionImports.dart';
+import '../../../user/screens/reviews/ReviewsImports.dart';
 import '../../../user/screens/session/SessionImports.dart';
 import '../../../user/screens/specialization/SpecializationImports.dart';
 

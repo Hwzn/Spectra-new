@@ -26,6 +26,8 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: AddPet),
     AdaptiveRoute(page: Session),
     AdaptiveRoute(page: ReviewSession),
+    AdaptiveRoute(page: DoctorDetails),
+    AdaptiveRoute(page: Reviews),
 
 
   ],

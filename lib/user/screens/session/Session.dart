@@ -50,12 +50,15 @@ class _SessionState extends State<Session> {
               ],
             ),
           ),
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 20),
-            child: MyText(
-              title: "Cancel Session",
-              color: MyColors.grey,
-              size: 12,
+          InkWell(
+            onTap: ()=> AutoRouter.of(context).pop(),
+            child: Container(
+              margin: const EdgeInsets.symmetric(vertical: 20),
+              child: MyText(
+                title: "Cancel Session",
+                color: MyColors.grey,
+                size: 12,
+              ),
             ),
           ),
         ],

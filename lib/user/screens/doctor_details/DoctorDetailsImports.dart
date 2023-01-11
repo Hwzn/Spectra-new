@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hwzn_base/general/constants/MyColors.dart';
 import 'package:hwzn_base/general/widgets/DefaultAppBar.dart';
-import 'package:hwzn_base/user/screens/home/tabs/reservations/widgets/ReservationsWidgetsImports.dart';
+import 'package:hwzn_base/user/screens/doctor_details/widgets/DoctorDetailsWidgetsImports.dart';
 import 'package:hwzn_base/user/screens/review_session/widgets/ReviewSessionWidgetsImports.dart';
+import 'package:hwzn_base/user/screens/session/widgets/SessionWidgetsImports.dart';
 
-part 'ReviewSession.dart';
-part 'ReviewSessionData.dart';
+part 'DoctorDetails.dart';
+part 'DoctorDetailsData.dart';

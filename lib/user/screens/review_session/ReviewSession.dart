@@ -13,6 +13,7 @@ class _ReviewSessionState extends State<ReviewSession> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: MyColors.bg,
       appBar: const DefaultAppBar(title: "Session #44444"),
       body: ListView(
         padding: const EdgeInsets.only(top: 10),
