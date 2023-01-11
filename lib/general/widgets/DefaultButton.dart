@@ -18,6 +18,7 @@ class DefaultButton extends StatelessWidget {
   final bool? disabled;
   final String? fontFamily;
   final FontWeight? fontWeight;
+  final Widget? child;
 
   DefaultButton({
     required this.title,
@@ -34,6 +35,7 @@ class DefaultButton extends StatelessWidget {
     this.height,
     this.fontWeight,
     this.elevation,
+    this.child,
   });
 
   @override
@@ -47,13 +49,14 @@ class DefaultButton extends StatelessWidget {
         margin:
             margin ?? const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: BoxDecoration(
-          gradient: const LinearGradient(
+          color: color,
+          gradient: color == null ? const LinearGradient(
               begin: Alignment.centerRight,
               end: Alignment.centerLeft,
               colors: [
                 Color(0xff635971),
                 Color(0xff957785),
-              ]),
+              ]): null,
           borderRadius: borderRadius ?? BorderRadius.circular(10),
         ),
         child: ElevatedButton(
@@ -69,7 +72,7 @@ class DefaultButton extends StatelessWidget {
             backgroundColor: Colors.transparent,
             elevation: elevation ?? 0,
           ),
-          child: MyText(
+          child: child?? MyText(
             title: title,
             size: fontSize ?? 14,
             color: textColor ?? Colors.white,

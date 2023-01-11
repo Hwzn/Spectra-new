@@ -19,7 +19,7 @@ class _BlogState extends State<Blog> {
         showLeading: false,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: ()=> AutoRouter.of(context).push(AddPostRoute()),
             padding: const EdgeInsets.symmetric(horizontal: 20),
             icon: Icon(
               MdiIcons.plusCircle,

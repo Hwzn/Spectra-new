@@ -28,6 +28,7 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: ReviewSession),
     AdaptiveRoute(page: DoctorDetails),
     AdaptiveRoute(page: Reviews),
+    AdaptiveRoute(page: AddPost),
 
 
   ],
