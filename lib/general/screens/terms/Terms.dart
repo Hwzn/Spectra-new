@@ -15,8 +15,9 @@ class _TermsState extends State<Terms> with TermsData {
   Widget build(BuildContext context) {
     var terms = context.read<SettingCubit>().state.model.terms;
     return AuthScaffold(
-      appBar: DefaultAppBar(title: tr(context, "terms")),
+      appBar: const DefaultAppBar(title: "Terms and conditions"),
       showTitle: false,
+      showLogo: false,
       body: BuildTermsView(text: terms??"")
     );
   }

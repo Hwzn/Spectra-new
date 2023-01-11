@@ -33,6 +33,7 @@ class _AddReservationState extends State<AddReservation> {
         title: "Make a reservation",
         borderRadius: BorderRadius.circular(15),
         margin: const EdgeInsets.all(20),
+        onTap: ()=> AutoRouter.of(context).popAndPush(PaymentRoute()),
       ),
     );
   }

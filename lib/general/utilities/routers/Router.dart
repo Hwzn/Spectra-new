@@ -15,6 +15,7 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: ContactUs),
     AdaptiveRoute(page: ImageZoom),
     AdaptiveRoute(page: VerifyCode),
+    AdaptiveRoute(page: FAQ),
 
     // user routes
     AdaptiveRoute(page: Register),
@@ -30,6 +31,7 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: Reviews),
     AdaptiveRoute(page: AddPost),
     AdaptiveRoute(page: AddReservation),
+    AdaptiveRoute(page: Payment),
 
 
   ],

@@ -9,6 +9,7 @@ class BuildProfileInputItem extends StatelessWidget {
   final Function(String? value) validate;
   final FieldTypes? fieldType;
   final EdgeInsets? fieldMargin;
+  final Color? fillColor;
 
   const BuildProfileInputItem({
     Key? key,
@@ -18,7 +19,9 @@ class BuildProfileInputItem extends StatelessWidget {
     this.textInputType,
     required this.validate,
     this.isLast = false,
-    this.fieldType, this.fieldMargin,
+    this.fieldType,
+    this.fieldMargin,
+    this.fillColor,
   }) : super(key: key);
 
   @override
@@ -35,7 +38,7 @@ class BuildProfileInputItem extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
           GenericTextField(
-            fieldTypes: fieldType?? FieldTypes.normal,
+            fieldTypes: fieldType ?? FieldTypes.normal,
             hint: hint,
             controller: controller,
             margin: fieldMargin ?? const EdgeInsets.only(top: 10, bottom: 15),
@@ -44,6 +47,7 @@ class BuildProfileInputItem extends StatelessWidget {
             validate: validate,
             radius: 15,
             max: fieldType != null ? 3 : null,
+            fillColor: fillColor,
           ),
         ],
       ),

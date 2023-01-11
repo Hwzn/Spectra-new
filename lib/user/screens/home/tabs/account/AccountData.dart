@@ -19,9 +19,16 @@ class AccountData {
         onTap: () => AutoRouter.of(context).push(ProfileRoute()),
       ),
       const BuildSettingItem(icon: Icons.language, title: "Language"),
-      const BuildSettingItem(icon: MdiIcons.tooltipOutline, title: "FAQ"),
-      const BuildSettingItem(
-          icon: Icons.assignment_sharp, title: "Terms & Conditions"),
+      BuildSettingItem(
+        icon: MdiIcons.tooltipOutline,
+        title: "FAQ",
+        onTap: () => AutoRouter.of(context).push(FAQRoute()),
+      ),
+      BuildSettingItem(
+        icon: Icons.assignment_sharp,
+        title: "Terms & Conditions",
+        onTap: () => AutoRouter.of(context).push(TermsRoute()),
+      ),
       const BuildSettingItem(icon: Icons.share, title: "Share App"),
     ];
   }
