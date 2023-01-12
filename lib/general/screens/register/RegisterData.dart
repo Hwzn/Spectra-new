@@ -24,20 +24,20 @@ class RegisterDate {
 
   //
   var userTypes;
-  DropdownModel? selectedUserType;
+  DropDownModel? selectedUserType;
 
   // methods
 
 
 
   // get data from api for drop down field
-  Future<List<DropdownModel>> getUserTypes(BuildContext context) async {
+  Future<List<DropDownModel>> getUserTypes(BuildContext context) async {
     var types = await GeneralRepository(context).getUserTypes();
     return types;
   }
 
   // used to update selected item in user types drop down field
-  void setSelectUser(DropdownModel? model) {
+  void setSelectUser(DropDownModel? model) {
     selectedUserType = model;
   }
 

@@ -33,6 +33,10 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: AddReservation),
     AdaptiveRoute(page: Payment),
 
+    // provider routes
+    AdaptiveRoute(page: ProvRegister),
+    AdaptiveRoute(page: ProvHome),
+
 
   ],
 )

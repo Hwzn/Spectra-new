@@ -3,16 +3,16 @@ import 'package:json_annotation/json_annotation.dart';
 part 'dropdown_model.g.dart'; 
 
 @JsonSerializable(nullable: false, ignoreUnannotated: false)
-class DropdownModel {
+class DropDownModel {
   @JsonKey(name: 'id')
   int? id;
   @JsonKey(name: 'name')
   String? name;
 
-  DropdownModel({this.id, this.name});
+  DropDownModel({this.id, this.name});
 
-   factory DropdownModel.fromJson(Map<String, dynamic> json) => _$DropdownModelFromJson(json);
+   factory DropDownModel.fromJson(Map<String, dynamic> json) => _$DropDownModelFromJson(json);
 
-   Map<String, dynamic> toJson() => _$DropdownModelToJson(this);
+   Map<String, dynamic> toJson() => _$DropDownModelToJson(this);
 }
 

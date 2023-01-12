@@ -7,7 +7,7 @@ class BuildJoinText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){},
+      onTap: ()=> AutoRouter.of(context).push(ProvRegisterRoute()),
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 10),
         child: MyText(

@@ -6,13 +6,13 @@ part of 'dropdown_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-DropdownModel _$DropdownModelFromJson(Map<String, dynamic> json) =>
-    DropdownModel(
+DropDownModel _$DropDownModelFromJson(Map<String, dynamic> json) =>
+    DropDownModel(
       id: json['id'] as int?,
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$DropdownModelToJson(DropdownModel instance) =>
+Map<String, dynamic> _$DropDownModelToJson(DropDownModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

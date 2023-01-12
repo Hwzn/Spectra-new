@@ -22,15 +22,15 @@ class GeneralHttpMethods {
   }
 
   // auth
-  Future<List<DropdownModel>> getUserTypes() async {
-    return await GenericHttp<DropdownModel>(context).callApi(
+  Future<List<DropDownModel>> getUserTypes() async {
+    return await GenericHttp<DropDownModel>(context).callApi(
       name: ApiNames.userTypes,
       returnType: ReturnType.list,
       returnDataFun: (data) => data["data"],
       methodType: MethodType.get,
       refresh: false,
-      toJsonFunc: (json) => DropdownModel.fromJson(json),
-    ) as List<DropdownModel>;
+      toJsonFunc: (json) => DropDownModel.fromJson(json),
+    ) as List<DropDownModel>;
   }
 
   Future<bool> register(RegisterModel model) async {

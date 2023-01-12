@@ -12,7 +12,7 @@ class GeneralRepository {
   // setting
   Future<SettingModel> getAppSetting() => _generalHttpMethods.getAppSetting();
 
-  Future<List<DropdownModel>> getUserTypes() => _generalHttpMethods.getUserTypes();
+  Future<List<DropDownModel>> getUserTypes() => _generalHttpMethods.getUserTypes();
 
   Future<bool> register(RegisterModel model) => _generalHttpMethods.register(model);
 
