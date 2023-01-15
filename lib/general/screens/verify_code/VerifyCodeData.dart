@@ -36,7 +36,7 @@ class VerifyCodeData {
       {bool? fromRegister}) async {
     fromRegister == true
         ? AutoRouter.of(context)
-            .popUntilRouteWithName(LoginRoute.name)
+            .popUntilRouteWithName(WelcomePageRoute.name)
         : AutoRouter.of(context)
             .push(ResetPasswordRoute(email: "", code: code ?? ''));
     // if (formKey.currentState!.validate()) {

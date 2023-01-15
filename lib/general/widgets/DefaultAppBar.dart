@@ -11,6 +11,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double? size;
   final bool showLeading;
   final Widget? child;
+  final bool? centerTitle;
 
   const DefaultAppBar({
     Key? key,
@@ -20,6 +21,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.size,
     this.showLeading = true,
     this.child,
+    this.centerTitle,
   }) : super(key: key);
 
   @override
@@ -50,7 +52,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
         ),
-        leadingWidth: showLeading == true ? 55 : 10,
+        leadingWidth: showLeading? 55 : 10,
         elevation: 0,
         backgroundColor: Colors.transparent,
         title: child ?? Container(
@@ -61,7 +63,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
             color: MyColors.white,
           ),
         ),
-        centerTitle: false,
+        centerTitle: centerTitle?? false,
         actions: actions,
         titleTextStyle: GoogleFonts.tajawal(
             color: const Color(0xffffffff),

@@ -33,7 +33,8 @@ class ProvRegisterData {
 
   // methods
   void onRegister(BuildContext context) {
-    AutoRouter.of(context).push(VerifyCodeRoute(email: '', fromRegister: true));
+    // AutoRouter.of(context).push(VerifyCodeRoute(email: '', fromRegister: true));
+    AutoRouter.of(context).push(ProvHomeRoute());
   }
 
   // used to update selected specialization in drop down field

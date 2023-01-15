@@ -4,13 +4,15 @@ class BuildTabBarItem extends StatelessWidget {
   final bool active;
   final int index;
   final String? title;
-  final HomeData homeData;
+  final HomeData? homeData;
+  final ProvHomeData? provHomeData;
 
   const BuildTabBarItem({
-    required this.homeData,
+    this.homeData,
     required this.active,
     required this.index,
     this.title,
+    this.provHomeData,
   });
 
   @override
@@ -26,7 +28,9 @@ class BuildTabBarItem extends StatelessWidget {
           Visibility(
             visible: active,
             replacement: Icon(
-              homeData.tabs[index].iconData,
+              homeData != null
+                  ? homeData?.tabs[index].iconData
+                  : provHomeData?.tabs[index].iconData,
               color: color,
               size: 25,
             ),
@@ -34,12 +38,11 @@ class BuildTabBarItem extends StatelessWidget {
               height: 35,
               width: 50,
               decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(Res.bottomShape)
-                )
-              ),
+                  image: DecorationImage(image: AssetImage(Res.bottomShape))),
               child: Icon(
-                homeData.tabs[index].iconData,
+                homeData != null
+                    ? homeData?.tabs[index].iconData
+                    : provHomeData?.tabs[index].iconData,
                 color: MyColors.white,
                 size: 20,
               ),
@@ -47,7 +50,9 @@ class BuildTabBarItem extends StatelessWidget {
           ),
           const SizedBox(height: 2),
           MyText(
-            title: homeData.tabs[index].title!,
+            title: homeData != null
+                ? homeData?.tabs[index].title ?? ''
+                : provHomeData?.tabs[index].title ?? '',
             color: color,
             size: 9,
           )

@@ -3,12 +3,10 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hwzn_base/provider/screens/prov_home/ProvHomeImports.dart';
-import 'package:hwzn_base/res.dart';
+
 import '../../../../general/constants/MyColors.dart';
 import '../../../../general/packages/generic_bloc/generic_cubit.dart';
-import '../../../../general/widgets/MyText.dart';
-import '../HomeImports.dart';
+import '../../../../user/screens/home/widgets/HomeWidgetsImports.dart';
 
-part 'BuildTabBarItem.dart';
-part 'BuildTabBarBody.dart';
-part 'BuildTabBarPages.dart';
+part 'ProvHomeTabBarPages.dart';
+part 'ProvHomeTabBar.dart';
