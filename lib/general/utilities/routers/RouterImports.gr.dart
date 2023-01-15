@@ -212,9 +212,14 @@ class AppRouter extends _i29.RootStackRouter {
       );
     },
     SessionRoute.name: (routeData) {
+      final args = routeData.argsAs<SessionRouteArgs>(
+          orElse: () => const SessionRouteArgs());
       return _i29.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i20.Session(),
+        child: _i20.Session(
+          key: args.key,
+          fromDoctorHome: args.fromDoctorHome,
+        ),
         opaque: true,
       );
     },
@@ -701,14 +706,36 @@ class AddPetRoute extends _i29.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i20.Session]
-class SessionRoute extends _i29.PageRouteInfo<void> {
-  const SessionRoute()
-      : super(
+class SessionRoute extends _i29.PageRouteInfo<SessionRouteArgs> {
+  SessionRoute({
+    _i30.Key? key,
+    bool? fromDoctorHome,
+  }) : super(
           SessionRoute.name,
           path: '/Session',
+          args: SessionRouteArgs(
+            key: key,
+            fromDoctorHome: fromDoctorHome,
+          ),
         );
 
   static const String name = 'SessionRoute';
+}
+
+class SessionRouteArgs {
+  const SessionRouteArgs({
+    this.key,
+    this.fromDoctorHome,
+  });
+
+  final _i30.Key? key;
+
+  final bool? fromDoctorHome;
+
+  @override
+  String toString() {
+    return 'SessionRouteArgs{key: $key, fromDoctorHome: $fromDoctorHome}';
+  }
 }
 
 /// generated route for

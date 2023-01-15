@@ -5,14 +5,16 @@ class BuildReservationItem extends StatelessWidget {
   final Color statusColor;
   final bool ended;
   final Widget? endButton;
+  final bool? fromDoctorHome;
 
-  const BuildReservationItem(
-      {Key? key,
-      required this.status,
-      required this.statusColor,
-      this.ended = false,
-      this.endButton})
-      : super(key: key);
+  const BuildReservationItem({
+    Key? key,
+    required this.status,
+    required this.statusColor,
+    this.ended = false,
+    this.endButton,
+    this.fromDoctorHome,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -156,7 +158,9 @@ class BuildReservationItem extends StatelessWidget {
               height: 40,
               fontSize: 12,
               borderRadius: BorderRadius.circular(15),
-              onTap: () => AutoRouter.of(context).push(SessionRoute()),
+              onTap: () => AutoRouter.of(context).push(
+                SessionRoute(fromDoctorHome: fromDoctorHome),
+              ),
             ),
           )
         ],

@@ -11,6 +11,7 @@ class ProvUpcoming extends StatelessWidget {
         (index) => BuildReservationItem(
           status: "Upcoming",
           statusColor: MyColors.lightGrey,
+          fromDoctorHome: true,
         ),
       ),
     );

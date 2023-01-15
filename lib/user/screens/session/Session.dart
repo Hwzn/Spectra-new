@@ -1,7 +1,9 @@
 part of 'SessionImports.dart';
 
 class Session extends StatefulWidget {
-  const Session({Key? key}) : super(key: key);
+  final bool? fromDoctorHome;
+
+  const Session({Key? key, this.fromDoctorHome}) : super(key: key);
 
   @override
   State<Session> createState() => _SessionState();
@@ -43,15 +45,18 @@ class _SessionState extends State<Session> {
           Flexible(
             child: ListView(
               padding: EdgeInsets.zero,
-              children: const [
-                BuildSessionDoctor(),
-                BuildSessionPet(),
-                BuildSessionInvite(),
+              children: [
+                const BuildSessionDoctor(),
+                const BuildSessionPet(),
+                Visibility(
+                  visible: widget.fromDoctorHome?? true,
+                  child: BuildSessionInvite(),
+                ),
               ],
             ),
           ),
           InkWell(
-            onTap: ()=> AutoRouter.of(context).pop(),
+            onTap: () => AutoRouter.of(context).pop(),
             child: Container(
               margin: const EdgeInsets.symmetric(vertical: 20),
               child: MyText(
