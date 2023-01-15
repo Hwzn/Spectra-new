@@ -7,15 +7,41 @@ class ProvReservations extends StatefulWidget {
   State<ProvReservations> createState() => _ProvReservationsState();
 }
 
-class _ProvReservationsState extends State<ProvReservations> {
+class _ProvReservationsState extends State<ProvReservations>
+    with TickerProviderStateMixin {
   ProvReservationsData provReservationsData = ProvReservationsData();
 
   @override
+  void initState() {
+    provReservationsData.tabController = TabController(length: 2, vsync: this);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const DefaultAppBar(
-        title: "My Reservations",
-        showLeading: false,
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        backgroundColor: MyColors.bg,
+        appBar: const DefaultAppBar(
+          title: "My Reservations",
+          showLeading: false,
+        ),
+        body: Column(
+          children: [
+            BuildProvReservTabBar(provReservationsData: provReservationsData),
+            Flexible(
+              child: TabBarView(
+                controller: provReservationsData.tabController,
+                physics: const NeverScrollableScrollPhysics(),
+                children: const [
+                  ProvUpcoming(),
+                  ProvPrevious(),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

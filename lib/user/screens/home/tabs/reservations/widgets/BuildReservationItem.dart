@@ -4,9 +4,14 @@ class BuildReservationItem extends StatelessWidget {
   final String status;
   final Color statusColor;
   final bool ended;
+  final Widget? endButton;
 
   const BuildReservationItem(
-      {Key? key, required this.status, required this.statusColor, this.ended = false})
+      {Key? key,
+      required this.status,
+      required this.statusColor,
+      this.ended = false,
+      this.endButton})
       : super(key: key);
 
   @override
@@ -48,6 +53,30 @@ class BuildReservationItem extends StatelessWidget {
               BuildReservationStatus(
                 status: status,
                 color: statusColor,
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(bottom: 5, top: 10),
+                child: const CachedImage(
+                  url:
+                      "https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=ZhplzyJ9",
+                  height: 30,
+                  width: 30,
+                  haveRadius: false,
+                  boxShape: BoxShape.circle,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                child: MyText(
+                  title: "Pet Name",
+                  color: MyColors.black,
+                  size: 11,
+                ),
               ),
             ],
           ),
@@ -108,7 +137,7 @@ class BuildReservationItem extends StatelessWidget {
                         ),
                         const SizedBox(width: 5),
                         MyText(
-                          title: "Center Name",
+                          title: "Name",
                           color: MyColors.primary,
                           size: 12,
                         ),
@@ -121,13 +150,13 @@ class BuildReservationItem extends StatelessWidget {
           ),
           Visibility(
             visible: !ended,
-            replacement: SizedBox(height: 10),
+            replacement: endButton ?? const SizedBox(height: 10),
             child: DefaultButton(
               title: "Join Session",
               height: 40,
               fontSize: 12,
               borderRadius: BorderRadius.circular(15),
-              onTap: ()=> AutoRouter.of(context).push(SessionRoute()),
+              onTap: () => AutoRouter.of(context).push(SessionRoute()),
             ),
           )
         ],

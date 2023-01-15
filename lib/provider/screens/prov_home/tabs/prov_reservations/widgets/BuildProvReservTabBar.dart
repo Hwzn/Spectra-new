@@ -1,15 +1,13 @@
-part of 'ReservationsWidgetsImports.dart';
+part of 'ProvReservWidgetsImports.dart';
 
-class BuildReservationsTabBar extends StatelessWidget {
-  final ReservationsData reservationsData;
-
-  const BuildReservationsTabBar({Key? key, required this.reservationsData})
-      : super(key: key);
+class BuildProvReservTabBar extends StatelessWidget {
+  final ProvReservationsData provReservationsData;
+  const BuildProvReservTabBar({Key? key, required this.provReservationsData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GenericBloc<int>, GenericState<int>>(
-      bloc: reservationsData.tabsBloc,
+      bloc: provReservationsData.tabsBloc,
       builder: (context, state) {
         return Container(
           height: 55,
@@ -17,6 +15,7 @@ class BuildReservationsTabBar extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
+            color: MyColors.white
           ),
           child: TabBar(
             indicator: BoxDecoration(
@@ -36,20 +35,20 @@ class BuildReservationsTabBar extends StatelessWidget {
                     : const Radius.circular(0),
               ),
             ),
-            controller: reservationsData.tabController,
+            controller: provReservationsData.tabController,
             onTap: (index) {
-              reservationsData.tabController.animateTo(index);
-              reservationsData.tabsBloc.onUpdateData(index);
+              provReservationsData.tabController.animateTo(index);
+              provReservationsData.tabsBloc.onUpdateData(index);
             },
             labelStyle: TextStyle(
-              color: Colors.white,
+              color: MyColors.white,
               fontSize: 12,
               fontWeight: FontWeight.bold,
               fontFamily: GoogleFonts.poppins().fontFamily,
             ),
             indicatorColor: MyColors.greyWhite,
             labelColor: MyColors.white,
-            unselectedLabelColor: MyColors.primary,
+            unselectedLabelColor: MyColors.grey,
             tabs: const [
               Tab(text: "Upcoming"),
               Tab(text: "Previous"),
