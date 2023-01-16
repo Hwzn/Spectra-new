@@ -2,7 +2,9 @@ part of 'ProvAccountWidgetsImports.dart';
 
 class BuildMyRatesSection extends StatelessWidget {
   final ProvAccountData provAccountData;
-  const BuildMyRatesSection({Key? key, required this.provAccountData}) : super(key: key);
+
+  const BuildMyRatesSection({Key? key, required this.provAccountData})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,23 +22,33 @@ class BuildMyRatesSection extends StatelessWidget {
             ),
           ),
           Container(
-            height: 150,
-            margin: const EdgeInsets.symmetric(horizontal: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                BuildProvAccRateItem(
-                  provAccountData: provAccountData,
-                  price: "70",
-                  title: "Hour Rate",
-                ),
-                BuildProvAccRateItem(
-                  provAccountData: provAccountData,
-                  price: "30",
-                  title: "Rescue Cases",
-                ),
-              ],
-            )
+              height: 150,
+              margin: const EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  BlocBuilder<GenericBloc<String>, GenericState<String>>(
+                    bloc: provAccountData.hourRateCubit,
+                    builder: (context, state) {
+                      return BuildProvAccRateItem(
+                        price: state.data,
+                        title: "Hour Rate",
+                        onTap: () => provAccountData.editRate(context),
+                      );
+                    },
+                  ),
+                  BlocBuilder<GenericBloc<String>, GenericState<String>>(
+                    bloc: provAccountData.rescueCasesCubit,
+                    builder: (context, state) {
+                      return BuildProvAccRateItem(
+                        price: state.data,
+                        title: "Rescue Cases",
+                        onTap: () => provAccountData.editCases(context),
+                      );
+                    },
+                  ),
+                ],
+              )
           ),
         ],
       ),

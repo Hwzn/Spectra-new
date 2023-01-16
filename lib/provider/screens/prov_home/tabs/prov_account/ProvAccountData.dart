@@ -1,6 +1,13 @@
 part of 'ProvAccountImports.dart';
 
 class ProvAccountData {
+  // bloc
+  final GenericBloc<String> hourRateCubit = GenericBloc('70');
+  final GenericBloc<String> rescueCasesCubit = GenericBloc('30');
+
+  // controllers
+  final TextEditingController controller = TextEditingController();
+
   // lists
   List<BuildSettingItem> settingList(context) {
     return [
@@ -22,5 +29,55 @@ class ProvAccountData {
   }
 
   // methods
-  editRate() {}
+  editRate(BuildContext context) {
+    showBottomSheet(
+      context: context,
+      builder: (_) {
+        return BuildAccountBottomSheet(
+          onSubmit: (){
+            if(controller.text.isNotEmpty){
+              hourRateCubit.onUpdateData(controller.text);
+              controller.clear();
+              Navigator.pop(context);
+            }
+          },
+          title: "Hour Rate",
+          controller: controller,
+        );
+      },
+      constraints: const BoxConstraints(maxHeight: 250),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(30),
+          topLeft: Radius.circular(30),
+        ),
+      ),
+    );
+  }
+
+  editCases(BuildContext context) {
+    showBottomSheet(
+      context: context,
+      builder: (_) {
+        return BuildAccountBottomSheet(
+          onSubmit: (){
+            if(controller.text.isNotEmpty){
+              rescueCasesCubit.onUpdateData(controller.text);
+              controller.clear();
+              Navigator.pop(context);
+            }
+          },
+          title: "Rescue Cases",
+          controller: controller,
+        );
+      },
+      constraints: const BoxConstraints(maxHeight: 250),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(30),
+          topLeft: Radius.circular(30),
+        ),
+      ),
+    );
+  }
 }

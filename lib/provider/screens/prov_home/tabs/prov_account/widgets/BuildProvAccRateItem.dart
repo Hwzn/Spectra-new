@@ -1,10 +1,10 @@
 part of 'ProvAccountWidgetsImports.dart';
 
 class BuildProvAccRateItem extends StatelessWidget {
-  final ProvAccountData provAccountData;
   final String price;
   final String title;
-  const BuildProvAccRateItem({Key? key, required this.provAccountData, required this.price, required this.title}) : super(key: key);
+  final Function()? onTap;
+  const BuildProvAccRateItem({Key? key, required this.price, required this.title, this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class BuildProvAccRateItem extends StatelessWidget {
         Positioned(
           right: 0,
           child: InkWell(
-            onTap: ()=> provAccountData.editRate(),
+            onTap: onTap,
             child: Container(
               height: 25,
               width: 25,
