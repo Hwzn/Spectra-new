@@ -11,7 +11,11 @@ class ProvAccountData {
   // lists
   List<BuildSettingItem> settingList(context) {
     return [
-      const BuildSettingItem(icon: Icons.person_outline, title: "My Account"),
+      BuildSettingItem(
+        icon: Icons.person_outline,
+        title: "My Account",
+        onTap: ()=> AutoRouter.of(context).push(ProvProfileRoute()),
+      ),
       const BuildSettingItem(icon: MdiIcons.bullseyeArrow, title: "plans"),
       const BuildSettingItem(icon: Icons.language, title: "Language"),
       BuildSettingItem(
@@ -34,8 +38,8 @@ class ProvAccountData {
       context: context,
       builder: (_) {
         return BuildAccountBottomSheet(
-          onSubmit: (){
-            if(controller.text.isNotEmpty){
+          onSubmit: () {
+            if (controller.text.isNotEmpty) {
               hourRateCubit.onUpdateData(controller.text);
               controller.clear();
               Navigator.pop(context);
@@ -60,8 +64,8 @@ class ProvAccountData {
       context: context,
       builder: (_) {
         return BuildAccountBottomSheet(
-          onSubmit: (){
-            if(controller.text.isNotEmpty){
+          onSubmit: () {
+            if (controller.text.isNotEmpty) {
               rescueCasesCubit.onUpdateData(controller.text);
               controller.clear();
               Navigator.pop(context);

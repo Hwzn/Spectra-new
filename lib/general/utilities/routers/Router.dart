@@ -36,6 +36,7 @@ part of 'RouterImports.dart';
     // provider routes
     AdaptiveRoute(page: ProvRegister),
     AdaptiveRoute(page: ProvHome),
+    AdaptiveRoute(page: ProvProfile),
 
 
   ],
