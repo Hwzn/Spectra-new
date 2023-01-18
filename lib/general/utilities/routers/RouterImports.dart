@@ -14,6 +14,7 @@ import 'package:hwzn_base/general/screens/verify_code/VerifyCodeImports.dart';
 import 'package:hwzn_base/general/screens/welcome_page/WelcomePageImports.dart';
 import 'package:hwzn_base/user/screens/notifications/NotificationsImports.dart';
 
+import '../../../provider/screens/pet_profile/PetProfileImports.dart';
 import '../../../provider/screens/prov_home/ProvHomeImports.dart';
 import '../../../provider/screens/prov_profile/ProvProfileImports.dart';
 import '../../../provider/screens/prov_register/ProvRegisterImports.dart';

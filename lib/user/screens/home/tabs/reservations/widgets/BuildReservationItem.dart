@@ -5,7 +5,7 @@ class BuildReservationItem extends StatelessWidget {
   final Color statusColor;
   final bool ended;
   final Widget? endButton;
-  final bool? fromDoctorHome;
+  final bool fromDoctorHome;
 
   const BuildReservationItem({
     Key? key,
@@ -13,7 +13,7 @@ class BuildReservationItem extends StatelessWidget {
     required this.statusColor,
     this.ended = false,
     this.endButton,
-    this.fromDoctorHome,
+    this.fromDoctorHome = false,
   }) : super(key: key);
 
   @override

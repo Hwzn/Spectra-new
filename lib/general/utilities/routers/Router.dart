@@ -37,6 +37,7 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: ProvRegister),
     AdaptiveRoute(page: ProvHome),
     AdaptiveRoute(page: ProvProfile),
+    AdaptiveRoute(page: PetProfile),
 
 
   ],

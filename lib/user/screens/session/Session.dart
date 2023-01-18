@@ -1,9 +1,9 @@
 part of 'SessionImports.dart';
 
 class Session extends StatefulWidget {
-  final bool? fromDoctorHome;
+  final bool fromDoctorHome;
 
-  const Session({Key? key, this.fromDoctorHome}) : super(key: key);
+  const Session({Key? key, this.fromDoctorHome = false}) : super(key: key);
 
   @override
   State<Session> createState() => _SessionState();
@@ -47,10 +47,15 @@ class _SessionState extends State<Session> {
               padding: EdgeInsets.zero,
               children: [
                 const BuildSessionDoctor(),
-                const BuildSessionPet(),
+                InkWell(
+                  onTap: widget.fromDoctorHome ?
+                      ()=> AutoRouter.of(context).push(const PetProfileRoute())
+                  : null,
+                  child: const BuildSessionPet(),
+                ),
                 Visibility(
-                  visible: widget.fromDoctorHome?? true,
-                  child: BuildSessionInvite(),
+                  visible: !widget.fromDoctorHome,
+                  child: const BuildSessionInvite(),
                 ),
               ],
             ),

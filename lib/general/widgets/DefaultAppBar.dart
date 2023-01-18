@@ -70,7 +70,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
             fontWeight: FontWeight.w700,
             fontStyle: FontStyle.normal,
             fontSize: 19.0),
-        toolbarHeight: 70,
+        toolbarHeight: size ?? 70,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(30),

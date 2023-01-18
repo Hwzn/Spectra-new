@@ -25,4 +25,5 @@ class Res {
   static const String filter = "assets/images/filter.png";
   static const String paw = "assets/images/paw.png";
   static const String locator = "assets/images/locator.png";
+  static const String pdf = "assets/images/pdf.png";
 }
