@@ -11,6 +11,7 @@ class BuildPostButtons extends StatelessWidget {
           title: "",
           color: MyColors.bg,
           borderRadius: BorderRadius.circular(15),
+          onTap: (){},
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.end,
@@ -28,6 +29,7 @@ class BuildPostButtons extends StatelessWidget {
         ),
         DefaultButton(
           title: "",
+          onTap: (){},
           borderRadius: BorderRadius.circular(15),
           color: MyColors.secondary.withOpacity(0.8),
           margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -48,6 +50,7 @@ class BuildPostButtons extends StatelessWidget {
         ),
         DefaultButton(
           title: "Post",
+          onTap: (){},
           borderRadius: BorderRadius.circular(15),
           margin:
               const EdgeInsets.only(bottom: 20, right: 20, left: 20, top: 10),

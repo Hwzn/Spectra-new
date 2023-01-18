@@ -10,6 +10,7 @@ class BuildProfileInputItem extends StatelessWidget {
   final FieldTypes? fieldType;
   final EdgeInsets? fieldMargin;
   final Color? fillColor;
+  final bool showTitle;
 
   const BuildProfileInputItem({
     Key? key,
@@ -22,6 +23,7 @@ class BuildProfileInputItem extends StatelessWidget {
     this.fieldType,
     this.fieldMargin,
     this.fillColor,
+    this.showTitle = true,
   }) : super(key: key);
 
   @override
@@ -31,11 +33,14 @@ class BuildProfileInputItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MyText(
-            title: title,
-            color: MyColors.black,
-            size: 12,
-            fontWeight: FontWeight.w600,
+          Visibility(
+            visible: showTitle,
+            child: MyText(
+              title: title,
+              color: MyColors.black,
+              size: 12,
+              fontWeight: FontWeight.w600,
+            ),
           ),
           GenericTextField(
             fieldTypes: fieldType ?? FieldTypes.normal,

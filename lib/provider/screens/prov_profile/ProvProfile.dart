@@ -18,8 +18,14 @@ class _ProvProfileState extends State<ProvProfile> {
       body: ListView(
         children: [
           BuildProvProfilePhoto(provProfileData: provProfileData),
-
+          BuildProvProfileInputs(provProfileData: provProfileData),
         ],
+      ),
+      bottomNavigationBar: DefaultButton(
+        title: "Save Changes",
+        margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+        borderRadius: BorderRadius.circular(15),
+        onTap: (){},
       ),
     );
   }

@@ -26,6 +26,7 @@ class _ProfileState extends State<Profile> {
         title: "Save",
         margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
         borderRadius: BorderRadius.circular(15),
+        onTap: (){},
       ),
     );
   }
