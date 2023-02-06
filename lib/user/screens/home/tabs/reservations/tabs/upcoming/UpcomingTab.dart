@@ -6,16 +6,13 @@ class UpcomingTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: [
-        BuildReservationItem(
+      children: List.generate(
+        2,
+        (index) => BuildReservationItem(
           status: "Upcoming",
           statusColor: MyColors.lightGrey,
         ),
-        BuildReservationItem(
-          status: "Cancelled",
-          statusColor: Colors.red[700]!,
-        ),
-      ],
+      ),
     );
   }
 }
