@@ -25,6 +25,10 @@ class _ReviewSessionState extends State<ReviewSession> {
           ),
           const BuildSessionDoctorInfo(),
           const BuildRateSession(),
+          DefaultButton(
+            title: "Submit",
+            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          ),
         ],
       ),
     );
