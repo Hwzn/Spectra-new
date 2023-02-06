@@ -1,7 +1,8 @@
 part of 'ProvPreviousImports.dart';
 
 class ProvPrevious extends StatelessWidget {
-  const ProvPrevious({Key? key}) : super(key: key);
+  final ProvReservationsData provReservationsData;
+  const ProvPrevious({Key? key, required this.provReservationsData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class ProvPrevious extends StatelessWidget {
             height: 40,
             fontSize: 12,
             borderRadius: BorderRadius.circular(15),
-            onTap: ()=> AutoRouter.of(context).push(ReviewSessionRoute()),
+            onTap: ()=> provReservationsData.sessionDetails(context),
           ),
         ),
       ]

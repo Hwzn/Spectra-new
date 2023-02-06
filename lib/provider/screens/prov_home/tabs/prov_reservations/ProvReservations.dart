@@ -34,9 +34,9 @@ class _ProvReservationsState extends State<ProvReservations>
               child: TabBarView(
                 controller: provReservationsData.tabController,
                 physics: const NeverScrollableScrollPhysics(),
-                children: const [
-                  ProvUpcoming(),
-                  ProvPrevious(),
+                children: [
+                  const ProvUpcoming(),
+                  ProvPrevious(provReservationsData: provReservationsData),
                 ],
               ),
             ),
