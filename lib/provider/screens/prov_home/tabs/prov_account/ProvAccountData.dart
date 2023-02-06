@@ -14,10 +14,14 @@ class ProvAccountData {
       BuildSettingItem(
         icon: Icons.person_outline,
         title: "My Account",
-        onTap: ()=> AutoRouter.of(context).push(ProvProfileRoute()),
+        onTap: () => AutoRouter.of(context).push(ProvProfileRoute()),
       ),
       const BuildSettingItem(icon: MdiIcons.bullseyeArrow, title: "plans"),
-      const BuildSettingItem(icon: Icons.language, title: "Language"),
+      BuildSettingItem(
+        icon: Icons.language,
+        title: "Language",
+        onTap: () => changeLang(context),
+      ),
       BuildSettingItem(
         icon: MdiIcons.tooltipOutline,
         title: "FAQ",
@@ -80,6 +84,22 @@ class ProvAccountData {
         borderRadius: BorderRadius.only(
           topRight: Radius.circular(30),
           topLeft: Radius.circular(30),
+        ),
+      ),
+    );
+  }
+
+  changeLang(BuildContext context) {
+    // open bottom sheet
+    showModalBottomSheet(
+      context: context,
+      builder: (_) {
+        return const BuildLangBottomSheet();
+      },
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(25),
+          topLeft: Radius.circular(25),
         ),
       ),
     );

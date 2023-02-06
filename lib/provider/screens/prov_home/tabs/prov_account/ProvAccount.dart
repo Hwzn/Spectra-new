@@ -41,13 +41,16 @@ class _ProvAccountState extends State<ProvAccount> {
               },
             ),
           ),
-          Container(
-            margin: const EdgeInsets.only(top: 20, bottom: 15),
-            child: MyText(
-              title: "Sign out",
-              color: MyColors.grey,
-              size: 14,
-              alien: TextAlign.center,
+          InkWell(
+            onTap: ()=> Phoenix.rebirth(context),
+            child: Container(
+              margin: const EdgeInsets.only(top: 20, bottom: 15),
+              child: MyText(
+                title: "Sign out",
+                color: MyColors.grey,
+                size: 14,
+                alien: TextAlign.center,
+              ),
             ),
           )
         ],
