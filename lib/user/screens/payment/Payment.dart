@@ -44,7 +44,7 @@ class _PaymentState extends State<Payment> {
         title: "Pay",
         borderRadius: BorderRadius.circular(15),
         margin: const EdgeInsets.all(20),
-        onTap: ()=> AutoRouter.of(context).pop(),
+        onTap: ()=> paymentData.successDialog(context),
       ),
     );
   }

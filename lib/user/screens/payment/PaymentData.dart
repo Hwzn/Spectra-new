@@ -6,4 +6,17 @@ class PaymentData {
   final TextEditingController endDate = TextEditingController();
   final TextEditingController ccv = TextEditingController();
   final TextEditingController cardHolderNumber = TextEditingController();
+
+  // methods
+  successDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (_) => AlertDialog(
+        content: const BuildSuccessDialog(),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30)
+        ),
+      ),
+    );
+  }
 }
