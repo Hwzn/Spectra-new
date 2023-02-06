@@ -31,4 +31,58 @@ class SessionData {
     stopWatchTimer!.onExecute.add(StopWatchExecute.start);
   }
 
+  cancelSession(BuildContext context) {
+    // open bottom sheet
+    showModalBottomSheet(
+      context: context,
+      builder: (_) {
+        return BuildCancelBottomSheet(sessionData: this);
+      },
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(25),
+          topLeft: Radius.circular(25),
+        ),
+      ),
+    );
+  }
+
+  // when tapping cancel button in the cancel bottom sheet
+  onTapCancel(BuildContext context) {
+    // close first cancel dialog
+    Navigator.pop(context);
+    // open bottom sheet
+    showModalBottomSheet(
+      context: context,
+      builder: (_) {
+        return BuildCancelDetBottomSheet();
+      },
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(25),
+          topLeft: Radius.circular(25),
+        ),
+      ),
+    );
+  }
+
+  // when tapping change time button in the cancel bottom sheet
+  changeTime(BuildContext context) {
+    // close the dialog
+    Navigator.pop(context);
+    // open bottom sheet
+    showModalBottomSheet(
+      context: context,
+      builder: (_) {
+        return BuildChangeTimeBottomSheet();
+      },
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(25),
+          topLeft: Radius.circular(25),
+        ),
+      ),
+    );
+  }
+
 }

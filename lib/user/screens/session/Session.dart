@@ -34,6 +34,17 @@ class _SessionState extends State<Session> {
               Container(
                   height: MediaQuery.of(context).size.height * 0.22 + 175),
               const BuildSessionHeader(),
+              Positioned(
+                top: 50,
+                left: 20,
+                child: IconButton(
+                  onPressed: ()=> AutoRouter.of(context).pop(),
+                  icon: Icon(
+                    Icons.arrow_back_ios,
+                    color: MyColors.white,
+                  ),
+                ),
+              ),
               BuildSessionTimer(
                 sessionData: sessionData,
                 stopWatchTimer: sessionData.stopWatchTimer!,
@@ -51,7 +62,7 @@ class _SessionState extends State<Session> {
             ),
           ),
           InkWell(
-            onTap: ()=> AutoRouter.of(context).pop(),
+            onTap: () => sessionData.cancelSession(context),
             child: Container(
               margin: const EdgeInsets.symmetric(vertical: 20),
               child: MyText(

@@ -11,11 +11,16 @@ import 'dart:math' as math;
 import '../../../../general/constants/MyColors.dart';
 import '../../../../general/packages/generic_bloc/generic_cubit.dart';
 import '../../../../general/widgets/CachedImage.dart';
+import '../../../../general/widgets/DefaultButton.dart';
 import '../../../../general/widgets/MyText.dart';
 import '../../../../res.dart';
+import '../../add_reservation/widgets/AddReservationWidgetsImports.dart';
 
 part 'BuildSessionHeader.dart';
 part 'BuildSessionTimer.dart';
 part 'BuildSessionDoctor.dart';
 part 'BuildSessionPet.dart';
 part 'BuildSessionInvite.dart';
+part 'BuildCancelBottomSheet.dart';
+part 'BuildCancelDetBottomSheet.dart';
+part 'BuildChangeTimeBottomSheet.dart';
