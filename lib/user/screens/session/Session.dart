@@ -72,7 +72,13 @@ class _SessionState extends State<Session> {
             ),
           ),
           InkWell(
-            onTap: () => sessionData.cancelSession(context),
+            onTap: () {
+              if(widget.fromDoctorHome){
+                sessionData.onTapCancel(context);
+              } else {
+                sessionData.cancelSession(context);
+              }
+            },
             child: Container(
               margin: const EdgeInsets.symmetric(vertical: 20),
               child: MyText(

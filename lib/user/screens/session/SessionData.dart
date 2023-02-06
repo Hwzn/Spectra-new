@@ -50,7 +50,7 @@ class SessionData {
   // when tapping cancel button in the cancel bottom sheet
   onTapCancel(BuildContext context) {
     // close first cancel dialog
-    Navigator.pop(context);
+    // Navigator.pop(context);
     // open bottom sheet
     showModalBottomSheet(
       context: context,
