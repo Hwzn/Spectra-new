@@ -12,6 +12,7 @@ import 'package:hwzn_base/general/screens/splash/SplashImports.dart';
 import 'package:hwzn_base/general/screens/terms/TermsImports.dart';
 import 'package:hwzn_base/general/screens/verify_code/VerifyCodeImports.dart';
 import 'package:hwzn_base/general/screens/welcome_page/WelcomePageImports.dart';
+import 'package:hwzn_base/provider/screens/working_times/WorkingTimesImports.dart';
 import 'package:hwzn_base/user/screens/notifications/NotificationsImports.dart';
 
 import '../../../provider/screens/pet_profile/PetProfileImports.dart';

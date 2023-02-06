@@ -16,7 +16,12 @@ class ProvAccountData {
         title: "My Account",
         onTap: () => AutoRouter.of(context).push(ProvProfileRoute()),
       ),
-      const BuildSettingItem(icon: MdiIcons.bullseyeArrow, title: "plans"),
+      BuildSettingItem(
+        icon: Icons.watch_later_outlined,
+        title: "Working Times",
+        onTap: () => AutoRouter.of(context).push(WorkingTimesRoute()),
+      ),
+      const BuildSettingItem(icon: MdiIcons.bullseyeArrow, title: "Plans"),
       BuildSettingItem(
         icon: Icons.language,
         title: "Language",
