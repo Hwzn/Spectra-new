@@ -23,7 +23,7 @@ class BuildPaymentInfo extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           MyText(
-            title: "Choose time slot",
+            title: "Payment Information",
             color: MyColors.black,
             size: 13,
           ),

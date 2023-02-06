@@ -11,7 +11,7 @@ class BuildDateTimeItem extends StatelessWidget {
       children: [
         Icon(Icons.arrow_back_ios, color: MyColors.primary, size: 20),
         SizedBox(
-          width: MediaQuery.of(context).size.width * 0.7,
+          width: MediaQuery.of(context).size.width * 0.65,
           height: 30,
           child: ListView(
             scrollDirection: Axis.horizontal,

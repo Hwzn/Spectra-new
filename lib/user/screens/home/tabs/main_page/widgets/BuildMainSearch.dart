@@ -1,7 +1,8 @@
 part of 'MainWidgetsImports.dart';
 
 class BuildMainSearch extends StatelessWidget {
-  const BuildMainSearch({Key? key}) : super(key: key);
+  final MainPageData mainPageData;
+  const BuildMainSearch({Key? key, required this.mainPageData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +21,13 @@ class BuildMainSearch extends StatelessWidget {
           Icons.search,
           color: MyColors.primary,
         ),
-        suffixIcon: Container(
-          padding: const EdgeInsets.all(15),
-          height: 20, width: 20,
-          child: Image.asset(Res.filter),
+        suffixIcon: InkWell(
+          onTap: ()=> mainPageData.openFilter(context),
+          child: Container(
+            padding: const EdgeInsets.all(15),
+            height: 20, width: 20,
+            child: Image.asset(Res.filter),
+          ),
         ),
       ),
     );

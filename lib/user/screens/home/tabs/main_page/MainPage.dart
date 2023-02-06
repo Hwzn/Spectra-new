@@ -20,7 +20,7 @@ class _MainPageState extends State<MainPage> {
             children: [
               Container(height: MediaQuery.of(context).size.height * .23),
               const BuildMainAppBar(),
-              const BuildMainSearch(),
+              BuildMainSearch(mainPageData: mainPageData),
             ],
           ),
           Flexible(

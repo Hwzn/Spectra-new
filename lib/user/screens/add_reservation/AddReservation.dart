@@ -17,16 +17,18 @@ class _AddReservationState extends State<AddReservation> {
       appBar: const DefaultAppBar(title: "Make a reservation"),
       body: ListView(
         padding: const EdgeInsets.only(top: 10),
-        children: const [
-          BuildAvailableTime(
+        children: [
+          const BuildAvailableTime(
             title: "Available days",
             detail: "Sat 11/12",
           ),
-          BuildAvailableTime(
+          const BuildAvailableTime(
             title: "Available time slots",
             detail: "5 pm to 6 pm",
           ),
-          BuildPaymentInfo(),
+          const BuildReservationType(),
+          const BuildPaymentInfo(),
+          BuildAcceptTerms(addReservationData: addReservationData),
         ],
       ),
       bottomNavigationBar: DefaultButton(
