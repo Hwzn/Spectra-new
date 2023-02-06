@@ -18,7 +18,11 @@ class AccountData {
         title: "My Account",
         onTap: () => AutoRouter.of(context).push(ProfileRoute()),
       ),
-      const BuildSettingItem(icon: Icons.language, title: "Language"),
+      BuildSettingItem(
+        icon: Icons.language,
+        title: "Language",
+        onTap: ()=> changeLang(context),
+      ),
       BuildSettingItem(
         icon: MdiIcons.tooltipOutline,
         title: "FAQ",
@@ -41,5 +45,21 @@ class AccountData {
   removePet(int index) {
     petsBloc.state.data.removeAt(index);
     petsBloc.onUpdateData(petsBloc.state.data);
+  }
+
+  changeLang(BuildContext context) {
+    // open bottom sheet
+    showModalBottomSheet(
+      context: context,
+      builder: (_) {
+        return const BuildLangBottomSheet();
+      },
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(25),
+          topLeft: Radius.circular(25),
+        ),
+      ),
+    );
   }
 }
