@@ -71,6 +71,7 @@ dependencies:
   injectable:
 #  firebase_analytics:
 #  firebase_crashlytics:
+
   google_maps_flutter:
   geocode:
   animated_bottom_navigation_bar:
