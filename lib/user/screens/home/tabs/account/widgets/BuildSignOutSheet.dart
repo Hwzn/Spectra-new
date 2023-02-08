@@ -1,7 +1,7 @@
 part of 'AccountWidgetsImports.dart';
 
-class BuildLangBottomSheet extends StatelessWidget {
-  const BuildLangBottomSheet({Key? key}) : super(key: key);
+class BuildSignOutSheet extends StatelessWidget {
+  const BuildSignOutSheet({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,18 +11,18 @@ class BuildLangBottomSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           MyText(
-            title: "Change Language",
+            title: "Are you sure you want to sign out ?",
             color: MyColors.black,
             size: 16,
           ),
           DefaultButton(
-            title: "عربي",
+            title: "No",
             margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
             onTap: ()=>AutoRouter.of(context).pop(),
           ),
           DefaultButton(
-            title: "Go Back",
-            onTap: ()=>AutoRouter.of(context).pop(),
+            title: "Yes, Sign Out",
+            onTap: ()=> Phoenix.rebirth(context),
             margin: const EdgeInsets.only(
               right: 20,
               left: 20,

@@ -62,7 +62,7 @@ android {
             signingConfig signingConfigs.debug
             applicationVariants.all { variant ->
                 variant.outputs.all {
-                    def appName = "ATHKAR_V_"
+                    def appName = "spectra"
                     def newName = "${appName}${defaultConfig.versionName}_${defaultConfig.versionCode}.apk"
 //                  newName = "${appName}${defaultConfig.versionName}_${variant.getFlavorName()}.apk"
                     outputFileName = newName

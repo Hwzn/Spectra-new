@@ -48,7 +48,7 @@ class _AccountState extends State<Account> {
             ),
           ),
           InkWell(
-            onTap: ()=> Phoenix.rebirth(context),
+            onTap: ()=> accountData.signOut(context),
             child: Container(
               margin: const EdgeInsets.only(top: 25, bottom: 15),
               child: MyText(
