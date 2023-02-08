@@ -42,7 +42,7 @@ class _ProvAccountState extends State<ProvAccount> {
             ),
           ),
           InkWell(
-            onTap: ()=> Phoenix.rebirth(context),
+            onTap: ()=> provAccountData.signOut(context),
             child: Container(
               margin: const EdgeInsets.only(top: 20, bottom: 15),
               child: MyText(

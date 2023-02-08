@@ -109,4 +109,21 @@ class ProvAccountData {
       ),
     );
   }
+
+  signOut(BuildContext context) {
+    // open bottom sheet
+    showModalBottomSheet(
+      context: context,
+      builder: (_) {
+        return const BuildSignOutSheet();
+      },
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(25),
+          topLeft: Radius.circular(25),
+        ),
+      ),
+    );
+  }
+
 }
