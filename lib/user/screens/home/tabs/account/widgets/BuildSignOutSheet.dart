@@ -22,7 +22,8 @@ class BuildSignOutSheet extends StatelessWidget {
           ),
           DefaultButton(
             title: "Yes, Sign Out",
-            onTap: ()=> Phoenix.rebirth(context),
+            // onTap: ()=> Phoenix.rebirth(context),
+            onTap: ()=> GeneralRepository(context).logOut(),
             margin: const EdgeInsets.only(
               right: 20,
               left: 20,

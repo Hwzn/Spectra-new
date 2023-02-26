@@ -11,6 +11,7 @@ class ApiNames{
 
   // auth
   static const String login = "login";
+  static const String logout = "logout";
   static const String aboutApp = "AboutApp";
   static const String terms = "api/mobile/termsAndConditions";
   static const String activateAccount = "activate-account";
@@ -25,7 +26,6 @@ class ApiNames{
 
   // customer
   static const String register = "register";
-  static const String logOut = "api/mobile/logout";
   static const String editProfile = "api/mobile/editProfile";
   static const String updatePassword = "api/mobile/updatePassword";
   static const String getHome = "api/mobile/homePage";

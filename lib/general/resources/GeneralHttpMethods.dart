@@ -73,7 +73,7 @@ class GeneralHttpMethods {
   }
 
   Future<bool> userLogin(String phone, String pass, String countryCode) async {
-    String? token = "await messaging.getToken()";
+    String? token = await messaging.getToken();
     Map<String, dynamic> body = {
       "country_code": countryCode,
       "phone": phone,
@@ -87,7 +87,7 @@ class GeneralHttpMethods {
       json: body,
       returnType: ReturnType.type,
       methodType: MethodType.post,
-      returnDataFun: (data) => data["data"]["user"],
+      returnDataFun: (data) => data,
       toJsonFunc: (json) => UserModel.fromJson(json),
       showLoader: false,
     );
@@ -165,13 +165,10 @@ class GeneralHttpMethods {
     return (data != null);
   }
 
-  Future<void> logOut() async {
+  Future<void> logout() async {
     LoadingDialog.showLoadingDialog();
-    String? deviceId = await Storage.getDeviceId();
-    Map<String, dynamic> body = {"firebase_token": deviceId};
     await GenericHttp<dynamic>(context).callApi(
-      name: ApiNames.logOut,
-      json: body,
+      name: ApiNames.logout,
       returnType: ReturnType.type,
       showLoader: false,
       methodType: MethodType.post,

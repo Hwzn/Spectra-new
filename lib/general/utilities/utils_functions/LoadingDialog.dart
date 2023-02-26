@@ -7,27 +7,28 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 class LoadingDialog {
 
   static showLoadingDialog() {
+    EasyLoading.instance.maskColor = Colors.white.withOpacity(0.2);
+    EasyLoading.instance.backgroundColor = Colors.grey;
     EasyLoading.show(
-        maskType: EasyLoadingMaskType.black,
+        maskType: EasyLoadingMaskType.clear,
         dismissOnTap: false,
-        indicator: SpinKitCubeGrid(
-          size: 40.0,
-          itemBuilder: (context, index) {
-            return Container(
-              height: 10,
-              width: 10,
-              margin: const EdgeInsets.all(1),
-              decoration: BoxDecoration(
-                  color: MyColors.primary, shape: BoxShape.circle),
-            );
-          },
+        indicator: Container(
+          margin: const EdgeInsets.symmetric(vertical: 10),
+          width: 100,
+          child: SpinKitFadingCube(
+            size: 40.0,
+            color: MyColors.primary,
+          ),
         ),
-        status: "loading");
+        status: "Loading");
   }
 
   static showLoadingView({Color? color}) {
-    return const Center(
-      child: CupertinoActivityIndicator()
+    return Center(
+      child: SpinKitFadingCube(
+        color: color ?? MyColors.primary,
+        size: 40.0,
+      ),
     );
   }
 }

@@ -11,7 +11,7 @@ class SplashController {
 
   // methods
   void checkingData(BuildContext context) async {
-   // if (!kIsWeb) GlobalNotification.instance.setupNotification(context);
+   if (!kIsWeb) GlobalNotification.instance.setupNotification(context);
     Future.delayed(const Duration(milliseconds: 1500), () => manipulateSplashData(context));
   }
 

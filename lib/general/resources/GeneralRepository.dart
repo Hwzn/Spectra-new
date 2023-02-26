@@ -36,5 +36,5 @@ class GeneralRepository {
   Future<bool> sendMessage({String? name, String? mail, String? message}) =>
       _generalHttpMethods.sendMessage(name, mail, message);
 
-  Future<void> logOut() => _generalHttpMethods.logOut();
+  Future<void> logOut() => _generalHttpMethods.logout();
 }

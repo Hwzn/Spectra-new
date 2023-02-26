@@ -5,9 +5,9 @@ class Utils {
       BuildContext context, dynamic data, String token) async {
     if (data != null) {
       await Storage.setDeviceId(token);
-      UserModel user = UserModel.fromJson(data);
-      user.token = data["token"];
-      GlobalState.instance.set("token", data["token"]);
+      UserModel user = UserModel.fromJson(data["data"]["user"]);
+      user.token = data["data"]["user"]["token"];
+      GlobalState.instance.set("token", data["data"]["user"]["token"]);
       await Storage.saveUserData(user);
       setCurrentUserData(user, context);
       CustomToast.showSimpleToast(msg: data["message"]);

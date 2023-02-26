@@ -70,7 +70,7 @@ class LoadingButton extends StatelessWidget {
               padding: const EdgeInsets.all(20),
               child: const SpinKitRotatingCircle(
                 color: Colors.white,
-                size: 20,
+                size: 30,
               ),
             ),
             child: child ??
