@@ -1,7 +1,7 @@
 class ApiNames{
 
   // base
-  static const String baseUrl = "https://h.hwzn.sa/api/";
+  static const String baseUrl = "https://spectra.hwzn.sa/api/";
   static const String branch = "1";
 
   // Setting
@@ -10,9 +10,9 @@ class ApiNames{
 
 
   // auth
+  static const String login = "login";
   static const String aboutApp = "AboutApp";
   static const String terms = "api/mobile/termsAndConditions";
-  static const String login = "login";
   static const String activateAccount = "activate-account";
   static const String sendCode = "api/mobile/checkVerificationCode";
   static const String resendCode = "send-code";

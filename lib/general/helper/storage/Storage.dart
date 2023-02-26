@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hwzn_base/general/blocks/user_cubit/user_cubit.dart';
@@ -49,7 +48,7 @@ class Storage{
 
   static int getCurrentUserId({required BuildContext context}) {
     var provider = context.watch<UserCubit>().state.model;
-    return provider.data?.id??0;
+    return provider.id;
   }
 
 }

@@ -3,11 +3,11 @@ part of 'UtilsImports.dart';
 class Utils {
   static Future<bool> manipulateLoginData(
       BuildContext context, dynamic data, String token) async {
-    if (data != null && data["status"] == 200) {
+    if (data != null) {
       await Storage.setDeviceId(token);
       UserModel user = UserModel.fromJson(data);
-      user.token = data["data"]["token"];
-      GlobalState.instance.set("token", data["data"]["token"]);
+      user.token = data["token"];
+      GlobalState.instance.set("token", data["token"]);
       await Storage.saveUserData(user);
       setCurrentUserData(user, context);
       CustomToast.showSimpleToast(msg: data["message"]);
@@ -38,6 +38,11 @@ class Utils {
     context.read<UserCubit>().onUpdateUserData(model);
     context.read<AuthCubit>().onUpdateAuth(true);
     // route to home page
+    if(model.userType == 'client'){
+      AutoRouter.of(context).push(HomeRoute());
+    } else {
+      AutoRouter.of(context).push(ProvHomeRoute());
+    }
   }
 
   static void changeLanguage(String lang, BuildContext context) {

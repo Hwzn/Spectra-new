@@ -13,6 +13,40 @@ class BuildRegisterFields extends StatelessWidget {
       key: registerDate.formKey,
       child: Column(
         children: [
+          Container(
+            height: 48,
+            margin: const EdgeInsets.symmetric(vertical: 10),
+            decoration: BoxDecoration(
+              color: MyColors.white,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: InternationalPhoneNumberInput(
+              onInputChanged: (PhoneNumber number) {
+                print(number.phoneNumber);
+              },
+              onInputValidated: (bool value) {
+                print(value);
+              },
+              selectorConfig: const SelectorConfig(
+                  selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
+                  useEmoji: true,
+                  leadingPadding: 15
+              ),
+              ignoreBlank: false,
+              autoValidateMode: AutovalidateMode.disabled,
+              initialValue: registerDate.phoneNumber,
+              textFieldController: registerDate.phoneController,
+              formatInput: false,
+              inputBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide.none
+              ),
+              onSaved: (PhoneNumber number) {
+                print('On Saved: $number');
+              },
+              validator: (value) => value?.validatePhone(context),
+            ),
+          ),
           GenericTextField(
             contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             controller: registerDate.firstNameController,
@@ -23,17 +57,17 @@ class BuildRegisterFields extends StatelessWidget {
             hint: "Name",
             margin: const EdgeInsets.symmetric(vertical: 10),
           ),
-          GenericTextField(
-            contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-            controller: registerDate.phoneController,
-            fieldTypes: FieldTypes.normal,
-            type: TextInputType.phone,
-            action: TextInputAction.next,
-            validate: (value) => value?.validatePhone(context),
-            hint: "Phone",
-            margin: const EdgeInsets.symmetric(vertical: 10),
-          ),
+          // GenericTextField(
+          //   contentPadding:
+          //   const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          //   controller: registerDate.phoneController,
+          //   fieldTypes: FieldTypes.normal,
+          //   type: TextInputType.phone,
+          //   action: TextInputAction.next,
+          //   validate: (value) => value?.validatePhone(context),
+          //   hint: "Phone",
+          //   margin: const EdgeInsets.symmetric(vertical: 10),
+          // ),
           GenericTextField(
             contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             controller: registerDate.emailController,

@@ -17,9 +17,9 @@ extension Validator on String {
   String? validatePassword(BuildContext context,{String? message}) {
     if (trim().isEmpty) {
       return message ?? "Please fill this field";
-    } else if (!RegExp(r'^(?=.*?[a-z])(?=.*?[0-9]).{6,}$')
+    } else if (!RegExp(r'^(?=.*?[0-9]).{6,}$')
         .hasMatch(this)) {
-      return message ?? "Enter at least 6 characters containing numbers and letters";
+      return message ?? "Enter at least 6 characters";
     }
     return null;
   }
@@ -49,8 +49,7 @@ extension Validator on String {
   String? validatePhone(BuildContext context,{String? message}) {
     if (trim().isEmpty) {
       return message ?? "Please fill this field";
-    } else if (!startsWith("05", 0) ||
-        this.length > 14 || this.length < 9) {
+    } else if (this.length > 14 || this.length < 9) {
       return message ?? "Phone must contain at least 9 numbers staring with 05";
     }
     return null;

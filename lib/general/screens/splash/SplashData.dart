@@ -25,7 +25,7 @@ class SplashController {
     InitUtils.initCustomWidgets(language: "en");
     // Utils.changeLanguage(lang ?? "en", context);
     Utils.changeLanguage("en", context);
-    await GeneralRepository(context).getAppSetting();
+    // await GeneralRepository(context).getAppSetting();
     var strUser = prefs.get("user");
     if (strUser != null) {
       UserModel data = UserModel.fromJson(json.decode("$strUser"));

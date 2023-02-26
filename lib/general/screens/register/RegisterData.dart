@@ -22,7 +22,9 @@ class RegisterDate {
   final TextEditingController confirmPasswordController =
       TextEditingController();
 
-  //
+  // variables
+  String initialCountry = 'EG';
+  PhoneNumber phoneNumber = PhoneNumber(isoCode: 'EG');
   var userTypes;
   DropDownModel? selectedUserType;
 

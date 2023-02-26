@@ -11,6 +11,7 @@ import 'package:hwzn_base/general/packages/generic_bloc/generic_cubit.dart';
 import 'package:hwzn_base/general/resources/GeneralRepoImports.dart';
 import 'package:hwzn_base/general/screens/register/widgets/RegisterWidgetsImports.dart';
 import 'package:hwzn_base/general/widgets/AuthAppBar.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import '../../constants/custom_ drop_down/CustomDropDown.dart';
 import '../../utilities/routers/RouterImports.gr.dart';
 import '../../widgets/AuthScaffold.dart';

@@ -3,7 +3,7 @@ part of 'GeneralRepoImports.dart';
 class GeneralHttpMethods {
   final BuildContext context;
 
-  //FirebaseMessaging messaging = FirebaseMessaging.instance;
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
 
   GeneralHttpMethods(this.context);
 
@@ -72,10 +72,11 @@ class GeneralHttpMethods {
     return (data != null);
   }
 
-  Future<bool> userLogin(String email, String pass) async {
+  Future<bool> userLogin(String phone, String pass, String countryCode) async {
     String? token = "await messaging.getToken()";
     Map<String, dynamic> body = {
-      "phone": email,
+      "country_code": countryCode,
+      "phone": phone,
       "password":pass,
       "device_id": token,
       "device_type": Platform.isIOS ? "ios" : "android",
@@ -86,12 +87,12 @@ class GeneralHttpMethods {
       json: body,
       returnType: ReturnType.type,
       methodType: MethodType.post,
-      returnDataFun: (data) => data,
+      returnDataFun: (data) => data["data"]["user"],
       toJsonFunc: (json) => UserModel.fromJson(json),
       showLoader: false,
     );
     if (data != null) {
-      return Utils.manipulateLoginData(context, data, token);
+      return Utils.manipulateLoginData(context, data, token??'');
     } else {
       return false;
     }

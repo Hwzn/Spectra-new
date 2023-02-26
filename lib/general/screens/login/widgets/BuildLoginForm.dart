@@ -30,6 +30,8 @@ class BuildLoginForm extends StatelessWidget {
             child: InternationalPhoneNumberInput(
               onInputChanged: (PhoneNumber number) {
                 print(number.phoneNumber);
+                print(number.dialCode);
+                loginData.phoneNumber = number;
               },
               onInputValidated: (bool value) {
                 print(value);

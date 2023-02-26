@@ -15,37 +15,37 @@ class LoginData {
 
   // variables
   String initialCountry = 'EG';
-  PhoneNumber phoneNumber = PhoneNumber(isoCode: 'EG');
+  PhoneNumber phoneNumber = PhoneNumber(isoCode: 'EG', dialCode: '+20');
 
   // methods
   void userLogin(BuildContext context) async {
-    AutoRouter.of(context).push(HomeRoute());
-    // FocusScope.of(context).requestFocus(FocusNode());
-    //
-    // // check validation
-    // if (formKey.currentState!.validate()) {
-    //   btnKey.currentState!.animateForward();
-    //
-    //   // convert arabic numbers to english
-    //   String passEn = HelperMethods.convertDigitsToLatin(password.text);
-    //
-    //   // call api
-    //   bool data = await GeneralRepository(context).setUserLogin(phone.text, passEn);
-    //   btnKey.currentState!.animateReverse();
-    //
-    //   // navigation action when user is logged in successfully
-    //   if(data == true){
-    //     // AutoRouter.of(context).push(BuyerHomeRoute());
-    //     print("=========================>>> true");
-    //   }
-    //
-    // }
+    print("=====>>> ${phoneNumber.dialCode}");
+    // AutoRouter.of(context).push(HomeRoute());
+    FocusScope.of(context).requestFocus(FocusNode());
+
+    // check validation
+    if (formKey.currentState!.validate()) {
+      btnKey.currentState!.animateForward();
+
+      // convert arabic numbers to english
+      String passEn = HelperMethods.convertDigitsToLatin(password.text);
+
+      // call api
+      bool data = await GeneralRepository(context)
+          .setUserLogin(phone.text, passEn, phoneNumber.dialCode ?? '');
+      btnKey.currentState!.animateReverse();
+
+      // navigation action when user is logged in successfully
+      if (data == true) {
+        // AutoRouter.of(context).push(BuyerHomeRoute());
+        print("=========================>>> true");
+      }
+    }
   }
 
   void getPhoneNumber(String phoneNumber) async {
     PhoneNumber number =
-    await PhoneNumber.getRegionInfoFromPhoneNumber(phoneNumber, 'US');
+        await PhoneNumber.getRegionInfoFromPhoneNumber(phoneNumber, 'US');
     this.phoneNumber = number;
   }
-
 }
