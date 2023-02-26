@@ -16,24 +16,25 @@ class SplashController {
   }
 
   Future<void> manipulateSplashData(BuildContext context) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await location.requestPermission();
-    // var lang = await Storage.getLang();
-    // InitUtils.initDio(lang: lang ?? "en");
+    // SharedPreferences prefs = await SharedPreferences.getInstance();
+    // await location.requestPermission();
+    // // var lang = await Storage.getLang();
+    // // InitUtils.initDio(lang: lang ?? "en");
     InitUtils.initDio(lang: "en");
-    // InitUtils.initCustomWidgets(language: lang ?? "en");
+    // // InitUtils.initCustomWidgets(language: lang ?? "en");
     InitUtils.initCustomWidgets(language: "en");
-    // Utils.changeLanguage(lang ?? "en", context);
+    // // Utils.changeLanguage(lang ?? "en", context);
     Utils.changeLanguage("en", context);
-    // await GeneralRepository(context).getAppSetting();
-    var strUser = prefs.get("user");
-    if (strUser != null) {
-      UserModel data = UserModel.fromJson(json.decode("$strUser"));
-      GlobalState.instance.set("token", data.token);
-      Utils.setCurrentUserData(data, context);
-    } else {
-      context.read<AuthCubit>().onUpdateAuth(false);
-      AutoRouter.of(context).push(const WelcomePageRoute());
-    }
+    AutoRouter.of(context).push(const WelcomePageRoute());
+    // // await GeneralRepository(context).getAppSetting();
+    // var strUser = prefs.get("user");
+    // if (strUser != null) {
+    //   UserModel data = UserModel.fromJson(json.decode("$strUser"));
+    //   GlobalState.instance.set("token", data.token);
+    //   Utils.setCurrentUserData(data, context);
+    // } else {
+    //   context.read<AuthCubit>().onUpdateAuth(false);
+    //   AutoRouter.of(context).push(const WelcomePageRoute());
+    // }
   }
 }
