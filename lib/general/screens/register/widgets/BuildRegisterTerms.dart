@@ -1,7 +1,7 @@
 part of 'RegisterWidgetsImports.dart';
 
 class BuildTermsAndPolicy extends StatelessWidget {
-  final RegisterDate registerDate;
+  final RegisterData registerDate;
 
   const BuildTermsAndPolicy({Key? key, required this.registerDate})
       : super(key: key);

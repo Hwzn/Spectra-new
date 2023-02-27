@@ -9,17 +9,12 @@ class GeneralRepository {
     _generalHttpMethods = GeneralHttpMethods(_context);
   }
 
-  // setting
-  Future<SettingModel> getAppSetting() => _generalHttpMethods.getAppSetting();
-
-  Future<List<DropDownModel>> getUserTypes() =>
-      _generalHttpMethods.getUserTypes();
-
-  Future<bool> register(RegisterModel model) =>
-      _generalHttpMethods.register(model);
-
+  // auth
   Future<bool> setUserLogin(String phone, String pass, String countryCode) =>
       _generalHttpMethods.userLogin(phone, pass, countryCode);
+
+  Future<bool> registerClient(RegisterModel model) =>
+      _generalHttpMethods.registerClient(model);
 
   Future<bool> activeAccount(String code, String phone) =>
       _generalHttpMethods.activeAccount(code, phone);

@@ -8,7 +8,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  RegisterDate registerDate = RegisterDate();
+  RegisterData registerData = RegisterData();
 
   @override
   void initState() {
@@ -24,12 +24,12 @@ class _RegisterState extends State<Register> {
         onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(vertical: 10),
-          child: BuildRegisterFields(registerDate: registerDate),
+          child: BuildRegisterFields(registerData: registerData),
         ),
       ),
       bottom: Column(
         children: [
-          BuildRegisterButton(registerDate: registerDate),
+          BuildRegisterButton(registerDate: registerData),
           const BuildHaveAccount(),
         ],
       ),

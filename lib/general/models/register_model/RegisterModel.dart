@@ -1,39 +1,35 @@
-
 class RegisterModel {
-  int userType;
-  String firstName;
-  String lastName;
-  String email;
+  String invitationCode;
+  String name;
+  String countryCode;
   String phone;
-  String job;
+  String email;
   String password;
-  String confirmPassword;
+  String? image;
   String? deviceId;
   String deviceType;
 
   RegisterModel({
-    required this.userType,
-    required this.firstName,
-    required this.lastName,
     required this.email,
     required this.phone,
-    required this.job,
     required this.password,
-    required this.confirmPassword,
-    this.deviceId,
+    required this.invitationCode,
+    required this.name,
+    required this.countryCode,
+    this.image,
+    required this.deviceId,
     required this.deviceType,
   });
 
   Map<String, dynamic> toJson() => {
-        "first_name": firstName,
-        "last_name": lastName,
+        "invitation_code": invitationCode,
         "email": email,
         "phone": phone,
         "password": password,
-        "password_confirmation": confirmPassword,
         "device_id": deviceId,
         "device_type": deviceType,
-        "user_type": userType,
-        "job": job,
+        "country_code": countryCode,
+        "name": name,
+        "image": image,
       };
 }

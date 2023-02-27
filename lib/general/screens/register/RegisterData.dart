@@ -1,6 +1,6 @@
 part of 'RegisterImports.dart';
 
-class RegisterDate {
+class RegisterData {
   // blocs
   final GenericBloc<bool> passwordCubit = GenericBloc(false);
   final GenericBloc<bool> termCubit = GenericBloc(false);
@@ -12,19 +12,17 @@ class RegisterDate {
   final GlobalKey<DropdownSearchState> userDropKey = GlobalKey();
 
   // controllers
-  final TextEditingController firstNameController = TextEditingController();
-  final TextEditingController lastNameController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController codeController = TextEditingController();
-  final TextEditingController jobController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
 
   // variables
   String initialCountry = 'EG';
-  PhoneNumber phoneNumber = PhoneNumber(isoCode: 'EG');
+  PhoneNumber phoneNumber = PhoneNumber(isoCode: 'EG', dialCode: '+20');
   var userTypes;
   DropDownModel? selectedUserType;
 
@@ -33,10 +31,10 @@ class RegisterDate {
 
 
   // get data from api for drop down field
-  Future<List<DropDownModel>> getUserTypes(BuildContext context) async {
-    var types = await GeneralRepository(context).getUserTypes();
-    return types;
-  }
+  // Future<List<DropDownModel>> getUserTypes(BuildContext context) async {
+  //   var types = await GeneralRepository(context).getUserTypes();
+  //   return types;
+  // }
 
   // used to update selected item in user types drop down field
   void setSelectUser(DropDownModel? model) {
@@ -50,49 +48,37 @@ class RegisterDate {
     }
   }
 
-  void onRegister(BuildContext context) {
-    AutoRouter.of(context).push(VerifyCodeRoute(email: ''));
-  }
+  void onRegister(BuildContext context) async {
+    // get device id
+    FirebaseMessaging messaging = FirebaseMessaging.instance;
 
-  // void onRegister(BuildContext context) async {
-  //   // get device id
-  //   // FirebaseMessaging messaging = FirebaseMessaging.instance;
-  //
-  //   // check if terms are accepted
-  //   if (!termCubit.state.data) {
-  //     CustomToast.showSimpleToast(msg: "برجاء الموافقة على الشروط والاحكام");
-  //     return;
-  //   }
-  //
-  //   // fields validation
-  //   if (formKey.currentState!.validate()) {
-  //     // convert arabic digits to latin
-  //     String phoneEn = HelperMethods.convertDigitsToLatin(phoneController.text);
-  //
-  //     // animate button
-  //     btnKey.currentState!.animateForward();
-  //
-  //     // add values to the model
-  //     RegisterModel model = RegisterModel(
-  //       firstName: firstNameController.text,
-  //       lastName: lastNameController.text,
-  //       userType: selectedUserType?.id ?? 0,
-  //       email: emailController.text,
-  //       job: jobController.text,
-  //       phone: phoneEn,
-  //       password: passwordController.text,
-  //       confirmPassword: confirmPasswordController.text,
-  //       deviceId: "test device id",
-  //       deviceType: Platform.isIOS ? "ios" : "android",
-  //     );
-  //
-  //     // call api
-  //     await GeneralRepository(context).register(model);
-  //
-  //     // animate button back
-  //     btnKey.currentState!.animateReverse();
-  //   }
-  // }
+    // fields validation
+    if (formKey.currentState!.validate()) {
+      // convert arabic digits to latin
+      String phoneEn = HelperMethods.convertDigitsToLatin(phoneController.text);
+
+      // animate button
+      btnKey.currentState!.animateForward();
+
+      // add values to the model
+      RegisterModel model = RegisterModel(
+        email: emailController.text,
+        countryCode: phoneNumber.dialCode??'',
+        phone: phoneEn,
+        invitationCode: codeController.text,
+        name: nameController.text,
+        password: passwordController.text,
+        deviceId: await messaging.getToken(),
+        deviceType: Platform.isIOS ? "ios" : "android",
+      );
+
+      // call api
+      await GeneralRepository(context).registerClient(model);
+
+      // animate button back
+      btnKey.currentState!.animateReverse();
+    }
+  }
 
 
 }

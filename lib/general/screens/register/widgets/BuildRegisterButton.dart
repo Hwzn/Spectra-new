@@ -1,7 +1,7 @@
 part of 'RegisterWidgetsImports.dart';
 
 class BuildRegisterButton extends StatelessWidget {
-  final RegisterDate registerDate;
+  final RegisterData registerDate;
 
   const BuildRegisterButton({Key? key, required this.registerDate})
       : super(key: key);

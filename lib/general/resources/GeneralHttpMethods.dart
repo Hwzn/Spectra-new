@@ -7,77 +7,14 @@ class GeneralHttpMethods {
 
   GeneralHttpMethods(this.context);
 
-  // Settings
-  Future<SettingModel> getAppSetting() async {
-    var data = await GenericHttp<SettingModel>(context).callApi(
-        name: ApiNames.setting,
-        returnType: ReturnType.model,
-        showLoader: false,
-        methodType: MethodType.get,
-        refresh: false,
-        returnDataFun: (data) => data["data"],
-        toJsonFunc: (json) => SettingModel.fromJson(json));
-    context.read<SettingCubit>().onUpdateSettingData(data);
-    return data;
-  }
-
   // auth
-  Future<List<DropDownModel>> getUserTypes() async {
-    return await GenericHttp<DropDownModel>(context).callApi(
-      name: ApiNames.userTypes,
-      returnType: ReturnType.list,
-      returnDataFun: (data) => data["data"],
-      methodType: MethodType.get,
-      refresh: false,
-      toJsonFunc: (json) => DropDownModel.fromJson(json),
-    ) as List<DropDownModel>;
-  }
-
-  Future<bool> register(RegisterModel model) async {
-    dynamic data = await GenericHttp<dynamic>(context).callApi(
-      name: ApiNames.register,
-      json: model.toJson(),
-      returnType: ReturnType.type,
-      returnDataFun: (data) => data,
-      showLoader: false,
-      methodType: MethodType.post,
-    );
-    if (data != null) {
-      AutoRouter.of(context).popAndPush(VerifyCodeRoute(email: data["data"]["phone"]));
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  Future<bool> activeAccount(String code, String phone) async {
-    String? token = "await messaging.getToken()";
-    Map<String, dynamic> body = {
-      "code": code,
-      "phone": phone,
-      "device_id": token,
-      "device_type": Platform.isIOS ? "ios" : "android"
-    };
-    dynamic data = await GenericHttp<dynamic>(context).callApi(
-      name: ApiNames.activateAccount,
-      json: body,
-      returnType: ReturnType.type,
-      showLoader: false,
-      methodType: MethodType.post,
-    );
-    if(data != null){
-      // save token to send in headers
-      GlobalState.instance.set("token", data['data']['user']['token']);
-    }
-    return (data != null);
-  }
 
   Future<bool> userLogin(String phone, String pass, String countryCode) async {
     String? token = await messaging.getToken();
     Map<String, dynamic> body = {
       "country_code": countryCode,
       "phone": phone,
-      "password":pass,
+      "password": pass,
       "device_id": token,
       "device_type": Platform.isIOS ? "ios" : "android",
     };
@@ -92,12 +29,47 @@ class GeneralHttpMethods {
       showLoader: false,
     );
     if (data != null) {
-      return Utils.manipulateLoginData(context, data, token??'');
+      return Utils.manipulateLoginData(context, data, token ?? '');
     } else {
       return false;
     }
   }
 
+  Future<bool> registerClient(RegisterModel model) async {
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.registerClient,
+      json: model.toJson(),
+      returnType: ReturnType.type,
+      returnDataFun: (data) => data,
+      showLoader: false,
+      methodType: MethodType.post,
+    );
+    if (data != null) {
+      AutoRouter.of(context)
+          .popAndPush(VerifyCodeRoute(email: data["data"]["user_phone"]));
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<bool> activeAccount(String code, String phone) async {
+    String? token = await messaging.getToken();
+    Map<String, dynamic> body = {
+      "code": code,
+      "phone": phone,
+      // "device_id": token,
+      // "device_type": Platform.isIOS ? "ios" : "android"
+    };
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.verifycCode,
+      json: body,
+      returnType: ReturnType.type,
+      showLoader: false,
+      methodType: MethodType.post,
+    );
+    return (data != null);
+  }
 
   Future<bool> resendCode(String phone) async {
     Map<String, dynamic> body = {"phone": phone};
@@ -109,14 +81,13 @@ class GeneralHttpMethods {
       returnDataFun: (data) => data,
       methodType: MethodType.post,
     );
-    if(data == null){
+    if (data == null) {
       return false;
     } else {
       CustomToast.showSimpleToast(msg: data["message"]);
       return (data["status"]);
     }
   }
-
 
   Future<dynamic> forgetPassword(String phone) async {
     Map<String, dynamic> body = {
@@ -133,7 +104,8 @@ class GeneralHttpMethods {
     return data;
   }
 
-  Future<dynamic> resetUserPassword(String phoneOrEmail, String newPassword) async {
+  Future<dynamic> resetUserPassword(
+      String phoneOrEmail, String newPassword) async {
     Map<String, dynamic> body = {
       "phoneOrEmail": phoneOrEmail,
       "new_password": newPassword,

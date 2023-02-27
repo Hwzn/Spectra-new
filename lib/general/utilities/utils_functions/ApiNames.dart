@@ -14,7 +14,7 @@ class ApiNames{
   static const String logout = "logout";
   static const String aboutApp = "AboutApp";
   static const String terms = "api/mobile/termsAndConditions";
-  static const String activateAccount = "activate-account";
+  static const String verifycCode = "verifycode";
   static const String sendCode = "api/mobile/checkVerificationCode";
   static const String resendCode = "send-code";
   static const String repeatedQuestions = "api/mobile/faq";
@@ -25,7 +25,7 @@ class ApiNames{
   static const String boarding = "api/mobile/splash";
 
   // customer
-  static const String register = "register";
+  static const String registerClient = "registerNewClient";
   static const String editProfile = "api/mobile/editProfile";
   static const String updatePassword = "api/mobile/updatePassword";
   static const String getHome = "api/mobile/homePage";
