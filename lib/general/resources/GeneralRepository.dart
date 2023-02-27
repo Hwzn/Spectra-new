@@ -36,10 +36,7 @@ class GeneralRepository {
   Future<List<DropDownModel>> getRegisterDoctors() =>
       _generalHttpMethods.getRegisterDoctors();
 
-  Future<dynamic> forgetPassword(String phone) =>
-      _generalHttpMethods.forgetPassword(phone);
-
-  Future<dynamic> resetUserPassword(String phoneOrEmail, String newPassword) =>
+  Future<bool> resetUserPassword(String phoneOrEmail, String newPassword) =>
       _generalHttpMethods.resetUserPassword(phoneOrEmail, newPassword);
 
   Future<bool> sendMessage({String? name, String? mail, String? message}) =>

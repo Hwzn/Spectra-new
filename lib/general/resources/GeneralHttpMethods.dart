@@ -151,37 +151,29 @@ class GeneralHttpMethods {
     ) as List<DropDownModel>;
   }
 
-  Future<dynamic> forgetPassword(String phone) async {
+  Future<bool> resetUserPassword(
+      String phone, String newPassword) async {
     Map<String, dynamic> body = {
-      "phoneOrEmail": "$phone",
-    };
-    dynamic data = await GenericHttp<dynamic>(context).callApi(
-      name: ApiNames.forgetPassword,
-      returnType: ReturnType.type,
-      json: body,
-      showLoader: false,
-      methodType: MethodType.post,
-      returnDataFun: (data) => data,
-    );
-    return data;
-  }
-
-  Future<dynamic> resetUserPassword(
-      String phoneOrEmail, String newPassword) async {
-    Map<String, dynamic> body = {
-      "phoneOrEmail": phoneOrEmail,
-      "new_password": newPassword,
-      "confirmation_password": newPassword,
+      "phone": phone,
+      "password": newPassword,
+      "password_confirmation": newPassword,
     };
     dynamic data = await GenericHttp<dynamic>(context).callApi(
       name: ApiNames.resetPassword,
       returnType: ReturnType.type,
       json: body,
       showLoader: false,
+      returnDataFun: (data) => data,
       methodType: MethodType.post,
     );
-    return data;
+    if(data!= null) {
+      CustomToast.showSimpleToast(msg: data["message"]);
+      return true;
+    } else {
+      return false;
+    }
   }
+
 
   Future<bool> sendMessage(String? name, String? mail, String? message) async {
     Map<String, dynamic> body = {

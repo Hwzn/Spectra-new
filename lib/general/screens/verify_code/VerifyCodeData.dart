@@ -44,7 +44,7 @@ class VerifyCodeData {
             ? AutoRouter.of(context)
                 .popUntilRouteWithName(WelcomePageRoute.name)
             : AutoRouter.of(context)
-                .push(ResetPasswordRoute(email: phone, code: "$code"));
+                .popAndPush(ResetPasswordRoute(email: phone, code: "$code"));
         ;
       }
     }

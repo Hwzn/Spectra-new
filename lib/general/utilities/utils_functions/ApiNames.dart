@@ -21,7 +21,7 @@ class ApiNames{
   static const String repeatedQuestions = "api/mobile/faq";
   static const String switchNotify = "SwitchNotify";
   static const String forgetPassword = "api/mobile/sendResetPassCode";
-  static const String resetPassword = "api/mobile/resetPassword";
+  static const String resetPassword = "resetpassword";
   static const String contactUs = "ContactUs";
 
   // customer

@@ -28,14 +28,14 @@ class ResetPasswordData {
   }
 
   void onResetPassword(BuildContext context, String phone) async {
-    AutoRouter.of(context).popUntilRouteWithName(LoginRoute.name);
-    return;
     FocusScope.of(context).requestFocus(FocusNode());
     if (formKey.currentState!.validate()) {
       btnKey.currentState!.animateForward();
       var data = await GeneralRepository(context).resetUserPassword(phone, password.text);
       btnKey.currentState!.animateReverse();
-      CustomToast.showSimpleToast(msg: data["msg"]);
+      if(data == true) {
+        AutoRouter.of(context).popUntilRouteWithName(LoginRoute.name);
+      }
     }
   }
 
