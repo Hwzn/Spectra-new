@@ -1,9 +1,12 @@
 import 'dart:io';
+import 'package:auto_route/auto_route.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hwzn_base/general/constants/modals/LoadingDialog.dart';
 import 'package:hwzn_base/general/helper/validator/Validator.dart';
 import 'package:hwzn_base/general/models/dropdown_model/dropdown_model.dart';
+import 'package:hwzn_base/general/models/toJson/RegisterCenterModel.dart';
 import 'package:hwzn_base/general/models/toJson/RegisterDoctorModel.dart';
 import 'package:hwzn_base/general/screens/register/widgets/RegisterWidgetsImports.dart';
 import 'package:hwzn_base/general/widgets/AuthScaffold.dart';

@@ -27,40 +27,7 @@ class BuildProvRegisterInputs extends StatelessWidget {
                   hint: state.data == 1 ? "Name" : "Center Name",
                   margin: const EdgeInsets.symmetric(vertical: 10),
                 ),
-                Container(
-                  // height: 48,
-                  margin: const EdgeInsets.symmetric(vertical: 7),
-                  decoration: BoxDecoration(
-                    color: MyColors.white,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: InternationalPhoneNumberInput(
-                    onInputChanged: (PhoneNumber number) {
-                      print(number.phoneNumber);
-                      print(number.dialCode);
-                      provRegisterData.phoneNumber = number;
-                    },
-                    onInputValidated: (bool value) {
-                      print(value);
-                    },
-                    selectorConfig: const SelectorConfig(
-                        selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
-                        useEmoji: true,
-                        leadingPadding: 15),
-                    ignoreBlank: false,
-                    autoValidateMode: AutovalidateMode.disabled,
-                    initialValue: provRegisterData.phoneNumber,
-                    textFieldController: provRegisterData.phone,
-                    formatInput: false,
-                    inputBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide.none),
-                    onSaved: (PhoneNumber number) {
-                      print('On Saved: $number');
-                    },
-                    validator: (value) => value?.validatePhone(context),
-                  ),
-                ),
+                BuildCountryPhone(provRegisterData: provRegisterData),
                 GenericTextField(
                   contentPadding:
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
@@ -75,8 +42,8 @@ class BuildProvRegisterInputs extends StatelessWidget {
                 Visibility(
                   visible: state.data == 1,
                   replacement: GenericTextField(
-                    contentPadding:
-                        const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                    contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 10),
                     controller: provRegisterData.generalInfo,
                     fieldTypes: FieldTypes.normal,
                     type: TextInputType.text,
@@ -85,38 +52,8 @@ class BuildProvRegisterInputs extends StatelessWidget {
                     hint: "General Information",
                     margin: const EdgeInsets.symmetric(vertical: 10),
                   ),
-                  child: Column(
-                    children: [
-                      DropdownTextField<DropDownModel>(
-                        dropKey: provRegisterData.specialization,
-                        hint: "Specialization",
-                        selectedItem: provRegisterData.selectedSpecialization,
-                        margin: const EdgeInsets.symmetric(vertical: 10),
-                        validate: (value) => value.noValidate(),
-                        onChange: (DropDownModel? model) =>
-                            provRegisterData.setSelectISpecialization(model),
-                        useName: true,
-                        searchHint: "Search",
-                        finData: (data) => provRegisterData.getSpecs(context),
-                        enableColor: MyColors.greyWhite,
-                        fillColor: MyColors.white,
-                      ),
-                      DropdownTextField<DropDownModel>(
-                        dropKey: provRegisterData.centerName,
-                        hint: "Center name if you have",
-                        selectedItem: provRegisterData.selectedCenter,
-                        margin: const EdgeInsets.symmetric(vertical: 10),
-                        validate: (value) => value.noValidate(),
-                        onChange: (DropDownModel? model) =>
-                            provRegisterData.setSelectCenter(model),
-                        useName: true,
-                        searchHint: "Search",
-                        finData: (data) => provRegisterData.getCenters(context),
-                        enableColor: MyColors.greyWhite,
-                        fillColor: MyColors.white,
-                      ),
-                    ],
-                  ),
+                  child:
+                      BuildDoctorsDropDown(provRegisterData: provRegisterData),
                 ),
                 GenericTextField(
                   contentPadding:
@@ -129,8 +66,13 @@ class BuildProvRegisterInputs extends StatelessWidget {
                   hint: "Invitation Code",
                   margin: const EdgeInsets.symmetric(vertical: 10),
                 ),
-                BuildUploadCv(provRegisterData: provRegisterData, visible: state.data == 1),
-                BuildPasswordsView(provRegisterData: provRegisterData),
+                BuildUploadCv(
+                    provRegisterData: provRegisterData,
+                    visible: state.data == 1),
+                Visibility(
+                  visible: state.data == 1,
+                  child: BuildPasswordsView(provRegisterData: provRegisterData),
+                ),
               ],
             ),
           );

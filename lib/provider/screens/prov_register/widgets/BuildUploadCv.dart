@@ -12,30 +12,7 @@ class BuildUploadCv extends StatelessWidget {
   Widget build(BuildContext context) {
     return Visibility(
       visible: visible,
-      replacement: GenericTextField(
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-        controller: provRegisterData.cv,
-        fieldTypes: FieldTypes.clickable,
-        type: TextInputType.text,
-        action: TextInputAction.next,
-        validate: (value) => value!.noValidate(),
-        hint: "Add Doctors",
-        margin: const EdgeInsets.symmetric(vertical: 10),
-        suffixIcon: Container(
-          width: 20,
-          margin: const EdgeInsets.all(5),
-          padding: const EdgeInsets.all(5),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: MyColors.primary.withOpacity(0.9),
-          ),
-          child: Icon(
-            Icons.add,
-            color: MyColors.white,
-          ),
-        ),
-      ),
+      replacement: BuildDoctorsView(provRegisterData: provRegisterData),
       child: BlocBuilder<GenericBloc<List<File>>, GenericState<List<File>>>(
         bloc: provRegisterData.uploadPdfBloc,
         builder: (context, state) {
@@ -45,7 +22,8 @@ class BuildUploadCv extends StatelessWidget {
                 Container(
                   height: 60,
                   width: 45,
-                  margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: NetworkImage(

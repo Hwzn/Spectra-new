@@ -12,6 +12,7 @@ class _ProvRegisterState extends State<ProvRegister> {
 
   @override
   void initState() {
+    provRegisterData.getDoctors(context);
     super.initState();
   }
 

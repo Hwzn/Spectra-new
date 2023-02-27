@@ -20,6 +20,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import '../helper/dio/utils/GlobalState.dart';
+import '../models/toJson/RegisterCenterModel.dart';
 
 part 'GeneralHttpMethods.dart';
 part 'GeneralRepository.dart';

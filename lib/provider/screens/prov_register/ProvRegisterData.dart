@@ -22,6 +22,8 @@ class ProvRegisterData {
   final GenericBloc<bool> passwordCubit = GenericBloc(false);
   final GenericBloc<bool> confirmPassCubit = GenericBloc(false);
   final GenericBloc<List<File>> uploadPdfBloc = GenericBloc([]);
+  final GenericBloc<List<DropDownModel>> doctorsBloc = GenericBloc([]);
+  final GenericBloc<List<DropDownModel>> chosenDoctorsBloc = GenericBloc([]);
 
   // variables
   DropDownModel? selectedSpecialization;
@@ -30,46 +32,55 @@ class ProvRegisterData {
   var centers;
   String initialCountry = 'EG';
   PhoneNumber phoneNumber = PhoneNumber(isoCode: 'EG', dialCode: '+20');
-
-  // lists
-  List<DropDownModel> specializationList = [
-    DropDownModel(id: 0, name: "item 1"),
-    DropDownModel(id: 1, name: "item 2"),
-    DropDownModel(id: 2, name: "item 3"),
-    DropDownModel(id: 3, name: "item 4"),
-    DropDownModel(id: 4, name: "item 5"),
-  ];
+  List<int> doctorsIds = [];
 
   // methods
+  getDoctors(BuildContext context) async {
+    var data = await GeneralRepository(context).getRegisterDoctors();
+    doctorsBloc.onUpdateData(data);
+  }
+
   void onRegister(BuildContext context) async {
-    // AutoRouter.of(context).push(VerifyCodeRoute(email: '', fromRegister: true));
-    // AutoRouter.of(context).push(ProvHomeRoute());
-    // if (formKey.currentState!.validate()) {
-      // convert arabic digits to latin
-      String phoneEn = HelperMethods.convertDigitsToLatin(phone.text);
+    // convert arabic digits to latin
+    String phoneEn = HelperMethods.convertDigitsToLatin(phone.text);
 
-      // animate button
-      btnKey.currentState!.animateForward();
+    // animate button
+    btnKey.currentState!.animateForward();
 
+    if (typeBloc.state.data == 1) {
       // add values to the model
       RegisterDoctorModel model = RegisterDoctorModel(
+          email: email.text,
+          countryCode: phoneNumber.dialCode ?? '',
+          phone: phoneEn,
+          invitationCode: invCode.text,
+          name: name.text,
+          password: pass.text,
+          specializationId: selectedSpecialization?.id ?? 0,
+          centerId: selectedCenter?.id ?? 0,
+          cv: uploadPdfBloc.state.data.elementAt(0));
+      // call api
+      await GeneralRepository(context).registerDoctor(model);
+    } else {
+      // add values to the model
+      RegisterCenterModel model = RegisterCenterModel(
         email: email.text,
         countryCode: phoneNumber.dialCode ?? '',
         phone: phoneEn,
         invitationCode: invCode.text,
         name: name.text,
-        password: pass.text,
-        specializationId: selectedSpecialization?.id ?? 0,
-        centerId: selectedCenter?.id ?? 0,
-        cv: uploadPdfBloc.state.data.elementAt(0)
+        details: generalInfo.text,
+        doctorsIds: doctorsIds,
       );
-
       // call api
-      await GeneralRepository(context).registerDoctor(model);
+      var result = await GeneralRepository(context).registerCenter(model);
+      if(result == true){
+        AutoRouter.of(context).pop();
+      }
+    }
 
-      // animate button back
-      btnKey.currentState!.animateReverse();
-    // }
+    // animate button back
+    btnKey.currentState!.animateReverse();
   }
 
   // used to update selected specialization in drop down field
@@ -110,5 +121,36 @@ class ProvRegisterData {
   removePdf({required BuildContext context}) async {
     uploadPdfBloc.state.data.clear();
     uploadPdfBloc.onUpdateData(uploadPdfBloc.state.data);
+  }
+
+  showDoctors(BuildContext context) async {
+    showModalBottomSheet(
+      context: context,
+      builder: (_) {
+        return BuildDoctorsBottomSheet(provRegisterData: this);
+      },
+      constraints:
+          BoxConstraints(maxHeight: MediaQuery.of(context).size.height * .7),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(30),
+          topLeft: Radius.circular(30),
+        ),
+      ),
+    );
+  }
+
+  chooseDoctor(BuildContext context, DropDownModel model) {
+    chosenDoctorsBloc.state.data.add(model);
+    chosenDoctorsBloc.onUpdateData(chosenDoctorsBloc.state.data);
+    doctorsIds.add(model.id ?? 0);
+    CustomToast.showSimpleToast(msg: "Added Successfully");
+  }
+
+  removeDoctor(BuildContext context, DropDownModel model) {
+    chosenDoctorsBloc.state.data.remove(model);
+    chosenDoctorsBloc.onUpdateData(chosenDoctorsBloc.state.data);
+    doctorsIds.remove(model.id ?? 0);
+    CustomToast.showSimpleToast(msg: "Removed");
   }
 }

@@ -28,9 +28,11 @@ class ApiNames{
   static const String registerClient = "registerNewClient";
   static const String specializations = "specializations";
   static const String centers = "centers";
+  static const String doctorTipInfo = "doctorTipInfo";
 
   // doctor
   static const String registerDoctor = "registerNewDoctor";
+  static const String registerCenter = "registerNewCenter";
 
 
 }

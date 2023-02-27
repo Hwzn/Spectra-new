@@ -71,6 +71,23 @@ class GeneralHttpMethods {
     }
   }
 
+  Future<bool> registerCenter(RegisterCenterModel model) async {
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.registerCenter,
+      json: model.toJson(),
+      returnType: ReturnType.type,
+      returnDataFun: (data) => data,
+      showLoader: false,
+      methodType: MethodType.post,
+    );
+    if (data != null) {
+     CustomToast.showSimpleToast(msg: data["message"]);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   Future<bool> activeAccount(String code, String phone) async {
     Map<String, dynamic> body = {
       "code": code,
@@ -117,6 +134,16 @@ class GeneralHttpMethods {
   Future<List<DropDownModel>> getCenters() async {
     return await GenericHttp<DropDownModel>(context).callApi(
       name: ApiNames.centers,
+      returnType: ReturnType.list,
+      methodType: MethodType.get,
+      returnDataFun: (data)=> data["data"],
+      toJsonFunc: (json) => DropDownModel.fromJson(json),
+    ) as List<DropDownModel>;
+  }
+
+  Future<List<DropDownModel>> getRegisterDoctors() async {
+    return await GenericHttp<DropDownModel>(context).callApi(
+      name: ApiNames.doctorTipInfo,
       returnType: ReturnType.list,
       methodType: MethodType.get,
       returnDataFun: (data)=> data["data"],
