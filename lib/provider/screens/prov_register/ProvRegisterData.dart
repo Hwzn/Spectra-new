@@ -14,13 +14,22 @@ class ProvRegisterData {
   final TextEditingController invCode = TextEditingController();
   final TextEditingController generalInfo = TextEditingController();
   final TextEditingController cv = TextEditingController();
+  final TextEditingController pass = TextEditingController();
+  final TextEditingController confirmPass = TextEditingController();
 
   // blocs
   final GenericBloc<int> typeBloc = GenericBloc(1);
+  final GenericBloc<bool> passwordCubit = GenericBloc(false);
+  final GenericBloc<bool> confirmPassCubit = GenericBloc(false);
+  final GenericBloc<List<File>> uploadPdfBloc = GenericBloc([]);
 
   // variables
   DropDownModel? selectedSpecialization;
   DropDownModel? selectedCenter;
+  var specializations;
+  var centers;
+  String initialCountry = 'EG';
+  PhoneNumber phoneNumber = PhoneNumber(isoCode: 'EG', dialCode: '+20');
 
   // lists
   List<DropDownModel> specializationList = [
@@ -32,9 +41,35 @@ class ProvRegisterData {
   ];
 
   // methods
-  void onRegister(BuildContext context) {
+  void onRegister(BuildContext context) async {
     // AutoRouter.of(context).push(VerifyCodeRoute(email: '', fromRegister: true));
-    AutoRouter.of(context).push(ProvHomeRoute());
+    // AutoRouter.of(context).push(ProvHomeRoute());
+    // if (formKey.currentState!.validate()) {
+      // convert arabic digits to latin
+      String phoneEn = HelperMethods.convertDigitsToLatin(phone.text);
+
+      // animate button
+      btnKey.currentState!.animateForward();
+
+      // add values to the model
+      RegisterDoctorModel model = RegisterDoctorModel(
+        email: email.text,
+        countryCode: phoneNumber.dialCode ?? '',
+        phone: phoneEn,
+        invitationCode: invCode.text,
+        name: name.text,
+        password: pass.text,
+        specializationId: selectedSpecialization?.id ?? 0,
+        centerId: selectedCenter?.id ?? 0,
+        cv: uploadPdfBloc.state.data.elementAt(0)
+      );
+
+      // call api
+      await GeneralRepository(context).registerDoctor(model);
+
+      // animate button back
+      btnKey.currentState!.animateReverse();
+    // }
   }
 
   // used to update selected specialization in drop down field
@@ -45,5 +80,35 @@ class ProvRegisterData {
   // used to update selected center in drop down field
   void setSelectCenter(DropDownModel? model) {
     selectedCenter = model;
+  }
+
+  Future<List<DropDownModel>> getSpecs(BuildContext context) async {
+    specializations = await GeneralRepository(context).getSpecializations();
+    return specializations;
+  }
+
+  Future<List<DropDownModel>> getCenters(BuildContext context) async {
+    centers = await GeneralRepository(context).getCenters();
+    return centers;
+  }
+
+  uploadPdf() async {
+    FilePickerResult? file = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['pdf'],
+      allowMultiple: false,
+    );
+    if (file != null) {
+      List<File> files = file.paths.map((path) => File(path!)).toList();
+      uploadPdfBloc.state.data.addAll(files);
+      uploadPdfBloc.onUpdateData(uploadPdfBloc.state.data);
+    } else {
+      // User canceled the picker
+    }
+  }
+
+  removePdf({required BuildContext context}) async {
+    uploadPdfBloc.state.data.clear();
+    uploadPdfBloc.onUpdateData(uploadPdfBloc.state.data);
   }
 }

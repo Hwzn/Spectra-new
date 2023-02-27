@@ -3,6 +3,7 @@ part of 'RegisterImports.dart';
 class RegisterData {
   // blocs
   final GenericBloc<bool> passwordCubit = GenericBloc(false);
+  final GenericBloc<bool> confirmPassCubit = GenericBloc(false);
   final GenericBloc<bool> termCubit = GenericBloc(false);
   final GenericBloc<File?> imageCubit = GenericBloc(null);
 

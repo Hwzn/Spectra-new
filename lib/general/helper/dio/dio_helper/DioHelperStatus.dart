@@ -84,9 +84,9 @@ class DioHelper {
     try {
       var response = await _dio.post(url, data: haveFile? formData : body);
       if (showLoader) DioUtils.dismissDialog();
-      if (response.statusCode==200||response.statusCode==201) {
+      if (response.statusCode == 200 || response.statusCode == 201) {
         return response.data;
-      } else{
+      } else {
         showErrorMessage(response);
       }
     } on DioError catch (e) {

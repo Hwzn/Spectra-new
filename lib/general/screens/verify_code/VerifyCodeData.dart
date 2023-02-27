@@ -44,7 +44,7 @@ class VerifyCodeData {
       var result =  await GeneralRepository(context).activeAccount(code??'', email);
       btnKey.currentState?.animateReverse();
       if(result){
-        AutoRouter.of(context).popUntilRouteWithName(LoginRoute.name);
+        AutoRouter.of(context).popUntilRouteWithName(WelcomePageRoute.name);
       }
     }
   }

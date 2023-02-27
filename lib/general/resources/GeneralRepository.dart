@@ -16,11 +16,19 @@ class GeneralRepository {
   Future<bool> registerClient(RegisterModel model) =>
       _generalHttpMethods.registerClient(model);
 
+  Future<bool> registerDoctor(RegisterDoctorModel model) =>
+      _generalHttpMethods.registerDoctor(model);
+
   Future<bool> activeAccount(String code, String phone) =>
       _generalHttpMethods.activeAccount(code, phone);
 
   Future<bool> resendCode(String phone) =>
       _generalHttpMethods.resendCode(phone);
+
+  Future<List<DropDownModel>> getSpecializations() =>
+      _generalHttpMethods.getSpecializations();
+
+  Future<List<DropDownModel>> getCenters() => _generalHttpMethods.getCenters();
 
   Future<dynamic> forgetPassword(String phone) =>
       _generalHttpMethods.forgetPassword(phone);

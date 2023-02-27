@@ -53,16 +53,31 @@ class GeneralHttpMethods {
     }
   }
 
+  Future<bool> registerDoctor(RegisterDoctorModel model) async {
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.registerDoctor,
+      json: model.toJson(),
+      returnType: ReturnType.type,
+      returnDataFun: (data) => data,
+      showLoader: false,
+      methodType: MethodType.post,
+    );
+    if (data != null) {
+      AutoRouter.of(context)
+          .popAndPush(VerifyCodeRoute(email: data["data"]["user_phone"]));
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   Future<bool> activeAccount(String code, String phone) async {
-    String? token = await messaging.getToken();
     Map<String, dynamic> body = {
       "code": code,
       "phone": phone,
-      // "device_id": token,
-      // "device_type": Platform.isIOS ? "ios" : "android"
     };
     dynamic data = await GenericHttp<dynamic>(context).callApi(
-      name: ApiNames.verifycCode,
+      name: ApiNames.verifyCode,
       json: body,
       returnType: ReturnType.type,
       showLoader: false,
@@ -87,6 +102,26 @@ class GeneralHttpMethods {
       CustomToast.showSimpleToast(msg: data["message"]);
       return (data["status"]);
     }
+  }
+
+  Future<List<DropDownModel>> getSpecializations() async {
+    return await GenericHttp<DropDownModel>(context).callApi(
+      name: ApiNames.specializations,
+      returnType: ReturnType.list,
+      methodType: MethodType.get,
+      returnDataFun: (data)=> data["data"],
+      toJsonFunc: (json) => DropDownModel.fromJson(json),
+    ) as List<DropDownModel>;
+  }
+
+  Future<List<DropDownModel>> getCenters() async {
+    return await GenericHttp<DropDownModel>(context).callApi(
+      name: ApiNames.centers,
+      returnType: ReturnType.list,
+      methodType: MethodType.get,
+      returnDataFun: (data)=> data["data"],
+      toJsonFunc: (json) => DropDownModel.fromJson(json),
+    ) as List<DropDownModel>;
   }
 
   Future<dynamic> forgetPassword(String phone) async {

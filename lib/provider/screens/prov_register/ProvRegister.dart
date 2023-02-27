@@ -50,8 +50,10 @@ class _ProvRegisterState extends State<ProvRegister> {
           BuildProvRegisterInputs(
             provRegisterData: provRegisterData,
           ),
-          DefaultButton(
+          LoadingButton(
+            btnKey: provRegisterData.btnKey,
             title: "SIGN UP",
+            textColor: MyColors.white,
             onTap: ()=> provRegisterData.onRegister(context),
           ),
           const BuildHaveAccount(),

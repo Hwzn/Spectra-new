@@ -8,8 +8,10 @@ class DropDownModel {
   int? id;
   @JsonKey(name: 'name')
   String? name;
+  @JsonKey(name: 'image')
+  String? image;
 
-  DropDownModel({this.id, this.name});
+  DropDownModel({this.id, this.name, this.image});
 
    factory DropDownModel.fromJson(Map<String, dynamic> json) => _$DropDownModelFromJson(json);
 

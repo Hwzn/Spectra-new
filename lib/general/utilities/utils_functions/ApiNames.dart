@@ -12,23 +12,25 @@ class ApiNames{
   // auth
   static const String login = "login";
   static const String logout = "logout";
+  static const String verifyCode = "verifycode";
+  static const String resendCode = "send-code";
+
   static const String aboutApp = "AboutApp";
   static const String terms = "api/mobile/termsAndConditions";
-  static const String verifycCode = "verifycode";
   static const String sendCode = "api/mobile/checkVerificationCode";
-  static const String resendCode = "send-code";
   static const String repeatedQuestions = "api/mobile/faq";
   static const String switchNotify = "SwitchNotify";
   static const String forgetPassword = "api/mobile/sendResetPassCode";
   static const String resetPassword = "api/mobile/resetPassword";
   static const String contactUs = "ContactUs";
-  static const String boarding = "api/mobile/splash";
 
   // customer
   static const String registerClient = "registerNewClient";
-  static const String editProfile = "api/mobile/editProfile";
-  static const String updatePassword = "api/mobile/updatePassword";
-  static const String getHome = "api/mobile/homePage";
+  static const String specializations = "specializations";
+  static const String centers = "centers";
+
+  // doctor
+  static const String registerDoctor = "registerNewDoctor";
 
 
 }
