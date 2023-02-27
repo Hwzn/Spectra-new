@@ -45,8 +45,8 @@ class GeneralHttpMethods {
       methodType: MethodType.post,
     );
     if (data != null) {
-      AutoRouter.of(context)
-          .popAndPush(VerifyCodeRoute(email: data["data"]["user_phone"]));
+      AutoRouter.of(context).popAndPush(VerifyCodeRoute(
+          email: data["data"]["user_phone"], fromRegister: true));
       return true;
     } else {
       return false;
@@ -63,8 +63,8 @@ class GeneralHttpMethods {
       methodType: MethodType.post,
     );
     if (data != null) {
-      AutoRouter.of(context)
-          .popAndPush(VerifyCodeRoute(email: data["data"]["user_phone"]));
+      AutoRouter.of(context).popAndPush(VerifyCodeRoute(
+          email: data["data"]["user_phone"], fromRegister: true));
       return true;
     } else {
       return false;
@@ -81,7 +81,7 @@ class GeneralHttpMethods {
       methodType: MethodType.post,
     );
     if (data != null) {
-     CustomToast.showSimpleToast(msg: data["message"]);
+      CustomToast.showSimpleToast(msg: data["message"]);
       return true;
     } else {
       return false;
@@ -126,7 +126,7 @@ class GeneralHttpMethods {
       name: ApiNames.specializations,
       returnType: ReturnType.list,
       methodType: MethodType.get,
-      returnDataFun: (data)=> data["data"],
+      returnDataFun: (data) => data["data"],
       toJsonFunc: (json) => DropDownModel.fromJson(json),
     ) as List<DropDownModel>;
   }
@@ -136,7 +136,7 @@ class GeneralHttpMethods {
       name: ApiNames.centers,
       returnType: ReturnType.list,
       methodType: MethodType.get,
-      returnDataFun: (data)=> data["data"],
+      returnDataFun: (data) => data["data"],
       toJsonFunc: (json) => DropDownModel.fromJson(json),
     ) as List<DropDownModel>;
   }
@@ -146,7 +146,7 @@ class GeneralHttpMethods {
       name: ApiNames.doctorTipInfo,
       returnType: ReturnType.list,
       methodType: MethodType.get,
-      returnDataFun: (data)=> data["data"],
+      returnDataFun: (data) => data["data"],
       toJsonFunc: (json) => DropDownModel.fromJson(json),
     ) as List<DropDownModel>;
   }

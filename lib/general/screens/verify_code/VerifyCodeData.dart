@@ -32,19 +32,20 @@ class VerifyCodeData {
     code = value;
   }
 
-  void onActiveAccount(BuildContext context, String email,
+  void onActiveAccount(BuildContext context, String phone,
       {bool? fromRegister}) async {
-    // fromRegister == true
-    //     ? AutoRouter.of(context)
-    //         .popUntilRouteWithName(WelcomePageRoute.name)
-    //     : AutoRouter.of(context)
-    //         .push(ResetPasswordRoute(email: "", code: code ?? ''));
     if (formKey.currentState!.validate()) {
       btnKey.currentState?.animateForward();
-      var result =  await GeneralRepository(context).activeAccount(code??'', email);
+      var result =
+          await GeneralRepository(context).activeAccount(code ?? '', phone);
       btnKey.currentState?.animateReverse();
-      if(result){
-        AutoRouter.of(context).popUntilRouteWithName(WelcomePageRoute.name);
+      if (result) {
+        fromRegister == true
+            ? AutoRouter.of(context)
+                .popUntilRouteWithName(WelcomePageRoute.name)
+            : AutoRouter.of(context)
+                .push(ResetPasswordRoute(email: phone, code: "$code"));
+        ;
       }
     }
   }

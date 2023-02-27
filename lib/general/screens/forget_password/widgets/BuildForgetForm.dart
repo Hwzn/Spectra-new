@@ -13,11 +13,11 @@ class BuildForgetForm extends StatelessWidget {
       child: GenericTextField(
         contentPadding:
             const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-        controller: forgetPasswordData.email,
+        controller: forgetPasswordData.phone,
         fieldTypes: FieldTypes.normal,
-        type: TextInputType.emailAddress,
+        type: TextInputType.phone,
         action: TextInputAction.next,
-        validate: (value) => value?.validateEmail(context),
+        validate: (value) => value?.validateEmpty(context),
         hint: "Phone Number",
         margin: const EdgeInsets.only(top: 20),
       ),
