@@ -37,7 +37,9 @@ class BuildDoctorReviews extends StatelessWidget {
               Visibility(
                 visible: reviewsList.isNotEmpty,
                 child: InkWell(
-                  onTap: () => AutoRouter.of(context).push(ReviewsRoute()),
+                  onTap: () => AutoRouter.of(context).push(
+                    ReviewsRoute(avgReviews: avgRate, reviewsList: reviewsList),
+                  ),
                   child: MyText(
                     title: "See more",
                     color: MyColors.blackOpacity,
@@ -78,7 +80,7 @@ class BuildDoctorReviews extends StatelessWidget {
             ),
             child: Column(
               children: List.generate(
-                reviewsList.length,
+                reviewsList.length >= 2 ? 2 : reviewsList.length,
                 (index) => BuildDoctorReviewItem(
                   model: reviewsList[index],
                 ),

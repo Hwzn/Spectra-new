@@ -43,6 +43,7 @@ import 'package:hwzn_base/provider/screens/prov_register/ProvRegisterImports.dar
     as _i27;
 import 'package:hwzn_base/provider/screens/working_times/WorkingTimesImports.dart'
     as _i31;
+import 'package:hwzn_base/user/models/review_model.dart' as _i34;
 import 'package:hwzn_base/user/screens/add_pet/AddPetImports.dart' as _i19;
 import 'package:hwzn_base/user/screens/add_post/AddPostImports.dart' as _i24;
 import 'package:hwzn_base/user/screens/add_reservation/AddReservationImports.dart'
@@ -253,9 +254,14 @@ class AppRouter extends _i32.RootStackRouter {
       );
     },
     ReviewsRoute.name: (routeData) {
+      final args = routeData.argsAs<ReviewsRouteArgs>();
       return _i32.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i23.Reviews(),
+        child: _i23.Reviews(
+          key: args.key,
+          reviewsList: args.reviewsList,
+          avgReviews: args.avgReviews,
+        ),
         opaque: true,
       );
     },
@@ -861,14 +867,41 @@ class DoctorDetailsRouteArgs {
 
 /// generated route for
 /// [_i23.Reviews]
-class ReviewsRoute extends _i32.PageRouteInfo<void> {
-  const ReviewsRoute()
-      : super(
+class ReviewsRoute extends _i32.PageRouteInfo<ReviewsRouteArgs> {
+  ReviewsRoute({
+    _i33.Key? key,
+    required List<_i34.ReviewModel> reviewsList,
+    required double avgReviews,
+  }) : super(
           ReviewsRoute.name,
           path: '/Reviews',
+          args: ReviewsRouteArgs(
+            key: key,
+            reviewsList: reviewsList,
+            avgReviews: avgReviews,
+          ),
         );
 
   static const String name = 'ReviewsRoute';
+}
+
+class ReviewsRouteArgs {
+  const ReviewsRouteArgs({
+    this.key,
+    required this.reviewsList,
+    required this.avgReviews,
+  });
+
+  final _i33.Key? key;
+
+  final List<_i34.ReviewModel> reviewsList;
+
+  final double avgReviews;
+
+  @override
+  String toString() {
+    return 'ReviewsRouteArgs{key: $key, reviewsList: $reviewsList, avgReviews: $avgReviews}';
+  }
 }
 
 /// generated route for

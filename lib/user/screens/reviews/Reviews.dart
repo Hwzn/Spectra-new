@@ -1,7 +1,11 @@
 part of 'ReviewsImports.dart';
 
 class Reviews extends StatefulWidget {
-  const Reviews({Key? key}) : super(key: key);
+  final List<ReviewModel> reviewsList;
+  final double avgReviews;
+
+  const Reviews({Key? key, required this.reviewsList, required this.avgReviews})
+      : super(key: key);
 
   @override
   State<Reviews> createState() => _ReviewsState();
@@ -34,7 +38,7 @@ class _ReviewsState extends State<Reviews> {
             Container(
               margin: const EdgeInsets.symmetric(vertical: 10),
               child: RatingBar.builder(
-                initialRating: 2,
+                initialRating: widget.avgReviews,
                 minRating: 0,
                 direction: Axis.horizontal,
                 allowHalfRating: false,
@@ -53,18 +57,15 @@ class _ReviewsState extends State<Reviews> {
             Flexible(
               child: AnimationLimiter(
                 child: ListView.builder(
-                  itemCount: 10,
+                  itemCount: widget.reviewsList.length,
                   itemBuilder: (BuildContext context, int index) {
                     return AnimationConfiguration.staggeredList(
                       position: index,
                       duration: const Duration(milliseconds: 375),
                       child: SlideAnimation(
                         verticalOffset: 50.0,
-                        // child: BuildDoctorReviewItem(),
-                        child: MyText(
-                          title: "Commented widget was here",
-                          color: MyColors.primary,
-                          size: 12,
+                        child: BuildDoctorReviewItem(
+                          model: widget.reviewsList[index],
                         ),
                       ),
                     );
