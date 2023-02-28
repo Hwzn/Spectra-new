@@ -22,6 +22,12 @@ class DoctorModel {
   String specializationName;
   @JsonKey(name: 'is_fav')
   String isFav;
+  @JsonKey(name: 'center_id')
+  int centerId;
+  @JsonKey(name: 'center_name')
+  String centerName;
+  @JsonKey(name: 'center_image')
+  String? centerImage;
 
   DoctorModel({
     required this.id,
@@ -33,6 +39,9 @@ class DoctorModel {
     required this.specializationId,
     required this.specializationName,
     required this.isFav,
+    required this.centerId,
+    required this.centerName,
+    this.centerImage,
   });
 
   factory DoctorModel.fromJson(Map<String, dynamic> json) =>

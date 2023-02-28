@@ -1,7 +1,9 @@
 part of 'DoctorDetailsWidgetsImports.dart';
 
 class BuildDrDetailsAppBar extends StatelessWidget {
-  const BuildDrDetailsAppBar({Key? key}) : super(key: key);
+  final bool isFav;
+  final Function()? onTapFav;
+  const BuildDrDetailsAppBar({Key? key, required this.isFav, this.onTapFav}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +66,7 @@ class BuildDrDetailsAppBar extends StatelessWidget {
             onTap: (){},
             child: Icon(
               Icons.favorite,
-              color: MyColors.white,
+              color: isFav ? Colors.red : MyColors.white,
               size: 28,
             ),
           ),

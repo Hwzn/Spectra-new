@@ -16,6 +16,9 @@ DoctorModel _$DoctorModelFromJson(Map<String, dynamic> json) => DoctorModel(
       specializationId: json['specialization_id'] as int,
       specializationName: json['specialization_name'] as String,
       isFav: json['is_fav'] as String,
+      centerId: json['center_id'] as int,
+      centerName: json['center_name'] as String,
+      centerImage: json['center_image'] as String?,
     );
 
 Map<String, dynamic> _$DoctorModelToJson(DoctorModel instance) =>
@@ -29,4 +32,7 @@ Map<String, dynamic> _$DoctorModelToJson(DoctorModel instance) =>
       'specialization_id': instance.specializationId,
       'specialization_name': instance.specializationName,
       'is_fav': instance.isFav,
+      'center_id': instance.centerId,
+      'center_name': instance.centerName,
+      'center_image': instance.centerImage,
     };

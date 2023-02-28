@@ -34,7 +34,9 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                     Container(
                       height: MediaQuery.of(context).size.height * 0.33,
                     ),
-                    const BuildDrDetailsAppBar(),
+                    BuildDrDetailsAppBar(
+                      isFav: state.data?.doctor.isFav == 'fav' ? true : false,
+                    ),
                     Positioned(
                       top: MediaQuery.of(context).size.height * 0.16,
                       width: MediaQuery.of(context).size.width,
@@ -68,7 +70,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                     Container(
                       height: MediaQuery.of(context).size.height * 0.33,
                     ),
-                    const BuildDrDetailsAppBar(),
+                    const BuildDrDetailsAppBar(isFav: false),
                     Positioned(
                       top: MediaQuery.of(context).size.height * 0.16,
                       width: MediaQuery.of(context).size.width,

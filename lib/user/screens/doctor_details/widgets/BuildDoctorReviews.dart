@@ -79,7 +79,9 @@ class BuildDoctorReviews extends StatelessWidget {
             child: Column(
               children: List.generate(
                 reviewsList.length,
-                    (index) => const BuildDoctorReviewItem(),
+                (index) => BuildDoctorReviewItem(
+                  model: reviewsList[index],
+                ),
               ),
             ),
           ),

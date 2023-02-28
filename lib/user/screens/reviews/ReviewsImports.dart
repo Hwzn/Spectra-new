@@ -5,5 +5,7 @@ import 'package:hwzn_base/general/constants/MyColors.dart';
 import 'package:hwzn_base/general/widgets/DefaultAppBar.dart';
 import 'package:hwzn_base/user/screens/doctor_details/widgets/DoctorDetailsWidgetsImports.dart';
 
+import '../../../general/widgets/MyText.dart';
+
 part 'Reviews.dart';
 part 'ReviewsData.dart';

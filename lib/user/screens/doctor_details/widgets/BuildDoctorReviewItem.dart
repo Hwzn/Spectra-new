@@ -1,7 +1,10 @@
 part of 'DoctorDetailsWidgetsImports.dart';
 
 class BuildDoctorReviewItem extends StatelessWidget {
-  const BuildDoctorReviewItem({Key? key}) : super(key: key);
+  final ReviewModel model;
+
+  const BuildDoctorReviewItem({Key? key, required this.model})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +15,8 @@ class BuildDoctorReviewItem extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const CachedImage(
-            url: "https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=ZhplzyJ9",
+          CachedImage(
+            url: model.reviewerImage,
             height: 50,
             width: 50,
             haveRadius: false,
@@ -24,9 +27,10 @@ class BuildDoctorReviewItem extends StatelessWidget {
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 RatingBar.builder(
-                  initialRating: 2,
+                  initialRating: double.parse(model.rate),
                   minRating: 0,
                   direction: Axis.horizontal,
                   allowHalfRating: false,
@@ -44,18 +48,21 @@ class BuildDoctorReviewItem extends StatelessWidget {
                 Container(
                   margin: const EdgeInsets.only(top: 5, bottom: 2),
                   child: MyText(
-                    title: "Aya Hamed",
+                    title: model.reviewerName,
                     color: MyColors.black,
                     size: 12,
                     fontWeight: FontWeight.normal,
                   ),
                 ),
-                Expanded(
-                  child: MyText(
-                    title: "Review content here, Review content here, Review content here.",
-                    color: MyColors.blackOpacity,
-                    size: 10,
-                    overflow: TextOverflow.ellipsis,
+                Visibility(
+                  visible: model.comment != null,
+                  child: Expanded(
+                    child: MyText(
+                      title: model.comment ?? '',
+                      color: MyColors.blackOpacity,
+                      size: 10,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                 ),
               ],

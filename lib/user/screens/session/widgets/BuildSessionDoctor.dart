@@ -68,18 +68,20 @@ class BuildSessionDoctor extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        const CachedImage(
-                          url:
-                          "https://images.ctfassets.net/rt5zmd3ipxai/q6gWiPMWCl0vRTBgwhO9K/2bed2b68c9e0324a40e1f9804a49cce5/All_Creatures_Logo_Final-01_2.png",
-                          height: 25,
-                          width: 25,
-                          haveRadius: false,
-                          boxShape: BoxShape.circle,
-                          fit: BoxFit.cover,
+                        Visibility(
+                          visible: model.centerImage != null,
+                          child: CachedImage(
+                            url: model.centerImage??'',
+                            height: 25,
+                            width: 25,
+                            haveRadius: false,
+                            boxShape: BoxShape.circle,
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                        const SizedBox(width: 5),
+                        SizedBox(width: model.centerImage != null ? 5 : 0),
                         MyText(
-                          title: "Center Name",
+                          title: model.centerName,
                           color: MyColors.primary,
                           size: 12,
                         ),

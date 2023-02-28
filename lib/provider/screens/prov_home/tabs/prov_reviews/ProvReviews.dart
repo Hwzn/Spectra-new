@@ -9,6 +9,7 @@ class ProvReviews extends StatefulWidget {
 
 class _ProvReviewsState extends State<ProvReviews> {
   ProvReviewsData provReviewsData = ProvReviewsData();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,9 +58,14 @@ class _ProvReviewsState extends State<ProvReviews> {
                     return AnimationConfiguration.staggeredList(
                       position: index,
                       duration: const Duration(milliseconds: 375),
-                      child: const SlideAnimation(
+                      child: SlideAnimation(
                         verticalOffset: 50.0,
-                        child: BuildDoctorReviewItem(),
+                        // child: BuildDoctorReviewItem(),
+                        child: MyText(
+                          title: "Commented widget was here",
+                          color: MyColors.primary,
+                          size: 12,
+                        ),
                       ),
                     );
                   },
