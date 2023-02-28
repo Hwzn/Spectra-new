@@ -22,10 +22,15 @@ class _SpecializationState extends State<Specialization> {
             return AnimationConfiguration.staggeredList(
               position: index,
               duration: const Duration(milliseconds: 375),
-              child: const SlideAnimation(
+              child: SlideAnimation(
                 verticalOffset: 50.0,
                 child: FadeInAnimation(
-                  child: BuildDoctorItem(),
+                  // child: BuildDoctorItem(),
+                  child: MyText(
+                    title: "Commented widget was here",
+                    color: MyColors.primary,
+                    size: 12,
+                  ),
                 ),
               ),
             );

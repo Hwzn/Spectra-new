@@ -1,6 +1,15 @@
 part of 'MainPageImports.dart';
 
 class MainPageData {
+  // blocs
+  final GenericBloc<HomeModel?> homeBloc = GenericBloc(null);
+
+  //
+  fetchData(BuildContext context) async {
+    var data = await UserRepository(context).getHome();
+    homeBloc.onUpdateData(data);
+  }
+
   openFilter(BuildContext context) {
     // open bottom sheet
     showModalBottomSheet(

@@ -1,7 +1,8 @@
 part of 'MainWidgetsImports.dart';
 
 class BuildSpecItem extends StatelessWidget {
-  const BuildSpecItem({Key? key}) : super(key: key);
+  final DropDownModel model;
+  const BuildSpecItem({Key? key, required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class BuildSpecItem extends StatelessWidget {
             const SizedBox(height: 10),
             Expanded(
               child: MyText(
-                title: "Specialization",
+                title: model.name ?? '',
                 color: MyColors.blackOpacity,
                 size: 10,
                 overflow: TextOverflow.ellipsis,

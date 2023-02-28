@@ -85,6 +85,7 @@ dependencies:
   photo_view:
   intl:
 #  flutter_swiper:
+  flutter_swiper_null_safety:
   share:
   material_design_icons_flutter:
   map_launcher:

@@ -25,11 +25,16 @@ class _FavoriteState extends State<Favorite> {
             return AnimationConfiguration.staggeredList(
               position: index,
               duration: const Duration(milliseconds: 375),
-              child: const SlideAnimation(
+              child: SlideAnimation(
                 verticalOffset: 50.0,
                 child: FadeInAnimation(
-                  child: BuildDoctorItem(
-                    isFavorite: true,
+                  // child: BuildDoctorItem(
+                  //   isFavorite: true,
+                  // ),
+                  child: MyText(
+                    title: "Commented widget was here",
+                    color: MyColors.primary,
+                    size: 12,
                   ),
                 ),
               ),

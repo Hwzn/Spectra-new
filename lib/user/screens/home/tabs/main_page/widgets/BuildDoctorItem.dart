@@ -2,8 +2,8 @@ part of 'MainWidgetsImports.dart';
 
 class BuildDoctorItem extends StatelessWidget {
   final bool isFavorite;
-
-  const BuildDoctorItem({Key? key, this.isFavorite = false}) : super(key: key);
+  final DoctorModel model;
+  const BuildDoctorItem({Key? key, this.isFavorite = false, required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +30,9 @@ class BuildDoctorItem extends StatelessWidget {
               children: [
                 Container(
                   margin: const EdgeInsets.symmetric(vertical: 10),
-                  child: const CachedImage(
-                    url:
-                        "https://www.freshpondanimalhospital.com/uploads/SiteAssets/17/images/staff/804198.jpg",
+                  child: CachedImage(
+                    url: model.image,
+                        // "https://www.freshpondanimalhospital.com/uploads/SiteAssets/17/images/staff/804198.jpg",
                     height: 50,
                     width: 50,
                     haveRadius: false,
@@ -46,7 +46,7 @@ class BuildDoctorItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       RatingBar.builder(
-                        initialRating: 2,
+                        initialRating: double.parse(model.avgRate),
                         minRating: 0,
                         direction: Axis.horizontal,
                         allowHalfRating: false,
@@ -63,7 +63,7 @@ class BuildDoctorItem extends StatelessWidget {
                       ),
                       const SizedBox(height: 5),
                       MyText(
-                        title: "Aya Hamed",
+                        title: model.name,
                         color: MyColors.black,
                         size: 12,
                         fontWeight: FontWeight.normal,
@@ -95,7 +95,7 @@ class BuildDoctorItem extends StatelessWidget {
                 Expanded(
                   flex: 2,
                   child: MyText(
-                    title: "30 SAR/Hour",
+                    title: "${model.sessionPrice} SAR/Hour",
                     color: MyColors.lightGrey,
                     size: 12,
                   ),
@@ -110,9 +110,9 @@ class BuildDoctorItem extends StatelessWidget {
                 Expanded(
                   flex: 1,
                   child: MyText(
-                    title: "Specialization",
+                    title: model.specializationName,
                     color: MyColors.lightGrey,
-                    size: 12,
+                    size: 10,
                   ),
                 ),
               ],

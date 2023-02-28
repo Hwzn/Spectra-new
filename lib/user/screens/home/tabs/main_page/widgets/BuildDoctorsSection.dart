@@ -1,7 +1,10 @@
 part of 'MainWidgetsImports.dart';
 
 class BuildDoctorsSection extends StatelessWidget {
-  const BuildDoctorsSection({Key? key}) : super(key: key);
+  final List<DoctorModel> doctorsList;
+
+  const BuildDoctorsSection({Key? key, required this.doctorsList})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +21,10 @@ class BuildDoctorsSection extends StatelessWidget {
           ),
         ),
         ...List.generate(
-          3,
-          (index) => const BuildDoctorItem(),
+          doctorsList.length,
+          (index) => BuildDoctorItem(
+            model: doctorsList[index],
+          ),
         ),
       ],
     );

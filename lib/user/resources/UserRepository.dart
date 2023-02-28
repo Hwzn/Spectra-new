@@ -9,6 +9,6 @@ class UserRepository{
     userHttpMethods =  UserHttpMethods(context);
   }
 
-
+  Future<HomeModel> getHome() async => userHttpMethods.getHome();
 
 }

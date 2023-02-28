@@ -1,7 +1,8 @@
 part of 'MainWidgetsImports.dart';
 
 class BuildSpecializationSection extends StatelessWidget {
-  const BuildSpecializationSection({Key? key}) : super(key: key);
+  final List<DropDownModel> specsList;
+  const BuildSpecializationSection({Key? key, required this.specsList}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,16 +18,17 @@ class BuildSpecializationSection extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(
+        Container(
           width: MediaQuery.of(context).size.width,
+          alignment: Alignment.center,
           child: Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
-            alignment: WrapAlignment.spaceAround,
+            alignment: WrapAlignment.start,
             runSpacing: 10,
             spacing: 10,
             children: List.generate(
-              6,
-                  (index) => const BuildSpecItem(),
+              specsList.length,
+                  (index) => BuildSpecItem(model: specsList[index],),
             ),
           ),
         ),
