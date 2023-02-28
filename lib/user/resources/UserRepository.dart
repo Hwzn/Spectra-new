@@ -17,4 +17,7 @@ class UserRepository {
   Future<List<DoctorModel>> getFavorites() async =>
       userHttpMethods.getFavorites();
 
+  Future<DoctorDetailsModel> getDoctorDetails(int id) =>
+      userHttpMethods.getDoctorDetails(id);
+
 }

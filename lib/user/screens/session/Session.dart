@@ -57,7 +57,12 @@ class _SessionState extends State<Session> {
             child: ListView(
               padding: EdgeInsets.zero,
               children: [
-                const BuildSessionDoctor(),
+                // const BuildSessionDoctor(),
+                MyText(
+                  title: "Commented widget was here",
+                  color: MyColors.primary,
+                  size: 12,
+                ),
                 InkWell(
                   onTap: widget.fromDoctorHome ?
                       ()=> AutoRouter.of(context).push(const PetProfileRoute())

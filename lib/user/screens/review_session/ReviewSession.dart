@@ -23,7 +23,7 @@ class _ReviewSessionState extends State<ReviewSession> {
             statusColor: Colors.green[700]!,
             ended: true,
           ),
-          const BuildSessionDoctorInfo(),
+          const BuildSessionDoctorInfo(info: 'info should be here',),
           const BuildRateSession(),
           DefaultButton(
             title: "Submit",

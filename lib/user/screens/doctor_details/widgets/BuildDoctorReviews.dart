@@ -1,7 +1,12 @@
 part of 'DoctorDetailsWidgetsImports.dart';
 
 class BuildDoctorReviews extends StatelessWidget {
-  const BuildDoctorReviews({Key? key}) : super(key: key);
+  final double avgRate;
+  final List<ReviewModel> reviewsList;
+
+  const BuildDoctorReviews(
+      {Key? key, required this.avgRate, required this.reviewsList})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +34,15 @@ class BuildDoctorReviews extends StatelessWidget {
                 color: MyColors.black,
                 size: 12,
               ),
-              InkWell(
-                onTap: ()=> AutoRouter.of(context).push(ReviewsRoute()),
-                child: MyText(
-                  title: "See more",
-                  color: MyColors.blackOpacity,
-                  size: 10,
+              Visibility(
+                visible: reviewsList.isNotEmpty,
+                child: InkWell(
+                  onTap: () => AutoRouter.of(context).push(ReviewsRoute()),
+                  child: MyText(
+                    title: "See more",
+                    color: MyColors.blackOpacity,
+                    size: 10,
+                  ),
                 ),
               ),
             ],
@@ -42,7 +50,7 @@ class BuildDoctorReviews extends StatelessWidget {
           Container(
             margin: const EdgeInsets.symmetric(vertical: 10),
             child: RatingBar.builder(
-              initialRating: 2,
+              initialRating: avgRate,
               minRating: 0,
               direction: Axis.horizontal,
               allowHalfRating: false,
@@ -58,8 +66,23 @@ class BuildDoctorReviews extends StatelessWidget {
               onRatingUpdate: (index) {},
             ),
           ),
-          const BuildDoctorReviewItem(),
-          const BuildDoctorReviewItem(),
+          Visibility(
+            visible: reviewsList.isNotEmpty,
+            replacement: Container(
+              margin: const EdgeInsets.only(top: 20, bottom: 10),
+              child: MyText(
+                title: "No Reviews Available",
+                color: MyColors.primary,
+                size: 12,
+              ),
+            ),
+            child: Column(
+              children: List.generate(
+                reviewsList.length,
+                    (index) => const BuildDoctorReviewItem(),
+              ),
+            ),
+          ),
         ],
       ),
     );

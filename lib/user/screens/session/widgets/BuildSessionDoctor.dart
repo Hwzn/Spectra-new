@@ -1,7 +1,8 @@
 part of 'SessionWidgetsImports.dart';
 
 class BuildSessionDoctor extends StatelessWidget {
-  const BuildSessionDoctor({Key? key}) : super(key: key);
+  final DoctorModel model;
+  const BuildSessionDoctor({Key? key, required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +26,9 @@ class BuildSessionDoctor extends StatelessWidget {
             children: [
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 10),
-                child: const CachedImage(
-                  url:
-                  "https://www.freshpondanimalhospital.com/uploads/SiteAssets/17/images/staff/804198.jpg",
+                child: CachedImage(
+                  url: model.image,
+                  // "https://www.freshpondanimalhospital.com/uploads/SiteAssets/17/images/staff/804198.jpg",
                   height: 50,
                   width: 50,
                   haveRadius: false,
@@ -41,7 +42,7 @@ class BuildSessionDoctor extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     RatingBar.builder(
-                      initialRating: 2,
+                      initialRating: double.parse(model.avgRate),
                       minRating: 0,
                       direction: Axis.horizontal,
                       allowHalfRating: false,
@@ -59,7 +60,7 @@ class BuildSessionDoctor extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 5),
                       child: MyText(
-                        title: "Aya Hamed",
+                        title: model.name,
                         color: MyColors.black,
                         size: 12,
                         fontWeight: FontWeight.normal,
@@ -105,7 +106,7 @@ class BuildSessionDoctor extends StatelessWidget {
               Expanded(
                 flex: 2,
                 child: MyText(
-                  title: "30 SAR/Hour",
+                  title: "${model.sessionPrice} SAR/Hour",
                   color: MyColors.lightGrey,
                   size: 12,
                 ),
@@ -120,7 +121,7 @@ class BuildSessionDoctor extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: MyText(
-                  title: "Specialization",
+                  title: model.specializationName,
                   color: MyColors.lightGrey,
                   size: 12,
                 ),

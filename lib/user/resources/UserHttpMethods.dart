@@ -40,4 +40,16 @@ class UserHttpMethods {
     ) as List<DoctorModel>;
   }
 
+  Future<DoctorDetailsModel> getDoctorDetails(int id) async {
+    return await GenericHttp<DoctorDetailsModel>(context).callApi(
+      name: ApiNames.doctorDetailsById,
+      json: {"doctor_id": id},
+      returnType: ReturnType.model,
+      showLoader: false,
+      methodType: MethodType.post,
+      returnDataFun: (data) => data["data"],
+      toJsonFunc: (json) => DoctorDetailsModel.fromJson(json),
+    );
+  }
+
 }

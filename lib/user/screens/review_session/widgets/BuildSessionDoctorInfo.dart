@@ -1,7 +1,8 @@
 part of 'ReviewSessionWidgetsImports.dart';
 
 class BuildSessionDoctorInfo extends StatelessWidget {
-  const BuildSessionDoctorInfo({Key? key}) : super(key: key);
+  final String info;
+  const BuildSessionDoctorInfo({Key? key, required this.info}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class BuildSessionDoctorInfo extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           MyText(
-            title: "Here you can find info about doctor and it maybe 3 lines or more.Here you can find info about doctor and it maybe 3 lines or more.Here you can find info about doctor and it maybe 3 lines or more.Here you can find info about doctor and it maybe 3 lines or more.",
+            title: info,
             color: MyColors.blackOpacity,
             size: 12,
           ),
