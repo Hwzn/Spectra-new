@@ -1,7 +1,8 @@
 part of 'AllChatsWidgetsImports.dart';
 
 class BuildChatItem extends StatelessWidget {
-  const BuildChatItem({Key? key}) : super(key: key);
+  final ChatModel model;
+  const BuildChatItem({Key? key, required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +27,8 @@ class BuildChatItem extends StatelessWidget {
             children: [
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 10),
-                child: const CachedImage(
-                  url:
-                      "https://www.freshpondanimalhospital.com/uploads/SiteAssets/17/images/staff/804198.jpg",
+                child: CachedImage(
+                  url: model.receiverImage,
                   height: 50,
                   width: 50,
                   haveRadius: false,
@@ -42,13 +42,13 @@ class BuildChatItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     MyText(
-                      title: "Aya Hamed",
+                      title: model.receiverName,
                       color: MyColors.black,
                       size: 12,
                     ),
                     const SizedBox(height: 5),
                     MyText(
-                      title: "Hello, how are you ? ",
+                      title: model.lastMessage,
                       color: MyColors.grey,
                       size: 12,
                       fontWeight: FontWeight.normal,

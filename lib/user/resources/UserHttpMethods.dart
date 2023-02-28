@@ -52,4 +52,15 @@ class UserHttpMethods {
     );
   }
 
+  Future<List<ChatModel>> getAllChats() async {
+    return await GenericHttp<ChatModel>(context).callApi(
+      name: ApiNames.getMyMessages,
+      returnType: ReturnType.list,
+      methodType: MethodType.get,
+      showLoader: false,
+      returnDataFun: (data) => data["data"],
+      toJsonFunc: (json) => ChatModel.fromJson(json),
+    ) as List<ChatModel>;
+  }
+
 }

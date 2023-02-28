@@ -33,6 +33,7 @@ class ApiNames{
   static const String doctorsBySpecializationId = "doctorsBySpecializationId";
   static const String authUserFav = "authUserFav";
   static const String doctorDetailsById = "doctorDetailsById";
+  static const String getMyMessages = "getMyMessages";
 
   // doctor
   static const String registerDoctor = "registerNewDoctor";

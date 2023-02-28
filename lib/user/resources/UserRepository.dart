@@ -20,4 +20,6 @@ class UserRepository {
   Future<DoctorDetailsModel> getDoctorDetails(int id) =>
       userHttpMethods.getDoctorDetails(id);
 
+  Future<List<ChatModel>> getAllChats() => userHttpMethods.getAllChats();
+
 }
