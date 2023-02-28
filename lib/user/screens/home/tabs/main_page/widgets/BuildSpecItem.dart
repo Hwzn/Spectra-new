@@ -2,12 +2,14 @@ part of 'MainWidgetsImports.dart';
 
 class BuildSpecItem extends StatelessWidget {
   final DropDownModel model;
+
   const BuildSpecItem({Key? key, required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: ()=> AutoRouter.of(context).push(SpecializationRoute()),
+      onTap: () => AutoRouter.of(context)
+          .push(SpecializationRoute(specId: model.id ?? 0, specName: model.name??'')),
       child: Container(
         height: 80,
         width: MediaQuery.of(context).size.width * 0.27,

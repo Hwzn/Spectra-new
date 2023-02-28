@@ -183,9 +183,14 @@ class AppRouter extends _i32.RootStackRouter {
       );
     },
     SpecializationRoute.name: (routeData) {
+      final args = routeData.argsAs<SpecializationRouteArgs>();
       return _i32.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i15.Specialization(),
+        child: _i15.Specialization(
+          key: args.key,
+          specId: args.specId,
+          specName: args.specName,
+        ),
         opaque: true,
       );
     },
@@ -685,14 +690,41 @@ class HomeRoute extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i15.Specialization]
-class SpecializationRoute extends _i32.PageRouteInfo<void> {
-  const SpecializationRoute()
-      : super(
+class SpecializationRoute extends _i32.PageRouteInfo<SpecializationRouteArgs> {
+  SpecializationRoute({
+    _i33.Key? key,
+    required int specId,
+    required String specName,
+  }) : super(
           SpecializationRoute.name,
           path: '/Specialization',
+          args: SpecializationRouteArgs(
+            key: key,
+            specId: specId,
+            specName: specName,
+          ),
         );
 
   static const String name = 'SpecializationRoute';
+}
+
+class SpecializationRouteArgs {
+  const SpecializationRouteArgs({
+    this.key,
+    required this.specId,
+    required this.specName,
+  });
+
+  final _i33.Key? key;
+
+  final int specId;
+
+  final String specName;
+
+  @override
+  String toString() {
+    return 'SpecializationRouteArgs{key: $key, specId: $specId, specName: $specName}';
+  }
 }
 
 /// generated route for

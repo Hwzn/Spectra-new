@@ -1,7 +1,10 @@
 part of 'UserRepositoryImports.dart';
-class UserHttpMethods{
+
+class UserHttpMethods {
   final BuildContext context;
+
   UserHttpMethods(this.context);
+
   FirebaseMessaging messaging = FirebaseMessaging.instance;
 
   Future<HomeModel> getHome() async {
@@ -14,4 +17,15 @@ class UserHttpMethods{
     );
   }
 
+  Future<List<DoctorModel>> getDoctorsBySpecId(int id) async {
+    return await GenericHttp<DoctorModel>(context).callApi(
+      name: ApiNames.doctorsBySpecializationId,
+      returnType: ReturnType.list,
+      json: {"specialization_id": id},
+      methodType: MethodType.post,
+      showLoader: false,
+      returnDataFun: (data) => data["data"],
+      toJsonFunc: (json) => DoctorModel.fromJson(json),
+    ) as List<DoctorModel>;
+  }
 }
