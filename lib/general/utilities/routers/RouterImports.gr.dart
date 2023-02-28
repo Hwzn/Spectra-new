@@ -242,9 +242,13 @@ class AppRouter extends _i32.RootStackRouter {
       );
     },
     DoctorDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<DoctorDetailsRouteArgs>();
       return _i32.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i22.DoctorDetails(),
+        child: _i22.DoctorDetails(
+          key: args.key,
+          doctorId: args.doctorId,
+        ),
         opaque: true,
       );
     },
@@ -823,14 +827,36 @@ class ReviewSessionRoute extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i22.DoctorDetails]
-class DoctorDetailsRoute extends _i32.PageRouteInfo<void> {
-  const DoctorDetailsRoute()
-      : super(
+class DoctorDetailsRoute extends _i32.PageRouteInfo<DoctorDetailsRouteArgs> {
+  DoctorDetailsRoute({
+    _i33.Key? key,
+    required int doctorId,
+  }) : super(
           DoctorDetailsRoute.name,
           path: '/doctor-details',
+          args: DoctorDetailsRouteArgs(
+            key: key,
+            doctorId: doctorId,
+          ),
         );
 
   static const String name = 'DoctorDetailsRoute';
+}
+
+class DoctorDetailsRouteArgs {
+  const DoctorDetailsRouteArgs({
+    this.key,
+    required this.doctorId,
+  });
+
+  final _i33.Key? key;
+
+  final int doctorId;
+
+  @override
+  String toString() {
+    return 'DoctorDetailsRouteArgs{key: $key, doctorId: $doctorId}';
+  }
 }
 
 /// generated route for

@@ -11,36 +11,57 @@ class _FavoriteState extends State<Favorite> {
   FavoriteData favoriteData = FavoriteData();
 
   @override
+  void initState() {
+    favoriteData.fetchData(context);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const DefaultAppBar(
         title: "My Favorites",
         showLeading: false,
       ),
-      body: AnimationLimiter(
-        child: ListView.builder(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-          itemCount: 3,
-          itemBuilder: (BuildContext context, int index) {
-            return AnimationConfiguration.staggeredList(
-              position: index,
-              duration: const Duration(milliseconds: 375),
-              child: SlideAnimation(
-                verticalOffset: 50.0,
-                child: FadeInAnimation(
-                  // child: BuildDoctorItem(
-                  //   isFavorite: true,
-                  // ),
-                  child: MyText(
-                    title: "Commented widget was here",
-                    color: MyColors.primary,
-                    size: 12,
-                  ),
+      body: BlocBuilder<GenericBloc<List<DoctorModel>>, GenericState<List<DoctorModel>>>(
+        bloc: favoriteData.favoritesBloc,
+        builder: (context, state) {
+          if (state is GenericUpdateState){
+            return Visibility(
+              visible: state.data.isNotEmpty,
+              replacement: Center(
+                child: MyText(
+                  title: "No Favorites",
+                  color: MyColors.primary,
+                  size: 12,
+                ),
+              ),
+              child: AnimationLimiter(
+                child: ListView.builder(
+                  padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                  itemCount: state.data.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return AnimationConfiguration.staggeredList(
+                      position: index,
+                      duration: const Duration(milliseconds: 375),
+                      child: SlideAnimation(
+                        verticalOffset: 50.0,
+                        child: FadeInAnimation(
+                          child: BuildDoctorItem(
+                            isFavorite: true,
+                            model: state.data[index],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
             );
-          },
-        ),
+          } else {
+            return LoadingDialog.showLoadingView();
+          }
+        },
       ),
     );
   }

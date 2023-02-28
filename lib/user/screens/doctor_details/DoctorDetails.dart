@@ -1,7 +1,8 @@
 part of 'DoctorDetailsImports.dart';
 
 class DoctorDetails extends StatefulWidget {
-  const DoctorDetails({Key? key}) : super(key: key);
+  final int doctorId;
+  const DoctorDetails({Key? key, required this.doctorId}) : super(key: key);
 
   @override
   State<DoctorDetails> createState() => _DoctorDetailsState();

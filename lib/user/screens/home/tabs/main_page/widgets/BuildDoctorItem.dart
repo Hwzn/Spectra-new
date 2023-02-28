@@ -3,12 +3,16 @@ part of 'MainWidgetsImports.dart';
 class BuildDoctorItem extends StatelessWidget {
   final bool isFavorite;
   final DoctorModel model;
-  const BuildDoctorItem({Key? key, this.isFavorite = false, required this.model}) : super(key: key);
+
+  const BuildDoctorItem(
+      {Key? key, this.isFavorite = false, required this.model})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: ()=> AutoRouter.of(context).push(DoctorDetailsRoute()),
+      onTap: () =>
+          AutoRouter.of(context).push(DoctorDetailsRoute(doctorId: model.id)),
       child: Container(
         decoration: BoxDecoration(
           color: MyColors.white,
@@ -32,7 +36,7 @@ class BuildDoctorItem extends StatelessWidget {
                   margin: const EdgeInsets.symmetric(vertical: 10),
                   child: CachedImage(
                     url: model.image,
-                        // "https://www.freshpondanimalhospital.com/uploads/SiteAssets/17/images/staff/804198.jpg",
+                    // "https://www.freshpondanimalhospital.com/uploads/SiteAssets/17/images/staff/804198.jpg",
                     height: 50,
                     width: 50,
                     haveRadius: false,
@@ -53,7 +57,8 @@ class BuildDoctorItem extends StatelessWidget {
                         updateOnDrag: false,
                         itemCount: 5,
                         itemSize: 12,
-                        itemPadding: const EdgeInsets.symmetric(horizontal: 1.0),
+                        itemPadding:
+                            const EdgeInsets.symmetric(horizontal: 1.0),
                         itemBuilder: (context, _) => const Icon(
                           Icons.star,
                           color: Colors.amber,

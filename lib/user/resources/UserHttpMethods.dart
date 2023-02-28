@@ -28,4 +28,16 @@ class UserHttpMethods {
       toJsonFunc: (json) => DoctorModel.fromJson(json),
     ) as List<DoctorModel>;
   }
+
+  Future<List<DoctorModel>> getFavorites() async {
+    return await GenericHttp<DoctorModel>(context).callApi(
+      name: ApiNames.authUserFav,
+      returnType: ReturnType.list,
+      methodType: MethodType.get,
+      showLoader: false,
+      returnDataFun: (data) => data["data"],
+      toJsonFunc: (json) => DoctorModel.fromJson(json),
+    ) as List<DoctorModel>;
+  }
+
 }
