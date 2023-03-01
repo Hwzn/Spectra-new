@@ -8,7 +8,7 @@ class BuildTermsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.center,
+      alignment: Alignment.topCenter,
       margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(

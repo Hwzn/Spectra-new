@@ -204,4 +204,14 @@ class GeneralHttpMethods {
       Phoenix.rebirth(context);
     });
   }
+
+  Future<String> getTerms() async {
+    return await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.terms,
+      returnType: ReturnType.type,
+      methodType: MethodType.get,
+      returnDataFun: (data) => data["data"],
+    );
+  }
+
 }

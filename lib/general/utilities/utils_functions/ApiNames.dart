@@ -14,13 +14,8 @@ class ApiNames{
   static const String logout = "logout";
   static const String verifyCode = "verifycode";
   static const String resendCode = "send-code";
-
-  static const String aboutApp = "AboutApp";
-  static const String terms = "api/mobile/termsAndConditions";
-  static const String sendCode = "api/mobile/checkVerificationCode";
-  static const String repeatedQuestions = "api/mobile/faq";
-  static const String switchNotify = "SwitchNotify";
-  static const String forgetPassword = "api/mobile/sendResetPassCode";
+  static const String terms = "terms";
+  static const String faq = "fqs";
   static const String resetPassword = "resetpassword";
   static const String contactUs = "ContactUs";
 

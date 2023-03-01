@@ -125,4 +125,20 @@ class UserHttpMethods {
       return false;
     }
   }
+
+  Future<bool> addPet(int id) async {
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.deletePet,
+      json: {"pet_id": id},
+      returnType: ReturnType.type,
+      methodType: MethodType.post,
+    );
+    if (data != null) {
+      CustomToast.showSimpleToast(msg: data["message"]);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }

@@ -43,4 +43,7 @@ class GeneralRepository {
       _generalHttpMethods.sendMessage(name, mail, message);
 
   Future<void> logOut() => _generalHttpMethods.logout();
+
+  Future<String> getTerms() => _generalHttpMethods.getTerms();
+
 }
