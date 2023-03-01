@@ -22,4 +22,7 @@ class UserRepository {
 
   Future<List<ChatModel>> getAllChats() => userHttpMethods.getAllChats();
 
+  Future<bool> updateProfile(UpdateProfileModel model) =>
+      userHttpMethods.updateProfile(model);
+
 }

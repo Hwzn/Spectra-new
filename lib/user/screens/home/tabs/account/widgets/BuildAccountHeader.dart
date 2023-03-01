@@ -5,11 +5,11 @@ class BuildAccountHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var user = context.read<UserCubit>().state.model;
     return Row(
       children: [
-        const CachedImage(
-          url:
-          "https://www.freshpondanimalhospital.com/uploads/SiteAssets/17/images/staff/804198.jpg",
+        CachedImage(
+          url: user.image,
           height: 50,
           width: 50,
           haveRadius: false,
@@ -28,7 +28,7 @@ class BuildAccountHeader extends StatelessWidget {
                 fontWeight: FontWeight.normal,
               ),
               MyText(
-                title: "Aya Hamed",
+                title: user.name,
                 color: MyColors.white,
                 size: 13,
               ),

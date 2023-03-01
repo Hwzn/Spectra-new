@@ -8,6 +8,7 @@ class BuildProfilePhoto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var user = context.read<UserCubit>().state.model;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 20),
       padding: const EdgeInsets.all(10),
@@ -58,8 +59,7 @@ class BuildProfilePhoto extends StatelessWidget {
                 return SizedBox(
                   width: 150,
                   child: CachedImage(
-                    url:
-                    "https://www.freshpondanimalhospital.com/uploads/SiteAssets/17/images/staff/804198.jpg",
+                    url: user.image,
                     height: 130,
                     width: 130,
                     haveRadius: false,

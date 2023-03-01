@@ -63,4 +63,25 @@ class UserHttpMethods {
     ) as List<ChatModel>;
   }
 
+  Future<bool> updateProfile(UpdateProfileModel model) async {
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.updateProfile,
+      json: model.toJson(),
+      returnType: ReturnType.type,
+      showLoader: false,
+      methodType: MethodType.post,
+    );
+    if (data != null) {
+      UserModel? user = context.read<UserCubit>().state.model;
+      user = UserModel.fromJson(data["data"]["user"]);
+      Storage.saveUserData(user);
+      user.token = GlobalState.instance.get("token");
+      context.read<UserCubit>().onUpdateUserData(user);
+      CustomToast.showSimpleToast(msg: data["message"]);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }

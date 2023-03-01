@@ -9,6 +9,11 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   ProfileData profileData = ProfileData();
+  @override
+  void initState() {
+    profileData.fetchData(context);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +31,7 @@ class _ProfileState extends State<Profile> {
         title: "Save",
         margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
         borderRadius: BorderRadius.circular(15),
-        onTap: (){},
+        onTap: ()=> profileData.updateProfile(context),
       ),
     );
   }

@@ -8,6 +8,7 @@ import 'package:hwzn_base/general/utilities/routers/RouterImports.gr.dart';
 import 'package:hwzn_base/user/screens/home/tabs/account/AccountImports.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../../../../../../general/blocks/user_cubit/user_cubit.dart';
 import '../../../../../../general/constants/MyColors.dart';
 import '../../../../../../general/packages/generic_bloc/generic_cubit.dart';
 import '../../../../../../general/widgets/CachedImage.dart';
