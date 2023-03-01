@@ -36,6 +36,8 @@ class ApiNames{
   static const String getMyMessages = "getMyMessages";
   static const String updateProfile = "updateProfile";
   static const String toggleFavUser = "toggleFavUser";
+  static const String authClientPets = "authClientPets";
+  static const String deletePet = "deletePet";
 
   // doctor
   static const String registerDoctor = "registerNewDoctor";

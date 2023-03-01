@@ -27,4 +27,8 @@ class UserRepository {
 
   Future<bool> addRemoveFav(int id) => userHttpMethods.addRemoveFav(id);
 
+  Future<List<PetModel>> getPets() => userHttpMethods.getPets();
+
+  Future<bool> deletePet(int id) => userHttpMethods.deletePet(id);
+
 }

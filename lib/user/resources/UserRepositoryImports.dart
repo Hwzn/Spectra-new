@@ -8,6 +8,7 @@ import 'package:hwzn_base/user/models/chat_model.dart';
 import 'package:hwzn_base/user/models/doctor_details_model.dart';
 import 'package:hwzn_base/user/models/doctor_model.dart';
 import 'package:hwzn_base/user/models/home_model.dart';
+import 'package:hwzn_base/user/models/pet_model.dart';
 import 'package:hwzn_base/user/screens/doctor_details/DoctorDetailsImports.dart';
 
 import '../../general/blocks/user_cubit/user_cubit.dart';

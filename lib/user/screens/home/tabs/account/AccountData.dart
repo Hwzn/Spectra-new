@@ -33,12 +33,13 @@ class AccountData {
   }
 
   // methods
-  fetchPets(BuildContext context) {
-    var user = context.read<UserCubit>().state.model;
-    petsBloc.onUpdateData(user.pets);
+  fetchPets(BuildContext context) async {
+    var data = await UserRepository(context).getPets();
+    petsBloc.onUpdateData(data);
   }
 
-  removePet(int index) {
+  removePet(int index, int id,BuildContext context) async {
+    await UserRepository(context).deletePet(id);
     petsBloc.state.data.removeAt(index);
     petsBloc.onUpdateData(petsBloc.state.data);
   }

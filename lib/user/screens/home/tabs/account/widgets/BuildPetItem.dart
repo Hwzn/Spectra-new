@@ -50,7 +50,7 @@ class BuildPetItem extends StatelessWidget {
         Positioned(
           right: 0,
           child: InkWell(
-            onTap: ()=> accountData.removePet(index),
+            onTap: ()=> accountData.removePet(index, model.id, context),
             child: Container(
               height: 25,
               width: 25,

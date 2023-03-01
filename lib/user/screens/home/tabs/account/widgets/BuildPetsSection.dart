@@ -36,43 +36,47 @@ class BuildPetsSection extends StatelessWidget {
           BlocBuilder<GenericBloc<List<PetModel>>, GenericState<List<PetModel>>>(
             bloc: accountData.petsBloc,
             builder: (context, state) {
-              return Visibility(
-                visible: state.data.isNotEmpty,
-                replacement: Container(
-                  height: 150,
-                  alignment: Alignment.center,
-                  child: MyText(
-                    title: "No Pets",
-                    size: 16,
-                    color: MyColors.primary,
-                  ),
-                ),
-                child: Container(
-                  height: 150,
-                  margin: const EdgeInsets.symmetric(horizontal: 10),
-                  child: AnimationLimiter(
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: state.data.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return AnimationConfiguration.staggeredList(
-                          position: index,
-                          duration: const Duration(milliseconds: 375),
-                          child: SlideAnimation(
-                            child: FadeInAnimation(
-                              child: BuildPetItem(
-                                index: index,
-                                accountData: accountData,
-                                model: state.data[index],
-                              ),
-                            ),
-                          ),
-                        );
-                      },
+              if(state is GenericUpdateState) {
+                return Visibility(
+                  visible: state.data.isNotEmpty,
+                  replacement: Container(
+                    height: 150,
+                    alignment: Alignment.center,
+                    child: MyText(
+                      title: "No Pets",
+                      size: 16,
+                      color: MyColors.primary,
                     ),
                   ),
-                ),
-              );
+                  child: Container(
+                    height: 150,
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
+                    child: AnimationLimiter(
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: state.data.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return AnimationConfiguration.staggeredList(
+                            position: index,
+                            duration: const Duration(milliseconds: 375),
+                            child: SlideAnimation(
+                              child: FadeInAnimation(
+                                child: BuildPetItem(
+                                  index: index,
+                                  accountData: accountData,
+                                  model: state.data[index],
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                );
+              } else  {
+                return const CircularProgressIndicator();
+              }
             },
           ),
         ],

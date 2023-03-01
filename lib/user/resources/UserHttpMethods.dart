@@ -100,4 +100,30 @@ class UserHttpMethods {
     }
   }
 
+  Future<List<PetModel>> getPets() async {
+    return await GenericHttp<PetModel>(context).callApi(
+      name: ApiNames.authClientPets,
+      returnType: ReturnType.list,
+      methodType: MethodType.get,
+      showLoader: false,
+      returnDataFun: (data) => data["data"],
+      toJsonFunc: (json) => PetModel.fromJson(json),
+    ) as List<PetModel>;
+  }
+
+  Future<bool> deletePet(int id) async {
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.deletePet,
+      json: {"pet_id" : id},
+      returnType: ReturnType.type,
+      methodType: MethodType.post,
+    );
+    if (data != null) {
+      CustomToast.showSimpleToast(msg: data["message"]);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }
