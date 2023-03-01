@@ -214,4 +214,14 @@ class GeneralHttpMethods {
     );
   }
 
+  Future<List<QuestionModel>> getFAQ() async {
+    return await GenericHttp<QuestionModel>(context).callApi(
+      name: ApiNames.faq,
+      returnType: ReturnType.list,
+      methodType: MethodType.get,
+      returnDataFun: (data) => data["data"],
+      toJsonFunc: (json) => QuestionModel.fromJson(json),
+    ) as List<QuestionModel>;
+  }
+
 }

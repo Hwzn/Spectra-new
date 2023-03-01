@@ -8,14 +8,16 @@ part of 'QuestionModel.dart';
 
 QuestionModel _$QuestionModelFromJson(Map<String, dynamic> json) =>
     QuestionModel(
+      id: json['id'] as int,
       question: json['question'] as String,
       answer: json['answer'] as String,
-      closed: json['closed'] as bool? ?? false,
+      opened: json['opened'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$QuestionModelToJson(QuestionModel instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'question': instance.question,
       'answer': instance.answer,
-      'closed': instance.closed,
+      'opened': instance.opened,
     };

@@ -1,7 +1,7 @@
 part of 'FAQWidgetsImports.dart';
 
 class BuildFaqItem extends StatelessWidget {
-  final FaqModel model;
+  final QuestionModel model;
   final FAQData faqData;
   final int index;
 

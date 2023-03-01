@@ -9,9 +9,10 @@ class FAQ extends StatefulWidget {
 
 class _FAQState extends State<FAQ> {
   FAQData faqData = FAQData();
+
   @override
   void initState() {
-    faqData.fetchData();
+    faqData.fetchData(context);
     super.initState();
   }
 
@@ -20,20 +21,33 @@ class _FAQState extends State<FAQ> {
     return Scaffold(
       backgroundColor: MyColors.bg,
       appBar: const DefaultAppBar(title: "FAQ"),
-      body: BlocBuilder<GenericBloc<List<FaqModel>>, GenericState<List<FaqModel>>>(
+      body: BlocBuilder<GenericBloc<List<QuestionModel>>,
+          GenericState<List<QuestionModel>>>(
         bloc: faqData.faqBloc,
         builder: (context, state) {
-          return ListView.builder(
-            padding: const EdgeInsets.only(top: 20),
-            itemCount: state.data.length,
-            itemBuilder: (_, index) {
-              return BuildFaqItem(
-                index: index,
-                model: state.data[index],
-                faqData: faqData,
-              );
-            },
-          );
+          if (state is GenericUpdateState) {
+            return Visibility(
+              visible: state.data.isNotEmpty,
+              replacement: Center(
+                child: MyText(title: "No Questions Available",
+                  color: MyColors.primary,
+                  size: 12,),
+              ),
+              child: ListView.builder(
+                padding: const EdgeInsets.only(top: 20),
+                itemCount: state.data.length,
+                itemBuilder: (_, index) {
+                  return BuildFaqItem(
+                    index: index,
+                    model: state.data[index],
+                    faqData: faqData,
+                  );
+                },
+              ),
+            );
+          } else {
+            return LoadingDialog.showLoadingView();
+          }
         },
       ),
     );

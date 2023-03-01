@@ -46,4 +46,6 @@ class GeneralRepository {
 
   Future<String> getTerms() => _generalHttpMethods.getTerms();
 
+  Future<List<QuestionModel>> getFAQ() => _generalHttpMethods.getFAQ();
+
 }

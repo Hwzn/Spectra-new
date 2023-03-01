@@ -2,35 +2,12 @@ part of 'FAQImports.dart';
 
 class FAQData {
   // blocs
-  final GenericBloc<List<FaqModel>> faqBloc = GenericBloc([]);
-
-  // lists
-  List<FaqModel> faqList = [
-    FaqModel(
-      question: "Question here and may contains more than one line?",
-      answer: "Answer here and may contains more than one line. Answer here and may contains more than one line.",
-    ),
-    FaqModel(
-      question: "Question here and may contains more than one line?",
-      answer: "Answer here and may contains more than one line. Answer here and may contains more than one line.",
-    ),
-    FaqModel(
-      question: "Question here and may contains more than one line?",
-      answer: "Answer here and may contains more than one line. Answer here and may contains more than one line.",
-    ),
-    FaqModel(
-      question: "Question here and may contains more than one line?",
-      answer: "Answer here and may contains more than one line. Answer here and may contains more than one line.",
-    ),
-    FaqModel(
-      question: "Question here and may contains more than one line?",
-      answer: "Answer here and may contains more than one line. Answer here and may contains more than one line.",
-    ),
-  ];
+  final GenericBloc<List<QuestionModel>> faqBloc = GenericBloc([]);
 
   // methods
-  fetchData() {
-    faqBloc.onUpdateData(faqList);
+  fetchData(BuildContext context) async {
+    var data = await GeneralRepository(context). getFAQ();
+    faqBloc.onUpdateData(data);
   }
 
   showHideAnswer(int index){
