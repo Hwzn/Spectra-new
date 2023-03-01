@@ -34,6 +34,7 @@ class ApiNames{
   static const String authClientPets = "authClientPets";
   static const String deletePet = "deletePet";
   static const String allBlogs = "allBlogs";
+  static const String blogComments = "blogComments";
 
   // doctor
   static const String registerDoctor = "registerNewDoctor";

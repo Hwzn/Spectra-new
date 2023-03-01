@@ -48,7 +48,7 @@ class BuildPostItem extends StatelessWidget {
           ),
           Divider(color: MyColors.grey.withOpacity(0.2)),
           InkWell(
-            onTap: ()=> blogData.viewComments(context),
+            onTap: ()=> blogData.viewComments(context, model.likesCount, model.id),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

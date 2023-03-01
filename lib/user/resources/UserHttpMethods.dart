@@ -151,4 +151,16 @@ class UserHttpMethods {
     ) as List<BlogModel>;
   }
 
+  Future<List<CommentModel>> getBlogComments(int id) async {
+    return await GenericHttp<CommentModel>(context).callApi(
+      name: ApiNames.blogComments,
+      json: {"blog_id" : id},
+      returnType: ReturnType.list,
+      methodType: MethodType.post,
+      showLoader: false,
+      returnDataFun: (data) => data["data"],
+      toJsonFunc: (json) => CommentModel.fromJson(json),
+    ) as List<CommentModel>;
+  }
+
 }

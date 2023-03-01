@@ -6,6 +6,7 @@ class BlogData {
 
   // blocs
   final GenericBloc<List<BlogModel>> blogsBloc = GenericBloc([]);
+  final GenericBloc<List<CommentModel>> commentsBloc = GenericBloc([]);
 
   // methods
   fetchData(BuildContext context) async {
@@ -13,11 +14,21 @@ class BlogData {
     blogsBloc.onUpdateData(data);
   }
 
-  void viewComments(BuildContext context) {
+  fetchComments(BuildContext context, int id) async {
+    var data = await UserRepository(context).getBlogComments(id);
+    commentsBloc.onUpdateData(data);
+  }
+
+  void viewComments(BuildContext context, num likes, int blogId) async {
     showBottomSheet(
       context: context,
+      enableDrag: true,
       builder: (_) {
-        return BuildCommentsBottomSheet(blogData: this);
+        return BuildCommentsBottomSheet(
+          blogData: this,
+          likesCount: likes,
+          blogId: blogId,
+        );
       },
       constraints:
           BoxConstraints(maxHeight: MediaQuery.of(context).size.height * 0.6),

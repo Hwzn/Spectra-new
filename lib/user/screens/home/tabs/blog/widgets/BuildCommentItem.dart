@@ -1,7 +1,8 @@
 part of 'BlogWidgetsImports.dart';
 
 class BuildCommentItem extends StatelessWidget {
-  const BuildCommentItem({Key? key}) : super(key: key);
+  final CommentModel model;
+  const BuildCommentItem({Key? key, required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,32 +11,32 @@ class BuildCommentItem extends StatelessWidget {
       padding: const EdgeInsets.all(15),
       color: MyColors.grey.withOpacity(0.15),
       child: Slidable(
-        endActionPane: ActionPane(
-          extentRatio: 0.25,
-          motion: const DrawerMotion(),
-          children: [
-            SlidableAction(
-              onPressed: null,
-              backgroundColor: Colors.green,
-              foregroundColor: MyColors.white,
-              icon: Icons.edit,
-              label: 'Edit',
-              padding: EdgeInsets.zero,
-            ),
-            SlidableAction(
-              onPressed: null,
-              backgroundColor: Colors.red,
-              foregroundColor: MyColors.white,
-              icon: Icons.delete,
-              label: 'Delete',
-              borderRadius: const BorderRadius.only(
-                topRight: Radius.circular(20),
-                bottomRight: Radius.circular(20),
-              ),
-              padding: EdgeInsets.zero,
-            ),
-          ],
-        ),
+        // endActionPane: ActionPane(
+        //   extentRatio: 0.25,
+        //   motion: const DrawerMotion(),
+        //   children: [
+        //     SlidableAction(
+        //       onPressed: null,
+        //       backgroundColor: Colors.green,
+        //       foregroundColor: MyColors.white,
+        //       icon: Icons.edit,
+        //       label: 'Edit',
+        //       padding: EdgeInsets.zero,
+        //     ),
+        //     SlidableAction(
+        //       onPressed: null,
+        //       backgroundColor: Colors.red,
+        //       foregroundColor: MyColors.white,
+        //       icon: Icons.delete,
+        //       label: 'Delete',
+        //       borderRadius: const BorderRadius.only(
+        //         topRight: Radius.circular(20),
+        //         bottomRight: Radius.circular(20),
+        //       ),
+        //       padding: EdgeInsets.zero,
+        //     ),
+        //   ],
+        // ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -52,13 +53,13 @@ class BuildCommentItem extends StatelessWidget {
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 10),
                   child: MyText(
-                    title: "Aya Hamed",
+                    title: model.userName,
                     color: MyColors.black,
                     size: 12,
                   ),
                 ),
                 MyText(
-                  title: "5 hours ago",
+                  title: model.createdAt,
                   color: MyColors.grey,
                   size: 9,
                 ),
@@ -67,7 +68,8 @@ class BuildCommentItem extends StatelessWidget {
             Container(
               margin: const EdgeInsets.only(top: 10),
               child: MyText(
-                title: "Comment content here, Comment content here, Comment content here, Comment content here,.",
+                title: model.comment,
+                // "Comment content here, Comment content here, Comment content here, Comment content here,.",
                 color: MyColors.blackOpacity,
                 size: 10,
               ),

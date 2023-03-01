@@ -6,6 +6,7 @@ import 'package:hwzn_base/general/constants/modals/LoadingDialog.dart';
 import 'package:hwzn_base/general/helper/storage/Storage.dart';
 import 'package:hwzn_base/user/models/blog_model.dart';
 import 'package:hwzn_base/user/models/chat_model.dart';
+import 'package:hwzn_base/user/models/comment_model.dart';
 import 'package:hwzn_base/user/models/doctor_details_model.dart';
 import 'package:hwzn_base/user/models/doctor_model.dart';
 import 'package:hwzn_base/user/models/home_model.dart';
