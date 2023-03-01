@@ -87,7 +87,7 @@ class UserHttpMethods {
   Future<bool> addRemoveFav(int id) async {
     dynamic data = await GenericHttp<dynamic>(context).callApi(
       name: ApiNames.toggleFavUser,
-      json: {"to_id" : id},
+      json: {"to_id": id},
       returnType: ReturnType.type,
       showLoader: false,
       methodType: MethodType.post,
@@ -114,7 +114,7 @@ class UserHttpMethods {
   Future<bool> deletePet(int id) async {
     dynamic data = await GenericHttp<dynamic>(context).callApi(
       name: ApiNames.deletePet,
-      json: {"pet_id" : id},
+      json: {"pet_id": id},
       returnType: ReturnType.type,
       methodType: MethodType.post,
     );
@@ -125,5 +125,4 @@ class UserHttpMethods {
       return false;
     }
   }
-
 }
