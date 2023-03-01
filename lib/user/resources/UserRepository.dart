@@ -25,4 +25,6 @@ class UserRepository {
   Future<bool> updateProfile(UpdateProfileModel model) =>
       userHttpMethods.updateProfile(model);
 
+  Future<bool> addRemoveFav(int id) => userHttpMethods.addRemoveFav(id);
+
 }

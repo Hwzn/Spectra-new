@@ -35,6 +35,7 @@ class ApiNames{
   static const String doctorDetailsById = "doctorDetailsById";
   static const String getMyMessages = "getMyMessages";
   static const String updateProfile = "updateProfile";
+  static const String toggleFavUser = "toggleFavUser";
 
   // doctor
   static const String registerDoctor = "registerNewDoctor";

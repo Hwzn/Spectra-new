@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import '../../user/models/pet_model.dart';
+
 part 'UserModel.g.dart';
 
 @JsonSerializable(nullable: false, ignoreUnannotated: false)
@@ -32,6 +34,8 @@ class UserModel {
   bool? isNotify;
   @JsonKey(name: 'token')
   String token;
+  @JsonKey(name: 'pests')
+  List<PetModel> pets;
 
   UserModel({
     required this.id,
@@ -48,6 +52,7 @@ class UserModel {
     required this.avgRate,
     this.isNotify,
     required this.token,
+    required this.pets,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>

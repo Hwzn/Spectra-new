@@ -84,4 +84,20 @@ class UserHttpMethods {
     }
   }
 
+  Future<bool> addRemoveFav(int id) async {
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.toggleFavUser,
+      json: {"to_id" : id},
+      returnType: ReturnType.type,
+      showLoader: false,
+      methodType: MethodType.post,
+    );
+    if (data != null) {
+      CustomToast.showSimpleToast(msg: data["message"]);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }

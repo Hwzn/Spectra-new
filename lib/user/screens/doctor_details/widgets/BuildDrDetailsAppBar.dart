@@ -1,9 +1,10 @@
 part of 'DoctorDetailsWidgetsImports.dart';
 
 class BuildDrDetailsAppBar extends StatelessWidget {
-  final bool isFav;
-  final Function()? onTapFav;
-  const BuildDrDetailsAppBar({Key? key, required this.isFav, this.onTapFav}) : super(key: key);
+  final DoctorDetailsData doctorDetailsData;
+  final int doctorId;
+  const BuildDrDetailsAppBar({Key? key, required this.doctorDetailsData, required this.doctorId})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,8 @@ class BuildDrDetailsAppBar extends StatelessWidget {
         leading: InkWell(
           onTap: () => AutoRouter.of(context).pop(),
           child: Container(
-            height: 28, width: 28,
+            height: 28,
+            width: 28,
             margin: const EdgeInsets.symmetric(horizontal: 10),
             child: Icon(
               Icons.arrow_back_ios,
@@ -57,18 +59,25 @@ class BuildDrDetailsAppBar extends StatelessWidget {
           InkWell(
             onTap: () => AutoRouter.of(context).push(AllChatsRoute()),
             child: Container(
-              height: 28, width: 28,
+              height: 28,
+              width: 28,
               margin: const EdgeInsets.symmetric(horizontal: 10),
               child: Image.asset(Res.chat),
             ),
           ),
-          InkWell(
-            onTap: (){},
-            child: Icon(
-              Icons.favorite,
-              color: isFav ? Colors.red : MyColors.white,
-              size: 28,
-            ),
+          BlocBuilder<GenericBloc<bool>, GenericState<bool>>(
+            bloc: doctorDetailsData.favBloc,
+            builder: (context, state) {
+              return InkWell(
+                onTap: () => doctorDetailsData.addRemoveFav(
+                    context, doctorId),
+                child: Icon(
+                  Icons.favorite,
+                  color: state.data ? Colors.red : MyColors.white,
+                  size: 28,
+                ),
+              );
+            },
           ),
           const SizedBox(width: 15),
         ],

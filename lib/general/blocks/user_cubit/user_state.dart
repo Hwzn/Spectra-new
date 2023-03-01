@@ -25,6 +25,7 @@ class UserInitial extends UserState {
               userType: '',
               isNotify: false,
               uuid: '',
+              pets: [],
             ),
             changed: false);
 

@@ -21,6 +21,9 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) => UserModel(
       avgRate: json['avg_rate'] as String,
       isNotify: json['is_notify'] as bool?,
       token: json['token'] as String,
+      pets: (json['pests'] as List<dynamic>)
+          .map((e) => PetModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$UserModelToJson(UserModel instance) => <String, dynamic>{
@@ -38,4 +41,5 @@ Map<String, dynamic> _$UserModelToJson(UserModel instance) => <String, dynamic>{
       'avg_rate': instance.avgRate,
       'is_notify': instance.isNotify,
       'token': instance.token,
+      'pests': instance.pets,
     };
