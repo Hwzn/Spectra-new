@@ -154,7 +154,7 @@ class UserHttpMethods {
   Future<List<CommentModel>> getBlogComments(int id) async {
     return await GenericHttp<CommentModel>(context).callApi(
       name: ApiNames.blogComments,
-      json: {"blog_id" : id},
+      json: {"blog_id": id},
       returnType: ReturnType.list,
       methodType: MethodType.post,
       showLoader: false,
@@ -163,4 +163,16 @@ class UserHttpMethods {
     ) as List<CommentModel>;
   }
 
+  Future<bool> addBlogComment(int id, String comment) async {
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.makeComment,
+      json: {
+        "blog_id": id,
+        "comment": comment,
+      },
+      returnType: ReturnType.type,
+      methodType: MethodType.post,
+    );
+    return data!= null;
+  }
 }

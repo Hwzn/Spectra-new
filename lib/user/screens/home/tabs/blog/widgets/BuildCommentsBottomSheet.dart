@@ -23,6 +23,7 @@ class _BuildCommentsBottomSheetState extends State<BuildCommentsBottomSheet> {
     widget.blogData.fetchComments(context, widget.blogId);
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,12 +32,12 @@ class _BuildCommentsBottomSheetState extends State<BuildCommentsBottomSheet> {
           GenericState<List<CommentModel>>>(
         bloc: widget.blogData.commentsBloc,
         builder: (context, state) {
-          if(state is GenericUpdateState){
+          if (state is GenericUpdateState) {
             return Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 InkWell(
-                  onTap: ()=> Navigator.pop(context),
+                  onTap: () => Navigator.pop(context),
                   child: Container(
                     margin: const EdgeInsets.only(top: 30),
                     child: Row(
@@ -67,9 +68,9 @@ class _BuildCommentsBottomSheetState extends State<BuildCommentsBottomSheet> {
                       padding: const EdgeInsets.only(top: 10),
                       children: List.generate(
                         state.data.length,
-                            (index) => BuildCommentItem(
-                              model: state.data[index],
-                            ),
+                        (index) => BuildCommentItem(
+                          model: state.data[index],
+                        ),
                       ),
                     ),
                   ),
@@ -87,23 +88,29 @@ class _BuildCommentsBottomSheetState extends State<BuildCommentsBottomSheet> {
                         validate: (value) => value!.noValidate(),
                         radius: 20,
                         enableBorderColor: MyColors.lightGrey,
-                        suffixIcon: Transform.rotate(
-                          angle: 135 * math.pi / 180,
-                          alignment: Alignment.center,
+                        suffixIcon: InkWell(
+                          onTap: () =>
+                              widget.blogData.addComment(context, widget.blogId),
                           child: Icon(
-                            Icons.attachment,
-                            color: MyColors.lightGrey,
-                            size: 25,
+                            MdiIcons.arrowRightCircle,
+                            color: MyColors.primary,
+                            size: 30,
                           ),
                         ),
+                        onSubmit: () =>
+                            widget.blogData.addComment(context, widget.blogId),
                       ),
                     ),
-                    const SizedBox(width: 10),
-                    Icon(
-                      MdiIcons.arrowRightCircle,
-                      color: MyColors.primary,
-                      size: 30,
-                    ),
+                    // const SizedBox(width: 10),
+                    // Transform.rotate(
+                    //   angle: 135 * math.pi / 180,
+                    //   alignment: Alignment.center,
+                    //   child: Icon(
+                    //     Icons.attachment,
+                    //     color: MyColors.lightGrey,
+                    //     size: 25,
+                    //   ),
+                    // ),
                   ],
                 )
               ],

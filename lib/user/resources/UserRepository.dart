@@ -36,4 +36,7 @@ class UserRepository {
   Future<List<CommentModel>> getBlogComments(int id) =>
       userHttpMethods.getBlogComments(id);
 
+  Future<bool> addBlogComment(int id, String comment) =>
+      userHttpMethods.addBlogComment(id, comment);
+
 }
