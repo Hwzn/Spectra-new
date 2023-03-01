@@ -3,7 +3,8 @@ part of 'AccountWidgetsImports.dart';
 class BuildPetItem extends StatelessWidget {
   final int index;
   final AccountData accountData;
-  const BuildPetItem({Key? key, required this.index, required this.accountData}) : super(key: key);
+  final PetModel model;
+  const BuildPetItem({Key? key, required this.index, required this.accountData, required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +28,9 @@ class BuildPetItem extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const CachedImage(
-                url:
-                    "https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=ZhplzyJ9",
+              CachedImage(
+                url: model.image,
+                    // "https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=ZhplzyJ9",
                 height: 75,
                 width: 75,
                 haveRadius: false,
@@ -38,7 +39,7 @@ class BuildPetItem extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               MyText(
-                title: "Pet Name",
+                title: model.name,
                 size: 13,
                 color: MyColors.black,
                 overflow: TextOverflow.ellipsis,

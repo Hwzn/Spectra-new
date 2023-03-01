@@ -2,14 +2,9 @@ part of 'AccountImports.dart';
 
 class AccountData {
   // blocs
-  final GenericBloc<List<String>> petsBloc = GenericBloc([]);
+  final GenericBloc<List<PetModel>> petsBloc = GenericBloc([]);
 
-  // list
-  var petsList = [
-    "0",
-    "1",
-    "2",
-  ];
+  // lists
 
   List<BuildSettingItem> settingList(context) {
     return [
@@ -38,8 +33,9 @@ class AccountData {
   }
 
   // methods
-  fetchPets() {
-    petsBloc.onUpdateData(petsList);
+  fetchPets(BuildContext context) {
+    var user = context.read<UserCubit>().state.model;
+    petsBloc.onUpdateData(user.pets);
   }
 
   removePet(int index) {

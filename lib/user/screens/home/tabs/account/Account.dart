@@ -12,7 +12,7 @@ class _AccountState extends State<Account> {
 
   @override
   void initState() {
-    accountData.fetchPets();
+    accountData.fetchPets(context);
     super.initState();
   }
 

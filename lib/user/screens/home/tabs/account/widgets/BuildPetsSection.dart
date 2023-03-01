@@ -33,7 +33,7 @@ class BuildPetsSection extends StatelessWidget {
               ],
             ),
           ),
-          BlocBuilder<GenericBloc<List<String>>, GenericState<List<String>>>(
+          BlocBuilder<GenericBloc<List<PetModel>>, GenericState<List<PetModel>>>(
             bloc: accountData.petsBloc,
             builder: (context, state) {
               return Visibility(
@@ -63,6 +63,7 @@ class BuildPetsSection extends StatelessWidget {
                               child: BuildPetItem(
                                 index: index,
                                 accountData: accountData,
+                                model: state.data[index],
                               ),
                             ),
                           ),
