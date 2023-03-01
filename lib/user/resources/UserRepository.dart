@@ -31,4 +31,6 @@ class UserRepository {
 
   Future<bool> deletePet(int id) => userHttpMethods.deletePet(id);
 
+  Future<List<BlogModel>> getBlogs() => userHttpMethods.getBlogs();
+
 }

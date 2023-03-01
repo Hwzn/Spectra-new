@@ -141,4 +141,14 @@ class UserHttpMethods {
     }
   }
 
+  Future<List<BlogModel>> getBlogs() async {
+    return await GenericHttp<BlogModel>(context).callApi(
+      name: ApiNames.allBlogs,
+      returnType: ReturnType.list,
+      methodType: MethodType.get,
+      returnDataFun: (data) => data["data"],
+      toJsonFunc: (json) => BlogModel.fromJson(json),
+    ) as List<BlogModel>;
+  }
+
 }

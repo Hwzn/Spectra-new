@@ -1,7 +1,8 @@
 part of 'BlogWidgetsImports.dart';
 
 class BuildPostTitle extends StatelessWidget {
-  const BuildPostTitle({Key? key}) : super(key: key);
+  final BlogModel model;
+  const BuildPostTitle({Key? key, required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class BuildPostTitle extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               MyText(
-                title: "Aya Hamed",
+                title: model.publisherName,
                 color: MyColors.black,
                 size: 12,
               ),
@@ -42,7 +43,7 @@ class BuildPostTitle extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
           ),
           child: MyText(
-            title: "200522L",
+            title: model.category,
             color: MyColors.blackOpacity,
             size: 8,
             fontFamily: GoogleFonts.poppins().fontFamily,

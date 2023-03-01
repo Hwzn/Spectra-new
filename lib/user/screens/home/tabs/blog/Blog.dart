@@ -11,6 +11,12 @@ class _BlogState extends State<Blog> {
   BlogData blogData = BlogData();
 
   @override
+  void initState() {
+    blogData.fetchData(context);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.bg,
@@ -19,7 +25,7 @@ class _BlogState extends State<Blog> {
         showLeading: false,
         actions: [
           IconButton(
-            onPressed: ()=> AutoRouter.of(context).push(AddPostRoute()),
+            onPressed: () => AutoRouter.of(context).push(AddPostRoute()),
             padding: const EdgeInsets.symmetric(horizontal: 20),
             icon: Icon(
               MdiIcons.plusCircle,
@@ -29,12 +35,34 @@ class _BlogState extends State<Blog> {
           ),
         ],
       ),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(vertical: 10),
-        children: [
-          BuildPostItem(blogData: blogData),
-          BuildPostItem(isArticle: true, blogData: blogData),
-        ],
+      body: BlocBuilder<GenericBloc<List<BlogModel>>,
+          GenericState<List<BlogModel>>>(
+        bloc: blogData.blogsBloc,
+        builder: (context, state) {
+          if (state is GenericUpdateState) {
+            return Visibility(
+              visible: state.data.isNotEmpty,
+              replacement: Center(
+                child: MyText(
+                  title: "No Blogs",
+                  color: MyColors.primary,
+                  size: 12,
+                ),
+              ),
+              child: ListView.builder(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                itemCount: state.data.length,
+                itemBuilder: (_, index) => BuildPostItem(
+                  isArticle: state.data[index].blogImages.isEmpty,
+                  blogData: blogData,
+                  model: state.data[index],
+                ),
+              ),
+            );
+          } else {
+            return LoadingDialog.showLoadingView();
+          }
+        },
       ),
     );
   }

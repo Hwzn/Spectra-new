@@ -1,14 +1,16 @@
 part of 'BlogWidgetsImports.dart';
 
 class BuildMap extends StatelessWidget {
-  const BuildMap({Key? key}) : super(key: key);
+  final String lat;
+  final String lng;
+  const BuildMap({Key? key, required this.lat, required this.lng}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => Utils.navigateToMapWithDirection(
-        lat: "25.1972",
-        lng: "55.2744",
+        lat: lat,
+        lng: lng,
         context: context,
       ),
       child: Stack(
@@ -19,8 +21,8 @@ class BuildMap extends StatelessWidget {
             height: 90,
             child: ImgMap.Map(
               controller: ImgMap.MapController(
-                location: LatLng(double.parse("25.1972"),
-                    double.parse("55.2744")),
+                location: LatLng(double.parse(lat),
+                    double.parse(lng)),
               ),
               builder: (context, x, y, z) {
                 final url =

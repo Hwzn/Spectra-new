@@ -4,7 +4,15 @@ class BlogData {
   // controllers
   final TextEditingController comment = TextEditingController();
 
+  // blocs
+  final GenericBloc<List<BlogModel>> blogsBloc = GenericBloc([]);
+
   // methods
+  fetchData(BuildContext context) async {
+    var data = await UserRepository(context).getBlogs();
+    blogsBloc.onUpdateData(data);
+  }
+
   void viewComments(BuildContext context) {
     showBottomSheet(
       context: context,

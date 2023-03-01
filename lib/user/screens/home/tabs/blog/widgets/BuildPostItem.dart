@@ -3,7 +3,8 @@ part of 'BlogWidgetsImports.dart';
 class BuildPostItem extends StatelessWidget {
   final bool isArticle;
   final BlogData blogData;
-  const BuildPostItem({Key? key, this.isArticle = false, required this.blogData}) : super(key: key);
+  final BlogModel model;
+  const BuildPostItem({Key? key, this.isArticle = false, required this.blogData, required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +24,16 @@ class BuildPostItem extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const BuildPostTitle(),
+          BuildPostTitle(model: model),
           Visibility(
             visible: !isArticle,
             child: Column(
-              children: const [
-                BuildPostImages(),
-                BuildMap(),
+              children: [
+                BuildPostImages(imagesList: model.blogImages),
+                BuildMap(
+                  lat: model.lat,
+                  lng: model.lng,
+                ),
               ],
             ),
           ),
@@ -47,9 +51,9 @@ class BuildPostItem extends StatelessWidget {
             onTap: ()=> blogData.viewComments(context),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                BuildBlogActions(icon: Icons.favorite, title: "20  Likes"),
-                BuildBlogActions(icon: Icons.comment, title: "5  Comments"),
+              children: [
+                BuildBlogActions(icon: Icons.favorite, title: "${model.likesCount}  Likes"),
+                BuildBlogActions(icon: Icons.comment, title: "${model.commentsCount}  Comments"),
               ],
             ),
           )
