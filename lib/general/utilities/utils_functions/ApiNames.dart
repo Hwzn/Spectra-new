@@ -13,6 +13,7 @@ class ApiNames{
   static const String login = "login";
   static const String logout = "logout";
   static const String verifyCode = "verifycode";
+  static const String activateAccount = "activateAccount";
   static const String resendCode = "send-code";
   static const String terms = "terms";
   static const String faq = "fqs";
@@ -36,6 +37,7 @@ class ApiNames{
   static const String allBlogs = "allBlogs";
   static const String blogComments = "blogComments";
   static const String makeComment = "makeComment";
+  static const String categories = "categories";
 
   // doctor
   static const String registerDoctor = "registerNewDoctor";

@@ -10,8 +10,9 @@ class DropDownModel {
   String? name;
   @JsonKey(name: 'image')
   String? image;
+  bool selected;
 
-  DropDownModel({this.id, this.name, this.image});
+  DropDownModel({this.id, this.name, this.image, this.selected = false});
 
    factory DropDownModel.fromJson(Map<String, dynamic> json) => _$DropDownModelFromJson(json);
 

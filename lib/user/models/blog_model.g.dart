@@ -19,6 +19,9 @@ BlogModel _$BlogModelFromJson(Map<String, dynamic> json) => BlogModel(
       category: json['category'] as String,
       commentsCount: json['comments_count'] as int,
       likesCount: json['likes_count'] as int,
+      comments: (json['comments'] as List<dynamic>)
+          .map((e) => CommentModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$BlogModelToJson(BlogModel instance) => <String, dynamic>{
@@ -32,4 +35,5 @@ Map<String, dynamic> _$BlogModelToJson(BlogModel instance) => <String, dynamic>{
       'category': instance.category,
       'comments_count': instance.commentsCount,
       'likes_count': instance.likesCount,
+      'comments': instance.comments,
     };

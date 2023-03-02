@@ -94,7 +94,7 @@ class GeneralHttpMethods {
       "phone": phone,
     };
     dynamic data = await GenericHttp<dynamic>(context).callApi(
-      name: ApiNames.verifyCode,
+      name: ApiNames.activateAccount,
       json: body,
       returnType: ReturnType.type,
       showLoader: false,

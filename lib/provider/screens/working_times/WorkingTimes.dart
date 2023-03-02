@@ -19,7 +19,7 @@ class _WorkingTimesState extends State<WorkingTimes> {
         children: [
           const BuildAvailableTime(
             title: "Select available days",
-            detail: "Sat 11/12",
+            detail: "Saturday",
           ),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),

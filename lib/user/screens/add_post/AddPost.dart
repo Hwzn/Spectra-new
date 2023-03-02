@@ -11,6 +11,12 @@ class _AddPostState extends State<AddPost> {
   AddPostData addPostData = AddPostData();
 
   @override
+  void initState() {
+    addPostData.fetchCategories(context);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.white,
@@ -37,13 +43,23 @@ class _AddPostState extends State<AddPost> {
         mainAxisAlignment: MainAxisAlignment.end,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: const [
-              BuildPostType(title: "Article", selected: true),
-              BuildPostType(title: "Lost animal"),
-              BuildPostType(title: "Found animal"),
-            ],
+          BlocBuilder<GenericBloc<List<DropDownModel>>,
+              GenericState<List<DropDownModel>>>(
+            bloc: addPostData.categoriesBloc,
+            builder: (context, state) {
+              return Wrap(
+                spacing: 5,
+                direction: Axis.horizontal,
+                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: List.generate(
+                  state.data.length,
+                  (index) => BuildPostType(
+                    title: state.data[index].name ?? '',
+                    selected: state.data[index].selected,
+                  ),
+                ),
+              );
+            },
           ),
           const BuildPostButtons(),
         ],

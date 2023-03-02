@@ -10,8 +10,9 @@ class BuildPostType extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-      padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 20),
+      width: MediaQuery.of(context).size.width * .28,
+      margin: const EdgeInsets.symmetric(vertical: 5),
+      padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 5),
       decoration: BoxDecoration(
         color: selected == true ? MyColors.primary : MyColors.lightGrey,
         borderRadius: BorderRadius.circular(20),
@@ -20,7 +21,7 @@ class BuildPostType extends StatelessWidget {
       child: MyText(
         title: title,
         color: selected == true ? MyColors.white : MyColors.blackOpacity,
-        size: 12,
+        size: 11,
       ),
     );
   }

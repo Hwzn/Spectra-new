@@ -15,8 +15,8 @@ class BlogData {
   }
 
   fetchComments(BuildContext context, int id) async {
-    var data = await UserRepository(context).getBlogComments(id);
-    commentsBloc.onUpdateData(data);
+    var data = blogsBloc.state.data.firstWhere((element) => element.id == id);
+    commentsBloc.onUpdateData(data.comments);
   }
 
   void viewComments(BuildContext context, num likes, int blogId) async {

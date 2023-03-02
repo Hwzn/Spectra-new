@@ -1,6 +1,8 @@
 import 'package:hwzn_base/general/models/dropdown_model/dropdown_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'comment_model.dart';
+
 part 'blog_model.g.dart';
 
 @JsonSerializable(nullable: false, ignoreUnannotated: false)
@@ -25,6 +27,8 @@ class BlogModel {
   int commentsCount;
   @JsonKey(name: 'likes_count')
   int likesCount;
+  @JsonKey(name: 'comments')
+  List<CommentModel> comments;
 
   BlogModel({
     required this.id,
@@ -37,6 +41,7 @@ class BlogModel {
     required this.category,
     required this.commentsCount,
     required this.likesCount,
+    required this.comments,
   });
 
   factory BlogModel.fromJson(Map<String, dynamic> json) =>

@@ -39,4 +39,7 @@ class UserRepository {
   Future<bool> addBlogComment(int id, String comment) =>
       userHttpMethods.addBlogComment(id, comment);
 
+  Future<List<DropDownModel>> getCategories() =>
+      userHttpMethods.getCategories();
+
 }

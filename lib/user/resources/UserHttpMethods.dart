@@ -175,4 +175,16 @@ class UserHttpMethods {
     );
     return data!= null;
   }
+
+  Future<List<DropDownModel>> getCategories() async {
+    return await GenericHttp<DropDownModel>(context).callApi(
+      name: ApiNames.categories,
+      returnType: ReturnType.list,
+      methodType: MethodType.get,
+      showLoader: false,
+      returnDataFun: (data) => data["data"],
+      toJsonFunc: (json) => DropDownModel.fromJson(json),
+    ) as List<DropDownModel>;
+  }
+
 }

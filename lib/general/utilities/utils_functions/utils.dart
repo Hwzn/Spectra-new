@@ -38,10 +38,14 @@ class Utils {
     context.read<UserCubit>().onUpdateUserData(model);
     context.read<AuthCubit>().onUpdateAuth(true);
     // route to home page
-    if(model.userType == 'client'){
-      AutoRouter.of(context).push(HomeRoute());
+    if(model.status == "active"){
+      if(model.userType == 'client'){
+        AutoRouter.of(context).push(HomeRoute());
+      } else {
+        AutoRouter.of(context).push(ProvHomeRoute());
+      }
     } else {
-      AutoRouter.of(context).push(ProvHomeRoute());
+      AutoRouter.of(context).push(VerifyCodeRoute(email: model.phone, fromRegister: true));
     }
   }
 

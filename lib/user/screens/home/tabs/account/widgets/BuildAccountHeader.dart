@@ -5,7 +5,7 @@ class BuildAccountHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var user = context.read<UserCubit>().state.model;
+    var user = context.watch<UserCubit>().state.model;
     return Row(
       children: [
         CachedImage(
