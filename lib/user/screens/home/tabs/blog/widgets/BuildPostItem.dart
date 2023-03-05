@@ -1,13 +1,11 @@
 part of 'BlogWidgetsImports.dart';
 
 class BuildPostItem extends StatelessWidget {
-  final bool isArticle;
   final BlogData blogData;
   final BlogModel model;
 
   const BuildPostItem(
       {Key? key,
-      this.isArticle = false,
       required this.blogData,
       required this.model})
       : super(key: key);
@@ -29,25 +27,21 @@ class BuildPostItem extends StatelessWidget {
         ],
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           BuildPostTitle(model: model),
+          BuildPostImages(imagesList: model.blogImages),
           Visibility(
-            visible: !isArticle,
-            child: Column(
-              children: [
-                BuildPostImages(imagesList: model.blogImages),
-                BuildMap(
-                  lat: model.lat,
-                  lng: model.lng,
-                ),
-              ],
+            visible: model.lat != null && model.lng != null,
+            child: BuildMap(
+              lat: model.lat ?? '',
+              lng: model.lng ?? '',
             ),
           ),
           Container(
             margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 5),
             child: MyText(
-              title:
-                  "Post content here, Post content here, Post content here, Post content here, Post content here,",
+              title: model.content,
               color: MyColors.black,
               size: 12,
               fontWeight: FontWeight.normal,

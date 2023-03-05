@@ -19,6 +19,13 @@ class BlogData {
     commentsBloc.onUpdateData(data.comments);
   }
 
+  addPostAndRefresh(BuildContext context) async {
+    var result = await AutoRouter.of(context).push(AddPostRoute());
+    if(result == true){
+      fetchData(context);
+    }
+  }
+
   void viewComments(BuildContext context, num likes, int blogId) async {
     showBottomSheet(
       context: context,

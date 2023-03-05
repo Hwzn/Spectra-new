@@ -8,9 +8,8 @@ class BuildPostTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const CachedImage(
-          url:
-          "https://www.freshpondanimalhospital.com/uploads/SiteAssets/17/images/staff/804198.jpg",
+        CachedImage(
+          url: model.publisherImage,
           height: 35,
           width: 35,
           haveRadius: false,
@@ -28,7 +27,7 @@ class BuildPostTitle extends StatelessWidget {
                 size: 12,
               ),
               MyText(
-                title: "5 Hours ago",
+                title: model.timePosted,
                 color: MyColors.grey,
                 size: 10,
                 fontWeight: FontWeight.normal,

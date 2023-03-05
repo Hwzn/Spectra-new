@@ -38,7 +38,10 @@ class AddPostData {
       lat: lat,
       lng: lng,
     );
-    await UserRepository(context).addBlog(model);
+    var result = await UserRepository(context).addBlog(model);
+    if(result == true){
+      AutoRouter.of(context).pop(true);
+    }
   }
 
   void getPostImages() async {

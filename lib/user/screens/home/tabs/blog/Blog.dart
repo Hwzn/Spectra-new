@@ -25,7 +25,7 @@ class _BlogState extends State<Blog> {
         showLeading: false,
         actions: [
           IconButton(
-            onPressed: () => AutoRouter.of(context).push(AddPostRoute()),
+            onPressed: () => blogData.addPostAndRefresh(context),
             padding: const EdgeInsets.symmetric(horizontal: 20),
             icon: Icon(
               MdiIcons.plusCircle,
@@ -53,7 +53,6 @@ class _BlogState extends State<Blog> {
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 itemCount: state.data.length,
                 itemBuilder: (_, index) => BuildPostItem(
-                  isArticle: state.data[index].blogImages.isEmpty,
                   blogData: blogData,
                   model: state.data[index],
                 ),

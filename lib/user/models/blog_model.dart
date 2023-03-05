@@ -13,14 +13,16 @@ class BlogModel {
   int publisherId;
   @JsonKey(name: 'publisher_name')
   String publisherName;
+  @JsonKey(name: 'publisher_image')
+  String publisherImage;
   @JsonKey(name: 'blogImages')
   List<DropDownModel> blogImages;
   @JsonKey(name: 'lat')
-  String lat;
+  String? lat;
   @JsonKey(name: 'lng')
-  String lng;
+  String? lng;
   @JsonKey(name: 'address')
-  String address;
+  String? address;
   @JsonKey(name: 'category')
   String category;
   @JsonKey(name: 'comments_count')
@@ -29,19 +31,26 @@ class BlogModel {
   int likesCount;
   @JsonKey(name: 'comments')
   List<CommentModel> comments;
+  @JsonKey(name: 'content')
+  String content;
+  @JsonKey(name: 'time_posted')
+  String timePosted;
 
   BlogModel({
     required this.id,
     required this.publisherId,
     required this.publisherName,
     required this.blogImages,
-    required this.lat,
-    required this.lng,
-    required this.address,
+     this.lat,
+     this.lng,
+     this.address,
     required this.category,
     required this.commentsCount,
     required this.likesCount,
     required this.comments,
+    required this.content,
+    required this.timePosted,
+    required this.publisherImage,
   });
 
   factory BlogModel.fromJson(Map<String, dynamic> json) =>

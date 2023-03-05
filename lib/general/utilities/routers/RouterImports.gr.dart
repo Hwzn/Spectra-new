@@ -266,7 +266,7 @@ class AppRouter extends _i32.RootStackRouter {
       );
     },
     AddPostRoute.name: (routeData) {
-      return _i32.AdaptivePage<dynamic>(
+      return _i32.AdaptivePage<bool>(
         routeData: routeData,
         child: const _i24.AddPost(),
         opaque: true,
