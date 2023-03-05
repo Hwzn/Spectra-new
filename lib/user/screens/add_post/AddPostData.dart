@@ -34,9 +34,9 @@ class AddPostData {
       categoryId: selectedCat.id ?? 0,
       content: post.text,
       images: imagesBloc.state.data,
-      address: "address",
-      lat: "lat",
-      lng: "lng",
+      address: address,
+      lat: lat,
+      lng: lng,
     );
     await UserRepository(context).addBlog(model);
   }
