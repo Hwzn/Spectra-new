@@ -27,7 +27,7 @@ class _AddPostState extends State<AddPost> {
           const BuildUserInfo(),
           GenericTextField(
             fieldTypes: FieldTypes.rich,
-            max: 10,
+            max: 12,
             hint: "What's on your mind ?",
             controller: addPostData.post,
             margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
@@ -37,31 +37,37 @@ class _AddPostState extends State<AddPost> {
             enableBorderColor: Colors.transparent,
             focusBorderColor: Colors.transparent,
           ),
+          BlocConsumer<LocationCubit, LocationState>(
+            bloc: addPostData.locCubit,
+            listener: (context, state) {
+              addPostData.address = state.model?.address ?? "";
+              addPostData.lat = state.model?.lat.toString();
+              addPostData.lng = state.model?.lng.toString();
+            },
+            builder: (context, state) {
+              return Visibility(
+                visible: addPostData.address != null,
+                child: Container(
+                  margin: const EdgeInsets.symmetric
+                    (horizontal: 20, vertical: 10),
+                  child: MyText(
+                    title: "Location: ${state.model?.address ?? ""}",
+                    color: MyColors.black,
+                    size: 12,
+                  ),
+                ),
+              );
+            },
+          ),
+          BuildAddPostImages(addPostData: addPostData),
         ],
       ),
       bottomNavigationBar: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         mainAxisSize: MainAxisSize.min,
         children: [
-          BlocBuilder<GenericBloc<List<DropDownModel>>,
-              GenericState<List<DropDownModel>>>(
-            bloc: addPostData.categoriesBloc,
-            builder: (context, state) {
-              return Wrap(
-                spacing: 5,
-                direction: Axis.horizontal,
-                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: List.generate(
-                  state.data.length,
-                  (index) => BuildPostType(
-                    title: state.data[index].name ?? '',
-                    selected: state.data[index].selected,
-                  ),
-                ),
-              );
-            },
-          ),
-          const BuildPostButtons(),
+          BuildPostCats(addPostData: addPostData),
+          BuildPostButtons(addPostData: addPostData),
         ],
       ),
     );

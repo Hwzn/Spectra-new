@@ -1,7 +1,10 @@
 part of 'AddPostWidgetsImports.dart';
 
 class BuildPostButtons extends StatelessWidget {
-  const BuildPostButtons({Key? key}) : super(key: key);
+  final AddPostData addPostData;
+
+  const BuildPostButtons({Key? key, required this.addPostData})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +14,10 @@ class BuildPostButtons extends StatelessWidget {
           title: "",
           color: MyColors.bg,
           borderRadius: BorderRadius.circular(15),
-          onTap: (){},
+          onTap: () => Utils.navigateToLocationAddress(
+            context,
+            addPostData.locCubit,
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.end,
@@ -29,7 +35,7 @@ class BuildPostButtons extends StatelessWidget {
         ),
         DefaultButton(
           title: "",
-          onTap: (){},
+          onTap: () => addPostData.getPostImages(),
           borderRadius: BorderRadius.circular(15),
           color: MyColors.secondary.withOpacity(0.8),
           margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -50,7 +56,7 @@ class BuildPostButtons extends StatelessWidget {
         ),
         DefaultButton(
           title: "Post",
-          onTap: (){},
+          onTap: () => addPostData.postBlog(context),
           borderRadius: BorderRadius.circular(15),
           margin:
               const EdgeInsets.only(bottom: 20, right: 20, left: 20, top: 10),

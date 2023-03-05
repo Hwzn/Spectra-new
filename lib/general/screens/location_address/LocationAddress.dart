@@ -1,14 +1,12 @@
 part of 'LocationAddressImports.dart';
 
 class LocationAddress extends StatefulWidget {
-  const LocationAddress({Key? key}) : super(key: key);
-
   @override
   State<StatefulWidget> createState() => _LocationAddress();
 }
 
 class _LocationAddress extends State<LocationAddress> {
-  final LocationAddressData locationAddressData = LocationAddressData();
+  final LocationAddressData locationAddressData = new LocationAddressData();
 
   @override
   void initState() {
@@ -23,21 +21,31 @@ class _LocationAddress extends State<LocationAddress> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        key: locationAddressData._scaffold,
-        appBar: AppBar(
-          title: BlocBuilder<LocationCubit, LocationState>(
-            builder: (context, state) {
-              return MyText(
-                  title: state.model!.address, size: 12, color: MyColors.black);
-            },
-          ),
-          backgroundColor: MyColors.primary,
-          automaticallyImplyLeading: false,
-          centerTitle: true,
-          flexibleSpace: const Padding(padding: EdgeInsets.symmetric(horizontal: 5)),
+      key: locationAddressData.scaffold,
+      appBar: AppBar(
+        title: BlocBuilder<LocationCubit, LocationState>(
+          builder: (context, state) {
+            return MyText(
+              title: "${state.model!.address}",
+              size: 12,
+              color: MyColors.black,
+            );
+          },
         ),
-        body: BuildGoogleMapView(locationAddressData: locationAddressData),
-        floatingActionButton: BuildSaveButton(locationAddressData: locationAddressData),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat);
+        backgroundColor: MyColors.primary,
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        flexibleSpace: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 5),
+        ),
+      ),
+      body: BuildGoogleMapView(
+        locationAddressData: locationAddressData,
+      ),
+      floatingActionButton: BuildSaveButton(
+        locationAddressData: locationAddressData,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    );
   }
 }

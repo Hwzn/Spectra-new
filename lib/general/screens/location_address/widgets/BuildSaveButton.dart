@@ -1,6 +1,5 @@
 part of 'LocationWidgetsImports.dart';
 
-
 class BuildSaveButton extends StatelessWidget {
   final LocationAddressData locationAddressData;
 
@@ -8,27 +7,69 @@ class BuildSaveButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        InkWell(
-          onTap: ()=>locationAddressData.changeLocation(context),
-          child: Container(
-            height: 45,
-            width: MediaQuery.of(context).size.width * .7,
-            decoration: BoxDecoration(
-                color: MyColors.primary,
-                borderRadius: BorderRadius.circular(30)),
-            alignment: Alignment.center,
-            child: MyText(
-              title: tr(context,'saveLocation'),
-              size: 12,
-              color: MyColors.white,
+    return TranslateAnimation(
+      duration: const Duration(milliseconds: 1200),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          InkWell(
+            onTap: () => locationAddressData.getMyLocationByButtonPressed(),
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              height: 45,
+              // width: MediaQuery.of(context).size.width * .7,
+              decoration: BoxDecoration(
+                  color: MyColors.primary,
+                  borderRadius: BorderRadius.circular(30)),
+              alignment: Alignment.center,
+              child: Row(
+                children: [
+                  MyText(
+                    title: "My Location",
+                    size: 10,
+                    color: MyColors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  const Icon(
+                    Icons.gps_fixed_outlined,
+                    size: 15,
+                    color: Colors.white,
+                  )
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+          InkWell(
+            onTap: () => locationAddressData.saveChangedLocation(context),
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+              // margin: const EdgeInsets.symmetric(horizontal: 20),
+              height: 45,
+              // width: MediaQuery.of(context).size.width * .7,
+              decoration: BoxDecoration(
+                  color: MyColors.primary,
+                  borderRadius: BorderRadius.circular(30)),
+              alignment: Alignment.center,
+              child: Row(
+                children: [
+                  MyText(
+                    title: "Save Location",
+                    size: 12,
+                    color: MyColors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 20,
+                    color: Colors.white,
+                  )
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

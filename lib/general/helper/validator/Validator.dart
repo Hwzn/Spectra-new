@@ -15,11 +15,11 @@ extension Validator on String {
   }
 
   String? validatePassword(BuildContext context,{String? message}) {
-    if (trim().isEmpty) {
-      return message ?? "Please fill this field";
-    } else if (!RegExp(r'^(?=.*?[0-9]).{6,}$')
+    if (this.trim().isEmpty) {
+      return message ?? tr(context,'fillField');
+    } else if (!RegExp(r'^(?=.*?[a-z])(?=.*?[0-9]).{6,}$')
         .hasMatch(this)) {
-      return message ?? "Enter at least 6 characters";
+      return message ?? "Enter at least 6 characters containing numbers and letters";
     }
     return null;
   }

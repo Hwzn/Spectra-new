@@ -10,63 +10,82 @@ class BuildGoogleMapView extends StatelessWidget {
     return BlocBuilder<LocationCubit, LocationState>(
       builder: (context, state) {
         CameraPosition _initialLoc = CameraPosition(
-          target: LatLng(state.model!.lat, state.model!.lng),
-          zoom: 16.4746,
-        );
+            target: LatLng(state.model!.lat, state.model!.lng),
+            zoom: 10,
+            tilt: 90);
         return Stack(
-          alignment: Alignment.center,
+          alignment: Alignment.topRight,
           children: [
-            Container(
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width,
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height,
-              child: GoogleMap(
-                  mapType: MapType.normal,
-                  // markers: _markers,
-                  initialCameraPosition: _initialLoc,
-                  onMapCreated: (GoogleMapController controller) {
-                    locationAddressData.controller.complete(controller);
-                  },
-                  myLocationButtonEnabled: true,
-                  myLocationEnabled: true,
-                  rotateGesturesEnabled: true,
-                  scrollGesturesEnabled: true,
-                  trafficEnabled: true,
-                  zoomControlsEnabled: true,
-                  tiltGesturesEnabled: true,
-                  compassEnabled: true,
-                  indoorViewEnabled: true,
-                  buildingsEnabled: true,
-                  mapToolbarEnabled: true,
-                  zoomGesturesEnabled: true,
-                  onCameraIdle: () {
-                    locationAddressData.getLocationAddress(context);
-                  },
-                  onTap: (location) {
-                    locationAddressData.getLocationAddress(context);
-                  },
-                  onCameraMove: (loc) {
-                    locationAddressData.locationModel = LocationModel(
-                        lat: loc.target.latitude,
-                        lng: loc.target.longitude,
-                        address: "",
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                BlocBuilder<GenericBloc<Set<Marker>>,
+                    GenericState<Set<Marker>>>(
+                  bloc: locationAddressData.addMarkerCubit,
+                  builder: (context, state) {
+                    return BlocBuilder<GenericBloc<bool>, GenericState<bool>>(
+                      bloc: locationAddressData.mapType,
+                      builder: (context, state) {
+                        return GoogleMap(
+                            zoomControlsEnabled: false,
+                            indoorViewEnabled: true,
+                            mapType: state.data
+                                ? MapType.satellite
+                                : MapType.normal,
+                            markers: locationAddressData
+                                .addMarkerCubit.state.data,
+                            initialCameraPosition: _initialLoc,
+                            onMapCreated: (GoogleMapController controller) {
+                              locationAddressData.googleMapController =
+                                  controller;
+                              locationAddressData.controller
+                                  .complete(controller);
+                            },
+                            padding:
+                            const EdgeInsets.symmetric(vertical: 150),
+                            onLongPress: (latLng) {
+                              locationAddressData.addMarker(
+                                  context, latLng);
+                            },
+                            onCameraIdle: () {
+                              locationAddressData.getLocationAddress(context);
+                            },
+                            onTap: (location) {
+                              locationAddressData.addMarkerCubit.onUpdateData({});
+                              locationAddressData.addMarkerCubit.state.data.clear();
+                              locationAddressData.getLocationAddress(context);
+                              locationAddressData.showMainMarker.onUpdateData(true);
+
+                            },
+                            onCameraMove: (loc) {
+                              locationAddressData.locationModel =
+                                  LocationModel(
+                                    lat: loc.target.latitude,
+                                    lng: loc.target.longitude,
+                                    address: "",
+                                  );
+                              if(!locationAddressData.showMainMarker.state.data){
+                                locationAddressData.addMarkerCubit.onUpdateData({});
+                                locationAddressData.addMarkerCubit.state.data.clear();
+                                locationAddressData.showMainMarker.onUpdateData(true);
+                              }
+                            }
+                            );
+
+                      },
                     );
-                  }
-              ),
+                  },
+                ),
+                BuildMainMarker(locationAddressData: locationAddressData),
+              ],
             ),
-            ImageIcon(
-              AssetImage(Res.marker),
-              size: 50,
-              color: MyColors.secondary,
-            ),
+            BuildAddressContainer(),
+            BuildMapExtensions(locationAddressData: locationAddressData)
           ],
         );
       },
     );
   }
 }
+
+

@@ -10,12 +10,13 @@ class BuildUserInfo extends StatefulWidget {
 class _BuildUserInfoState extends State<BuildUserInfo> {
   @override
   Widget build(BuildContext context) {
+    var user = context.watch<UserCubit>().state.model;
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
       child: Row(
         children: [
-          const CachedImage(
-            url: "https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=ZhplzyJ9",
+          CachedImage(
+            url: user.image,
             height: 40,
             width: 40,
             haveRadius: false,
@@ -24,7 +25,7 @@ class _BuildUserInfoState extends State<BuildUserInfo> {
           ),
           const SizedBox(width: 10),
           MyText(
-            title: "Aya Hamed",
+            title: user.name,
             color: MyColors.black,
             size: 12,
           ),

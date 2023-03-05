@@ -5,12 +5,12 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:hwzn_base/general/constants/modals/LoadingDialog.dart';
 import 'package:hwzn_base/general/utilities/utils_functions/LoadingDialog.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:images_picker/images_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class HelperMethods{
-
+class HelperMethods {
   static void launchURL({required String url}) async {
     if (!url.toString().startsWith("https")) {
       url = "https://$url";
@@ -90,6 +90,24 @@ class HelperMethods{
     }
   }
 
+  static Future<List<File>> getMultiImages(int count) async {
+    List<Media>? result = await ImagesPicker.pick(
+      language: Language.English,
+      count: count,
+      pickType: PickType.image,
+    );
+    if (result != null) {
+      List<File> files = [];
+      for (int i = 0; i < result.length; i++) {
+        var file = File(result[i].path);
+        files.add(file);
+      }
+      return files;
+    } else {
+      return [];
+    }
+  }
+
   static Future<File?> getVideo() async {
     final ImagePicker _picker = ImagePicker();
     final XFile? video = await _picker.pickVideo(source: ImageSource.gallery);
@@ -115,7 +133,7 @@ class HelperMethods{
     var sb = StringBuffer();
     for (int i = 0; i < s.length; i++) {
       switch (s[i]) {
-      //Arabic digits
+        //Arabic digits
         case '\u0660':
           sb.write('0');
           break;

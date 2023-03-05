@@ -42,4 +42,6 @@ class UserRepository {
   Future<List<DropDownModel>> getCategories() =>
       userHttpMethods.getCategories();
 
+  Future<bool> addBlog(AddBlogModel model) => userHttpMethods.addBlog(model);
+
 }

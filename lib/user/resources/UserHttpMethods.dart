@@ -187,4 +187,14 @@ class UserHttpMethods {
     ) as List<DropDownModel>;
   }
 
+  Future<bool> addBlog(AddBlogModel model) async {
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.createBlog,
+      json: model.toJson(),
+      returnType: ReturnType.type,
+      methodType: MethodType.post,
+    );
+    return data!= null;
+  }
+
 }
