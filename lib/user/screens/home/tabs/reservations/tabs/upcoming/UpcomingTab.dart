@@ -1,18 +1,41 @@
 part of 'UpcomingTabImports.dart';
 
 class UpcomingTab extends StatelessWidget {
-  const UpcomingTab({Key? key}) : super(key: key);
+  final ReservationsData reservationsData;
+
+  const UpcomingTab({Key? key, required this.reservationsData})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: List.generate(
-        2,
-        (index) => BuildReservationItem(
-          status: "Upcoming",
-          statusColor: MyColors.lightGrey,
-        ),
-      ),
+    return BlocBuilder<GenericBloc<List<ReservationModel>>,
+        GenericState<List<ReservationModel>>>(
+      bloc: reservationsData.upcomingBloc,
+      builder: (context, state) {
+        if(state is GenericUpdateState){
+          return Visibility(
+            visible: state.data.isNotEmpty,
+            replacement: Center(
+              child: MyText(
+                title: "No Reservations",
+                color: MyColors.blackOpacity,
+                size: 12,
+              ),
+            ),
+            child: ListView(
+              children: List.generate(
+                state.data.length,
+                    (index) => BuildReservationItem(
+                  status: "Upcoming",
+                  statusColor: MyColors.lightGrey,
+                ),
+              ),
+            ),
+          );
+        } else {
+          return LoadingDialog.showLoadingView();
+        }
+      },
     );
   }
 }

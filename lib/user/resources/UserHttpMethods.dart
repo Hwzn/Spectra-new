@@ -203,4 +203,15 @@ class UserHttpMethods {
     return data != null;
   }
 
+  Future<List<ReservationModel>> getReservations(String status) async {
+    return await GenericHttp<ReservationModel>(context).callApi(
+      name: ApiNames.reservationByStatus,
+      returnType: ReturnType.list,
+      json: {"status": status},
+      methodType: MethodType.post,
+      showLoader: false,
+      returnDataFun: (data) => data["data"],
+      toJsonFunc: (json) => ReservationModel.fromJson(json),
+    ) as List<ReservationModel>;
+  }
 }

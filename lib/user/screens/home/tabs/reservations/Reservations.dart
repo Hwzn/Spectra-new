@@ -14,6 +14,7 @@ class _ReservationsState extends State<Reservations>
   @override
   void initState() {
     reservationsData.tabController = TabController(length: 2, vsync: this);
+    reservationsData.fetchData(context);
     super.initState();
   }
 
@@ -34,9 +35,9 @@ class _ReservationsState extends State<Reservations>
               child: TabBarView(
                 controller: reservationsData.tabController,
                 physics: const NeverScrollableScrollPhysics(),
-                children: const [
-                  UpcomingTab(),
-                  PreviousTab(),
+                children: [
+                  UpcomingTab(reservationsData: reservationsData),
+                  PreviousTab(reservationsData: reservationsData),
                 ],
               ),
             ),

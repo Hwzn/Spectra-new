@@ -48,4 +48,6 @@ class UserRepository {
 
   Future<bool> addPet(AddPetModel model) => userHttpMethods.addPet(model);
 
+  Future<List<ReservationModel>> getReservations(String status) =>
+      userHttpMethods.getReservations(status);
 }
