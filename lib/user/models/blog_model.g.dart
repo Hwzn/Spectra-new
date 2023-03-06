@@ -25,6 +25,7 @@ BlogModel _$BlogModelFromJson(Map<String, dynamic> json) => BlogModel(
       content: json['content'] as String,
       timePosted: json['time_posted'] as String,
       publisherImage: json['publisher_image'] as String,
+      isLiked: json['is_liked'] as bool,
     );
 
 Map<String, dynamic> _$BlogModelToJson(BlogModel instance) => <String, dynamic>{
@@ -42,4 +43,5 @@ Map<String, dynamic> _$BlogModelToJson(BlogModel instance) => <String, dynamic>{
       'comments': instance.comments,
       'content': instance.content,
       'time_posted': instance.timePosted,
+      'is_liked': instance.isLiked,
     };

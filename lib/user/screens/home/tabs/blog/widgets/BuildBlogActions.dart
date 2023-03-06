@@ -3,7 +3,11 @@ part of 'BlogWidgetsImports.dart';
 class BuildBlogActions extends StatelessWidget {
   final IconData icon;
   final String title;
-  const BuildBlogActions({Key? key, required this.icon, required this.title}) : super(key: key);
+  final Color? likeColor;
+
+  const BuildBlogActions(
+      {Key? key, required this.icon, required this.title, this.likeColor})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +16,7 @@ class BuildBlogActions extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Icon(icon, size: 20, color: MyColors.grey),
+          Icon(icon, size: 20, color: likeColor ?? MyColors.grey),
           const SizedBox(width: 7),
           MyText(
             title: title,

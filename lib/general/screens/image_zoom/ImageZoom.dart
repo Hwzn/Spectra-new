@@ -49,7 +49,7 @@ class _ImageZoomState extends State<ImageZoom> {
           return Container(
             alignment: Alignment.center,
             child: PhotoView(
-              backgroundDecoration: BoxDecoration(
+              backgroundDecoration: const BoxDecoration(
                 color: Colors.black87,
               ),
               imageProvider: NetworkImage(widget.images[index]),

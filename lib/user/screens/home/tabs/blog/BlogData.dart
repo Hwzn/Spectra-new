@@ -21,7 +21,7 @@ class BlogData {
 
   addPostAndRefresh(BuildContext context) async {
     var result = await AutoRouter.of(context).push(AddPostRoute());
-    if(result == true){
+    if (result == true) {
       fetchData(context);
     }
   }
@@ -51,7 +51,7 @@ class BlogData {
 
   addComment(BuildContext context, int blogId) async {
     var user = context.read<UserCubit>().state.model;
-    if(comment.text.isNotEmpty){
+    if (comment.text.isNotEmpty) {
       await UserRepository(context).addBlogComment(blogId, comment.text);
       commentsBloc.state.data.add(CommentModel(
         id: 0,
@@ -67,4 +67,25 @@ class BlogData {
       CustomToast.showSimpleToast(msg: "Add comment please");
     }
   }
+
+  likeOrUnlike(BuildContext context, int id) async {
+    await UserRepository(context).likeOrUnlike(id);
+    var blogsList = blogsBloc.state.data;
+    BlogModel model = blogsList.firstWhere((element) => element.id == id);
+    if(model.isLiked){
+      model.isLiked = false;
+      model.likesCount = model.likesCount - 1;
+    } else {
+      model.isLiked = true;
+      model.likesCount = model.likesCount + 1;
+    }
+    blogsBloc.onUpdateData(blogsList);
+  }
+
+  viewImages(BuildContext context, List<DropDownModel> images){
+    var imageList = [];
+    images.forEach((e) {imageList.add(e.image);});
+    AutoRouter.of(context).push(ImageZoomRoute(images: imageList));
+  }
+
 }

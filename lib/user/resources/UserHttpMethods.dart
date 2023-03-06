@@ -173,7 +173,7 @@ class UserHttpMethods {
       returnType: ReturnType.type,
       methodType: MethodType.post,
     );
-    return data!= null;
+    return data != null;
   }
 
   Future<List<DropDownModel>> getCategories() async {
@@ -194,7 +194,17 @@ class UserHttpMethods {
       returnType: ReturnType.type,
       methodType: MethodType.post,
     );
-    return data!= null;
+    return data != null;
   }
 
+  Future<bool> likeOrUnlike(int blogId) async {
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.toggleLike,
+      json: {"blog_id": blogId},
+      returnType: ReturnType.type,
+      methodType: MethodType.post,
+      showLoader: false,
+    );
+    return data != null;
+  }
 }

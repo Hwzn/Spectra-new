@@ -35,6 +35,8 @@ class BlogModel {
   String content;
   @JsonKey(name: 'time_posted')
   String timePosted;
+  @JsonKey(name: 'is_liked')
+  bool isLiked;
 
   BlogModel({
     required this.id,
@@ -51,6 +53,7 @@ class BlogModel {
     required this.content,
     required this.timePosted,
     required this.publisherImage,
+    required this.isLiked,
   });
 
   factory BlogModel.fromJson(Map<String, dynamic> json) =>

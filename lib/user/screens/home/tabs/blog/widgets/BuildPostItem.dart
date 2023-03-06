@@ -4,10 +4,7 @@ class BuildPostItem extends StatelessWidget {
   final BlogData blogData;
   final BlogModel model;
 
-  const BuildPostItem(
-      {Key? key,
-      required this.blogData,
-      required this.model})
+  const BuildPostItem({Key? key, required this.blogData, required this.model})
       : super(key: key);
 
   @override
@@ -30,7 +27,10 @@ class BuildPostItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           BuildPostTitle(model: model),
-          BuildPostImages(imagesList: model.blogImages),
+          InkWell(
+            onTap: ()=> blogData.viewImages(context, model.blogImages),
+            child: BuildPostImages(imagesList: model.blogImages),
+          ),
           Visibility(
             visible: model.lat != null && model.lng != null,
             child: BuildMap(
@@ -54,8 +54,14 @@ class BuildPostItem extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                BuildBlogActions(
-                    icon: Icons.favorite, title: "${model.likesCount}  Likes"),
+                InkWell(
+                  onTap: () => blogData.likeOrUnlike(context, model.id),
+                  child: BuildBlogActions(
+                    icon: Icons.favorite,
+                    title: "${model.likesCount}  Likes",
+                    likeColor: model.isLiked ? Colors.red : MyColors.grey,
+                  ),
+                ),
                 BuildBlogActions(
                     icon: Icons.comment,
                     title: "${model.commentsCount}  Comments"),

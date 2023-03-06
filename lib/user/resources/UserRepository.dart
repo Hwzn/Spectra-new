@@ -44,4 +44,6 @@ class UserRepository {
 
   Future<bool> addBlog(AddBlogModel model) => userHttpMethods.addBlog(model);
 
+  Future<bool> likeOrUnlike(int blogId) => userHttpMethods.likeOrUnlike(blogId);
+
 }
