@@ -53,33 +53,20 @@ class BuildAddPetPhoto extends StatelessWidget {
                   ),
                 );
               } else {
-                return SizedBox(
-                  width: 130,
-                  child: CachedImage(
-                    url:
-                    "https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=ZhplzyJ9",
+                return InkWell(
+                  onTap: () => addPetData.setProfileImage(),
+                  child: Container(
                     height: 110,
                     width: 110,
-                    haveRadius: false,
-                    boxShape: BoxShape.circle,
-                    fit: BoxFit.cover,
-                    alignment: Alignment.bottomLeft,
-                    child: InkWell(
-                      onTap: () => addPetData.setProfileImage(),
-                      child: Container(
-                        height: 30,
-                        width: 30,
-                        margin: const EdgeInsets.only(bottom: 8),
-                        decoration: BoxDecoration(
-                          color: Colors.grey[700],
-                          shape: BoxShape.circle,
-                        ),
-                        child: Icon(
-                          Icons.camera_alt,
-                          color: MyColors.white,
-                          size: 18,
-                        ),
-                      ),
+                    margin: const EdgeInsets.only(bottom: 8),
+                    decoration: const BoxDecoration(
+                      color: Colors.grey,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(
+                      Icons.camera_alt,
+                      color: MyColors.white,
+                      size: 35,
                     ),
                   ),
                 );

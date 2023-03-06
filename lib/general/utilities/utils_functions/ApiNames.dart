@@ -40,6 +40,7 @@ class ApiNames{
   static const String categories = "categories";
   static const String createBlog = "createBlog";
   static const String toggleLike = "toggleLike";
+  static const String addPet = "addPet";
 
   // doctor
   static const String registerDoctor = "registerNewDoctor";

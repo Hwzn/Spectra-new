@@ -8,6 +8,7 @@ import 'package:hwzn_base/general/utilities/routers/RouterImports.gr.dart';
 import 'package:hwzn_base/general/utilities/utils_functions/LoadingDialog.dart';
 import 'package:hwzn_base/user/models/pet_model.dart';
 import 'package:hwzn_base/user/screens/home/tabs/account/AccountImports.dart';
+import 'package:jumping_dot/jumping_dot.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../../../../general/blocks/user_cubit/user_cubit.dart';

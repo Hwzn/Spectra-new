@@ -126,21 +126,6 @@ class UserHttpMethods {
     }
   }
 
-  Future<bool> addPet(int id) async {
-    dynamic data = await GenericHttp<dynamic>(context).callApi(
-      name: ApiNames.deletePet,
-      json: {"pet_id": id},
-      returnType: ReturnType.type,
-      methodType: MethodType.post,
-    );
-    if (data != null) {
-      CustomToast.showSimpleToast(msg: data["message"]);
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   Future<List<BlogModel>> getBlogs() async {
     return await GenericHttp<BlogModel>(context).callApi(
       name: ApiNames.allBlogs,
@@ -207,4 +192,15 @@ class UserHttpMethods {
     );
     return data != null;
   }
+
+  Future<bool> addPet(AddPetModel model) async {
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.addPet,
+      json: model.toJson(),
+      returnType: ReturnType.type,
+      methodType: MethodType.post,
+    );
+    return data != null;
+  }
+
 }

@@ -24,7 +24,7 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: AllChats),
     AdaptiveRoute(page: Notifications),
     AdaptiveRoute(page: Profile),
-    AdaptiveRoute(page: AddPet),
+    AdaptiveRoute<bool>(page: AddPet),
     AdaptiveRoute(page: Session),
     AdaptiveRoute(page: ReviewSession),
     AdaptiveRoute(page: DoctorDetails),

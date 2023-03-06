@@ -23,7 +23,12 @@ class BuildPetsSection extends StatelessWidget {
                   size: 14,
                 ),
                 InkWell(
-                  onTap: ()=> AutoRouter.of(context).push(AddPetRoute()),
+                  onTap: () async{
+                    var result = await AutoRouter.of(context).push(AddPetRoute());
+                    if(result == true){
+                      accountData.fetchPets(context);
+                    }
+                  },
                   child: MyText(
                     title: "+ add a pet",
                     color: MyColors.primary,

@@ -23,6 +23,7 @@ import '../../general/models/toJson/RegisterModel.dart';
 import '../../general/utilities/routers/RouterImports.gr.dart';
 import '../../general/utilities/utils_functions/ApiNames.dart';
 import '../../general/utilities/utils_functions/UtilsImports.dart';
+import '../models/toJson/AddPetModel.dart';
 import '../models/toJson/UpdateProfileModel.dart';
 
 part 'UserHttpMethods.dart';

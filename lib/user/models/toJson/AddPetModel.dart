@@ -5,7 +5,7 @@ class AddPetModel{
   File image;
   String name;
   String details;
-  List<dynamic> files;
+  List<File> files;
 
   AddPetModel({
     required this.image,
