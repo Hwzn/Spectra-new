@@ -8,17 +8,21 @@ class ProvPrevious extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        BuildReservationItem(
-          status: "Complete",
-          statusColor: Colors.green[700]!,
-          ended: true,
-          endButton: DefaultButton(
-            title: "Fill session details",
-            height: 40,
-            fontSize: 12,
-            borderRadius: BorderRadius.circular(15),
-            onTap: ()=> provReservationsData.sessionDetails(context),
-          ),
+        // BuildReservationItem(
+        //   statusColor: Colors.green[700]!,
+        //   ended: true,
+        //   endButton: DefaultButton(
+        //     title: "Fill session details",
+        //     height: 40,
+        //     fontSize: 12,
+        //     borderRadius: BorderRadius.circular(15),
+        //     onTap: ()=> provReservationsData.sessionDetails(context),
+        //   ),
+        // ),
+        MyText(
+          title: "Commented widget was here",
+          color: MyColors.primary,
+          size: 12,
         ),
       ]
     );

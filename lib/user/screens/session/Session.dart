@@ -2,8 +2,8 @@ part of 'SessionImports.dart';
 
 class Session extends StatefulWidget {
   final bool fromDoctorHome;
-
-  const Session({Key? key, this.fromDoctorHome = false}) : super(key: key);
+  final ReservationModel model;
+  const Session({Key? key, this.fromDoctorHome = false, required this.model}) : super(key: key);
 
   @override
   State<Session> createState() => _SessionState();
@@ -14,7 +14,7 @@ class _SessionState extends State<Session> {
 
   @override
   void initState() {
-    sessionData.handleStopWatchConfig();
+    sessionData.handleStopWatchConfig(widget.model.dateTime);
     super.initState();
   }
 
@@ -49,7 +49,7 @@ class _SessionState extends State<Session> {
               ),
               BuildSessionTimer(
                 sessionData: sessionData,
-                stopWatchTimer: sessionData.stopWatchTimer!,
+                stopWatchTimer: sessionData.stopWatchTimer?? StopWatchTimer(),
               ),
             ],
           ),

@@ -18,10 +18,14 @@ class _ReviewSessionState extends State<ReviewSession> {
       body: ListView(
         padding: const EdgeInsets.only(top: 10),
         children: [
-          BuildReservationItem(
-            status: "Complete",
-            statusColor: Colors.green[700]!,
-            ended: true,
+          // BuildReservationItem(
+          //   statusColor: Colors.green[700]!,
+          //   ended: true,
+          // ),
+          MyText(
+            title: "Commented widget was here",
+            color: MyColors.primary,
+            size: 12,
           ),
           const BuildSessionDoctorInfo(info: 'info should be here',),
           const BuildRateSession(),

@@ -43,7 +43,8 @@ import 'package:hwzn_base/provider/screens/prov_register/ProvRegisterImports.dar
     as _i27;
 import 'package:hwzn_base/provider/screens/working_times/WorkingTimesImports.dart'
     as _i31;
-import 'package:hwzn_base/user/models/review_model.dart' as _i34;
+import 'package:hwzn_base/user/models/reservation_model.dart' as _i34;
+import 'package:hwzn_base/user/models/review_model.dart' as _i35;
 import 'package:hwzn_base/user/screens/add_pet/AddPetImports.dart' as _i19;
 import 'package:hwzn_base/user/screens/add_post/AddPostImports.dart' as _i24;
 import 'package:hwzn_base/user/screens/add_reservation/AddReservationImports.dart'
@@ -224,13 +225,13 @@ class AppRouter extends _i32.RootStackRouter {
       );
     },
     SessionRoute.name: (routeData) {
-      final args = routeData.argsAs<SessionRouteArgs>(
-          orElse: () => const SessionRouteArgs());
+      final args = routeData.argsAs<SessionRouteArgs>();
       return _i32.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i20.Session(
           key: args.key,
           fromDoctorHome: args.fromDoctorHome,
+          model: args.model,
         ),
         opaque: true,
       );
@@ -791,12 +792,14 @@ class SessionRoute extends _i32.PageRouteInfo<SessionRouteArgs> {
   SessionRoute({
     _i33.Key? key,
     bool fromDoctorHome = false,
+    required _i34.ReservationModel model,
   }) : super(
           SessionRoute.name,
           path: '/Session',
           args: SessionRouteArgs(
             key: key,
             fromDoctorHome: fromDoctorHome,
+            model: model,
           ),
         );
 
@@ -807,15 +810,18 @@ class SessionRouteArgs {
   const SessionRouteArgs({
     this.key,
     this.fromDoctorHome = false,
+    required this.model,
   });
 
   final _i33.Key? key;
 
   final bool fromDoctorHome;
 
+  final _i34.ReservationModel model;
+
   @override
   String toString() {
-    return 'SessionRouteArgs{key: $key, fromDoctorHome: $fromDoctorHome}';
+    return 'SessionRouteArgs{key: $key, fromDoctorHome: $fromDoctorHome, model: $model}';
   }
 }
 
@@ -870,7 +876,7 @@ class DoctorDetailsRouteArgs {
 class ReviewsRoute extends _i32.PageRouteInfo<ReviewsRouteArgs> {
   ReviewsRoute({
     _i33.Key? key,
-    required List<_i34.ReviewModel> reviewsList,
+    required List<_i35.ReviewModel> reviewsList,
     required double avgReviews,
   }) : super(
           ReviewsRoute.name,
@@ -894,7 +900,7 @@ class ReviewsRouteArgs {
 
   final _i33.Key? key;
 
-  final List<_i34.ReviewModel> reviewsList;
+  final List<_i35.ReviewModel> reviewsList;
 
   final double avgReviews;
 

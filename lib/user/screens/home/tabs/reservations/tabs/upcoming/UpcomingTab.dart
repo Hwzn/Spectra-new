@@ -26,8 +26,8 @@ class UpcomingTab extends StatelessWidget {
               children: List.generate(
                 state.data.length,
                     (index) => BuildReservationItem(
-                  status: "Upcoming",
                   statusColor: MyColors.lightGrey,
+                      model: state.data[index],
                 ),
               ),
             ),

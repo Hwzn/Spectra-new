@@ -1,3 +1,4 @@
+import 'package:hwzn_base/user/models/available_day_model.dart';
 import 'package:hwzn_base/user/models/review_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -10,20 +11,14 @@ class DoctorDetailsModel {
   @JsonKey(name: 'doctor')
   DoctorModel doctor;
   @JsonKey(name: 'doctor_info')
-  String doctorInfo;
+  String? doctorInfo;
   @JsonKey(name: 'reviews')
   List<ReviewModel> reviews;
-  @JsonKey(name: 'workDays')
-  List<dynamic> workDays;
-  @JsonKey(name: 'time')
-  List<dynamic> time;
 
   DoctorDetailsModel({
     required this.doctor,
-    required this.doctorInfo,
+    this.doctorInfo,
     required this.reviews,
-    required this.workDays,
-    required this.time,
   });
 
   factory DoctorDetailsModel.fromJson(Map<String, dynamic> json) =>

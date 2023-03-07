@@ -1,3 +1,4 @@
+import 'package:hwzn_base/user/models/doctor_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'reservation_model.g.dart';
@@ -22,20 +23,9 @@ class ReservationModel {
   String clientName;
   @JsonKey(name: 'client_avg_rate')
   String clientAvgRate;
-  @JsonKey(name: 'doctor_image')
-  String doctorImage;
-  @JsonKey(name: 'doctor_name')
-  String doctorName;
-  @JsonKey(name: 'doctor_avg_rate')
-  String doctorAvgRate;
-  @JsonKey(name: 'doctor_specialization_id')
-  int doctorSpecializationId;
-  @JsonKey(name: 'doctor_specialization_name')
-  String doctorSpecializationName;
-  @JsonKey(name: 'doctor_session_price')
-  String doctorSessionPrice;
-  @JsonKey(name: 'doctor_info')
-  String doctorInfo;
+  @JsonKey(name: 'doctor_details')
+  DoctorModel doctorDetails;
+
 
   ReservationModel({
     required this.id,
@@ -47,13 +37,7 @@ class ReservationModel {
     required this.clientImage,
     required this.clientName,
     required this.clientAvgRate,
-    required this.doctorImage,
-    required this.doctorName,
-    required this.doctorAvgRate,
-    required this.doctorSpecializationId,
-    required this.doctorSpecializationName,
-    required this.doctorSessionPrice,
-    required this.doctorInfo,
+    required this.doctorDetails,
   });
 
   factory ReservationModel.fromJson(Map<String, dynamic> json) =>

@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'available_day_model.dart';
+
 part 'doctor_model.g.dart';
 
 @JsonSerializable(nullable: false, ignoreUnannotated: false)
@@ -13,7 +15,7 @@ class DoctorModel {
   @JsonKey(name: 'name')
   String name;
   @JsonKey(name: 'sessions_count')
-  int sessionsCount;
+  int? sessionsCount;
   @JsonKey(name: 'session_price')
   String sessionPrice;
   @JsonKey(name: 'specialization_id')
@@ -21,27 +23,30 @@ class DoctorModel {
   @JsonKey(name: 'specialization_name')
   String specializationName;
   @JsonKey(name: 'is_fav')
-  String isFav;
+  String? isFav;
   @JsonKey(name: 'center_id')
-  int centerId;
+  int? centerId;
   @JsonKey(name: 'center_name')
-  String centerName;
+  String? centerName;
   @JsonKey(name: 'center_image')
   String? centerImage;
+  @JsonKey(name: 'available_times')
+  List<AvailableDayModel>? availableTimes;
 
   DoctorModel({
     required this.id,
     required this.image,
     required this.avgRate,
     required this.name,
-    required this.sessionsCount,
+    this.sessionsCount,
     required this.sessionPrice,
     required this.specializationId,
     required this.specializationName,
-    required this.isFav,
-    required this.centerId,
-    required this.centerName,
+    this.isFav,
+    this.centerId,
+    this.centerName,
     this.centerImage,
+    this.availableTimes,
   });
 
   factory DoctorModel.fromJson(Map<String, dynamic> json) =>

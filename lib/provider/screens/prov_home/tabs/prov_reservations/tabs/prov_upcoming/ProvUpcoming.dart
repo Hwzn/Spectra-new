@@ -8,11 +8,16 @@ class ProvUpcoming extends StatelessWidget {
     return ListView(
       children: List.generate(
         2,
-        (index) => BuildReservationItem(
-          status: "Upcoming",
-          statusColor: MyColors.lightGrey,
-          fromDoctorHome: true,
-        ),
+          (index) => MyText(
+            title: "Commented widget was here",
+            color: MyColors.primary,
+            size: 12,
+          ),
+        // (index) => BuildReservationItem(
+        //   status: "Upcoming",
+        //   statusColor: MyColors.lightGrey,
+        //   fromDoctorHome: true,
+        // ),
       ),
     );
   }

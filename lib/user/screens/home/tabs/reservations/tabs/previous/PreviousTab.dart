@@ -26,9 +26,9 @@ class PreviousTab extends StatelessWidget {
               children: List.generate(
                 state.data.length,
                 (index) => BuildReservationItem(
-                  status: "Complete",
                   statusColor: MyColors.lightGrey,
                   ended: true,
+                  model: state.data[index],
                 ),
               ),
             ),

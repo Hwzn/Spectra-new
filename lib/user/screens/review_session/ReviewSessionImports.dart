@@ -5,6 +5,7 @@ import 'package:hwzn_base/user/screens/home/tabs/reservations/widgets/Reservatio
 import 'package:hwzn_base/user/screens/review_session/widgets/ReviewSessionWidgetsImports.dart';
 
 import '../../../general/widgets/DefaultButton.dart';
+import '../../../general/widgets/MyText.dart';
 
 part 'ReviewSession.dart';
 part 'ReviewSessionData.dart';

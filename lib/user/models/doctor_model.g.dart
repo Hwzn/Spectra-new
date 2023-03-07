@@ -11,14 +11,17 @@ DoctorModel _$DoctorModelFromJson(Map<String, dynamic> json) => DoctorModel(
       image: json['image'] as String,
       avgRate: json['avg_rate'] as String,
       name: json['name'] as String,
-      sessionsCount: json['sessions_count'] as int,
+      sessionsCount: json['sessions_count'] as int?,
       sessionPrice: json['session_price'] as String,
       specializationId: json['specialization_id'] as int,
       specializationName: json['specialization_name'] as String,
-      isFav: json['is_fav'] as String,
-      centerId: json['center_id'] as int,
-      centerName: json['center_name'] as String,
+      isFav: json['is_fav'] as String?,
+      centerId: json['center_id'] as int?,
+      centerName: json['center_name'] as String?,
       centerImage: json['center_image'] as String?,
+      availableTimes: (json['available_times'] as List<dynamic>?)
+          ?.map((e) => AvailableDayModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$DoctorModelToJson(DoctorModel instance) =>
@@ -35,4 +38,5 @@ Map<String, dynamic> _$DoctorModelToJson(DoctorModel instance) =>
       'center_id': instance.centerId,
       'center_name': instance.centerName,
       'center_image': instance.centerImage,
+      'available_times': instance.availableTimes,
     };

@@ -14,7 +14,8 @@ class SessionData {
   GenericBloc<String> timeCubit = GenericBloc("0");
 
   // methods
-  void handleStopWatchConfig() {
+  void handleStopWatchConfig(String date) async {
+    var hours = getDaysLeft(date);
     stopWatchTimer = StopWatchTimer(
       mode: StopWatchMode.countDown,
       onChange: (value) {
@@ -27,8 +28,17 @@ class SessionData {
         timeCubit.onUpdateData(displayTime);
       },
     );
-    stopWatchTimer?.setPresetHoursTime(2);
+    stopWatchTimer?.setPresetHoursTime(hours);
     stopWatchTimer!.onExecute.add(StopWatchExecute.start);
+  }
+
+  getDaysLeft(String date) {
+    DateFormat dateFormat = DateFormat("yyy-MM-dd HH:mm:ss");
+    DateTime targetDate = dateFormat.parse(date);
+    DateTime currentDate = DateTime.now();
+    int difference = targetDate.difference(currentDate).inHours;
+    print("difference: $difference");
+    return difference;
   }
 
   cancelSession(BuildContext context) {
@@ -84,5 +94,4 @@ class SessionData {
       ),
     );
   }
-
 }

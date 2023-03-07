@@ -81,7 +81,7 @@ class BuildSessionDoctor extends StatelessWidget {
                         ),
                         SizedBox(width: model.centerImage != null ? 5 : 0),
                         MyText(
-                          title: model.centerName,
+                          title: model.centerName??'',
                           color: MyColors.primary,
                           size: 12,
                         ),
