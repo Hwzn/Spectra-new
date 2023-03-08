@@ -10,11 +10,13 @@ class TimeModel {
   String hour;
   @JsonKey(name: 'available')
   int available;
+  bool selected;
 
   TimeModel({
     required this.id,
     required this.hour,
     required this.available,
+    this.selected = false,
   });
 
   factory TimeModel.fromJson(Map<String, dynamic> json) =>

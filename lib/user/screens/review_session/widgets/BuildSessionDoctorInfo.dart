@@ -29,10 +29,18 @@ class BuildSessionDoctorInfo extends StatelessWidget {
             size: 13,
           ),
           const SizedBox(height: 10),
-          MyText(
-            title: info,
-            color: MyColors.blackOpacity,
-            size: 12,
+          Visibility(
+            visible: info != '',
+            replacement: MyText(
+              title: "No Data Available",
+              color: MyColors.blackOpacity,
+              size: 12,
+            ),
+            child: MyText(
+              title: info,
+              color: MyColors.blackOpacity,
+              size: 12,
+            ),
           ),
         ],
       ),

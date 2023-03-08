@@ -49,7 +49,9 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                   child: ListView(
                     padding: EdgeInsets.zero,
                     children: [
-                      const BuildDoctorDateTime(),
+                      BuildDoctorDateTime(
+                        daysList: doctorDetailsData.daysBloc.state.data,
+                      ),
                       BuildSessionDoctorInfo(
                         info: state.data?.doctorInfo ?? '',
                       ),

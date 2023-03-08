@@ -10,6 +10,7 @@ import 'package:hwzn_base/user/screens/review_session/widgets/ReviewSessionWidge
 import 'package:hwzn_base/user/screens/session/widgets/SessionWidgetsImports.dart';
 
 import '../../../general/utilities/utils_functions/LoadingDialog.dart';
+import '../../models/available_day_model.dart';
 import '../../models/doctor_details_model.dart';
 
 part 'DoctorDetails.dart';

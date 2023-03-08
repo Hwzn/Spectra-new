@@ -13,6 +13,7 @@ AvailableDayModel _$AvailableDayModelFromJson(Map<String, dynamic> json) =>
       times: (json['times'] as List<dynamic>)
           .map((e) => TimeModel.fromJson(e as Map<String, dynamic>))
           .toList(),
+      selected: json['selected'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$AvailableDayModelToJson(AvailableDayModel instance) =>
@@ -20,4 +21,5 @@ Map<String, dynamic> _$AvailableDayModelToJson(AvailableDayModel instance) =>
       'id': instance.id,
       'name': instance.name,
       'times': instance.times,
+      'selected': instance.selected,
     };

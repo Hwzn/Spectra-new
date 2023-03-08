@@ -1,12 +1,16 @@
 part of 'DoctorDetailsWidgetsImports.dart';
 
 class BuildDoctorDateTime extends StatelessWidget {
-  const BuildDoctorDateTime({Key? key}) : super(key: key);
+  final List<AvailableDayModel> daysList;
+
+  const BuildDoctorDateTime({Key? key, required this.daysList})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: ()=> AutoRouter.of(context).push(AddReservationRoute()),
+      onTap: () =>
+          AutoRouter.of(context).push(AddReservationRoute(daysList: daysList)),
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
         padding: const EdgeInsets.all(20),
@@ -25,24 +29,20 @@ class BuildDoctorDateTime extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             MyText(
-              title: "Available time slots",
+              title: "Available Days",
               color: MyColors.black,
               size: 13,
             ),
-            const SizedBox(height: 10),
-            MyText(
-              title: "Choose day",
-              color: MyColors.blackOpacity,
-              size: 12,
+            Visibility(
+              visible: daysList.isNotEmpty,
+              replacement: MyText(
+                title: "No Days Available",
+                color: MyColors.primary,
+                size: 12,
+              ),
+              child: BuildDateTimeItem(daysList: daysList),
             ),
-            const BuildDateTimeItem(title: "Sat 11/12"),
             const SizedBox(height: 10),
-            MyText(
-              title: "Choose time slot",
-              color: MyColors.blackOpacity,
-              size: 12,
-            ),
-            const BuildDateTimeItem(title: "5 pm to 6 pm"),
           ],
         ),
       ),

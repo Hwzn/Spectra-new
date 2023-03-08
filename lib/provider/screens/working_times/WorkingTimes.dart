@@ -17,9 +17,14 @@ class _WorkingTimesState extends State<WorkingTimes> {
       body: ListView(
         padding: const EdgeInsets.only(top: 20),
         children: [
-          const BuildAvailableTime(
-            title: "Select available days",
-            detail: "Saturday",
+          // const BuildAvailableTime(
+          //   title: "Select available days",
+          //   detail: "Saturday",
+          // ),
+          MyText(
+            title: "Commented widget was here",
+            color: MyColors.primary,
+            size: 12,
           ),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),

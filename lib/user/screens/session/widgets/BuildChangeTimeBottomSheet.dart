@@ -17,16 +17,21 @@ class BuildChangeTimeBottomSheet extends StatelessWidget {
           const SizedBox(height: 10),
           Flexible(
             child: ListView(
-              children: const [
-                BuildAvailableTime(
-                  title: "Available days",
-                  detail: "Sat 11/12",
+              children: [
+                // BuildAvailableTime(
+                //   title: "Available days",
+                //   detail: "Sat 11/12",
+                // ),
+                // BuildAvailableTime(
+                //   title: "Available time slots",
+                //   detail: "5 pm to 6 pm",
+                // ),
+                MyText(
+                  title: "Commented widget was here",
+                  color: MyColors.primary,
+                  size: 12,
                 ),
-                BuildAvailableTime(
-                  title: "Available time slots",
-                  detail: "5 pm to 6 pm",
-                ),
-                BuildPaymentInfo(),
+                const BuildPaymentInfo(),
               ],
             ),
           ),

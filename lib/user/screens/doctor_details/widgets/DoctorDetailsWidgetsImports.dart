@@ -11,6 +11,7 @@ import '../../../../general/utilities/routers/RouterImports.gr.dart';
 import '../../../../general/widgets/CachedImage.dart';
 import '../../../../general/widgets/MyText.dart';
 import '../../../../res.dart';
+import '../../../models/available_day_model.dart';
 import '../../../models/review_model.dart';
 
 part 'BuildDrDetailsAppBar.dart';

@@ -1,7 +1,7 @@
 import 'package:hwzn_base/user/models/time_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'available_day_model.g.dart'; 
+part 'available_day_model.g.dart';
 
 @JsonSerializable(nullable: false, ignoreUnannotated: false)
 class AvailableDayModel {
@@ -11,11 +11,17 @@ class AvailableDayModel {
   String name;
   @JsonKey(name: 'times')
   List<TimeModel> times;
+  bool selected;
 
-  AvailableDayModel({required this.id,required this.name,required this.times});
+  AvailableDayModel({
+    required this.id,
+    required this.name,
+    required this.times,
+    this.selected = false,
+  });
 
-   factory AvailableDayModel.fromJson(Map<String, dynamic> json) => _$AvailableDayModelFromJson(json);
+  factory AvailableDayModel.fromJson(Map<String, dynamic> json) =>
+      _$AvailableDayModelFromJson(json);
 
-   Map<String, dynamic> toJson() => _$AvailableDayModelToJson(this);
+  Map<String, dynamic> toJson() => _$AvailableDayModelToJson(this);
 }
-

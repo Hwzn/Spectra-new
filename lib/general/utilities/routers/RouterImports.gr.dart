@@ -43,6 +43,7 @@ import 'package:hwzn_base/provider/screens/prov_register/ProvRegisterImports.dar
     as _i27;
 import 'package:hwzn_base/provider/screens/working_times/WorkingTimesImports.dart'
     as _i31;
+import 'package:hwzn_base/user/models/available_day_model.dart' as _i36;
 import 'package:hwzn_base/user/models/reservation_model.dart' as _i34;
 import 'package:hwzn_base/user/models/review_model.dart' as _i35;
 import 'package:hwzn_base/user/screens/add_pet/AddPetImports.dart' as _i19;
@@ -274,9 +275,13 @@ class AppRouter extends _i32.RootStackRouter {
       );
     },
     AddReservationRoute.name: (routeData) {
+      final args = routeData.argsAs<AddReservationRouteArgs>();
       return _i32.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i25.AddReservation(),
+        child: _i25.AddReservation(
+          key: args.key,
+          daysList: args.daysList,
+        ),
         opaque: true,
       );
     },
@@ -924,14 +929,36 @@ class AddPostRoute extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i25.AddReservation]
-class AddReservationRoute extends _i32.PageRouteInfo<void> {
-  const AddReservationRoute()
-      : super(
+class AddReservationRoute extends _i32.PageRouteInfo<AddReservationRouteArgs> {
+  AddReservationRoute({
+    _i33.Key? key,
+    required List<_i36.AvailableDayModel> daysList,
+  }) : super(
           AddReservationRoute.name,
           path: '/add-reservation',
+          args: AddReservationRouteArgs(
+            key: key,
+            daysList: daysList,
+          ),
         );
 
   static const String name = 'AddReservationRoute';
+}
+
+class AddReservationRouteArgs {
+  const AddReservationRouteArgs({
+    this.key,
+    required this.daysList,
+  });
+
+  final _i33.Key? key;
+
+  final List<_i36.AvailableDayModel> daysList;
+
+  @override
+  String toString() {
+    return 'AddReservationRouteArgs{key: $key, daysList: $daysList}';
+  }
 }
 
 /// generated route for
