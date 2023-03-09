@@ -11,8 +11,8 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i32;
-import 'package:flutter/material.dart' as _i33;
+import 'package:auto_route/auto_route.dart' as _i33;
+import 'package:flutter/material.dart' as _i34;
 import 'package:hwzn_base/general/screens/about/AboutImports.dart' as _i8;
 import 'package:hwzn_base/general/screens/contact_us/ContactUsImports.dart'
     as _i9;
@@ -34,18 +34,18 @@ import 'package:hwzn_base/general/screens/verify_code/VerifyCodeImports.dart'
 import 'package:hwzn_base/general/screens/welcome_page/WelcomePageImports.dart'
     as _i2;
 import 'package:hwzn_base/provider/screens/pet_profile/PetProfileImports.dart'
-    as _i30;
-import 'package:hwzn_base/provider/screens/prov_home/ProvHomeImports.dart'
-    as _i28;
-import 'package:hwzn_base/provider/screens/prov_profile/ProvProfileImports.dart'
-    as _i29;
-import 'package:hwzn_base/provider/screens/prov_register/ProvRegisterImports.dart'
-    as _i27;
-import 'package:hwzn_base/provider/screens/working_times/WorkingTimesImports.dart'
     as _i31;
-import 'package:hwzn_base/user/models/available_day_model.dart' as _i36;
-import 'package:hwzn_base/user/models/reservation_model.dart' as _i34;
-import 'package:hwzn_base/user/models/review_model.dart' as _i35;
+import 'package:hwzn_base/provider/screens/prov_home/ProvHomeImports.dart'
+    as _i29;
+import 'package:hwzn_base/provider/screens/prov_profile/ProvProfileImports.dart'
+    as _i30;
+import 'package:hwzn_base/provider/screens/prov_register/ProvRegisterImports.dart'
+    as _i28;
+import 'package:hwzn_base/provider/screens/working_times/WorkingTimesImports.dart'
+    as _i32;
+import 'package:hwzn_base/user/models/available_day_model.dart' as _i37;
+import 'package:hwzn_base/user/models/reservation_model.dart' as _i35;
+import 'package:hwzn_base/user/models/review_model.dart' as _i36;
 import 'package:hwzn_base/user/screens/add_pet/AddPetImports.dart' as _i19;
 import 'package:hwzn_base/user/screens/add_post/AddPostImports.dart' as _i24;
 import 'package:hwzn_base/user/screens/add_reservation/AddReservationImports.dart'
@@ -61,43 +61,44 @@ import 'package:hwzn_base/user/screens/profile/ProfileImports.dart' as _i18;
 import 'package:hwzn_base/user/screens/review_session/ReviewSessionImports.dart'
     as _i21;
 import 'package:hwzn_base/user/screens/reviews/ReviewsImports.dart' as _i23;
+import 'package:hwzn_base/user/screens/search/SearchImports.dart' as _i27;
 import 'package:hwzn_base/user/screens/session/SessionImports.dart' as _i20;
 import 'package:hwzn_base/user/screens/specialization/SpecializationImports.dart'
     as _i15;
 
-class AppRouter extends _i32.RootStackRouter {
-  AppRouter([_i33.GlobalKey<_i33.NavigatorState>? navigatorKey])
+class AppRouter extends _i33.RootStackRouter {
+  AppRouter([_i34.GlobalKey<_i34.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i32.PageFactory> pagesMap = {
+  final Map<String, _i33.PageFactory> pagesMap = {
     SplashRoute.name: (routeData) {
       final args = routeData.argsAs<SplashRouteArgs>();
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i1.Splash(navigatorKey: args.navigatorKey),
         opaque: true,
       );
     },
     WelcomePageRoute.name: (routeData) {
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i2.WelcomePage(),
         opaque: true,
       );
     },
     SelectUserRoute.name: (routeData) {
-      return _i32.CustomPage<dynamic>(
+      return _i33.CustomPage<dynamic>(
         routeData: routeData,
         child: const _i3.SelectUser(),
-        transitionsBuilder: _i32.TransitionsBuilders.fadeIn,
+        transitionsBuilder: _i33.TransitionsBuilders.fadeIn,
         durationInMilliseconds: 1500,
         opaque: true,
         barrierDismissible: false,
       );
     },
     LoginRoute.name: (routeData) {
-      return _i32.CustomPage<dynamic>(
+      return _i33.CustomPage<dynamic>(
         routeData: routeData,
         child: const _i4.Login(),
         opaque: true,
@@ -105,7 +106,7 @@ class AppRouter extends _i32.RootStackRouter {
       );
     },
     ForgetPasswordRoute.name: (routeData) {
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i5.ForgetPassword(),
         opaque: true,
@@ -113,7 +114,7 @@ class AppRouter extends _i32.RootStackRouter {
     },
     ResetPasswordRoute.name: (routeData) {
       final args = routeData.argsAs<ResetPasswordRouteArgs>();
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i6.ResetPassword(
           key: args.key,
@@ -124,21 +125,21 @@ class AppRouter extends _i32.RootStackRouter {
       );
     },
     TermsRoute.name: (routeData) {
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i7.Terms(),
         opaque: true,
       );
     },
     AboutRoute.name: (routeData) {
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i8.About(),
         opaque: true,
       );
     },
     ContactUsRoute.name: (routeData) {
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i9.ContactUs(),
         opaque: true,
@@ -146,7 +147,7 @@ class AppRouter extends _i32.RootStackRouter {
     },
     ImageZoomRoute.name: (routeData) {
       final args = routeData.argsAs<ImageZoomRouteArgs>();
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i10.ImageZoom(images: args.images),
         opaque: true,
@@ -154,7 +155,7 @@ class AppRouter extends _i32.RootStackRouter {
     },
     VerifyCodeRoute.name: (routeData) {
       final args = routeData.argsAs<VerifyCodeRouteArgs>();
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i11.VerifyCode(
           key: args.key,
@@ -165,21 +166,21 @@ class AppRouter extends _i32.RootStackRouter {
       );
     },
     FAQRoute.name: (routeData) {
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i12.FAQ(),
         opaque: true,
       );
     },
     RegisterRoute.name: (routeData) {
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i13.Register(),
         opaque: true,
       );
     },
     HomeRoute.name: (routeData) {
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i14.Home(),
         opaque: true,
@@ -187,7 +188,7 @@ class AppRouter extends _i32.RootStackRouter {
     },
     SpecializationRoute.name: (routeData) {
       final args = routeData.argsAs<SpecializationRouteArgs>();
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i15.Specialization(
           key: args.key,
@@ -198,28 +199,28 @@ class AppRouter extends _i32.RootStackRouter {
       );
     },
     AllChatsRoute.name: (routeData) {
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i16.AllChats(),
         opaque: true,
       );
     },
     NotificationsRoute.name: (routeData) {
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i17.Notifications(),
         opaque: true,
       );
     },
     ProfileRoute.name: (routeData) {
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i18.Profile(),
         opaque: true,
       );
     },
     AddPetRoute.name: (routeData) {
-      return _i32.AdaptivePage<bool>(
+      return _i33.AdaptivePage<bool>(
         routeData: routeData,
         child: const _i19.AddPet(),
         opaque: true,
@@ -227,7 +228,7 @@ class AppRouter extends _i32.RootStackRouter {
     },
     SessionRoute.name: (routeData) {
       final args = routeData.argsAs<SessionRouteArgs>();
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i20.Session(
           key: args.key,
@@ -238,7 +239,7 @@ class AppRouter extends _i32.RootStackRouter {
       );
     },
     ReviewSessionRoute.name: (routeData) {
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i21.ReviewSession(),
         opaque: true,
@@ -246,7 +247,7 @@ class AppRouter extends _i32.RootStackRouter {
     },
     DoctorDetailsRoute.name: (routeData) {
       final args = routeData.argsAs<DoctorDetailsRouteArgs>();
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i22.DoctorDetails(
           key: args.key,
@@ -257,7 +258,7 @@ class AppRouter extends _i32.RootStackRouter {
     },
     ReviewsRoute.name: (routeData) {
       final args = routeData.argsAs<ReviewsRouteArgs>();
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i23.Reviews(
           key: args.key,
@@ -268,7 +269,7 @@ class AppRouter extends _i32.RootStackRouter {
       );
     },
     AddPostRoute.name: (routeData) {
-      return _i32.AdaptivePage<bool>(
+      return _i33.AdaptivePage<bool>(
         routeData: routeData,
         child: const _i24.AddPost(),
         opaque: true,
@@ -276,7 +277,7 @@ class AppRouter extends _i32.RootStackRouter {
     },
     AddReservationRoute.name: (routeData) {
       final args = routeData.argsAs<AddReservationRouteArgs>();
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i25.AddReservation(
           key: args.key,
@@ -288,172 +289,183 @@ class AppRouter extends _i32.RootStackRouter {
       );
     },
     PaymentRoute.name: (routeData) {
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i26.Payment(),
         opaque: true,
       );
     },
-    ProvRegisterRoute.name: (routeData) {
-      return _i32.AdaptivePage<dynamic>(
+    SearchRoute.name: (routeData) {
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i27.ProvRegister(),
+        child: const _i27.Search(),
+        opaque: true,
+      );
+    },
+    ProvRegisterRoute.name: (routeData) {
+      return _i33.AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const _i28.ProvRegister(),
         opaque: true,
       );
     },
     ProvHomeRoute.name: (routeData) {
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i28.ProvHome(),
+        child: const _i29.ProvHome(),
         opaque: true,
       );
     },
     ProvProfileRoute.name: (routeData) {
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i29.ProvProfile(),
+        child: const _i30.ProvProfile(),
         opaque: true,
       );
     },
     PetProfileRoute.name: (routeData) {
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i30.PetProfile(),
+        child: const _i31.PetProfile(),
         opaque: true,
       );
     },
     WorkingTimesRoute.name: (routeData) {
-      return _i32.AdaptivePage<dynamic>(
+      return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i31.WorkingTimes(),
+        child: const _i32.WorkingTimes(),
         opaque: true,
       );
     },
   };
 
   @override
-  List<_i32.RouteConfig> get routes => [
-        _i32.RouteConfig(
+  List<_i33.RouteConfig> get routes => [
+        _i33.RouteConfig(
           SplashRoute.name,
           path: '/',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           WelcomePageRoute.name,
           path: '/welcome-page',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           SelectUserRoute.name,
           path: '/select-user',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           LoginRoute.name,
           path: '/Login',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           ForgetPasswordRoute.name,
           path: '/forget-password',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           ResetPasswordRoute.name,
           path: '/reset-password',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           TermsRoute.name,
           path: '/Terms',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           AboutRoute.name,
           path: '/About',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           ContactUsRoute.name,
           path: '/contact-us',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           ImageZoomRoute.name,
           path: '/image-zoom',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           VerifyCodeRoute.name,
           path: '/verify-code',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           FAQRoute.name,
           path: '/f-aQ',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           RegisterRoute.name,
           path: '/Register',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           HomeRoute.name,
           path: '/Home',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           SpecializationRoute.name,
           path: '/Specialization',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           AllChatsRoute.name,
           path: '/all-chats',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           NotificationsRoute.name,
           path: '/Notifications',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           ProfileRoute.name,
           path: '/Profile',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           AddPetRoute.name,
           path: '/add-pet',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           SessionRoute.name,
           path: '/Session',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           ReviewSessionRoute.name,
           path: '/review-session',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           DoctorDetailsRoute.name,
           path: '/doctor-details',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           ReviewsRoute.name,
           path: '/Reviews',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           AddPostRoute.name,
           path: '/add-post',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           AddReservationRoute.name,
           path: '/add-reservation',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           PaymentRoute.name,
           path: '/Payment',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
+          SearchRoute.name,
+          path: '/Search',
+        ),
+        _i33.RouteConfig(
           ProvRegisterRoute.name,
           path: '/prov-register',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           ProvHomeRoute.name,
           path: '/prov-home',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           ProvProfileRoute.name,
           path: '/prov-profile',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           PetProfileRoute.name,
           path: '/pet-profile',
         ),
-        _i32.RouteConfig(
+        _i33.RouteConfig(
           WorkingTimesRoute.name,
           path: '/working-times',
         ),
@@ -462,8 +474,8 @@ class AppRouter extends _i32.RootStackRouter {
 
 /// generated route for
 /// [_i1.Splash]
-class SplashRoute extends _i32.PageRouteInfo<SplashRouteArgs> {
-  SplashRoute({required _i33.GlobalKey<_i33.NavigatorState> navigatorKey})
+class SplashRoute extends _i33.PageRouteInfo<SplashRouteArgs> {
+  SplashRoute({required _i34.GlobalKey<_i34.NavigatorState> navigatorKey})
       : super(
           SplashRoute.name,
           path: '/',
@@ -476,7 +488,7 @@ class SplashRoute extends _i32.PageRouteInfo<SplashRouteArgs> {
 class SplashRouteArgs {
   const SplashRouteArgs({required this.navigatorKey});
 
-  final _i33.GlobalKey<_i33.NavigatorState> navigatorKey;
+  final _i34.GlobalKey<_i34.NavigatorState> navigatorKey;
 
   @override
   String toString() {
@@ -486,7 +498,7 @@ class SplashRouteArgs {
 
 /// generated route for
 /// [_i2.WelcomePage]
-class WelcomePageRoute extends _i32.PageRouteInfo<void> {
+class WelcomePageRoute extends _i33.PageRouteInfo<void> {
   const WelcomePageRoute()
       : super(
           WelcomePageRoute.name,
@@ -498,7 +510,7 @@ class WelcomePageRoute extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.SelectUser]
-class SelectUserRoute extends _i32.PageRouteInfo<void> {
+class SelectUserRoute extends _i33.PageRouteInfo<void> {
   const SelectUserRoute()
       : super(
           SelectUserRoute.name,
@@ -510,7 +522,7 @@ class SelectUserRoute extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.Login]
-class LoginRoute extends _i32.PageRouteInfo<void> {
+class LoginRoute extends _i33.PageRouteInfo<void> {
   const LoginRoute()
       : super(
           LoginRoute.name,
@@ -522,7 +534,7 @@ class LoginRoute extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i5.ForgetPassword]
-class ForgetPasswordRoute extends _i32.PageRouteInfo<void> {
+class ForgetPasswordRoute extends _i33.PageRouteInfo<void> {
   const ForgetPasswordRoute()
       : super(
           ForgetPasswordRoute.name,
@@ -534,9 +546,9 @@ class ForgetPasswordRoute extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i6.ResetPassword]
-class ResetPasswordRoute extends _i32.PageRouteInfo<ResetPasswordRouteArgs> {
+class ResetPasswordRoute extends _i33.PageRouteInfo<ResetPasswordRouteArgs> {
   ResetPasswordRoute({
-    _i33.Key? key,
+    _i34.Key? key,
     required String email,
     required String code,
   }) : super(
@@ -559,7 +571,7 @@ class ResetPasswordRouteArgs {
     required this.code,
   });
 
-  final _i33.Key? key;
+  final _i34.Key? key;
 
   final String email;
 
@@ -573,7 +585,7 @@ class ResetPasswordRouteArgs {
 
 /// generated route for
 /// [_i7.Terms]
-class TermsRoute extends _i32.PageRouteInfo<void> {
+class TermsRoute extends _i33.PageRouteInfo<void> {
   const TermsRoute()
       : super(
           TermsRoute.name,
@@ -585,7 +597,7 @@ class TermsRoute extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i8.About]
-class AboutRoute extends _i32.PageRouteInfo<void> {
+class AboutRoute extends _i33.PageRouteInfo<void> {
   const AboutRoute()
       : super(
           AboutRoute.name,
@@ -597,7 +609,7 @@ class AboutRoute extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i9.ContactUs]
-class ContactUsRoute extends _i32.PageRouteInfo<void> {
+class ContactUsRoute extends _i33.PageRouteInfo<void> {
   const ContactUsRoute()
       : super(
           ContactUsRoute.name,
@@ -609,7 +621,7 @@ class ContactUsRoute extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i10.ImageZoom]
-class ImageZoomRoute extends _i32.PageRouteInfo<ImageZoomRouteArgs> {
+class ImageZoomRoute extends _i33.PageRouteInfo<ImageZoomRouteArgs> {
   ImageZoomRoute({required List<dynamic> images})
       : super(
           ImageZoomRoute.name,
@@ -633,9 +645,9 @@ class ImageZoomRouteArgs {
 
 /// generated route for
 /// [_i11.VerifyCode]
-class VerifyCodeRoute extends _i32.PageRouteInfo<VerifyCodeRouteArgs> {
+class VerifyCodeRoute extends _i33.PageRouteInfo<VerifyCodeRouteArgs> {
   VerifyCodeRoute({
-    _i33.Key? key,
+    _i34.Key? key,
     required String email,
     bool? fromRegister,
   }) : super(
@@ -658,7 +670,7 @@ class VerifyCodeRouteArgs {
     this.fromRegister,
   });
 
-  final _i33.Key? key;
+  final _i34.Key? key;
 
   final String email;
 
@@ -672,7 +684,7 @@ class VerifyCodeRouteArgs {
 
 /// generated route for
 /// [_i12.FAQ]
-class FAQRoute extends _i32.PageRouteInfo<void> {
+class FAQRoute extends _i33.PageRouteInfo<void> {
   const FAQRoute()
       : super(
           FAQRoute.name,
@@ -684,7 +696,7 @@ class FAQRoute extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i13.Register]
-class RegisterRoute extends _i32.PageRouteInfo<void> {
+class RegisterRoute extends _i33.PageRouteInfo<void> {
   const RegisterRoute()
       : super(
           RegisterRoute.name,
@@ -696,7 +708,7 @@ class RegisterRoute extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i14.Home]
-class HomeRoute extends _i32.PageRouteInfo<void> {
+class HomeRoute extends _i33.PageRouteInfo<void> {
   const HomeRoute()
       : super(
           HomeRoute.name,
@@ -708,9 +720,9 @@ class HomeRoute extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i15.Specialization]
-class SpecializationRoute extends _i32.PageRouteInfo<SpecializationRouteArgs> {
+class SpecializationRoute extends _i33.PageRouteInfo<SpecializationRouteArgs> {
   SpecializationRoute({
-    _i33.Key? key,
+    _i34.Key? key,
     required int specId,
     required String specName,
   }) : super(
@@ -733,7 +745,7 @@ class SpecializationRouteArgs {
     required this.specName,
   });
 
-  final _i33.Key? key;
+  final _i34.Key? key;
 
   final int specId;
 
@@ -747,7 +759,7 @@ class SpecializationRouteArgs {
 
 /// generated route for
 /// [_i16.AllChats]
-class AllChatsRoute extends _i32.PageRouteInfo<void> {
+class AllChatsRoute extends _i33.PageRouteInfo<void> {
   const AllChatsRoute()
       : super(
           AllChatsRoute.name,
@@ -759,7 +771,7 @@ class AllChatsRoute extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i17.Notifications]
-class NotificationsRoute extends _i32.PageRouteInfo<void> {
+class NotificationsRoute extends _i33.PageRouteInfo<void> {
   const NotificationsRoute()
       : super(
           NotificationsRoute.name,
@@ -771,7 +783,7 @@ class NotificationsRoute extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i18.Profile]
-class ProfileRoute extends _i32.PageRouteInfo<void> {
+class ProfileRoute extends _i33.PageRouteInfo<void> {
   const ProfileRoute()
       : super(
           ProfileRoute.name,
@@ -783,7 +795,7 @@ class ProfileRoute extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i19.AddPet]
-class AddPetRoute extends _i32.PageRouteInfo<void> {
+class AddPetRoute extends _i33.PageRouteInfo<void> {
   const AddPetRoute()
       : super(
           AddPetRoute.name,
@@ -795,11 +807,11 @@ class AddPetRoute extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i20.Session]
-class SessionRoute extends _i32.PageRouteInfo<SessionRouteArgs> {
+class SessionRoute extends _i33.PageRouteInfo<SessionRouteArgs> {
   SessionRoute({
-    _i33.Key? key,
+    _i34.Key? key,
     bool fromDoctorHome = false,
-    required _i34.ReservationModel model,
+    required _i35.ReservationModel model,
   }) : super(
           SessionRoute.name,
           path: '/Session',
@@ -820,11 +832,11 @@ class SessionRouteArgs {
     required this.model,
   });
 
-  final _i33.Key? key;
+  final _i34.Key? key;
 
   final bool fromDoctorHome;
 
-  final _i34.ReservationModel model;
+  final _i35.ReservationModel model;
 
   @override
   String toString() {
@@ -834,7 +846,7 @@ class SessionRouteArgs {
 
 /// generated route for
 /// [_i21.ReviewSession]
-class ReviewSessionRoute extends _i32.PageRouteInfo<void> {
+class ReviewSessionRoute extends _i33.PageRouteInfo<void> {
   const ReviewSessionRoute()
       : super(
           ReviewSessionRoute.name,
@@ -846,9 +858,9 @@ class ReviewSessionRoute extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i22.DoctorDetails]
-class DoctorDetailsRoute extends _i32.PageRouteInfo<DoctorDetailsRouteArgs> {
+class DoctorDetailsRoute extends _i33.PageRouteInfo<DoctorDetailsRouteArgs> {
   DoctorDetailsRoute({
-    _i33.Key? key,
+    _i34.Key? key,
     required int doctorId,
   }) : super(
           DoctorDetailsRoute.name,
@@ -868,7 +880,7 @@ class DoctorDetailsRouteArgs {
     required this.doctorId,
   });
 
-  final _i33.Key? key;
+  final _i34.Key? key;
 
   final int doctorId;
 
@@ -880,10 +892,10 @@ class DoctorDetailsRouteArgs {
 
 /// generated route for
 /// [_i23.Reviews]
-class ReviewsRoute extends _i32.PageRouteInfo<ReviewsRouteArgs> {
+class ReviewsRoute extends _i33.PageRouteInfo<ReviewsRouteArgs> {
   ReviewsRoute({
-    _i33.Key? key,
-    required List<_i35.ReviewModel> reviewsList,
+    _i34.Key? key,
+    required List<_i36.ReviewModel> reviewsList,
     required double avgReviews,
   }) : super(
           ReviewsRoute.name,
@@ -905,9 +917,9 @@ class ReviewsRouteArgs {
     required this.avgReviews,
   });
 
-  final _i33.Key? key;
+  final _i34.Key? key;
 
-  final List<_i35.ReviewModel> reviewsList;
+  final List<_i36.ReviewModel> reviewsList;
 
   final double avgReviews;
 
@@ -919,7 +931,7 @@ class ReviewsRouteArgs {
 
 /// generated route for
 /// [_i24.AddPost]
-class AddPostRoute extends _i32.PageRouteInfo<void> {
+class AddPostRoute extends _i33.PageRouteInfo<void> {
   const AddPostRoute()
       : super(
           AddPostRoute.name,
@@ -931,10 +943,10 @@ class AddPostRoute extends _i32.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i25.AddReservation]
-class AddReservationRoute extends _i32.PageRouteInfo<AddReservationRouteArgs> {
+class AddReservationRoute extends _i33.PageRouteInfo<AddReservationRouteArgs> {
   AddReservationRoute({
-    _i33.Key? key,
-    required List<_i36.AvailableDayModel> daysList,
+    _i34.Key? key,
+    required List<_i37.AvailableDayModel> daysList,
     required num sessionPrice,
     required int doctorId,
   }) : super(
@@ -959,9 +971,9 @@ class AddReservationRouteArgs {
     required this.doctorId,
   });
 
-  final _i33.Key? key;
+  final _i34.Key? key;
 
-  final List<_i36.AvailableDayModel> daysList;
+  final List<_i37.AvailableDayModel> daysList;
 
   final num sessionPrice;
 
@@ -975,7 +987,7 @@ class AddReservationRouteArgs {
 
 /// generated route for
 /// [_i26.Payment]
-class PaymentRoute extends _i32.PageRouteInfo<void> {
+class PaymentRoute extends _i33.PageRouteInfo<void> {
   const PaymentRoute()
       : super(
           PaymentRoute.name,
@@ -986,8 +998,20 @@ class PaymentRoute extends _i32.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i27.ProvRegister]
-class ProvRegisterRoute extends _i32.PageRouteInfo<void> {
+/// [_i27.Search]
+class SearchRoute extends _i33.PageRouteInfo<void> {
+  const SearchRoute()
+      : super(
+          SearchRoute.name,
+          path: '/Search',
+        );
+
+  static const String name = 'SearchRoute';
+}
+
+/// generated route for
+/// [_i28.ProvRegister]
+class ProvRegisterRoute extends _i33.PageRouteInfo<void> {
   const ProvRegisterRoute()
       : super(
           ProvRegisterRoute.name,
@@ -998,8 +1022,8 @@ class ProvRegisterRoute extends _i32.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i28.ProvHome]
-class ProvHomeRoute extends _i32.PageRouteInfo<void> {
+/// [_i29.ProvHome]
+class ProvHomeRoute extends _i33.PageRouteInfo<void> {
   const ProvHomeRoute()
       : super(
           ProvHomeRoute.name,
@@ -1010,8 +1034,8 @@ class ProvHomeRoute extends _i32.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i29.ProvProfile]
-class ProvProfileRoute extends _i32.PageRouteInfo<void> {
+/// [_i30.ProvProfile]
+class ProvProfileRoute extends _i33.PageRouteInfo<void> {
   const ProvProfileRoute()
       : super(
           ProvProfileRoute.name,
@@ -1022,8 +1046,8 @@ class ProvProfileRoute extends _i32.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i30.PetProfile]
-class PetProfileRoute extends _i32.PageRouteInfo<void> {
+/// [_i31.PetProfile]
+class PetProfileRoute extends _i33.PageRouteInfo<void> {
   const PetProfileRoute()
       : super(
           PetProfileRoute.name,
@@ -1034,8 +1058,8 @@ class PetProfileRoute extends _i32.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i31.WorkingTimes]
-class WorkingTimesRoute extends _i32.PageRouteInfo<void> {
+/// [_i32.WorkingTimes]
+class WorkingTimesRoute extends _i33.PageRouteInfo<void> {
   const WorkingTimesRoute()
       : super(
           WorkingTimesRoute.name,

@@ -32,6 +32,7 @@ part of 'RouterImports.dart';
     AdaptiveRoute<bool>(page: AddPost),
     AdaptiveRoute(page: AddReservation),
     AdaptiveRoute(page: Payment),
+    AdaptiveRoute(page: Search),
 
     // provider routes
     AdaptiveRoute(page: ProvRegister),

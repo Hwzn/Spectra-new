@@ -22,21 +22,22 @@ class AddReservationData {
   int doctorId = 0;
 
   //methods
-  fetchData(BuildContext context, List<AvailableDayModel> daysList) {
-    var user = context.read<UserCubit>().state.model;
-    petsBloc.onUpdateData(user.pets);
+  fetchData(BuildContext context, List<AvailableDayModel> daysList) async {
+    var data = await UserRepository(context).getPets();
+    petsBloc.onUpdateData(data);
     getDays(daysList);
     typesBloc.onUpdateData(typesList);
   }
 
   addReservation(BuildContext context) async {
     var selectedPets = petsBloc.state.data.where((e) => e.selected).isEmpty;
+    var selectedTime = timesBloc.state.data.where((e) => e.selected).isEmpty;
     var selectedType = typesBloc.state.data.firstWhere((e) => e.selected).value;
     if(termsBloc.state.data == false){
       CustomToast.showSimpleToast(msg: "Please accept terms");
       return;
     }
-    if(timesList.isEmpty){
+    if(selectedTime){
       CustomToast.showSimpleToast(msg: "Please select a time");
       return;
     }
@@ -48,9 +49,8 @@ class AddReservationData {
       doctorId: doctorId,
       petId: petsBloc.state.data.firstWhere((element) => element.selected).id,
       cost: pricesBloc.state.data.total,
-      workDayId: daysBloc.state.data.firstWhere((e) => e.selected).id,
+      workDayTimeId: timesBloc.state.data.firstWhere((e) => e.selected).id,
       reservationType: selectedType,
-      timesIds: timesList,
     );
     var result = await UserRepository(context).addReservation(model);
     if(result){
@@ -90,18 +90,15 @@ class AddReservationData {
   }
 
   selectTimes(int index) {
-    timesBloc.state.data[index].selected =
-        !timesBloc.state.data[index].selected;
+    timesBloc.state.data.forEach((element) {
+      element.selected = false;
+    });
+    timesBloc.state.data[index].selected = true;
     timesBloc.onUpdateData(timesBloc.state.data);
-    if (timesBloc.state.data[index].selected) {
-      timesList.add(timesBloc.state.data[index].id);
-    } else {
-      timesList.remove(timesBloc.state.data[index].id);
-    }
     num total = sessionPrice * timesList.length;
     pricesBloc.onUpdateData(
         ReservationPricesModel(sessionPrices: total, total: total));
-    print(timesList);
+    print("${timesBloc.state.data[index].id}");
   }
 
   selectType(int index) {

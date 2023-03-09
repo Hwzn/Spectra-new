@@ -29,6 +29,7 @@ import '../../../user/screens/payment/PaymentImports.dart';
 import '../../../user/screens/profile/ProfileImports.dart';
 import '../../../user/screens/review_session/ReviewSessionImports.dart';
 import '../../../user/screens/reviews/ReviewsImports.dart';
+import '../../../user/screens/search/SearchImports.dart';
 import '../../../user/screens/session/SessionImports.dart';
 import '../../../user/screens/specialization/SpecializationImports.dart';
 
