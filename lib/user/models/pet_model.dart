@@ -14,6 +14,7 @@ class PetModel {
   String details;
   @JsonKey(name: 'image')
   String image;
+  bool selected;
 
   PetModel({
     required this.id,
@@ -21,6 +22,7 @@ class PetModel {
     required this.name,
     required this.details,
     required this.image,
+    this.selected = false,
   });
 
   factory PetModel.fromJson(Map<String, dynamic> json) =>

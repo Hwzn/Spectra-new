@@ -12,6 +12,7 @@ PetModel _$PetModelFromJson(Map<String, dynamic> json) => PetModel(
       name: json['name'] as String,
       details: json['details'] as String,
       image: json['image'] as String,
+      selected: json['selected'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$PetModelToJson(PetModel instance) => <String, dynamic>{
@@ -20,4 +21,5 @@ Map<String, dynamic> _$PetModelToJson(PetModel instance) => <String, dynamic>{
       'name': instance.name,
       'details': instance.details,
       'image': instance.image,
+      'selected': instance.selected,
     };

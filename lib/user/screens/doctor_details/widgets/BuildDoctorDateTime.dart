@@ -2,15 +2,21 @@ part of 'DoctorDetailsWidgetsImports.dart';
 
 class BuildDoctorDateTime extends StatelessWidget {
   final List<AvailableDayModel> daysList;
+  final num sessionPrice;
+  final int doctorId;
 
-  const BuildDoctorDateTime({Key? key, required this.daysList})
+  const BuildDoctorDateTime(
+      {Key? key,
+      required this.daysList,
+      required this.sessionPrice,
+      required this.doctorId})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () =>
-          AutoRouter.of(context).push(AddReservationRoute(daysList: daysList)),
+      onTap: () => AutoRouter.of(context).push(AddReservationRoute(
+          daysList: daysList, sessionPrice: sessionPrice, doctorId: doctorId)),
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
         padding: const EdgeInsets.all(20),

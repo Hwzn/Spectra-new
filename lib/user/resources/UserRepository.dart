@@ -50,4 +50,8 @@ class UserRepository {
 
   Future<List<ReservationModel>> getReservations(String status) =>
       userHttpMethods.getReservations(status);
+
+  Future<bool> addReservation(AddReservationModel model) =>
+      userHttpMethods.addReservation(model);
+
 }

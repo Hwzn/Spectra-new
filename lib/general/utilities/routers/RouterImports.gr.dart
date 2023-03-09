@@ -281,6 +281,8 @@ class AppRouter extends _i32.RootStackRouter {
         child: _i25.AddReservation(
           key: args.key,
           daysList: args.daysList,
+          sessionPrice: args.sessionPrice,
+          doctorId: args.doctorId,
         ),
         opaque: true,
       );
@@ -933,12 +935,16 @@ class AddReservationRoute extends _i32.PageRouteInfo<AddReservationRouteArgs> {
   AddReservationRoute({
     _i33.Key? key,
     required List<_i36.AvailableDayModel> daysList,
+    required num sessionPrice,
+    required int doctorId,
   }) : super(
           AddReservationRoute.name,
           path: '/add-reservation',
           args: AddReservationRouteArgs(
             key: key,
             daysList: daysList,
+            sessionPrice: sessionPrice,
+            doctorId: doctorId,
           ),
         );
 
@@ -949,15 +955,21 @@ class AddReservationRouteArgs {
   const AddReservationRouteArgs({
     this.key,
     required this.daysList,
+    required this.sessionPrice,
+    required this.doctorId,
   });
 
   final _i33.Key? key;
 
   final List<_i36.AvailableDayModel> daysList;
 
+  final num sessionPrice;
+
+  final int doctorId;
+
   @override
   String toString() {
-    return 'AddReservationRouteArgs{key: $key, daysList: $daysList}';
+    return 'AddReservationRouteArgs{key: $key, daysList: $daysList, sessionPrice: $sessionPrice, doctorId: $doctorId}';
   }
 }
 

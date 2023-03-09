@@ -51,6 +51,8 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                     children: [
                       BuildDoctorDateTime(
                         daysList: doctorDetailsData.daysBloc.state.data,
+                        sessionPrice: num.parse(state.data?.doctor.sessionPrice??'0'),
+                        doctorId: state.data!.doctor.id,
                       ),
                       BuildSessionDoctorInfo(
                         info: state.data?.doctorInfo ?? '',

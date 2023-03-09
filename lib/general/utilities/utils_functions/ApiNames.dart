@@ -42,6 +42,7 @@ class ApiNames{
   static const String toggleLike = "toggleLike";
   static const String addPet = "addPet";
   static const String reservationByStatus = "authUserReservationByStatus";
+  static const String makeReservation = "makeReservation";
 
   // doctor
   static const String registerDoctor = "registerNewDoctor";

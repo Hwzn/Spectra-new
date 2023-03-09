@@ -31,7 +31,12 @@ class BuildChangeTimeBottomSheet extends StatelessWidget {
                   color: MyColors.primary,
                   size: 12,
                 ),
-                const BuildPaymentInfo(),
+                // const BuildPaymentInfo(),
+                MyText(
+                  title: "Commented widget was here",
+                  color: MyColors.primary,
+                  size: 12,
+                ),
               ],
             ),
           ),

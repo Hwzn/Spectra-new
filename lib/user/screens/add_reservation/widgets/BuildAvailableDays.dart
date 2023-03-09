@@ -1,18 +1,14 @@
 part of 'AddReservationWidgetsImports.dart';
 
-class BuildAvailableTime extends StatelessWidget {
+class BuildAvailableDays extends StatelessWidget {
   final AddReservationData addReservationData;
-
-  const BuildAvailableTime({
-    Key? key,
-    required this.addReservationData,
-  }) : super(key: key);
+  const BuildAvailableDays({Key? key, required this.addReservationData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<GenericBloc<List<TimeModel>>,
-        GenericState<List<TimeModel>>>(
-      bloc: addReservationData.timesBloc,
+    return BlocBuilder<GenericBloc<List<AvailableDayModel>>,
+        GenericState<List<AvailableDayModel>>>(
+      bloc: addReservationData.daysBloc,
       builder: (_, state) {
         if (state is GenericUpdateState) {
           return Container(
@@ -35,7 +31,7 @@ class BuildAvailableTime extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 MyText(
-                  title: "Available Times",
+                  title: "Available Days",
                   color: MyColors.blackOpacity,
                   size: 12,
                 ),
@@ -59,7 +55,7 @@ class BuildAvailableTime extends StatelessWidget {
                           children: List.generate(
                             state.data.length,
                                 (index) => InkWell(
-                              onTap: () => addReservationData.selectTimes(index),
+                              onTap: ()=> addReservationData.selectDay(index),
                               child: Container(
                                 margin: const EdgeInsets.symmetric(
                                     horizontal: 3),
@@ -73,8 +69,7 @@ class BuildAvailableTime extends StatelessWidget {
                                 ),
                                 alignment: Alignment.center,
                                 child: MyText(
-                                  // title: state.data[index].hour,
-                                  title: state.data[index].hour.substring(0,5),
+                                  title: state.data[index].name,
                                   color: MyColors.white,
                                   size: 10,
                                 ),

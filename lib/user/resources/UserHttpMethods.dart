@@ -214,4 +214,15 @@ class UserHttpMethods {
       toJsonFunc: (json) => ReservationModel.fromJson(json),
     ) as List<ReservationModel>;
   }
+
+  Future<bool> addReservation(AddReservationModel model) async {
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.makeReservation,
+      json: model.toJson(),
+      returnType: ReturnType.type,
+      methodType: MethodType.post,
+    );
+    return data != null;
+  }
+
 }
