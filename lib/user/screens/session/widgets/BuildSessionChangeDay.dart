@@ -85,7 +85,14 @@ class BuildSessionChangeDay extends StatelessWidget {
             ),
           );
         } else {
-          return SizedBox();
+          return Container(
+            margin: const EdgeInsets.symmetric(vertical: 30),
+            child: JumpingDots(
+              color: MyColors.secondary,
+              radius: 10,
+              numberOfDots: 3,
+            ),
+          );
         }
       },
     );

@@ -7,6 +7,7 @@ import 'package:hwzn_base/general/utilities/routers/RouterImports.gr.dart';
 import 'package:hwzn_base/user/models/doctor_model.dart';
 import 'package:hwzn_base/user/models/reservation_model.dart';
 import 'package:hwzn_base/user/screens/session/SessionImports.dart';
+import 'package:jumping_dot/jumping_dot.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'dart:math' as math;
