@@ -78,7 +78,7 @@ class _SessionState extends State<Session> {
               if(widget.fromDoctorHome){
                 sessionData.onTapCancel(context);
               } else {
-                sessionData.cancelSession(context);
+                sessionData.cancelSession(context, widget.model);
               }
             },
             child: Container(

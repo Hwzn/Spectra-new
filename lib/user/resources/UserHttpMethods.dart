@@ -247,4 +247,21 @@ class UserHttpMethods {
     ) as List<AvailableDayModel>;
   }
 
+  Future<bool> changeSessionTime({
+    required int resId,
+    required int doctorId,
+    required timeId,
+  }) async {
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.changeReservationTime,
+      json: {
+        "reservation_id": resId,
+        "doctor_id": doctorId,
+        "doctor_day_time_id": timeId,
+      },
+      returnType: ReturnType.type,
+      methodType: MethodType.post,
+    );
+    return data != null;
+  }
 }

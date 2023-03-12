@@ -2,7 +2,11 @@ part of 'SessionWidgetsImports.dart';
 
 class BuildChangeTimeBottomSheet extends StatelessWidget {
   final SessionData sessionData;
-  const BuildChangeTimeBottomSheet({Key? key, required this.sessionData}) : super(key: key);
+  final ReservationModel model;
+
+  const BuildChangeTimeBottomSheet(
+      {Key? key, required this.sessionData, required this.model})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +31,11 @@ class BuildChangeTimeBottomSheet extends StatelessWidget {
           DefaultButton(
             title: "Change Time",
             margin: const EdgeInsets.all(20),
-            onTap: ()=> AutoRouter.of(context).pop(),
+            onTap: () => sessionData.changeSessionTime(
+              context,
+              model.id,
+              model.doctorDetails.id,
+            ),
           ),
         ],
       ),

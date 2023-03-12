@@ -18,14 +18,29 @@ class SessionData {
   // methods
   fetchData(BuildContext context, int doctorId) async {
     var data = await UserRepository(context).getAvailableDays(doctorId);
-    if(data != null) {
+    if (data != null) {
       daysBloc.onUpdateData(data);
       var blocData = daysBloc.state.data;
-      if(blocData.isNotEmpty){
+      if (blocData.isNotEmpty) {
         blocData.first.selected = true;
         daysBloc.onUpdateData(blocData);
         timesBloc.onUpdateData(blocData.first.times);
       }
+    }
+  }
+
+  changeSessionTime(BuildContext context, int resId, int doctorId) async {
+    if (timesBloc.state.data.where((e) => e.selected).isEmpty) {
+      CustomToast.showSimpleToast(msg: "Please select time");
+      return;
+    }
+    var data = await UserRepository(context).changeSessionTime(
+      resId: resId,
+      doctorId: doctorId,
+      timeId: timesBloc.state.data.firstWhere((e) => e.selected).id,
+    );
+    if (data) {
+      AutoRouter.of(context).pop();
     }
   }
 
@@ -56,12 +71,15 @@ class SessionData {
     return difference;
   }
 
-  cancelSession(BuildContext context) {
+  cancelSession(BuildContext context, ReservationModel model) {
     // open bottom sheet
     showModalBottomSheet(
       context: context,
       builder: (_) {
-        return BuildCancelBottomSheet(sessionData: this);
+        return BuildCancelBottomSheet(
+          sessionData: this,
+          model: model,
+        );
       },
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
@@ -92,14 +110,17 @@ class SessionData {
   }
 
   // when tapping change time button in the cancel bottom sheet
-  changeTime(BuildContext context) {
+  changeTime(BuildContext context, ReservationModel model) {
     // close the dialog
     Navigator.pop(context);
     // open bottom sheet
     showModalBottomSheet(
       context: context,
       builder: (_) {
-        return BuildChangeTimeBottomSheet(sessionData: this);
+        return BuildChangeTimeBottomSheet(
+          sessionData: this,
+          model: model,
+        );
       },
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(

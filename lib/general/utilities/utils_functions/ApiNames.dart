@@ -45,6 +45,7 @@ class ApiNames{
   static const String makeReservation = "makeReservation";
   static const String rateSession = "rateSession";
   static const String doctorAvailableWorkDayTime = "doctorAvailableWorkDayTime";
+  static const String changeReservationTime = "changeReservationTime";
 
   // doctor
   static const String registerDoctor = "registerNewDoctor";

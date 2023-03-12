@@ -60,4 +60,8 @@ class UserRepository {
   Future<List<AvailableDayModel>> getAvailableDays(int doctorId) =>
       userHttpMethods.getAvailableDays(doctorId);
 
+  Future<bool> changeSessionTime(
+          {required int resId, required int doctorId, required timeId}) =>
+      userHttpMethods.changeSessionTime(
+          resId: resId, doctorId: doctorId, timeId: timeId);
 }
