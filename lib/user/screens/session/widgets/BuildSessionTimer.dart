@@ -3,9 +3,13 @@ part of 'SessionWidgetsImports.dart';
 class BuildSessionTimer extends StatelessWidget {
   final SessionData sessionData;
   final StopWatchTimer stopWatchTimer;
+  final ReservationModel reservationModel;
 
   const BuildSessionTimer(
-      {Key? key, required this.sessionData, required this.stopWatchTimer})
+      {Key? key,
+      required this.sessionData,
+      required this.stopWatchTimer,
+      required this.reservationModel})
       : super(key: key);
 
   @override
@@ -15,7 +19,8 @@ class BuildSessionTimer extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: 165,
       child: InkWell(
-        onTap: ()=> AutoRouter.of(context).push(ReviewSessionRoute()),
+        onTap: () => AutoRouter.of(context)
+            .push(ReviewSessionRoute(model: reservationModel)),
         child: Container(
           padding: const EdgeInsets.all(20),
           margin: const EdgeInsets.symmetric(horizontal: 30),

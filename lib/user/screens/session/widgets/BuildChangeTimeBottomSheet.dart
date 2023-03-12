@@ -1,7 +1,8 @@
 part of 'SessionWidgetsImports.dart';
 
 class BuildChangeTimeBottomSheet extends StatelessWidget {
-  const BuildChangeTimeBottomSheet({Key? key}) : super(key: key);
+  final SessionData sessionData;
+  const BuildChangeTimeBottomSheet({Key? key, required this.sessionData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,25 +19,8 @@ class BuildChangeTimeBottomSheet extends StatelessWidget {
           Flexible(
             child: ListView(
               children: [
-                // BuildAvailableTime(
-                //   title: "Available days",
-                //   detail: "Sat 11/12",
-                // ),
-                // BuildAvailableTime(
-                //   title: "Available time slots",
-                //   detail: "5 pm to 6 pm",
-                // ),
-                MyText(
-                  title: "Commented widget was here",
-                  color: MyColors.primary,
-                  size: 12,
-                ),
-                // const BuildPaymentInfo(),
-                MyText(
-                  title: "Commented widget was here",
-                  color: MyColors.primary,
-                  size: 12,
-                ),
+                BuildSessionChangeDay(sessionData: sessionData),
+                BuildSessionChangeTime(sessionData: sessionData),
               ],
             ),
           ),

@@ -43,6 +43,8 @@ class ApiNames{
   static const String addPet = "addPet";
   static const String reservationByStatus = "authUserReservationByStatus";
   static const String makeReservation = "makeReservation";
+  static const String rateSession = "rateSession";
+  static const String doctorAvailableWorkDayTime = "doctorAvailableWorkDayTime";
 
   // doctor
   static const String registerDoctor = "registerNewDoctor";

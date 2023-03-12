@@ -7,6 +7,8 @@ class SessionData {
 
   // blocs
   final GenericBloc<bool> codeCubit = GenericBloc(false);
+  final GenericBloc<List<AvailableDayModel>> daysBloc = GenericBloc([]);
+  final GenericBloc<List<TimeModel>> timesBloc = GenericBloc([]);
 
   // keys
   GlobalKey<CustomButtonState> btnKey = GlobalKey();
@@ -14,6 +16,19 @@ class SessionData {
   GenericBloc<String> timeCubit = GenericBloc("0");
 
   // methods
+  fetchData(BuildContext context, int doctorId) async {
+    var data = await UserRepository(context).getAvailableDays(doctorId);
+    if(data != null) {
+      daysBloc.onUpdateData(data);
+      var blocData = daysBloc.state.data;
+      if(blocData.isNotEmpty){
+        blocData.first.selected = true;
+        daysBloc.onUpdateData(blocData);
+        timesBloc.onUpdateData(blocData.first.times);
+      }
+    }
+  }
+
   void handleStopWatchConfig(String date) async {
     var hours = getDaysLeft(date);
     stopWatchTimer = StopWatchTimer(
@@ -84,7 +99,7 @@ class SessionData {
     showModalBottomSheet(
       context: context,
       builder: (_) {
-        return BuildChangeTimeBottomSheet();
+        return BuildChangeTimeBottomSheet(sessionData: this);
       },
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
@@ -93,5 +108,23 @@ class SessionData {
         ),
       ),
     );
+  }
+
+  selectDay(int index) {
+    daysBloc.state.data.forEach((element) {
+      element.selected = false;
+    });
+    daysBloc.state.data[index].selected = true;
+    daysBloc.onUpdateData(daysBloc.state.data);
+    timesBloc.onUpdateData(daysBloc.state.data[index].times);
+  }
+
+  selectTimes(int index) {
+    timesBloc.state.data.forEach((element) {
+      element.selected = false;
+    });
+    timesBloc.state.data[index].selected = true;
+    timesBloc.onUpdateData(timesBloc.state.data);
+    print("${timesBloc.state.data[index].id}");
   }
 }

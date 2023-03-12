@@ -1,7 +1,8 @@
 part of 'ReviewSessionWidgetsImports.dart';
 
 class BuildRateSession extends StatelessWidget {
-  const BuildRateSession({Key? key}) : super(key: key);
+  final ReviewSessionData data;
+  const BuildRateSession({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +51,10 @@ class BuildRateSession extends StatelessWidget {
                 Icons.star,
                 color: Colors.amber,
               ),
-              onRatingUpdate: (index) {},
+              onRatingUpdate: (index) {
+                data.rate = index;
+                print(index);
+              },
             ),
           ),
         ],

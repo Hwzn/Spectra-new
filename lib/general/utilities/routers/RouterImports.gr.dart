@@ -239,9 +239,13 @@ class AppRouter extends _i33.RootStackRouter {
       );
     },
     ReviewSessionRoute.name: (routeData) {
+      final args = routeData.argsAs<ReviewSessionRouteArgs>();
       return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i21.ReviewSession(),
+        child: _i21.ReviewSession(
+          key: args.key,
+          model: args.model,
+        ),
         opaque: true,
       );
     },
@@ -846,14 +850,36 @@ class SessionRouteArgs {
 
 /// generated route for
 /// [_i21.ReviewSession]
-class ReviewSessionRoute extends _i33.PageRouteInfo<void> {
-  const ReviewSessionRoute()
-      : super(
+class ReviewSessionRoute extends _i33.PageRouteInfo<ReviewSessionRouteArgs> {
+  ReviewSessionRoute({
+    _i34.Key? key,
+    required _i35.ReservationModel model,
+  }) : super(
           ReviewSessionRoute.name,
           path: '/review-session',
+          args: ReviewSessionRouteArgs(
+            key: key,
+            model: model,
+          ),
         );
 
   static const String name = 'ReviewSessionRoute';
+}
+
+class ReviewSessionRouteArgs {
+  const ReviewSessionRouteArgs({
+    this.key,
+    required this.model,
+  });
+
+  final _i34.Key? key;
+
+  final _i35.ReservationModel model;
+
+  @override
+  String toString() {
+    return 'ReviewSessionRouteArgs{key: $key, model: $model}';
+  }
 }
 
 /// generated route for

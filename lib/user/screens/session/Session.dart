@@ -15,6 +15,7 @@ class _SessionState extends State<Session> {
   @override
   void initState() {
     sessionData.handleStopWatchConfig(widget.model.dateTime);
+    sessionData.fetchData(context, widget.model.doctorDetails.id);
     super.initState();
   }
 
@@ -50,6 +51,7 @@ class _SessionState extends State<Session> {
               BuildSessionTimer(
                 sessionData: sessionData,
                 stopWatchTimer: sessionData.stopWatchTimer?? StopWatchTimer(),
+                reservationModel: widget.model,
               ),
             ],
           ),
@@ -57,12 +59,7 @@ class _SessionState extends State<Session> {
             child: ListView(
               padding: EdgeInsets.zero,
               children: [
-                // const BuildSessionDoctor(),
-                MyText(
-                  title: "Commented widget was here",
-                  color: MyColors.primary,
-                  size: 12,
-                ),
+                BuildSessionDoctor(model: widget.model.doctorDetails),
                 InkWell(
                   onTap: widget.fromDoctorHome ?
                       ()=> AutoRouter.of(context).push(const PetProfileRoute())

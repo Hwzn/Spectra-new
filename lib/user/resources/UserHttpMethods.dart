@@ -225,4 +225,26 @@ class UserHttpMethods {
     return data != null;
   }
 
+  Future<bool> reviewSession(RateSessionModel model) async {
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.rateSession,
+      json: model.toJson(),
+      returnType: ReturnType.type,
+      methodType: MethodType.post,
+    );
+    return data != null;
+  }
+
+  Future<List<AvailableDayModel>> getAvailableDays(int doctorId) async {
+    return await GenericHttp<AvailableDayModel>(context).callApi(
+      name: ApiNames.doctorAvailableWorkDayTime,
+      returnType: ReturnType.list,
+      json: {"doctor_id": doctorId},
+      methodType: MethodType.post,
+      showLoader: false,
+      returnDataFun: (data) => data["data"],
+      toJsonFunc: (json) => AvailableDayModel.fromJson(json),
+    ) as List<AvailableDayModel>;
+  }
+
 }

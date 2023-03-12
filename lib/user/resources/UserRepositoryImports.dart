@@ -25,7 +25,9 @@ import '../../general/models/toJson/RegisterModel.dart';
 import '../../general/utilities/routers/RouterImports.gr.dart';
 import '../../general/utilities/utils_functions/ApiNames.dart';
 import '../../general/utilities/utils_functions/UtilsImports.dart';
+import '../models/available_day_model.dart';
 import '../models/toJson/AddPetModel.dart';
+import '../models/toJson/RateSessionModel.dart';
 import '../models/toJson/UpdateProfileModel.dart';
 
 part 'UserHttpMethods.dart';

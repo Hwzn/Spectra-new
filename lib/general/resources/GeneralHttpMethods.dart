@@ -89,9 +89,12 @@ class GeneralHttpMethods {
   }
 
   Future<bool> activeAccount(String code, String phone) async {
+    String? token = await messaging.getToken();
     Map<String, dynamic> body = {
       "code": code,
       "phone": phone,
+      "device_id": token,
+      "device_type": Platform.isIOS ? "ios" : "android",
     };
     dynamic data = await GenericHttp<dynamic>(context).callApi(
       name: ApiNames.activateAccount,

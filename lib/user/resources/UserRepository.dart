@@ -54,4 +54,10 @@ class UserRepository {
   Future<bool> addReservation(AddReservationModel model) =>
       userHttpMethods.addReservation(model);
 
+  Future<bool> reviewSession(RateSessionModel model) =>
+      userHttpMethods.reviewSession(model);
+
+  Future<List<AvailableDayModel>> getAvailableDays(int doctorId) =>
+      userHttpMethods.getAvailableDays(doctorId);
+
 }
