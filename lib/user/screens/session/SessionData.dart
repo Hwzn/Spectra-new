@@ -44,6 +44,13 @@ class SessionData {
     }
   }
 
+  onCancelSession(BuildContext context, int resId) async {
+    var data = await UserRepository(context).cancelSession(resId);
+    if (data) {
+      AutoRouter.of(context).pop();
+    }
+  }
+
   void handleStopWatchConfig(String date) async {
     var hours = getDaysLeft(date);
     stopWatchTimer = StopWatchTimer(
@@ -91,14 +98,17 @@ class SessionData {
   }
 
   // when tapping cancel button in the cancel bottom sheet
-  onTapCancel(BuildContext context) {
-    // close first cancel dialog
-    // Navigator.pop(context);
+  onTapCancel(BuildContext context, int resId) {
+    // close the dialog
+    Navigator.pop(context);
     // open bottom sheet
     showModalBottomSheet(
       context: context,
       builder: (_) {
-        return BuildCancelDetBottomSheet();
+        return BuildCancelDetBottomSheet(
+          sessionData: this,
+          resId: resId,
+        );
       },
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(

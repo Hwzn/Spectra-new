@@ -264,4 +264,16 @@ class UserHttpMethods {
     );
     return data != null;
   }
+
+  Future<bool> cancelSession(int resId) async {
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.cancelReservation,
+      json: {
+        "reservation_id": resId,
+      },
+      returnType: ReturnType.type,
+      methodType: MethodType.post,
+    );
+    return data != null;
+  }
 }

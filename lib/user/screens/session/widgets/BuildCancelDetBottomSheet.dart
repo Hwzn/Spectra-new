@@ -1,7 +1,9 @@
 part of 'SessionWidgetsImports.dart';
 
 class BuildCancelDetBottomSheet extends StatelessWidget {
-  const BuildCancelDetBottomSheet({Key? key}) : super(key: key);
+  final SessionData sessionData;
+  final int resId;
+  const BuildCancelDetBottomSheet({Key? key, required this.sessionData, required this.resId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class BuildCancelDetBottomSheet extends StatelessWidget {
             color: MyColors.greyWhite,
             textColor: MyColors.grey,
             margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-            onTap: ()=>AutoRouter.of(context).pop(),
+            onTap: ()=> sessionData.onCancelSession(context, resId),
           ),
           DefaultButton(
             title: "Go Back",

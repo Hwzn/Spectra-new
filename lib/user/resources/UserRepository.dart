@@ -64,4 +64,7 @@ class UserRepository {
           {required int resId, required int doctorId, required timeId}) =>
       userHttpMethods.changeSessionTime(
           resId: resId, doctorId: doctorId, timeId: timeId);
+
+  Future<bool> cancelSession(int resId) => userHttpMethods.cancelSession(resId);
+
 }

@@ -3,7 +3,10 @@ part of 'SessionWidgetsImports.dart';
 class BuildCancelBottomSheet extends StatelessWidget {
   final SessionData sessionData;
   final ReservationModel model;
-  const BuildCancelBottomSheet({Key? key, required this.sessionData, required this.model}) : super(key: key);
+
+  const BuildCancelBottomSheet(
+      {Key? key, required this.sessionData, required this.model})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +21,7 @@ class BuildCancelBottomSheet extends StatelessWidget {
             size: 20,
           ),
           InkWell(
-            onTap: ()=> sessionData.onTapCancel(context),
+            onTap: () => sessionData.onTapCancel(context, model.id),
             child: Container(
               margin: const EdgeInsets.only(top: 20),
               width: MediaQuery.of(context).size.width,
@@ -36,7 +39,7 @@ class BuildCancelBottomSheet extends StatelessWidget {
             ),
           ),
           InkWell(
-            onTap: ()=> sessionData.changeTime(context, model),
+            onTap: () => sessionData.changeTime(context, model),
             child: Container(
               margin: const EdgeInsets.only(top: 20),
               width: MediaQuery.of(context).size.width,
@@ -55,7 +58,7 @@ class BuildCancelBottomSheet extends StatelessWidget {
           ),
           DefaultButton(
             title: "Next",
-            margin: const  EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+            margin: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
           ),
         ],
       ),

@@ -76,7 +76,7 @@ class _SessionState extends State<Session> {
           InkWell(
             onTap: () {
               if(widget.fromDoctorHome){
-                sessionData.onTapCancel(context);
+                sessionData.onTapCancel(context, widget.model.id);
               } else {
                 sessionData.cancelSession(context, widget.model);
               }
