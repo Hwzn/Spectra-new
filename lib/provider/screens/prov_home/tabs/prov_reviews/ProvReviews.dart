@@ -14,7 +14,7 @@ class _ProvReviewsState extends State<ProvReviews> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.bg,
-      appBar: const DefaultAppBar(title: "Reviews"),
+      appBar: const DefaultAppBar(title: "Reviews", showLeading: false,),
       body: Container(
         margin: const EdgeInsets.all(10),
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
