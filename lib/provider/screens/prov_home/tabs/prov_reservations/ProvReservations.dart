@@ -14,6 +14,7 @@ class _ProvReservationsState extends State<ProvReservations>
   @override
   void initState() {
     provReservationsData.tabController = TabController(length: 2, vsync: this);
+    provReservationsData.fetchData(context);
     super.initState();
   }
 
@@ -35,7 +36,7 @@ class _ProvReservationsState extends State<ProvReservations>
                 controller: provReservationsData.tabController,
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
-                  const ProvUpcoming(),
+                  ProvUpcoming(provReservationsData: provReservationsData),
                   ProvPrevious(provReservationsData: provReservationsData),
                 ],
               ),

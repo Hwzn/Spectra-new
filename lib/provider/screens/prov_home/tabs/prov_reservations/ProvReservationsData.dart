@@ -6,8 +6,17 @@ class ProvReservationsData {
 
   // blocs
   final GenericBloc<int> tabsBloc = GenericBloc(0);
+  final GenericBloc<List<ReservationModel>> upcomingBloc = GenericBloc([]);
+  final GenericBloc<List<ReservationModel>> previousBloc = GenericBloc([]);
 
   // methods
+  fetchData(BuildContext context) async {
+    var upcoming = await DoctorRepository(context).getReservations("upcoming");
+    upcomingBloc.onUpdateData(upcoming);
+    var prev = await DoctorRepository(context).getReservations("done");
+    previousBloc.onUpdateData(prev);
+  }
+
   sessionDetails(BuildContext context) {
     showBottomSheet(
       context: context,

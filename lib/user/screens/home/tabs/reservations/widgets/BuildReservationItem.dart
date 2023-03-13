@@ -19,7 +19,7 @@ class BuildReservationItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        if(ended){
+        if(ended && !fromDoctorHome){
           AutoRouter.of(context).push(ReviewSessionRoute(model: model));
         }
       },
