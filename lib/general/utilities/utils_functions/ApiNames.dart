@@ -51,6 +51,8 @@ class ApiNames{
   // doctor
   static const String registerDoctor = "registerNewDoctor";
   static const String registerCenter = "registerNewCenter";
+  static const String authUserWallet = "authUserWallet";
+  static const String doctorReservations = "authDoctorReservationByStatus";
 
 
 }

@@ -1,3 +1,4 @@
+import 'package:hwzn_base/user/models/available_day_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import '../../user/models/pet_model.dart';
@@ -36,6 +37,8 @@ class UserModel {
   String token;
   @JsonKey(name: 'pests')
   List<PetModel> pets;
+  @JsonKey(name: 'available_times')
+  List<AvailableDayModel> availableTimes;
 
   UserModel({
     required this.id,
@@ -53,6 +56,7 @@ class UserModel {
     this.isNotify,
     required this.token,
     required this.pets,
+    required this.availableTimes,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>

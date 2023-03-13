@@ -98,7 +98,7 @@ class _ProvMainState extends State<ProvMain> {
               children: [
                 Expanded(
                   child: MyText(
-                    title: "Total Ratings",
+                    title: "Total Balance",
                     size: 16,
                     color: MyColors.black,
                   ),

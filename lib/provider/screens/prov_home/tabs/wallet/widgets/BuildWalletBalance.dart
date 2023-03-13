@@ -1,7 +1,8 @@
 part of 'WalletWidgetsImports.dart';
 
 class BuildWalletBalance extends StatelessWidget {
-  const BuildWalletBalance({Key? key}) : super(key: key);
+  final num balance;
+  const BuildWalletBalance({Key? key, required this.balance}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class BuildWalletBalance extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 MyText(
-                  title: "12,000",
+                  title: balance.toString(),
                   size: 16,
                   color: MyColors.black,
                   fontFamily: GoogleFonts.poppins().fontFamily,

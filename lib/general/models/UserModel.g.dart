@@ -24,6 +24,9 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) => UserModel(
       pets: (json['pests'] as List<dynamic>)
           .map((e) => PetModel.fromJson(e as Map<String, dynamic>))
           .toList(),
+      availableTimes: (json['available_times'] as List<dynamic>)
+          .map((e) => AvailableDayModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$UserModelToJson(UserModel instance) => <String, dynamic>{
@@ -42,4 +45,5 @@ Map<String, dynamic> _$UserModelToJson(UserModel instance) => <String, dynamic>{
       'is_notify': instance.isNotify,
       'token': instance.token,
       'pests': instance.pets,
+      'available_times': instance.availableTimes,
     };
