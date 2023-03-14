@@ -29,6 +29,13 @@ class ProvProfileData {
   ];
 
   // methods
+  fetchData(BuildContext context) {
+    var user = context.read<UserCubit>().state.model;
+    name.text = user.name;
+    phone.text = user.phone;
+    email.text = user.email;
+  }
+
   setProfileImage() async {
     var image = await HelperMethods.getImage();
     if (image != null) {

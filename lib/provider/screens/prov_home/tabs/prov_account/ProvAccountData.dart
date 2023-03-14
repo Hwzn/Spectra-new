@@ -2,13 +2,15 @@ part of 'ProvAccountImports.dart';
 
 class ProvAccountData {
   // bloc
-  final GenericBloc<String> hourRateCubit = GenericBloc('70');
-  final GenericBloc<String> rescueCasesCubit = GenericBloc('30');
+  final GenericBloc<String> hourRateCubit = GenericBloc('0');
+  final GenericBloc<String> rescueCasesCubit = GenericBloc('0');
 
   // controllers
   final TextEditingController controller = TextEditingController();
 
   // lists
+  List<AvailableDayModel> workingDays = [];
+
   List<BuildSettingItem> settingList(context) {
     return [
       BuildSettingItem(
@@ -19,7 +21,8 @@ class ProvAccountData {
       BuildSettingItem(
         icon: Icons.watch_later_outlined,
         title: "Working Times",
-        onTap: () => AutoRouter.of(context).push(WorkingTimesRoute()),
+        onTap: () => AutoRouter.of(context)
+            .push(WorkingTimesRoute(daysList: workingDays)),
       ),
       const BuildSettingItem(icon: MdiIcons.bullseyeArrow, title: "Plans"),
       BuildSettingItem(
@@ -42,6 +45,13 @@ class ProvAccountData {
   }
 
   // methods
+  getWorkingDays(BuildContext context) {
+    var user = context.read<UserCubit>().state.model;
+    workingDays = user.availableTimes;
+    hourRateCubit.onUpdateData(user.sessionPrice);
+    rescueCasesCubit.onUpdateData(user.rescuePrice);
+  }
+
   editRate(BuildContext context) {
     showBottomSheet(
       context: context,
@@ -125,5 +135,4 @@ class ProvAccountData {
       ),
     );
   }
-
 }

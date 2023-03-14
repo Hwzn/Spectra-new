@@ -11,6 +11,12 @@ class _ProvProfileState extends State<ProvProfile> {
   ProvProfileData provProfileData = ProvProfileData();
 
   @override
+  void initState() {
+    provProfileData.fetchData(context);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.bg,

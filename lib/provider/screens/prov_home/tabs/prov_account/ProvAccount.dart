@@ -11,6 +11,12 @@ class _ProvAccountState extends State<ProvAccount> {
   ProvAccountData provAccountData = ProvAccountData();
 
   @override
+  void initState() {
+    provAccountData.getWorkingDays(context);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.bg,

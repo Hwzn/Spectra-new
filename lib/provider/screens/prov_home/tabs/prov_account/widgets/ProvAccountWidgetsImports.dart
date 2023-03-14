@@ -6,6 +6,7 @@ import 'package:hwzn_base/general/widgets/DefaultButton.dart';
 import 'package:hwzn_base/provider/screens/prov_home/tabs/prov_account/ProvAccountImports.dart';
 import 'package:hwzn_base/provider/widgets/DefaultContainer.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import '../../../../../../general/blocks/user_cubit/user_cubit.dart';
 import '../../../../../../general/constants/MyColors.dart';
 import '../../../../../../general/packages/generic_bloc/generic_cubit.dart';
 import '../../../../../../general/packages/input_fields/GenericTextField.dart';

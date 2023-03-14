@@ -335,9 +335,13 @@ class AppRouter extends _i33.RootStackRouter {
       );
     },
     WorkingTimesRoute.name: (routeData) {
+      final args = routeData.argsAs<WorkingTimesRouteArgs>();
       return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i32.WorkingTimes(),
+        child: _i32.WorkingTimes(
+          key: args.key,
+          daysList: args.daysList,
+        ),
         opaque: true,
       );
     },
@@ -1085,12 +1089,34 @@ class PetProfileRoute extends _i33.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i32.WorkingTimes]
-class WorkingTimesRoute extends _i33.PageRouteInfo<void> {
-  const WorkingTimesRoute()
-      : super(
+class WorkingTimesRoute extends _i33.PageRouteInfo<WorkingTimesRouteArgs> {
+  WorkingTimesRoute({
+    _i34.Key? key,
+    required List<_i37.AvailableDayModel> daysList,
+  }) : super(
           WorkingTimesRoute.name,
           path: '/working-times',
+          args: WorkingTimesRouteArgs(
+            key: key,
+            daysList: daysList,
+          ),
         );
 
   static const String name = 'WorkingTimesRoute';
+}
+
+class WorkingTimesRouteArgs {
+  const WorkingTimesRouteArgs({
+    this.key,
+    required this.daysList,
+  });
+
+  final _i34.Key? key;
+
+  final List<_i37.AvailableDayModel> daysList;
+
+  @override
+  String toString() {
+    return 'WorkingTimesRouteArgs{key: $key, daysList: $daysList}';
+  }
 }

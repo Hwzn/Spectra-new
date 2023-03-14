@@ -1,7 +1,8 @@
 part of 'WorkingTimesImports.dart';
 
 class WorkingTimes extends StatefulWidget {
-  const WorkingTimes({Key? key}) : super(key: key);
+  final List<AvailableDayModel> daysList;
+  const WorkingTimes({Key? key, required this.daysList}) : super(key: key);
 
   @override
   State<WorkingTimes> createState() => _WorkingTimesState();

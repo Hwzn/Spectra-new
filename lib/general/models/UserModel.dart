@@ -39,6 +39,13 @@ class UserModel {
   List<PetModel> pets;
   @JsonKey(name: 'available_times')
   List<AvailableDayModel> availableTimes;
+  @JsonKey(name: 'cv')
+  String cv;
+  @JsonKey(name: 'rescue_price')
+  String rescuePrice;
+  @JsonKey(name: 'session_price')
+  String sessionPrice;
+
 
   UserModel({
     required this.id,
@@ -57,6 +64,9 @@ class UserModel {
     required this.token,
     required this.pets,
     required this.availableTimes,
+    required this.cv,
+    required this.rescuePrice,
+    required this.sessionPrice,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>

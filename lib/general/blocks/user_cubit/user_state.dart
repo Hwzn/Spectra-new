@@ -27,6 +27,9 @@ class UserInitial extends UserState {
               uuid: '',
               pets: [],
               availableTimes: [],
+              cv: '',
+              sessionPrice: '',
+              rescuePrice: '',
             ),
             changed: false);
 

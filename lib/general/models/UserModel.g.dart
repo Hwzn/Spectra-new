@@ -27,6 +27,9 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) => UserModel(
       availableTimes: (json['available_times'] as List<dynamic>)
           .map((e) => AvailableDayModel.fromJson(e as Map<String, dynamic>))
           .toList(),
+      cv: json['cv'] as String,
+      rescuePrice: json['rescue_price'] as String,
+      sessionPrice: json['session_price'] as String,
     );
 
 Map<String, dynamic> _$UserModelToJson(UserModel instance) => <String, dynamic>{
@@ -46,4 +49,7 @@ Map<String, dynamic> _$UserModelToJson(UserModel instance) => <String, dynamic>{
       'token': instance.token,
       'pests': instance.pets,
       'available_times': instance.availableTimes,
+      'cv': instance.cv,
+      'rescue_price': instance.rescuePrice,
+      'session_price': instance.sessionPrice,
     };
