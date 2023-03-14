@@ -13,4 +13,7 @@ class DoctorRepository {
 
   Future<List<ReservationModel>> getReservations(String status) =>
       doctorHttpMethods.getReservations(status);
+
+  Future<ProvHomeModel> getProvHome() => doctorHttpMethods.getProvHome();
+
 }

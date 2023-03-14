@@ -29,4 +29,14 @@ class DoctorHttpMethods {
     ) as List<ReservationModel>;
   }
 
+  Future<ProvHomeModel> getProvHome() async {
+    return await GenericHttp<ProvHomeModel>(context).callApi(
+      name: ApiNames.doctorHome,
+      returnType: ReturnType.model,
+      methodType: MethodType.get,
+      returnDataFun: (data) => data["data"],
+      toJsonFunc: (json) => ProvHomeModel.fromJson(json),
+    );
+  }
+
 }

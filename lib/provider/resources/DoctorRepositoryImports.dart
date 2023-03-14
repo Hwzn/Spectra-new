@@ -1,5 +1,6 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:hwzn_base/provider/models/prov_home_model.dart';
 import 'package:hwzn_base/provider/models/wallet_model.dart';
 
 import '../../general/helper/dio/http/GenericHttp.dart';

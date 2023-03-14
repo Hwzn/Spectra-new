@@ -8,6 +8,14 @@ class ProvMain extends StatefulWidget {
 }
 
 class _ProvMainState extends State<ProvMain> {
+  ProvMainData provMainData = ProvMainData();
+
+  @override
+  void initState() {
+    provMainData.fetchData(context);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,96 +42,109 @@ class _ProvMainState extends State<ProvMain> {
         ],
         child: Image.asset(Res.homeLogoWhite, width: 150),
       ),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Expanded(
-                child: DefaultContainer(
-                  margin: const EdgeInsets.symmetric(vertical: 15),
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      MyText(
-                        title: "70",
-                        size: 30,
-                        color: MyColors.black,
-                        fontFamily: GoogleFonts.poppins().fontFamily,
-                      ),
-                      const SizedBox(height: 10),
-                      MyText(
-                        title: "Total \nRatings",
-                        size: 16,
-                        color: MyColors.black,
-                        alien: TextAlign.center,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(width: 20),
-              Expanded(
-                child: DefaultContainer(
-                  margin: const EdgeInsets.symmetric(vertical: 15),
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      MyText(
-                        title: "55",
-                        size: 30,
-                        color: MyColors.black,
-                        fontFamily: GoogleFonts.poppins().fontFamily,
-                      ),
-                      const SizedBox(height: 10),
-                      MyText(
-                        title: "Total \nReservations",
-                        size: 16,
-                        color: MyColors.black,
-                        alien: TextAlign.center,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-          DefaultContainer(
-            margin: const EdgeInsets.symmetric(vertical: 10),
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-            child: Row(
+      body: BlocBuilder<GenericBloc<ProvHomeModel?>,
+          GenericState<ProvHomeModel?>>(
+        bloc: provMainData.homeBloc,
+        builder: (context, state) {
+          if(state is GenericUpdateState){
+            return ListView(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               children: [
-                Expanded(
-                  child: MyText(
-                    title: "Total Balance",
-                    size: 16,
-                    color: MyColors.black,
-                  ),
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    MyText(
-                      title: "12,000",
-                      size: 20,
-                      color: MyColors.black,
-                      fontFamily: GoogleFonts.poppins().fontFamily,
+                    Expanded(
+                      child: DefaultContainer(
+                        margin: const EdgeInsets.symmetric(vertical: 15),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 15),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            MyText(
+                              title: "${state.data?.totalRatingsCount}",
+                              size: 30,
+                              color: MyColors.black,
+                              fontFamily: GoogleFonts.poppins().fontFamily,
+                            ),
+                            const SizedBox(height: 10),
+                            MyText(
+                              title: "Total \nRatings",
+                              size: 16,
+                              color: MyColors.black,
+                              alien: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
-                    MyText(
-                      title: "SAR",
-                      size: 12,
-                      color: MyColors.grey,
-                      fontWeight: FontWeight.normal,
+                    const SizedBox(width: 20),
+                    Expanded(
+                      child: DefaultContainer(
+                        margin: const EdgeInsets.symmetric(vertical: 15),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 15),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            MyText(
+                              title: "${state.data?.totalReservationsCount}",
+                              size: 30,
+                              color: MyColors.black,
+                              fontFamily: GoogleFonts.poppins().fontFamily,
+                            ),
+                            const SizedBox(height: 10),
+                            MyText(
+                              title: "Total \nReservations",
+                              size: 16,
+                              color: MyColors.black,
+                              alien: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ],
                 ),
+                DefaultContainer(
+                  margin: const EdgeInsets.symmetric(vertical: 10),
+                  padding:
+                  const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: MyText(
+                          title: "Total Balance",
+                          size: 16,
+                          color: MyColors.black,
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          MyText(
+                            title: "${state.data?.totalBalance}",
+                            size: 20,
+                            color: MyColors.black,
+                            fontFamily: GoogleFonts.poppins().fontFamily,
+                          ),
+                          MyText(
+                            title: "SAR",
+                            size: 12,
+                            color: MyColors.grey,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
               ],
-            ),
-          ),
-        ],
+            );
+          } else {
+            return LoadingDialog.showLoadingView();
+          }
+        },
       ),
     );
   }
