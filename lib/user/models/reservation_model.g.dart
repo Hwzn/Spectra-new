@@ -19,6 +19,11 @@ ReservationModel _$ReservationModelFromJson(Map<String, dynamic> json) =>
       clientAvgRate: json['client_avg_rate'] as String,
       doctorDetails:
           DoctorModel.fromJson(json['doctor_details'] as Map<String, dynamic>),
+      reviewBefore: json['review_before'] as bool,
+      review: json['review'] == null
+          ? null
+          : ReservationReviewModel.fromJson(
+              json['review'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$ReservationModelToJson(ReservationModel instance) =>
@@ -33,4 +38,6 @@ Map<String, dynamic> _$ReservationModelToJson(ReservationModel instance) =>
       'client_name': instance.clientName,
       'client_avg_rate': instance.clientAvgRate,
       'doctor_details': instance.doctorDetails,
+      'review_before': instance.reviewBefore,
+      'review': instance.review,
     };

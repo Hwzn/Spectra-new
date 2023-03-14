@@ -1,8 +1,9 @@
 part of 'ReviewSessionWidgetsImports.dart';
 
 class BuildRateSession extends StatelessWidget {
+  final ReservationModel model;
   final ReviewSessionData data;
-  const BuildRateSession({Key? key, required this.data}) : super(key: key);
+  const BuildRateSession({Key? key, required this.data, required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,7 @@ class BuildRateSession extends StatelessWidget {
           Container(
             alignment: Alignment.center,
             child: RatingBar.builder(
-              initialRating: 0,
+              initialRating: model.reviewBefore ? double.parse(model.review?.rate??'0') : 0,
               minRating: 0,
               direction: Axis.horizontal,
               allowHalfRating: false,
@@ -51,6 +52,7 @@ class BuildRateSession extends StatelessWidget {
                 Icons.star,
                 color: Colors.amber,
               ),
+              ignoreGestures: model.reviewBefore,
               onRatingUpdate: (index) {
                 data.rate = index;
                 print(index);

@@ -1,4 +1,5 @@
 import 'package:hwzn_base/user/models/doctor_model.dart';
+import 'package:hwzn_base/user/models/reservation_review_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'reservation_model.g.dart';
@@ -25,6 +26,10 @@ class ReservationModel {
   String clientAvgRate;
   @JsonKey(name: 'doctor_details')
   DoctorModel doctorDetails;
+  @JsonKey(name: 'review_before')
+  bool reviewBefore;
+  @JsonKey(name: 'review')
+  ReservationReviewModel? review;
 
 
   ReservationModel({
@@ -38,6 +43,8 @@ class ReservationModel {
     required this.clientName,
     required this.clientAvgRate,
     required this.doctorDetails,
+    required this.reviewBefore,
+    this.review,
   });
 
   factory ReservationModel.fromJson(Map<String, dynamic> json) =>

@@ -26,7 +26,9 @@ class PreviousTab extends StatelessWidget {
               children: List.generate(
                 state.data.length,
                 (index) => BuildReservationItem(
-                  statusColor: MyColors.lightGrey,
+                  statusColor: state.data[index].status == "cancelled"
+                      ? Colors.red[700]!
+                      : Colors.green[700]!,
                   ended: true,
                   model: state.data[index],
                 ),
