@@ -13,7 +13,7 @@ class BuildProvProfileInputs extends StatelessWidget {
         BuildProfileInputItem(
           title: '',
           showTitle: false,
-          hint: "Aya Hamed",
+          hint: "Name",
           controller: provProfileData.name,
           validate: (value) => value!.validateEmpty(context),
           fieldMargin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
@@ -21,7 +21,7 @@ class BuildProvProfileInputs extends StatelessWidget {
         BuildProfileInputItem(
           title: '',
           showTitle: false,
-          hint: "+9662345678",
+          hint: "Phone",
           controller: provProfileData.phone,
           validate: (value) => value!.validatePhone(context),
           fieldMargin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
@@ -29,7 +29,7 @@ class BuildProvProfileInputs extends StatelessWidget {
         BuildProfileInputItem(
           title: '',
           showTitle: false,
-          hint: "aya@gmail.com",
+          hint: "E-mail",
           controller: provProfileData.email,
           validate: (value) => value!.validateEmpty(context),
           fieldMargin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
@@ -45,7 +45,7 @@ class BuildProvProfileInputs extends StatelessWidget {
           searchHint: "Search",
           enableColor: MyColors.greyWhite,
           fillColor: MyColors.white,
-          finData: (data)=> provProfileData.getSpecs(context),
+          finData: (data) => provProfileData.getSpecs(context),
         ),
         DropdownTextField<DropDownModel>(
           dropKey: provProfileData.centerDropKey,
@@ -58,31 +58,48 @@ class BuildProvProfileInputs extends StatelessWidget {
           searchHint: "Search",
           enableColor: MyColors.greyWhite,
           fillColor: MyColors.white,
-          finData: (data)=> provProfileData.getCenters(context),
+          finData: (data) => provProfileData.getCenters(context),
         ),
-        GenericTextField(
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-          controller: provProfileData.cv,
-          fieldTypes: FieldTypes.clickable,
-          type: TextInputType.text,
-          action: TextInputAction.next,
-          validate: (value) => value!.validateEmpty(context),
-          hint: "Aya cv.pdf",
-          margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-          suffixIcon: Container(
-            width: 20,
-            margin: const EdgeInsets.all(5),
-            padding: const EdgeInsets.all(5),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: MyColors.primary.withOpacity(0.9),
-            ),
-            child: Icon(
-              Icons.cloud_upload_sharp,
-              color: MyColors.white,
-            ),
-          ),
+        BlocBuilder<GenericBloc<List<File>>, GenericState<List<File>>>(
+          bloc: provProfileData.uploadPdfBloc,
+          builder: (context, state) {
+            return GenericTextField(
+              contentPadding:
+                  const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+              controller: provProfileData.cv,
+              fieldTypes:
+                  state.data.isEmpty ? FieldTypes.clickable : FieldTypes.normal,
+              onTab: () => provProfileData.uploadPdf(),
+              type: TextInputType.text,
+              action: TextInputAction.next,
+              validate: (value) => value!.validateEmpty(context),
+              hint: "Upload CV",
+              margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+              suffixIcon: Container(
+                width: 20,
+                margin: const EdgeInsets.all(5),
+                padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: MyColors.primary.withOpacity(0.9),
+                ),
+                child: state.data.isEmpty
+                    ? Icon(
+                        Icons.cloud_upload_sharp,
+                        color: MyColors.white,
+                      )
+                    : InkWell(
+                        child: const Icon(
+                          Icons.cancel_outlined,
+                          color: Colors.black,
+                          size: 20,
+                        ),
+                        onTap: () =>
+                            provProfileData.removePdf(context: context),
+                      ),
+              ),
+            );
+          },
         ),
         GenericTextField(
           contentPadding:

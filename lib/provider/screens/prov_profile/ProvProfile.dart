@@ -36,11 +36,16 @@ class _ProvProfileState extends State<ProvProfile> {
           }
         },
       ),
-      bottomNavigationBar: DefaultButton(
-        title: "Save Changes",
-        margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
-        borderRadius: BorderRadius.circular(15),
-        onTap: () {},
+      bottomNavigationBar: SizedBox(
+        height: 90,
+        child: LoadingButton(
+          title: "Save Changes",
+          margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+          borderRadius: 15,
+          btnKey: provProfileData.btnKey,
+          textColor: MyColors.white,
+          onTap: () => provProfileData.updateProfile(context),
+        ),
       ),
     );
   }

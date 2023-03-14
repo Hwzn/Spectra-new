@@ -19,4 +19,7 @@ class DoctorRepository {
   Future<List<ReviewModel>> getDoctorReviews() =>
       doctorHttpMethods.getDoctorReviews();
 
+  Future<bool> updateDoctorProfile(UpdateDoctorProfileModel model) =>
+      doctorHttpMethods.updateDoctorProfile(model);
+
 }

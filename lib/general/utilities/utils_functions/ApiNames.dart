@@ -55,6 +55,7 @@ class ApiNames{
   static const String doctorReservations = "authDoctorReservationByStatus";
   static const String doctorHome = "doctorHome";
   static const String authDoctorReviews = "authDoctorReviews";
+  static const String updateDoctorAcc = "updateDoctorAcc";
 
 
 }

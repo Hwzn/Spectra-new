@@ -50,4 +50,25 @@ class DoctorHttpMethods {
     ) as List<ReviewModel>;
   }
 
+  Future<bool> updateDoctorProfile(UpdateDoctorProfileModel model) async {
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.updateDoctorAcc,
+      json: model.toJson(),
+      returnType: ReturnType.type,
+      showLoader: false,
+      methodType: MethodType.post,
+    );
+    if (data != null) {
+      UserModel? user = context.read<UserCubit>().state.model;
+      user = UserModel.fromJson(data["data"]["user"]);
+      Storage.saveUserData(user);
+      user.token = GlobalState.instance.get("token");
+      context.read<UserCubit>().onUpdateUserData(user);
+      CustomToast.showSimpleToast(msg: data["message"]);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }

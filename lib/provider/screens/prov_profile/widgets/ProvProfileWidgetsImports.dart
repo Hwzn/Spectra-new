@@ -13,6 +13,7 @@ import '../../../../general/models/dropdown_model/dropdown_model.dart';
 import '../../../../general/packages/generic_bloc/generic_cubit.dart';
 import '../../../../general/packages/input_fields/GenericTextField.dart';
 import '../../../../general/widgets/CachedImage.dart';
+import '../../../../general/widgets/MyText.dart';
 import '../../../../user/screens/profile/widgets/ProfileWidgetsImports.dart';
 
 part 'BuildProvProfilePhoto.dart';

@@ -2,12 +2,14 @@ part of 'ProvProfileImports.dart';
 
 class ProvProfileData {
   // keys
+  final GlobalKey<CustomButtonState> btnKey = GlobalKey();
   final GlobalKey<DropdownSearchState> specDropKey = GlobalKey();
   final GlobalKey<DropdownSearchState> centerDropKey = GlobalKey();
 
   // bloc
-  final GenericBloc<File?> profileCubit = GenericBloc(null);
+  final GenericBloc<File?> imageCubit = GenericBloc(null);
   final GenericBloc<bool> loadedBloc = GenericBloc(false);
+  final GenericBloc<List<File>> uploadPdfBloc = GenericBloc([]);
 
   // variables
   DropDownModel? selectedSpec;
@@ -49,6 +51,28 @@ class ProvProfileData {
     }
   }
 
+  updateProfile(BuildContext context) async {
+    if (selectedSpec?.id == null) {
+      CustomToast.showSimpleToast(msg: "Please select specialization");
+      return;
+    }
+    btnKey.currentState?.animateForward();
+    UpdateDoctorProfileModel model = UpdateDoctorProfileModel(
+      phone: phone.text,
+      name: name.text,
+      email: email.text,
+      description: description.text,
+      centerId: selectedCenter?.id ?? 0,
+      specId: selectedSpec?.id ?? 0,
+      cv: uploadPdfBloc.state.data.isNotEmpty
+          ? uploadPdfBloc.state.data.first
+          : null,
+      image: imageCubit.state.data,
+    );
+    await DoctorRepository(context).updateDoctorProfile(model);
+    btnKey.currentState?.animateReverse();
+  }
+
   Future<List<DropDownModel>> getSpecs(BuildContext context) async {
     specializations = await GeneralRepository(context).getSpecializations();
     return specializations;
@@ -62,7 +86,7 @@ class ProvProfileData {
   setProfileImage() async {
     var image = await HelperMethods.getImage();
     if (image != null) {
-      profileCubit.onUpdateData(image);
+      imageCubit.onUpdateData(image);
     }
   }
 
@@ -73,5 +97,25 @@ class ProvProfileData {
 
   void setSelectCenter(DropDownModel? model) {
     selectedCenter = model;
+  }
+
+  uploadPdf() async {
+    FilePickerResult? file = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['pdf'],
+      allowMultiple: false,
+    );
+    if (file != null) {
+      List<File> files = file.paths.map((path) => File(path!)).toList();
+      uploadPdfBloc.state.data.addAll(files);
+      uploadPdfBloc.onUpdateData(uploadPdfBloc.state.data);
+      cv.text = uploadPdfBloc.state.data.first.path;
+    }
+  }
+
+  removePdf({required BuildContext context}) async {
+    uploadPdfBloc.state.data.clear();
+    cv.clear();
+    uploadPdfBloc.onUpdateData(uploadPdfBloc.state.data);
   }
 }
