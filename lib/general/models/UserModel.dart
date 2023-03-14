@@ -45,6 +45,16 @@ class UserModel {
   String rescuePrice;
   @JsonKey(name: 'session_price')
   String sessionPrice;
+  @JsonKey(name: 'center_id')
+  int centerId;
+  @JsonKey(name: 'center_name')
+  String centerName;
+  @JsonKey(name: 'specialization_id')
+  int specializationId;
+  @JsonKey(name: 'specialization_name')
+  String specializationName;
+  @JsonKey(name: 'description')
+  String? description;
 
 
   UserModel({
@@ -67,6 +77,11 @@ class UserModel {
     required this.cv,
     required this.rescuePrice,
     required this.sessionPrice,
+    required this.centerId,
+    required this.centerName,
+    required this.specializationId,
+    required this.specializationName,
+    this.description,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>

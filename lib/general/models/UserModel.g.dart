@@ -30,6 +30,11 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) => UserModel(
       cv: json['cv'] as String,
       rescuePrice: json['rescue_price'] as String,
       sessionPrice: json['session_price'] as String,
+      centerId: json['center_id'] as int,
+      centerName: json['center_name'] as String,
+      specializationId: json['specialization_id'] as int,
+      specializationName: json['specialization_name'] as String,
+      description: json['description'] as String?,
     );
 
 Map<String, dynamic> _$UserModelToJson(UserModel instance) => <String, dynamic>{
@@ -52,4 +57,9 @@ Map<String, dynamic> _$UserModelToJson(UserModel instance) => <String, dynamic>{
       'cv': instance.cv,
       'rescue_price': instance.rescuePrice,
       'session_price': instance.sessionPrice,
+      'center_id': instance.centerId,
+      'center_name': instance.centerName,
+      'specialization_id': instance.specializationId,
+      'specialization_name': instance.specializationName,
+      'description': instance.description,
     };

@@ -30,6 +30,11 @@ class UserInitial extends UserState {
               cv: '',
               sessionPrice: '',
               rescuePrice: '',
+              centerId: 0,
+              centerName: '',
+              specializationId: 0,
+              specializationName: '',
+              description: '',
             ),
             changed: false);
 

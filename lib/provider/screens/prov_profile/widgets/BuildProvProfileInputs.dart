@@ -35,32 +35,30 @@ class BuildProvProfileInputs extends StatelessWidget {
           fieldMargin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
         ),
         DropdownTextField<DropDownModel>(
-          dropKey: provProfileData.petCareDropKey,
-          hint: "Pet Care",
-          // selectedItem: provProfileData.selectedPet,
+          dropKey: provProfileData.specDropKey,
+          selectedItem: provProfileData.selectedSpec,
           margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
           validate: (value) => value.noValidate(),
           onChange: (DropDownModel? model) =>
-              provProfileData.setSelectPet(model),
+              provProfileData.setSelectSpec(model),
           useName: true,
           searchHint: "Search",
-          data: provProfileData.dropList,
           enableColor: MyColors.greyWhite,
           fillColor: MyColors.white,
+          finData: (data)=> provProfileData.getSpecs(context),
         ),
         DropdownTextField<DropDownModel>(
           dropKey: provProfileData.centerDropKey,
-          hint: "Alex Center",
-          // selectedItem: provProfileData.selectedCenter,
+          selectedItem: provProfileData.selectedCenter,
           margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
           validate: (value) => value.noValidate(),
           onChange: (DropDownModel? model) =>
               provProfileData.setSelectCenter(model),
           useName: true,
           searchHint: "Search",
-          data: provProfileData.dropList,
           enableColor: MyColors.greyWhite,
           fillColor: MyColors.white,
+          finData: (data)=> provProfileData.getCenters(context),
         ),
         GenericTextField(
           contentPadding:

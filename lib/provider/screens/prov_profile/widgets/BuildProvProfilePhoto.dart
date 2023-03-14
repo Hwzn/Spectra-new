@@ -6,6 +6,7 @@ class BuildProvProfilePhoto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var user = context.read<UserCubit>().state.model;
     return DefaultContainer(
       margin: const EdgeInsets.all(20),
       child: Row(
@@ -51,8 +52,7 @@ class BuildProvProfilePhoto extends StatelessWidget {
                 return SizedBox(
                   width: 150,
                   child: CachedImage(
-                    url:
-                    "https://www.freshpondanimalhospital.com/uploads/SiteAssets/17/images/staff/804198.jpg",
+                    url: user.image,
                     height: 130,
                     width: 130,
                     haveRadius: false,
