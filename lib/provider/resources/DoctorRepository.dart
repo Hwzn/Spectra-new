@@ -28,4 +28,10 @@ class DoctorRepository {
   Future<List<NotificationsModel>> getNotifications() =>
       doctorHttpMethods.getNotifications();
 
+  Future<bool> deleteNotification(String id) =>
+      doctorHttpMethods.deleteNotification(id);
+
+  Future<bool> deleteAllNotifications() =>
+      doctorHttpMethods.deleteAllNotifications();
+
 }

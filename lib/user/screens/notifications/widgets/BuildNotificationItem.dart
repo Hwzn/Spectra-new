@@ -2,7 +2,15 @@ part of 'NotificationsWidgetsImports.dart';
 
 class BuildNotificationItem extends StatelessWidget {
   final NotificationsModel model;
-  const BuildNotificationItem({Key? key, required this.model}) : super(key: key);
+  final NotificationsData notificationsData;
+  final int index;
+
+  const BuildNotificationItem(
+      {Key? key,
+      required this.model,
+      required this.notificationsData,
+      required this.index})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +22,11 @@ class BuildNotificationItem extends StatelessWidget {
           motion: const DrawerMotion(),
           children: [
             SlidableAction(
-              onPressed: null,
+              onPressed: (v) => notificationsData.deleteItem(
+                context: context,
+                id: model.data.dataId.toString(),
+                index: index,
+              ),
               backgroundColor: Colors.red,
               foregroundColor: MyColors.white,
               icon: Icons.delete,

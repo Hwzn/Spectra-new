@@ -25,32 +25,59 @@ class _NotificationsState extends State<Notifications> {
           GenericState<List<NotificationsModel>>>(
         bloc: notificationsData.notificationsBloc,
         builder: (context, state) {
-          if(state is GenericUpdateState){
-            return Visibility(
-              visible: state.data.isNotEmpty,
-              replacement: MyText(
-                title: "No Notifications",
-                color: MyColors.blackOpacity,
-                size: 12,
-              ),
-              child: AnimationLimiter(
-                child: ListView.builder(
-                  padding: const EdgeInsets.only(top: 20),
-                  itemCount: state.data.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return AnimationConfiguration.staggeredList(
-                      position: index,
-                      duration: const Duration(milliseconds: 375),
-                      child: SlideAnimation(
-                        verticalOffset: 50.0,
-                        child: BuildNotificationItem(
-                          model: state.data[index],
-                        ),
-                      ),
-                    );
-                  },
+          if (state is GenericUpdateState) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                InkWell(
+                  onTap: () => notificationsData.deleteAll(context),
+                  child: Container(
+                    margin: const EdgeInsets.only(
+                      top: 20,
+                      right: 20,
+                      left: 20,
+                      bottom: 10,
+                    ),
+                    child: const MyText(
+                      title: "Delete All",
+                      color: Colors.red,
+                      size: 12,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
-              ),
+                Flexible(
+                  child: Visibility(
+                    visible: state.data.isNotEmpty,
+                    replacement: Center(
+                      child: MyText(
+                        title: "No Notifications",
+                        color: MyColors.blackOpacity,
+                        size: 12,
+                      ),
+                    ),
+                    child: AnimationLimiter(
+                      child: ListView.builder(
+                        itemCount: state.data.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return AnimationConfiguration.staggeredList(
+                            position: index,
+                            duration: const Duration(milliseconds: 375),
+                            child: SlideAnimation(
+                              verticalOffset: 50.0,
+                              child: BuildNotificationItem(
+                                model: state.data[index],
+                                notificationsData: notificationsData,
+                                index: index,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             );
           } else {
             return LoadingDialog.showLoadingView();

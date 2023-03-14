@@ -95,4 +95,24 @@ class DoctorHttpMethods {
     ) as List<NotificationsModel>;
   }
 
+  Future<bool> deleteNotification(String id) async {
+    return await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.deleteNotification + "/$id",
+      returnType: ReturnType.type,
+      showLoader: false,
+      returnDataFun: (data) => data["status"],
+      methodType: MethodType.get,
+    );
+  }
+
+  Future<bool> deleteAllNotifications() async {
+    return await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.deleteAllNotifications,
+      returnType: ReturnType.type,
+      showLoader: false,
+      returnDataFun: (data) => data["status"],
+      methodType: MethodType.get,
+    );
+  }
+
 }
