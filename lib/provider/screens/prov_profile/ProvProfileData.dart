@@ -35,7 +35,7 @@ class ProvProfileData {
     name.text = user.name;
     phone.text = user.phone;
     email.text = user.email;
-    cv.text = user.cv;
+    cv.text = user.cv ?? '';
     description.text = user.description ?? '';
     if (user.centerId != 0) {
       selectedCenter = DropDownModel(

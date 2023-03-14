@@ -48,8 +48,8 @@ class ProvAccountData {
   getWorkingDays(BuildContext context) {
     var user = context.read<UserCubit>().state.model;
     workingDays = user.availableTimes;
-    hourRateCubit.onUpdateData(user.sessionPrice);
-    rescueCasesCubit.onUpdateData(user.rescuePrice);
+    hourRateCubit.onUpdateData(user.sessionPrice??'0');
+    rescueCasesCubit.onUpdateData(user.rescuePrice??'0');
   }
 
   editRate(BuildContext context) {

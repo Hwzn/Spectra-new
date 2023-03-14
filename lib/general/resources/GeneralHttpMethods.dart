@@ -29,7 +29,9 @@ class GeneralHttpMethods {
       showLoader: false,
     );
     if (data != null) {
-      return Utils.manipulateLoginData(context, data, token ?? '');
+      CustomToast.showSimpleToast(msg: data["message"]);
+      Utils.manipulateLoginData(context, data, token ?? '');
+      return true;
     } else {
       return false;
     }

@@ -27,13 +27,13 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) => UserModel(
       availableTimes: (json['available_times'] as List<dynamic>)
           .map((e) => AvailableDayModel.fromJson(e as Map<String, dynamic>))
           .toList(),
-      cv: json['cv'] as String,
-      rescuePrice: json['rescue_price'] as String,
-      sessionPrice: json['session_price'] as String,
-      centerId: json['center_id'] as int,
-      centerName: json['center_name'] as String,
-      specializationId: json['specialization_id'] as int,
-      specializationName: json['specialization_name'] as String,
+      cv: json['cv'] as String?,
+      rescuePrice: json['rescue_price'] as String?,
+      sessionPrice: json['session_price'] as String?,
+      centerId: json['center_id'] as int?,
+      centerName: json['center_name'] as String?,
+      specializationId: json['specialization_id'] as int?,
+      specializationName: json['specialization_name'] as String?,
       description: json['description'] as String?,
     );
 

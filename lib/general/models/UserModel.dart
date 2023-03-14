@@ -40,19 +40,19 @@ class UserModel {
   @JsonKey(name: 'available_times')
   List<AvailableDayModel> availableTimes;
   @JsonKey(name: 'cv')
-  String cv;
+  String? cv;
   @JsonKey(name: 'rescue_price')
-  String rescuePrice;
+  String? rescuePrice;
   @JsonKey(name: 'session_price')
-  String sessionPrice;
+  String? sessionPrice;
   @JsonKey(name: 'center_id')
-  int centerId;
+  int? centerId;
   @JsonKey(name: 'center_name')
-  String centerName;
+  String? centerName;
   @JsonKey(name: 'specialization_id')
-  int specializationId;
+  int? specializationId;
   @JsonKey(name: 'specialization_name')
-  String specializationName;
+  String? specializationName;
   @JsonKey(name: 'description')
   String? description;
 
@@ -74,13 +74,13 @@ class UserModel {
     required this.token,
     required this.pets,
     required this.availableTimes,
-    required this.cv,
-    required this.rescuePrice,
-    required this.sessionPrice,
-    required this.centerId,
-    required this.centerName,
-    required this.specializationId,
-    required this.specializationName,
+    this.cv,
+    this.rescuePrice,
+    this.sessionPrice,
+    this.centerId,
+    this.centerName,
+    this.specializationId,
+    this.specializationName,
     this.description,
   });
 
