@@ -22,4 +22,6 @@ class DoctorRepository {
   Future<bool> updateDoctorProfile(UpdateDoctorProfileModel model) =>
       doctorHttpMethods.updateDoctorProfile(model);
 
+  Future<bool> updatePrice(String type, String price) =>
+      doctorHttpMethods.updatePrice(type, price);
 }

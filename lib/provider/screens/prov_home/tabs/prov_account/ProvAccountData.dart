@@ -57,11 +57,18 @@ class ProvAccountData {
       context: context,
       builder: (_) {
         return BuildAccountBottomSheet(
-          onSubmit: () {
+          onSubmit: () async {
             if (controller.text.isNotEmpty) {
-              hourRateCubit.onUpdateData(controller.text);
-              controller.clear();
-              Navigator.pop(context);
+              LoadingDialog.showLoadingDialog();
+              var data = await DoctorRepository(context)
+                  .updatePrice("session_price", controller.text);
+             if(data){
+               hourRateCubit.onUpdateData(controller.text);
+               saveData(context);
+               controller.clear();
+               Navigator.pop(context);
+             }
+             EasyLoading.dismiss();
             }
           },
           title: "Hour Rate",
@@ -83,11 +90,18 @@ class ProvAccountData {
       context: context,
       builder: (_) {
         return BuildAccountBottomSheet(
-          onSubmit: () {
+          onSubmit: () async {
             if (controller.text.isNotEmpty) {
-              rescueCasesCubit.onUpdateData(controller.text);
-              controller.clear();
-              Navigator.pop(context);
+              LoadingDialog.showLoadingDialog();
+              var data = await DoctorRepository(context)
+                  .updatePrice("rescue_price", controller.text);
+              if(data){
+                rescueCasesCubit.onUpdateData(controller.text);
+                saveData(context);
+                controller.clear();
+                Navigator.pop(context);
+              }
+              EasyLoading.dismiss();
             }
           },
           title: "Rescue Cases",
@@ -134,5 +148,13 @@ class ProvAccountData {
         ),
       ),
     );
+  }
+
+  saveData(BuildContext context) {
+    UserModel? user = context.read<UserCubit>().state.model;
+    user.rescuePrice = rescueCasesCubit.state.data;
+    user.sessionPrice = hourRateCubit.state.data;
+    Storage.saveUserData(user);
+    context.read<UserCubit>().onUpdateUserData(user);
   }
 }

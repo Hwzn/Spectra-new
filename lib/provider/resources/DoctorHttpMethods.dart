@@ -71,4 +71,17 @@ class DoctorHttpMethods {
     }
   }
 
+  Future<bool> updatePrice(String type, String price) async {
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.updatePrice,
+      json: {
+        "type": type,
+        "price": price,
+      },
+      returnType: ReturnType.type,
+      methodType: MethodType.post,
+    );
+    return data != null;
+  }
+
 }

@@ -26,7 +26,7 @@ class BuildAccountBottomSheet extends StatelessWidget {
             alien: TextAlign.center,
           ),
           GenericTextField(
-            contentPadding: const EdgeInsets.symmetric(vertical: 10),
+            contentPadding: const EdgeInsets.all(10),
             controller: controller,
             fieldTypes: FieldTypes.normal,
             type: TextInputType.text,
