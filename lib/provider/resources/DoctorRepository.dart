@@ -16,4 +16,7 @@ class DoctorRepository {
 
   Future<ProvHomeModel> getProvHome() => doctorHttpMethods.getProvHome();
 
+  Future<List<ReviewModel>> getDoctorReviews() =>
+      doctorHttpMethods.getDoctorReviews();
+
 }

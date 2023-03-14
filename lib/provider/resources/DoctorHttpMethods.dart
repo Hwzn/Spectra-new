@@ -39,4 +39,15 @@ class DoctorHttpMethods {
     );
   }
 
+  Future<List<ReviewModel>> getDoctorReviews() async {
+    return await GenericHttp<ReviewModel>(context).callApi(
+      name: ApiNames.authDoctorReviews,
+      returnType: ReturnType.list,
+      methodType: MethodType.get,
+      showLoader: false,
+      returnDataFun: (data) => data["data"]["reviews"],
+      toJsonFunc: (json) => ReviewModel.fromJson(json),
+    ) as List<ReviewModel>;
+  }
+
 }

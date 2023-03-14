@@ -54,6 +54,7 @@ class ApiNames{
   static const String authUserWallet = "authUserWallet";
   static const String doctorReservations = "authDoctorReservationByStatus";
   static const String doctorHome = "doctorHome";
+  static const String authDoctorReviews = "authDoctorReviews";
 
 
 }
