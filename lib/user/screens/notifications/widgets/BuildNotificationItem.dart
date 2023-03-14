@@ -1,7 +1,8 @@
 part of 'NotificationsWidgetsImports.dart';
 
 class BuildNotificationItem extends StatelessWidget {
-  const BuildNotificationItem({Key? key}) : super(key: key);
+  final NotificationsModel model;
+  const BuildNotificationItem({Key? key, required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,12 +43,18 @@ class BuildNotificationItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               MyText(
-                title:
-                    "Notification content here, Notification content here, Notification content here, Notification content here, Notification content here,",
-                size: 12,
-                color: MyColors.blackOpacity,
+                title: model.title,
+                size: 11,
+                color: MyColors.primary,
               ),
-              const SizedBox(height: 30),
+              Container(
+                margin: const EdgeInsets.only(top: 10, bottom: 20),
+                child: MyText(
+                  title: model.body,
+                  size: 12,
+                  color: MyColors.blackOpacity,
+                ),
+              ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
@@ -58,7 +65,7 @@ class BuildNotificationItem extends StatelessWidget {
                   ),
                   const SizedBox(width: 5),
                   MyText(
-                    title: "13 hours left",
+                    title: model.time,
                     size: 10,
                     color: MyColors.lightGrey,
                   ),

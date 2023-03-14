@@ -24,4 +24,8 @@ class DoctorRepository {
 
   Future<bool> updatePrice(String type, String price) =>
       doctorHttpMethods.updatePrice(type, price);
+
+  Future<List<NotificationsModel>> getNotifications() =>
+      doctorHttpMethods.getNotifications();
+
 }

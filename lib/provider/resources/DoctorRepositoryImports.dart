@@ -1,6 +1,7 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hwzn_base/provider/models/notifications_model.dart';
 import 'package:hwzn_base/provider/models/prov_home_model.dart';
 import 'package:hwzn_base/provider/models/toJson/UpdateDoctorProfileModel.dart';
 import 'package:hwzn_base/provider/models/wallet_model.dart';

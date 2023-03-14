@@ -84,4 +84,15 @@ class DoctorHttpMethods {
     return data != null;
   }
 
+  Future<List<NotificationsModel>> getNotifications() async {
+    return await GenericHttp<NotificationsModel>(context).callApi(
+      name: ApiNames.getNotifications,
+      returnType: ReturnType.list,
+      methodType: MethodType.get,
+      showLoader: false,
+      returnDataFun: (data) => data["data"]["notifications"],
+      toJsonFunc: (json) => NotificationsModel.fromJson(json),
+    ) as List<NotificationsModel>;
+  }
+
 }
