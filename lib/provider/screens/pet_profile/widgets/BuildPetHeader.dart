@@ -24,13 +24,17 @@ class BuildPetHeader extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.center,
-            child: CachedImage(
-              url: image,
-              height: 110,
-              width: 110,
-              haveRadius: false,
-              boxShape: BoxShape.circle,
-              fit: BoxFit.cover,
+            child: InkWell(
+              onTap: () =>
+                  AutoRouter.of(context).push(ImageZoomRoute(images: [image])),
+              child: CachedImage(
+                url: image,
+                height: 110,
+                width: 110,
+                haveRadius: false,
+                boxShape: BoxShape.circle,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           Container(

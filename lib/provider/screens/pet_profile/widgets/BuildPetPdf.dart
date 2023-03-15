@@ -35,7 +35,8 @@ class BuildPetPdf extends StatelessWidget {
             (index) => Visibility(
               visible: petAttachments[index].type != 'image',
               child: InkWell(
-                onTap: ()=> HelperMethods.launchURL(url: petAttachments[index].url),
+                onTap: () =>
+                    HelperMethods.launchURL(url: petAttachments[index].url),
                 child: DefaultContainer(
                   child: Row(
                     children: [
@@ -62,12 +63,14 @@ class BuildPetPdf extends StatelessWidget {
               children: List.generate(
                 petAttachments.where((e) => e.type == "image").length,
                 (index) => InkWell(
-                  onTap: () => AutoRouter.of(context).push(ImageZoomRoute(
-                    images: petAttachments
-                        .where((e) => e.type == "image")
-                        .map((e) => e.url)
-                        .toList(),
-                  )),
+                  onTap: () => AutoRouter.of(context).push(
+                    ImageZoomRoute(
+                      images: petAttachments
+                          .where((e) => e.type == "image")
+                          .map((e) => e.url)
+                          .toList(),
+                    ),
+                  ),
                   child: CachedImage(
                     url: petAttachments[index].url,
                     height: 100,
