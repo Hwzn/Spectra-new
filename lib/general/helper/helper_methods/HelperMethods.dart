@@ -12,12 +12,13 @@ import 'package:url_launcher/url_launcher.dart';
 
 class HelperMethods {
   static void launchURL({required String url}) async {
-    if (!url.toString().startsWith("https")) {
-      url = "https://$url";
-      await launch(url);
-    } else {
-      CustomToast.showToastNotification("من فضلك تآكد من الرابط");
-    }
+    await launch(url);
+    // if (!url.toString().startsWith("https")) {
+    //   url = "https://$url";
+    //   await launch(url);
+    // } else {
+    //   CustomToast.showToastNotification("من فضلك تآكد من الرابط");
+    // }
   }
 
   static void launchWhatsApp(phone) async {

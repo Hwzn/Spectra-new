@@ -21,7 +21,8 @@ class BuildPetPdf extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            margin: const EdgeInsets.only(top: 15, right: 20, left: 20, bottom: 5),
+            margin:
+                const EdgeInsets.only(top: 15, right: 20, left: 20, bottom: 5),
             child: MyText(
               title: "Attachments",
               color: MyColors.black,
@@ -33,19 +34,22 @@ class BuildPetPdf extends StatelessWidget {
             petAttachments.length,
             (index) => Visibility(
               visible: petAttachments[index].type != 'image',
-              child: DefaultContainer(
-                child: Row(
-                  children: [
-                    Image.asset(Res.pdf, height: 30, width: 30),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: MyText(
-                        title: petAttachments[index].url,
-                        color: MyColors.blackOpacity,
-                        size: 12,
+              child: InkWell(
+                onTap: ()=> HelperMethods.launchURL(url: petAttachments[index].url),
+                child: DefaultContainer(
+                  child: Row(
+                    children: [
+                      Image.asset(Res.pdf, height: 30, width: 30),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: MyText(
+                          title: petAttachments[index].url,
+                          color: MyColors.blackOpacity,
+                          size: 12,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -57,12 +61,20 @@ class BuildPetPdf extends StatelessWidget {
               runSpacing: 10,
               children: List.generate(
                 petAttachments.where((e) => e.type == "image").length,
-                (index) => CachedImage(
-                  url: petAttachments[index].url,
-                  height: 100,
-                  width: 80,
-                  borderRadius: BorderRadius.circular(10),
-                  fit: BoxFit.cover,
+                (index) => InkWell(
+                  onTap: () => AutoRouter.of(context).push(ImageZoomRoute(
+                    images: petAttachments
+                        .where((e) => e.type == "image")
+                        .map((e) => e.url)
+                        .toList(),
+                  )),
+                  child: CachedImage(
+                    url: petAttachments[index].url,
+                    height: 100,
+                    width: 80,
+                    borderRadius: BorderRadius.circular(10),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
