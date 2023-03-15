@@ -40,7 +40,9 @@ class _WalletState extends State<Wallet> {
                         radius: 85,
                         lineWidth: 12,
                         animation: true,
-                        percent: num.parse(state.data?.totalSessionBalance ?? '0')/100,
+                        // percent: num.parse(state.data?.totalSessionBalance ?? '0')/1000,
+                        percent: state.data!.totalBalance /
+                            num.parse(state.data?.totalSessionBalance ?? '0'),
                         circularStrokeCap: CircularStrokeCap.round,
                         progressColor: MyColors.primary,
                         backgroundColor: MyColors.lightGrey,

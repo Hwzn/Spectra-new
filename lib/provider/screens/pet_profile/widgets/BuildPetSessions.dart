@@ -1,7 +1,9 @@
 part of 'PetProfileWidgetsImports.dart';
 
 class BuildPetSessions extends StatelessWidget {
-  const BuildPetSessions({Key? key}) : super(key: key);
+  final List sessions;
+
+  const BuildPetSessions({Key? key, required this.sessions}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,15 +19,28 @@ class BuildPetSessions extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        ...List.generate(
-          4,
-          (index) => DefaultContainer(
+        Visibility(
+          visible: sessions.isNotEmpty,
+          replacement: DefaultContainer(
             width: MediaQuery.of(context).size.width,
             child: MyText(
-              title: "22/02/2023  3:45 pm",
+              title: "No Attachments",
               color: MyColors.blackOpacity,
               size: 12,
-              fontWeight: FontWeight.normal,
+            ),
+          ),
+          child: Column(
+            children: List.generate(
+              sessions.length,
+              (index) => DefaultContainer(
+                width: MediaQuery.of(context).size.width,
+                child: MyText(
+                  title: "22/02/2023  3:45 pm",
+                  color: MyColors.blackOpacity,
+                  size: 12,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
             ),
           ),
         ),

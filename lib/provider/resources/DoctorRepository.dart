@@ -34,4 +34,6 @@ class DoctorRepository {
   Future<bool> deleteAllNotifications() =>
       doctorHttpMethods.deleteAllNotifications();
 
+  Future<PetInfoModel> getPetInfo(int id) => doctorHttpMethods.getPetInfo(id);
+
 }

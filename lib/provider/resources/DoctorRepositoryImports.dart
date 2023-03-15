@@ -15,6 +15,7 @@ import '../../general/models/UserModel.dart';
 import '../../general/utilities/utils_functions/ApiNames.dart';
 import '../../user/models/reservation_model.dart';
 import '../../user/models/review_model.dart';
+import '../models/pet_info_model.dart';
 
 part 'DoctorHttpMethods.dart';
 part 'DoctorRepository.dart';

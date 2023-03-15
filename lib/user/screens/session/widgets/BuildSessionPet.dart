@@ -1,7 +1,11 @@
 part of 'SessionWidgetsImports.dart';
 
 class BuildSessionPet extends StatelessWidget {
-  const BuildSessionPet({Key? key}) : super(key: key);
+  final String image;
+  final String name;
+
+  const BuildSessionPet({Key? key, required this.image, required this.name})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +25,8 @@ class BuildSessionPet extends StatelessWidget {
       ),
       child: Row(
         children: [
-          const CachedImage(
-            url: "https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=ZhplzyJ9",
+          CachedImage(
+            url: image,
             height: 50,
             width: 50,
             haveRadius: false,
@@ -31,7 +35,7 @@ class BuildSessionPet extends StatelessWidget {
           ),
           const SizedBox(width: 10),
           MyText(
-            title: "Pet Name",
+            title: name,
             color: MyColors.black,
             size: 12,
           ),

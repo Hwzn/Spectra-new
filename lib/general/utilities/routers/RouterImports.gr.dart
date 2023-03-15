@@ -328,9 +328,13 @@ class AppRouter extends _i33.RootStackRouter {
       );
     },
     PetProfileRoute.name: (routeData) {
+      final args = routeData.argsAs<PetProfileRouteArgs>();
       return _i33.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i31.PetProfile(),
+        child: _i31.PetProfile(
+          key: args.key,
+          id: args.id,
+        ),
         opaque: true,
       );
     },
@@ -1077,14 +1081,36 @@ class ProvProfileRoute extends _i33.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i31.PetProfile]
-class PetProfileRoute extends _i33.PageRouteInfo<void> {
-  const PetProfileRoute()
-      : super(
+class PetProfileRoute extends _i33.PageRouteInfo<PetProfileRouteArgs> {
+  PetProfileRoute({
+    _i34.Key? key,
+    required int id,
+  }) : super(
           PetProfileRoute.name,
           path: '/pet-profile',
+          args: PetProfileRouteArgs(
+            key: key,
+            id: id,
+          ),
         );
 
   static const String name = 'PetProfileRoute';
+}
+
+class PetProfileRouteArgs {
+  const PetProfileRouteArgs({
+    this.key,
+    required this.id,
+  });
+
+  final _i34.Key? key;
+
+  final int id;
+
+  @override
+  String toString() {
+    return 'PetProfileRouteArgs{key: $key, id: $id}';
+  }
 }
 
 /// generated route for

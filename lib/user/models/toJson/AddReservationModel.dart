@@ -1,14 +1,14 @@
 
 class AddReservationModel {
   int doctorId;
-  int petId;
+  int? petId;
   num cost;
   int workDayTimeId;
   String reservationType;
 
   AddReservationModel({
     required this.doctorId,
-    required this.petId,
+    this.petId,
     required this.cost,
     required this.reservationType,
     required this.workDayTimeId,

@@ -3,7 +3,9 @@ part of 'SessionImports.dart';
 class Session extends StatefulWidget {
   final bool fromDoctorHome;
   final ReservationModel model;
-  const Session({Key? key, this.fromDoctorHome = false, required this.model}) : super(key: key);
+
+  const Session({Key? key, this.fromDoctorHome = false, required this.model})
+      : super(key: key);
 
   @override
   State<Session> createState() => _SessionState();
@@ -41,7 +43,7 @@ class _SessionState extends State<Session> {
                 top: 50,
                 left: 20,
                 child: IconButton(
-                  onPressed: ()=> AutoRouter.of(context).pop(),
+                  onPressed: () => AutoRouter.of(context).pop(),
                   icon: Icon(
                     Icons.arrow_back_ios,
                     color: MyColors.white,
@@ -50,7 +52,7 @@ class _SessionState extends State<Session> {
               ),
               BuildSessionTimer(
                 sessionData: sessionData,
-                stopWatchTimer: sessionData.stopWatchTimer?? StopWatchTimer(),
+                stopWatchTimer: sessionData.stopWatchTimer ?? StopWatchTimer(),
                 reservationModel: widget.model,
               ),
             ],
@@ -61,10 +63,14 @@ class _SessionState extends State<Session> {
               children: [
                 BuildSessionDoctor(model: widget.model.doctorDetails),
                 InkWell(
-                  onTap: widget.fromDoctorHome ?
-                      ()=> AutoRouter.of(context).push(const PetProfileRoute())
-                  : null,
-                  child: const BuildSessionPet(),
+                  onTap: widget.fromDoctorHome
+                      ? () => AutoRouter.of(context)
+                          .push(PetProfileRoute(id: widget.model.petId))
+                      : null,
+                  child: BuildSessionPet(
+                    image: widget.model.petImage,
+                    name: widget.model.petName,
+                  ),
                 ),
                 Visibility(
                   visible: !widget.fromDoctorHome,
@@ -75,7 +81,7 @@ class _SessionState extends State<Session> {
           ),
           InkWell(
             onTap: () {
-              if(widget.fromDoctorHome){
+              if (widget.fromDoctorHome) {
                 sessionData.onTapCancel(context, widget.model.id);
               } else {
                 sessionData.cancelSession(context, widget.model);

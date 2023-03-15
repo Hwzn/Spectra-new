@@ -45,9 +45,10 @@ class AddReservationData {
       CustomToast.showSimpleToast(msg: "Please select a pet");
       return;
     }
+    var petsList = petsBloc.state.data.where((element) => element.selected).toList();
     AddReservationModel model = AddReservationModel(
       doctorId: doctorId,
-      petId: petsBloc.state.data.firstWhere((element) => element.selected).id,
+      petId: petsList.isNotEmpty ? petsList.first.id : null,
       cost: pricesBloc.state.data.total,
       workDayTimeId: timesBloc.state.data.firstWhere((e) => e.selected).id,
       reservationType: selectedType,

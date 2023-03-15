@@ -1,7 +1,8 @@
 part of 'PetProfileWidgetsImports.dart';
 
 class BuildPetInfo extends StatelessWidget {
-  const BuildPetInfo({Key? key}) : super(key: key);
+  final String info;
+  const BuildPetInfo({Key? key, required this.info}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class BuildPetInfo extends StatelessWidget {
           ),
           const SizedBox(height: 5),
           MyText(
-            title: "Here you can find info pet history and it maybe 3 lines or more.Here you can find info pet hisyory and it maybe 3 lines or more.Here you can find info pet hisyory and it maybe 3 lines or more.Here you can find info pet hisyory and it maybe 3 lines or more.",
+            title: info.isNotEmpty ? info : "No information available.",
             color: MyColors.blackOpacity,
             size: 12,
             fontWeight: FontWeight.normal,

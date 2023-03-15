@@ -1,7 +1,11 @@
 part of 'PetProfileWidgetsImports.dart';
 
 class BuildPetHeader extends StatelessWidget {
-  const BuildPetHeader({Key? key}) : super(key: key);
+  final String image;
+  final String name;
+
+  const BuildPetHeader({Key? key, required this.image, required this.name})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +22,10 @@ class BuildPetHeader extends StatelessWidget {
               size: 18,
             ),
           ),
-          const Align(
+          Align(
             alignment: Alignment.center,
             child: CachedImage(
-              url:
-              "https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=ZhplzyJ9",
+              url: image,
               height: 110,
               width: 110,
               haveRadius: false,
@@ -34,7 +37,7 @@ class BuildPetHeader extends StatelessWidget {
             margin: const EdgeInsets.only(top: 15),
             alignment: Alignment.center,
             child: MyText(
-              title: "Mokka",
+              title: name,
               color: MyColors.white,
               size: 13,
             ),

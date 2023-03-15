@@ -115,4 +115,14 @@ class DoctorHttpMethods {
     );
   }
 
+  Future<PetInfoModel> getPetInfo(int id) async {
+    return await GenericHttp<PetInfoModel>(context).callApi(
+      name: ApiNames.getPetInfo + "/$id",
+      returnType: ReturnType.model,
+      methodType: MethodType.get,
+      returnDataFun: (data) => data["data"],
+      toJsonFunc: (json) => PetInfoModel.fromJson(json),
+    );
+  }
+
 }

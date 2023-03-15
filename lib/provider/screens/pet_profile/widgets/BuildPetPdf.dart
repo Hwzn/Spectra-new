@@ -1,20 +1,70 @@
 part of 'PetProfileWidgetsImports.dart';
 
 class BuildPetPdf extends StatelessWidget {
-  const BuildPetPdf({Key? key}) : super(key: key);
+  final List<PetAttachment> petAttachments;
+
+  const BuildPetPdf({Key? key, required this.petAttachments}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return DefaultContainer(
-      child: Row(
+    return Visibility(
+      visible: petAttachments.isNotEmpty,
+      replacement: DefaultContainer(
+        width: MediaQuery.of(context).size.width,
+        child: MyText(
+          title: "No Attachments",
+          color: MyColors.blackOpacity,
+          size: 12,
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(Res.pdf, height: 30, width: 30),
-          const SizedBox(width: 10),
-          Expanded(
+          Container(
+            margin: const EdgeInsets.only(top: 15, right: 20, left: 20, bottom: 5),
             child: MyText(
-              title: "pet history.pdf",
-              color: MyColors.blackOpacity,
-              size: 12,
+              title: "Attachments",
+              color: MyColors.black,
+              size: 14,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          ...List.generate(
+            petAttachments.length,
+            (index) => Visibility(
+              visible: petAttachments[index].type != 'image',
+              child: DefaultContainer(
+                child: Row(
+                  children: [
+                    Image.asset(Res.pdf, height: 30, width: 30),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: MyText(
+                        title: petAttachments[index].url,
+                        color: MyColors.blackOpacity,
+                        size: 12,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+            child: Wrap(
+              spacing: 10,
+              runSpacing: 10,
+              children: List.generate(
+                petAttachments.where((e) => e.type == "image").length,
+                (index) => CachedImage(
+                  url: petAttachments[index].url,
+                  height: 100,
+                  width: 80,
+                  borderRadius: BorderRadius.circular(10),
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
           ),
         ],
