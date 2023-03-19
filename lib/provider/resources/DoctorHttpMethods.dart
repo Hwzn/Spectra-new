@@ -125,4 +125,22 @@ class DoctorHttpMethods {
     );
   }
 
+  Future<bool> fillSessionDetails(int resId, String details) async {
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.fillSessionDetails,
+      json: {
+        "reservation_id": resId,
+        "details": details,
+      },
+      returnType: ReturnType.type,
+      methodType: MethodType.post,
+    );
+    if(data != null){
+      CustomToast.showSimpleToast(msg: data['message']);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }

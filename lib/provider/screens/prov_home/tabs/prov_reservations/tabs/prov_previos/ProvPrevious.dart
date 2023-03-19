@@ -37,7 +37,10 @@ class ProvPrevious extends StatelessWidget {
                     height: 40,
                     fontSize: 12,
                     borderRadius: BorderRadius.circular(15),
-                    onTap: ()=> provReservationsData.sessionDetails(context),
+                    onTap: () => provReservationsData.sessionDetails(
+                      context,
+                      state.data[index].id,
+                    ),
                   ),
                 ),
               ),

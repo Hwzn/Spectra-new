@@ -36,4 +36,6 @@ class DoctorRepository {
 
   Future<PetInfoModel> getPetInfo(int id) => doctorHttpMethods.getPetInfo(id);
 
+  Future<bool> fillSessionDetails(int resId, String details) =>
+      doctorHttpMethods.fillSessionDetails(resId, details);
 }

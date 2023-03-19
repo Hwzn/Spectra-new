@@ -3,6 +3,7 @@ part of 'ProvReservationsImports.dart';
 class ProvReservationsData {
   // controllers
   late TabController tabController;
+  final TextEditingController detailsController = TextEditingController();
 
   // blocs
   final GenericBloc<int> tabsBloc = GenericBloc(0);
@@ -17,11 +18,20 @@ class ProvReservationsData {
     previousBloc.onUpdateData(prev);
   }
 
-  sessionDetails(BuildContext context) {
+  fillSessionDetails(BuildContext context, int reservationId) async {
+    var data = await DoctorRepository(context)
+        .fillSessionDetails(reservationId, detailsController.text);
+    if(data){
+      detailsController.clear();
+      Navigator.pop(context);
+    }
+  }
+
+  sessionDetails(BuildContext context, int resId) {
     showBottomSheet(
       context: context,
       builder: (_) {
-        return const BuildDetailsBottomSheet();
+        return BuildDetailsBottomSheet(data: this, reservationId: resId);
       },
       constraints: BoxConstraints(
         maxHeight: MediaQuery.of(context).size.height * .5,

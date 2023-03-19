@@ -1,7 +1,12 @@
 part of 'ProvReservWidgetsImports.dart';
 
 class BuildDetailsBottomSheet extends StatelessWidget {
-  const BuildDetailsBottomSheet({Key? key}) : super(key: key);
+  final ProvReservationsData data;
+  final int reservationId;
+
+  const BuildDetailsBottomSheet(
+      {Key? key, required this.data, required this.reservationId})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +21,10 @@ class BuildDetailsBottomSheet extends StatelessWidget {
             alien: TextAlign.center,
           ),
           GenericTextField(
-            contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-            controller: TextEditingController(),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            controller: data.detailsController,
             fieldTypes: FieldTypes.rich,
-            max: 10,
+            max: 8,
             focusBorderColor: MyColors.black,
             enableBorderColor: MyColors.black,
             type: TextInputType.text,
@@ -30,11 +35,14 @@ class BuildDetailsBottomSheet extends StatelessWidget {
           DefaultButton(
             title: "Save",
             margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-            onTap: ()=>AutoRouter.of(context).pop(),
+            onTap: () => data.fillSessionDetails(context, reservationId),
           ),
           DefaultButton(
             title: "Cancel",
-            onTap: ()=>AutoRouter.of(context).pop(),
+            onTap: () {
+              data.detailsController.clear();
+              AutoRouter.of(context).pop();
+            },
             margin: const EdgeInsets.only(
               right: 20,
               left: 20,
