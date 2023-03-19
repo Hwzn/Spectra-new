@@ -13,6 +13,7 @@ import '../../general/helper/dio/utils/GlobalState.dart';
 import '../../general/helper/storage/Storage.dart';
 import '../../general/models/UserModel.dart';
 import '../../general/utilities/utils_functions/ApiNames.dart';
+import '../../user/models/available_day_model.dart';
 import '../../user/models/reservation_model.dart';
 import '../../user/models/review_model.dart';
 import '../models/pet_info_model.dart';

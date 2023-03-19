@@ -135,7 +135,7 @@ class DoctorHttpMethods {
       returnType: ReturnType.type,
       methodType: MethodType.post,
     );
-    if(data != null){
+    if (data != null) {
       CustomToast.showSimpleToast(msg: data['message']);
       return true;
     } else {
@@ -143,4 +143,19 @@ class DoctorHttpMethods {
     }
   }
 
+  Future<bool> updateDoctorTimes(List<AvailableDayModel> daysList) async {
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.updateDoctorTimes,
+      json: {"doctorDayTimes": daysList},
+      returnType: ReturnType.type,
+      methodType: MethodType.post,
+      showLoader: false,
+    );
+    if (data != null) {
+      CustomToast.showSimpleToast(msg: data['message']);
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

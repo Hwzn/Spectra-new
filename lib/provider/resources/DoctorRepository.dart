@@ -38,4 +38,8 @@ class DoctorRepository {
 
   Future<bool> fillSessionDetails(int resId, String details) =>
       doctorHttpMethods.fillSessionDetails(resId, details);
+
+  Future<bool> updateDoctorTimes(List<AvailableDayModel> daysList) =>
+      doctorHttpMethods.updateDoctorTimes(daysList);
+
 }

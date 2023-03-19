@@ -62,6 +62,7 @@ class ApiNames{
   static const String deleteAllNotifications = "deleteNotifications";
   static const String getPetInfo = "getPetInfo";
   static const String fillSessionDetails = "fillSessionDetails";
+  static const String updateDoctorTimes = "updateDoctorWorkDayTime";
 
 
 }
