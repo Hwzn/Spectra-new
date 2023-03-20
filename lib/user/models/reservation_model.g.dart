@@ -24,6 +24,7 @@ ReservationModel _$ReservationModelFromJson(Map<String, dynamic> json) =>
           ? null
           : ReservationReviewModel.fromJson(
               json['review'] as Map<String, dynamic>),
+      hasSessionDetails: json['has_session_details'] as bool,
     );
 
 Map<String, dynamic> _$ReservationModelToJson(ReservationModel instance) =>
@@ -39,5 +40,6 @@ Map<String, dynamic> _$ReservationModelToJson(ReservationModel instance) =>
       'client_avg_rate': instance.clientAvgRate,
       'doctor_details': instance.doctorDetails,
       'review_before': instance.reviewBefore,
+      'has_session_details': instance.hasSessionDetails,
       'review': instance.review,
     };

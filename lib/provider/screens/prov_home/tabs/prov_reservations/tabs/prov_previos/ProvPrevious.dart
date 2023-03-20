@@ -32,14 +32,17 @@ class ProvPrevious extends StatelessWidget {
                   ended: true,
                   model: state.data[index],
                   fromDoctorHome: true,
-                  endButton: DefaultButton(
-                    title: "Fill session details",
-                    height: 40,
-                    fontSize: 12,
-                    borderRadius: BorderRadius.circular(15),
-                    onTap: () => provReservationsData.sessionDetails(
-                      context,
-                      state.data[index].id,
+                  endButton: Visibility(
+                    visible: !state.data[index].hasSessionDetails && state.data[index].status != "cancelled",
+                    child: DefaultButton(
+                      title: "Fill session details",
+                      height: 40,
+                      fontSize: 12,
+                      borderRadius: BorderRadius.circular(15),
+                      onTap: () => provReservationsData.sessionDetails(
+                        context,
+                        state.data[index].id,
+                      ),
                     ),
                   ),
                 ),

@@ -28,6 +28,8 @@ class ReservationModel {
   DoctorModel doctorDetails;
   @JsonKey(name: 'review_before')
   bool reviewBefore;
+  @JsonKey(name: 'has_session_details')
+  bool hasSessionDetails;
   @JsonKey(name: 'review')
   ReservationReviewModel? review;
 
@@ -45,6 +47,7 @@ class ReservationModel {
     required this.doctorDetails,
     required this.reviewBefore,
     this.review,
+    required this.hasSessionDetails,
   });
 
   factory ReservationModel.fromJson(Map<String, dynamic> json) =>

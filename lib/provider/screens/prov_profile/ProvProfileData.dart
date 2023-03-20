@@ -32,6 +32,7 @@ class ProvProfileData {
 
   initializeData(BuildContext context) {
     var user = context.read<UserCubit>().state.model;
+    print("=====>>> user id = ${user.id}");
     name.text = user.name;
     phone.text = user.phone;
     email.text = user.email;

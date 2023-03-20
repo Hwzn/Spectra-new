@@ -21,7 +21,20 @@ class _WorkingTimesState extends State<WorkingTimes> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const DefaultAppBar(title: "Working Times"),
+      appBar: DefaultAppBar(
+        title: "Working Times",
+        leading: InkWell(
+          onTap: () {
+            AutoRouter.of(context).pop();
+            workingTimesData.selectDay(0);
+          },
+          child: Icon(
+            Icons.arrow_back_ios,
+            color: MyColors.white,
+            size: 18,
+          ),
+        ),
+      ),
       body: ListView(
         padding: const EdgeInsets.only(top: 20),
         children: [
