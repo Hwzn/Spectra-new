@@ -36,9 +36,9 @@ class WorkingTimesData {
   }
 
   selectTimes(int index) {
-    timesBloc.state.data[index].selected = true;
+    timesBloc.state.data[index].selected =
+        !timesBloc.state.data[index].selected;
     timesBloc.onUpdateData(timesBloc.state.data);
     print("${timesBloc.state.data[index].id}");
   }
-
 }
