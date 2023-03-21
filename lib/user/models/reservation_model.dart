@@ -32,6 +32,8 @@ class ReservationModel {
   bool hasSessionDetails;
   @JsonKey(name: 'review')
   ReservationReviewModel? review;
+  @JsonKey(name: 'temp_token')
+  String tempToken;
 
 
   ReservationModel({
@@ -48,6 +50,7 @@ class ReservationModel {
     required this.reviewBefore,
     this.review,
     required this.hasSessionDetails,
+    required this.tempToken,
   });
 
   factory ReservationModel.fromJson(Map<String, dynamic> json) =>

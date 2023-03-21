@@ -28,7 +28,6 @@ class BuildSessionDoctor extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(vertical: 10),
                 child: CachedImage(
                   url: model.image,
-                  // "https://www.freshpondanimalhospital.com/uploads/SiteAssets/17/images/staff/804198.jpg",
                   height: 50,
                   width: 50,
                   haveRadius: false,

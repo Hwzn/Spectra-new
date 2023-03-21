@@ -352,9 +352,13 @@ class AppRouter extends _i34.RootStackRouter {
       );
     },
     SessionCallRoute.name: (routeData) {
+      final args = routeData.argsAs<SessionCallRouteArgs>();
       return _i34.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i33.SessionCall(),
+        child: _i33.SessionCall(
+          key: args.key,
+          reservationModel: args.reservationModel,
+        ),
         opaque: true,
       );
     },
@@ -1162,12 +1166,34 @@ class WorkingTimesRouteArgs {
 
 /// generated route for
 /// [_i33.SessionCall]
-class SessionCallRoute extends _i34.PageRouteInfo<void> {
-  const SessionCallRoute()
-      : super(
+class SessionCallRoute extends _i34.PageRouteInfo<SessionCallRouteArgs> {
+  SessionCallRoute({
+    _i35.Key? key,
+    required _i36.ReservationModel reservationModel,
+  }) : super(
           SessionCallRoute.name,
           path: '/session-call',
+          args: SessionCallRouteArgs(
+            key: key,
+            reservationModel: reservationModel,
+          ),
         );
 
   static const String name = 'SessionCallRoute';
+}
+
+class SessionCallRouteArgs {
+  const SessionCallRouteArgs({
+    this.key,
+    required this.reservationModel,
+  });
+
+  final _i35.Key? key;
+
+  final _i36.ReservationModel reservationModel;
+
+  @override
+  String toString() {
+    return 'SessionCallRouteArgs{key: $key, reservationModel: $reservationModel}';
+  }
 }

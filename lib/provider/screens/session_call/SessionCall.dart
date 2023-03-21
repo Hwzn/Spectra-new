@@ -1,11 +1,11 @@
 part of 'SessionCallImports.dart';
 
 class SessionCall extends StatefulWidget {
-  // final int reservationId;
+  final ReservationModel reservationModel;
 
   const SessionCall({
     Key? key,
-    // required this.reservationId,
+    required this.reservationModel,
   }) : super(key: key);
 
   @override
@@ -17,12 +17,12 @@ class _SessionCallState extends State<SessionCall> {
 
   @override
   void initState() {
-    initAgora();
+    sessionCallData.initClient(
+      widget.reservationModel.tempToken,
+      widget.reservationModel.id,
+    );
+    sessionCallData.initAgora();
     super.initState();
-  }
-
-  void initAgora() async {
-    await sessionCallData.client.initialize();
   }
 
   @override
@@ -33,14 +33,16 @@ class _SessionCallState extends State<SessionCall> {
           AgoraVideoViewer(
             client: sessionCallData.client,
             layoutType: Layout.floating,
-            enableHostControls: true, // Add this to enable host controls
-            showNumberOfUsers: true,
+            // enableHostControls: true, // Add this to enable host controls
             renderModeType: RenderModeType.renderModeFit,
-
           ),
           AgoraVideoButtons(
             client: sessionCallData.client,
             addScreenSharing: false, // Add this to enable screen sharing
+            onDisconnect: () {
+              AutoRouter.of(context).popAndPush(
+                  ReviewSessionRoute(model: widget.reservationModel));
+            },
           ),
         ],
       ),

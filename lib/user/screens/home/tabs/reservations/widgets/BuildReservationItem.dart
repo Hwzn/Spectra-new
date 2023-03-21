@@ -69,7 +69,6 @@ class BuildReservationItem extends StatelessWidget {
                   margin: const EdgeInsets.only(bottom: 5, top: 10),
                   child: CachedImage(
                     url: model.petImage,
-                        // "https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=ZhplzyJ9",
                     height: 30,
                     width: 30,
                     haveRadius: false,
@@ -93,7 +92,6 @@ class BuildReservationItem extends StatelessWidget {
                   margin: const EdgeInsets.symmetric(vertical: 10),
                   child: CachedImage(
                     url: model.doctorDetails.image,
-                        // "https://www.freshpondanimalhospital.com/uploads/SiteAssets/17/images/staff/804198.jpg",
                     height: 50,
                     width: 50,
                     haveRadius: false,
@@ -131,25 +129,6 @@ class BuildReservationItem extends StatelessWidget {
                           fontWeight: FontWeight.normal,
                         ),
                       ),
-                      // Row(
-                      //   children: [
-                      //      CachedImage(
-                      //       url: model.doctorDetails.centerImage,
-                      //           // "https://images.ctfassets.net/rt5zmd3ipxai/q6gWiPMWCl0vRTBgwhO9K/2bed2b68c9e0324a40e1f9804a49cce5/All_Creatures_Logo_Final-01_2.png",
-                      //       height: 25,
-                      //       width: 25,
-                      //       haveRadius: false,
-                      //       boxShape: BoxShape.circle,
-                      //       fit: BoxFit.cover,
-                      //     ),
-                      //     const SizedBox(width: 5),
-                      //     MyText(
-                      //       title: "Name",
-                      //       color: MyColors.primary,
-                      //       size: 12,
-                      //     ),
-                      //   ],
-                      // ),
                     ],
                   ),
                 ),

@@ -61,6 +61,19 @@ class _SessionState extends State<Session> {
             child: ListView(
               padding: EdgeInsets.zero,
               children: [
+                InkWell(
+                  onTap: () => AutoRouter.of(context).push(
+                      SessionCallRoute(reservationModel: widget.model)),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
+                    alignment: Alignment.center,
+                    child: MyText(
+                      title: "Join Session Now",
+                      color: MyColors.primary,
+                      size: 15,
+                    ),
+                  ),
+                ),
                 BuildSessionDoctor(model: widget.model.doctorDetails),
                 InkWell(
                   onTap: widget.fromDoctorHome
