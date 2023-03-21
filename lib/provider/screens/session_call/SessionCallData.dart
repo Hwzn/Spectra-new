@@ -8,7 +8,7 @@ class SessionCallData {
       agoraConnectionData: AgoraConnectionData(
         appId: "60b8cd5b206c4a0cb1864d876c6f87f5",
         channelName: "test 2",
-        tempToken: "tempToken",
+        tempToken: tempToken,
         username: "",
         screenSharingEnabled: true,
         rtmUid: "$reservationId",
