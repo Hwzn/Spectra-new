@@ -37,8 +37,11 @@ class _MainPageState extends State<MainPage> {
                   child: ListView(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     children: [
-                      BuildMainImage(
-                        bannersList: state.data?.banners ?? [],
+                      InkWell(
+                        onTap: ()=> AutoRouter.of(context).push(SessionCallRoute()),
+                        child: BuildMainImage(
+                          bannersList: state.data?.banners ?? [],
+                        ),
                       ),
                       BuildSpecializationSection(
                         specsList: state.data?.specializations ?? [],

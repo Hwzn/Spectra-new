@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -34,12 +36,12 @@
 	<string>This app requires contacts access to function properly</string>
 	<key>NSLocalNetworkUsageDescription</key>
 	<string>Used to search for chromecast devices</string>
-	<key>NSLocationUsageDescription</key>
-    <string>Device needs location.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Location required to user addresses to select one of them for order delivery .</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Location required to user addresses to select one of them for order delivery .</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Device needs location.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location required to user addresses to select one of them for order delivery .</string>
 	<key>NSMicrophoneUsageDescription</key>
@@ -56,6 +58,7 @@
 	<string>recognize speech</string>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>audio</string>
 		<string>fetch</string>
 		<string>remote-notification</string>
 	</array>
@@ -81,8 +84,6 @@
 	<key>com.apple.security.network.client</key>
 	<true/>
 	<key>io.flutter.embedded_views_preview</key>
-	<true/>
-	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 </dict>
 </plist>

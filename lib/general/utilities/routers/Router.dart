@@ -40,6 +40,7 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: ProvProfile),
     AdaptiveRoute(page: PetProfile),
     AdaptiveRoute(page: WorkingTimes),
+    AdaptiveRoute(page: SessionCall),
 
 
   ],
