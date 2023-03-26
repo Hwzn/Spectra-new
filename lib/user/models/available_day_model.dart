@@ -23,5 +23,10 @@ class AvailableDayModel {
   factory AvailableDayModel.fromJson(Map<String, dynamic> json) =>
       _$AvailableDayModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$AvailableDayModelToJson(this);
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "name": name,
+    "times": times,
+  };
+
 }

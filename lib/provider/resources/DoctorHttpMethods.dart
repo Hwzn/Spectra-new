@@ -146,7 +146,7 @@ class DoctorHttpMethods {
   Future<bool> updateDoctorTimes(List<AvailableDayModel> daysList) async {
     dynamic data = await GenericHttp<dynamic>(context).callApi(
       name: ApiNames.updateDoctorTimes,
-      json: {"doctorDayTimes": daysList},
+      json: {"doctorDayTimes": json.encode(daysList)},
       returnType: ReturnType.type,
       methodType: MethodType.post,
       showLoader: false,

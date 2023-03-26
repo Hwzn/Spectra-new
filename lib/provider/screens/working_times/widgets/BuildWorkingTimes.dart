@@ -55,7 +55,7 @@ class BuildWorkingTimes extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 10, vertical: 10),
                           decoration: BoxDecoration(
-                            color: state.data[index].selected
+                            color: state.data[index].available == 1
                                 ? MyColors.primary
                                 : MyColors.grey.withOpacity(0.7),
                             borderRadius: BorderRadius.circular(5),

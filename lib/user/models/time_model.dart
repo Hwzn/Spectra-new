@@ -22,5 +22,9 @@ class TimeModel {
   factory TimeModel.fromJson(Map<String, dynamic> json) =>
       _$TimeModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$TimeModelToJson(this);
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "hour": hour,
+    "available": available,
+  };
 }
