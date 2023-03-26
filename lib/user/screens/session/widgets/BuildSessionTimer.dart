@@ -66,13 +66,17 @@ class BuildSessionTimer extends StatelessWidget {
                   ),
                 );
               } else {
-                return Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 5),
-                  alignment: Alignment.center,
-                  child: MyText(
-                    title: "Session Ended",
-                    color: MyColors.primary,
-                    size: 15,
+                return InkWell(
+                  onTap: () => AutoRouter.of(context).push(
+                      SessionCallRoute(reservationModel: reservationModel)),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
+                    alignment: Alignment.center,
+                    child: MyText(
+                      title: "Join Session Now",
+                      color: MyColors.primary,
+                      size: 15,
+                    ),
                   ),
                 );
               }

@@ -65,7 +65,7 @@ class SessionData {
         timeCubit.onUpdateData(displayTime);
       },
     );
-    stopWatchTimer?.setPresetHoursTime(hours);
+    stopWatchTimer?.setPresetMinuteTime(hours);
     stopWatchTimer!.onExecute.add(StopWatchExecute.start);
   }
 
@@ -73,7 +73,7 @@ class SessionData {
     DateFormat dateFormat = DateFormat("yyy-MM-dd HH:mm:ss");
     DateTime targetDate = dateFormat.parse(date);
     DateTime currentDate = DateTime.now();
-    int difference = targetDate.difference(currentDate).inHours;
+    int difference = targetDate.difference(currentDate).inMinutes;
     print("difference: $difference");
     return difference;
   }

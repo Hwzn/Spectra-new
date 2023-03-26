@@ -67,4 +67,6 @@ class UserRepository {
 
   Future<bool> cancelSession(int resId) => userHttpMethods.cancelSession(resId);
 
+  Future<int> getRemainingTime(int resId) => userHttpMethods.getRemainingTime(resId);
+
 }

@@ -276,4 +276,17 @@ class UserHttpMethods {
     );
     return data != null;
   }
+
+
+  Future<int> getRemainingTime(int resId) async {
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.remainedSessionTime + "/$resId",
+      returnType: ReturnType.type,
+      methodType: MethodType.get,
+      showLoader: false,
+      returnDataFun: (data)=> data['data']['number_of_minutes'],
+    );
+    return data;
+  }
+
 }
