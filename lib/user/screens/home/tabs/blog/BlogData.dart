@@ -60,6 +60,7 @@ class BlogData {
         createdAt: "Just now",
         comment: comment.text,
         likesCount: 0,
+        userImage: user.image,
       ));
       commentsBloc.onUpdateData(commentsBloc.state.data);
       comment.clear();

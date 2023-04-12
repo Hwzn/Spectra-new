@@ -30,8 +30,8 @@ class ProvRegisterData {
   DropDownModel? selectedCenter;
   var specializations;
   var centers;
-  String initialCountry = 'EG';
-  PhoneNumber phoneNumber = PhoneNumber(isoCode: 'EG', dialCode: '+20');
+  String initialCountry = 'SA';
+  PhoneNumber phoneNumber = PhoneNumber(isoCode: 'SA', dialCode: '+966');
   List<int> doctorsIds = [];
 
   // methods

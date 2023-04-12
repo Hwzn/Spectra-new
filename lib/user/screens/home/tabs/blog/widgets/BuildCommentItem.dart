@@ -2,6 +2,7 @@ part of 'BlogWidgetsImports.dart';
 
 class BuildCommentItem extends StatelessWidget {
   final CommentModel model;
+
   const BuildCommentItem({Key? key, required this.model}) : super(key: key);
 
   @override
@@ -42,8 +43,9 @@ class BuildCommentItem extends StatelessWidget {
           children: [
             Row(
               children: [
-                const CachedImage(
-                  url: "https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=ZhplzyJ9",
+                CachedImage(
+                  url: model.userImage,
+                  // "https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=ZhplzyJ9",
                   height: 30,
                   width: 30,
                   haveRadius: false,

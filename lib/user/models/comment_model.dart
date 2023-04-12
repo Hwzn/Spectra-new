@@ -10,6 +10,8 @@ class CommentModel {
   int userId;
   @JsonKey(name: 'user_name')
   String userName;
+  @JsonKey(name: 'user_image')
+  String userImage;
   @JsonKey(name: 'created_at')
   String createdAt;
   @JsonKey(name: 'comment')
@@ -21,6 +23,7 @@ class CommentModel {
     required this.id,
     required this.userId,
     required this.userName,
+    required this.userImage,
     required this.createdAt,
     required this.comment,
     required this.likesCount,

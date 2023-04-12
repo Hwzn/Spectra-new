@@ -22,8 +22,8 @@ class RegisterData {
       TextEditingController();
 
   // variables
-  String initialCountry = 'EG';
-  PhoneNumber phoneNumber = PhoneNumber(isoCode: 'EG', dialCode: '+20');
+  String initialCountry = 'SA';
+  PhoneNumber phoneNumber = PhoneNumber(isoCode: 'SA', dialCode: '+966');
   var userTypes;
   DropDownModel? selectedUserType;
 

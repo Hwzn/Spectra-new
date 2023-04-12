@@ -14,8 +14,8 @@ class LoginData {
   final GenericBloc<bool> passwordCubit = GenericBloc(false);
 
   // variables
-  String initialCountry = 'EG';
-  PhoneNumber phoneNumber = PhoneNumber(isoCode: 'EG', dialCode: '+20');
+  String initialCountry = 'SA';
+  PhoneNumber phoneNumber = PhoneNumber(isoCode: 'SA', dialCode: '+966');
 
   // methods
   void userLogin(BuildContext context) async {

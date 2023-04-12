@@ -3,7 +3,9 @@ part of 'DoctorDetailsWidgetsImports.dart';
 class BuildDrDetailsAppBar extends StatelessWidget {
   final DoctorDetailsData doctorDetailsData;
   final int doctorId;
-  const BuildDrDetailsAppBar({Key? key, required this.doctorDetailsData, required this.doctorId})
+
+  const BuildDrDetailsAppBar(
+      {Key? key, required this.doctorDetailsData, required this.doctorId})
       : super(key: key);
 
   @override
@@ -68,10 +70,14 @@ class BuildDrDetailsAppBar extends StatelessWidget {
           BlocBuilder<GenericBloc<bool>, GenericState<bool>>(
             bloc: doctorDetailsData.favBloc,
             builder: (context, state) {
-              return InkWell(
-                onTap: () => doctorDetailsData.addRemoveFav(
+              return IconButton(
+                onPressed: () => doctorDetailsData.addRemoveFav(
                     context, doctorId),
-                child: Icon(
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
+                color: Colors.transparent,
+                hoverColor: Colors.transparent,
+                icon: Icon(
                   Icons.favorite,
                   color: state.data ? Colors.red : MyColors.white,
                   size: 28,
