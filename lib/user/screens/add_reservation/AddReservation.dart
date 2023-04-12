@@ -6,7 +6,10 @@ class AddReservation extends StatefulWidget {
   final int doctorId;
 
   const AddReservation(
-      {Key? key, required this.daysList, required this.sessionPrice, required this.doctorId})
+      {Key? key,
+      required this.daysList,
+      required this.sessionPrice,
+      required this.doctorId})
       : super(key: key);
 
   @override
@@ -20,6 +23,8 @@ class _AddReservationState extends State<AddReservation> {
   void initState() {
     addReservationData.fetchData(context, widget.daysList);
     addReservationData.sessionPrice = widget.sessionPrice;
+    addReservationData.pricesBloc.onUpdateData(ReservationPricesModel(
+        sessionPrices: widget.sessionPrice, total: widget.sessionPrice));
     addReservationData.doctorId = widget.doctorId;
     super.initState();
   }

@@ -15,8 +15,11 @@ class BuildDoctorDateTime extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => AutoRouter.of(context).push(AddReservationRoute(
-          daysList: daysList, sessionPrice: sessionPrice, doctorId: doctorId)),
+      onTap: () {
+        print("=====>>> price = $sessionPrice");
+        AutoRouter.of(context).push(AddReservationRoute(
+            daysList: daysList, sessionPrice: sessionPrice, doctorId: doctorId));
+      },
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
         padding: const EdgeInsets.all(20),

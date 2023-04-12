@@ -15,6 +15,18 @@ class AddPetData {
 
   // methods
   addPet(BuildContext context) async {
+    if(imageBloc.state.data == null){
+      CustomToast.showSimpleToast(msg: "Please add pet image");
+      return;
+    }
+    if(petName.text.isEmpty){
+      CustomToast.showSimpleToast(msg: "Please add pet name");
+      return;
+    }
+    if(details.text.isEmpty){
+      CustomToast.showSimpleToast(msg: "Please add pet details");
+      return;
+    }
     AddPetModel model = AddPetModel(
       image: imageBloc.state.data ?? File(''),
       details: details.text,

@@ -96,9 +96,10 @@ class AddReservationData {
     });
     timesBloc.state.data[index].selected = true;
     timesBloc.onUpdateData(timesBloc.state.data);
-    num total = sessionPrice * timesList.length;
-    pricesBloc.onUpdateData(
-        ReservationPricesModel(sessionPrices: total, total: total));
+    // This was done when having the option to add multiple times
+    // num total = sessionPrice * timesList.length;
+    // pricesBloc.onUpdateData(
+    //     ReservationPricesModel(sessionPrices: total, total: total));
     print("${timesBloc.state.data[index].id}");
   }
 
