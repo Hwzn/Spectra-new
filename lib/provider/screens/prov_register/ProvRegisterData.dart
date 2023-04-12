@@ -50,15 +50,18 @@ class ProvRegisterData {
     if (typeBloc.state.data == 1) {
       // add values to the model
       RegisterDoctorModel model = RegisterDoctorModel(
-          email: email.text,
-          countryCode: phoneNumber.dialCode ?? '',
-          phone: phoneEn,
-          invitationCode: invCode.text,
-          name: name.text,
-          password: pass.text,
-          specializationId: selectedSpecialization?.id ?? 0,
-          centerId: selectedCenter?.id ?? 0,
-          cv: uploadPdfBloc.state.data.elementAt(0));
+        email: email.text,
+        countryCode: phoneNumber.dialCode ?? '',
+        phone: phoneEn,
+        invitationCode: invCode.text,
+        name: name.text,
+        password: pass.text,
+        specializationId: selectedSpecialization?.id ?? 0,
+        centerId: selectedCenter?.id ?? 0,
+        cv: uploadPdfBloc.state.data.isNotEmpty
+            ? uploadPdfBloc.state.data.first
+            : null,
+      );
       // call api
       await GeneralRepository(context).registerDoctor(model);
     } else {
@@ -74,7 +77,7 @@ class ProvRegisterData {
       );
       // call api
       var result = await GeneralRepository(context).registerCenter(model);
-      if(result == true){
+      if (result == true) {
         AutoRouter.of(context).pop();
       }
     }
