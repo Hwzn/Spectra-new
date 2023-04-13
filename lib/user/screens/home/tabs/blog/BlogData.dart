@@ -8,6 +8,10 @@ class BlogData {
   final GenericBloc<List<BlogModel>> blogsBloc = GenericBloc([]);
   final GenericBloc<List<CommentModel>> commentsBloc = GenericBloc([]);
 
+  // variables
+  bool isEditComment = false;
+  var commentId = 0;
+
   // methods
   fetchData(BuildContext context) async {
     var data = await UserRepository(context).getBlogs();
@@ -73,7 +77,7 @@ class BlogData {
     await UserRepository(context).likeOrUnlike(id);
     var blogsList = blogsBloc.state.data;
     BlogModel model = blogsList.firstWhere((element) => element.id == id);
-    if(model.isLiked){
+    if (model.isLiked) {
       model.isLiked = false;
       model.likesCount = model.likesCount - 1;
     } else {
@@ -83,10 +87,32 @@ class BlogData {
     blogsBloc.onUpdateData(blogsList);
   }
 
-  viewImages(BuildContext context, List<DropDownModel> images){
+  viewImages(BuildContext context, List<DropDownModel> images) {
     var imageList = [];
-    images.forEach((e) {imageList.add(e.image);});
+    images.forEach((e) {
+      imageList.add(e.image);
+    });
     AutoRouter.of(context).push(ImageZoomRoute(images: imageList));
   }
 
+  editComment(BuildContext context, int id) async {
+    if (comment.text.isNotEmpty) {
+      await UserRepository(context).editComment(id, comment.text);
+      commentsBloc.state.data
+          .firstWhere((element) => element.id == id)
+          .comment = comment.text;
+      commentsBloc.onUpdateData(commentsBloc.state.data);
+      comment.clear();
+      isEditComment = false;
+      commentId = 0;
+    } else {
+      CustomToast.showSimpleToast(msg: "Comment cannot be empty");
+    }
+  }
+
+  deleteComment(BuildContext context, CommentModel model) async {
+    await UserRepository(context).deleteComment(model.id);
+    commentsBloc.state.data.remove(model);
+    commentsBloc.onUpdateData(commentsBloc.state.data);
+  }
 }

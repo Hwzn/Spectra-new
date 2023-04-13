@@ -289,4 +289,33 @@ class UserHttpMethods {
     return data;
   }
 
+  Future<bool> editComment(int id, String comment) async {
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.editComment + "/$id",
+      json: {"comment": comment},
+      returnType: ReturnType.type,
+      methodType: MethodType.post,
+    );
+    if (data != null) {
+      CustomToast.showSimpleToast(msg: data["message"]);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<bool> deleteComment(int id) async {
+    dynamic data = await GenericHttp<dynamic>(context).callApi(
+      name: ApiNames.deleteComment + "/$id",
+      returnType: ReturnType.type,
+      methodType: MethodType.post,
+    );
+    if (data != null) {
+      CustomToast.showSimpleToast(msg: data["message"]);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }

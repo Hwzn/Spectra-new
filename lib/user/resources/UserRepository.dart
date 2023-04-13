@@ -67,6 +67,11 @@ class UserRepository {
 
   Future<bool> cancelSession(int resId) => userHttpMethods.cancelSession(resId);
 
-  Future<int> getRemainingTime(int resId) => userHttpMethods.getRemainingTime(resId);
+  Future<int> getRemainingTime(int resId) =>
+      userHttpMethods.getRemainingTime(resId);
 
+  Future<bool> editComment(int id, String comment) =>
+      userHttpMethods.editComment(id, comment);
+
+  Future<bool> deleteComment(int id) => userHttpMethods.deleteComment(id);
 }

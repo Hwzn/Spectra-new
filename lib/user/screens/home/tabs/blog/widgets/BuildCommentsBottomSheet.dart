@@ -70,6 +70,7 @@ class _BuildCommentsBottomSheetState extends State<BuildCommentsBottomSheet> {
                         state.data.length,
                         (index) => BuildCommentItem(
                           model: state.data[index],
+                          blogData: widget.blogData,
                         ),
                       ),
                     ),
@@ -89,8 +90,13 @@ class _BuildCommentsBottomSheetState extends State<BuildCommentsBottomSheet> {
                         radius: 20,
                         enableBorderColor: MyColors.lightGrey,
                         suffixIcon: InkWell(
-                          onTap: () =>
-                              widget.blogData.addComment(context, widget.blogId),
+                          onTap: () {
+                            if(widget.blogData.isEditComment == false){
+                              widget.blogData.addComment(context, widget.blogId);
+                            } else {
+                              widget.blogData.editComment(context, widget.blogData.commentId);
+                            }
+                          },
                           child: Icon(
                             MdiIcons.arrowRightCircle,
                             color: MyColors.primary,

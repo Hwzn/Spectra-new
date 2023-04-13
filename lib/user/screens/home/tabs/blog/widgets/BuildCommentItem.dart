@@ -2,8 +2,11 @@ part of 'BlogWidgetsImports.dart';
 
 class BuildCommentItem extends StatelessWidget {
   final CommentModel model;
+  final BlogData blogData;
 
-  const BuildCommentItem({Key? key, required this.model}) : super(key: key);
+  const BuildCommentItem(
+      {Key? key, required this.model, required this.blogData})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,32 +15,38 @@ class BuildCommentItem extends StatelessWidget {
       padding: const EdgeInsets.all(15),
       color: MyColors.grey.withOpacity(0.15),
       child: Slidable(
-        // endActionPane: ActionPane(
-        //   extentRatio: 0.25,
-        //   motion: const DrawerMotion(),
-        //   children: [
-        //     SlidableAction(
-        //       onPressed: null,
-        //       backgroundColor: Colors.green,
-        //       foregroundColor: MyColors.white,
-        //       icon: Icons.edit,
-        //       label: 'Edit',
-        //       padding: EdgeInsets.zero,
-        //     ),
-        //     SlidableAction(
-        //       onPressed: null,
-        //       backgroundColor: Colors.red,
-        //       foregroundColor: MyColors.white,
-        //       icon: Icons.delete,
-        //       label: 'Delete',
-        //       borderRadius: const BorderRadius.only(
-        //         topRight: Radius.circular(20),
-        //         bottomRight: Radius.circular(20),
-        //       ),
-        //       padding: EdgeInsets.zero,
-        //     ),
-        //   ],
-        // ),
+        endActionPane: ActionPane(
+          extentRatio: 0.25,
+          motion: const DrawerMotion(),
+          children: [
+            SlidableAction(
+              onPressed: (v){
+                blogData.comment.text = model.comment;
+                blogData.isEditComment = true;
+                blogData.commentId = model.id;
+                print("=========>>>>> id = ${blogData.commentId}");
+                print("=========>>>>> edit = ${blogData.isEditComment}");
+              },
+              backgroundColor: Colors.green,
+              foregroundColor: MyColors.white,
+              icon: Icons.edit,
+              // label: 'Edit',
+              padding: EdgeInsets.zero,
+            ),
+            SlidableAction(
+              onPressed: (v)=> blogData.deleteComment(context, model),
+              backgroundColor: Colors.red,
+              foregroundColor: MyColors.white,
+              icon: Icons.delete,
+              // label: 'Delete',
+              borderRadius: const BorderRadius.only(
+                topRight: Radius.circular(20),
+                bottomRight: Radius.circular(20),
+              ),
+              padding: EdgeInsets.zero,
+            ),
+          ],
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

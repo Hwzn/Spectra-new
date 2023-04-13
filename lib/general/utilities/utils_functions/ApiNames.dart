@@ -37,6 +37,8 @@ class ApiNames{
   static const String allBlogs = "allBlogs";
   static const String blogComments = "blogComments";
   static const String makeComment = "makeComment";
+  static const String editComment = "editComment";
+  static const String deleteComment = "deleteComment";
   static const String categories = "categories";
   static const String createBlog = "createBlog";
   static const String toggleLike = "toggleLike";
