@@ -45,45 +45,57 @@ class ProvRegisterData {
     String phoneEn = HelperMethods.convertDigitsToLatin(phone.text);
 
     // animate button
-    btnKey.currentState!.animateForward();
-
-    if (typeBloc.state.data == 1) {
-      // add values to the model
-      RegisterDoctorModel model = RegisterDoctorModel(
-        email: email.text,
-        countryCode: phoneNumber.dialCode ?? '',
-        phone: phoneEn,
-        invitationCode: invCode.text,
-        name: name.text,
-        password: pass.text,
-        specializationId: selectedSpecialization?.id ?? 0,
-        centerId: selectedCenter?.id ?? 0,
-        cv: uploadPdfBloc.state.data.isNotEmpty
-            ? uploadPdfBloc.state.data.first
-            : null,
-      );
-      // call api
-      await GeneralRepository(context).registerDoctor(model);
-    } else {
-      // add values to the model
-      RegisterCenterModel model = RegisterCenterModel(
-        email: email.text,
-        countryCode: phoneNumber.dialCode ?? '',
-        phone: phoneEn,
-        invitationCode: invCode.text,
-        name: name.text,
-        details: generalInfo.text,
-        doctorsIds: doctorsIds,
-      );
-      // call api
-      var result = await GeneralRepository(context).registerCenter(model);
-      if (result == true) {
-        AutoRouter.of(context).pop();
+    if (formKey.currentState!.validate()) {
+      if (typeBloc.state.data == 1) {
+        if (selectedSpecialization == null) {
+          CustomToast.showSimpleToast(msg: "Please select specialization");
+          return;
+        }
+        LoadingDialog.showLoadingDialog();
+        btnKey.currentState!.animateForward();
+        // add values to the model
+        RegisterDoctorModel model = RegisterDoctorModel(
+          email: email.text,
+          countryCode: phoneNumber.dialCode ?? '',
+          phone: phoneEn,
+          invitationCode: invCode.text,
+          name: name.text,
+          password: pass.text,
+          specializationId: selectedSpecialization?.id ?? 0,
+          centerId: selectedCenter?.id ?? 0,
+          cv: uploadPdfBloc.state.data.isNotEmpty
+              ? uploadPdfBloc.state.data.first
+              : null,
+        );
+        // call api
+        await GeneralRepository(context).registerDoctor(model);
+      } else {
+        if(doctorsIds.isEmpty){
+          CustomToast.showSimpleToast(msg: "Please add doctors");
+          return;
+        }
+        LoadingDialog.showLoadingDialog();
+        btnKey.currentState!.animateForward();
+        // add values to the model
+        RegisterCenterModel model = RegisterCenterModel(
+          email: email.text,
+          countryCode: phoneNumber.dialCode ?? '',
+          phone: phoneEn,
+          invitationCode: invCode.text,
+          name: name.text,
+          details: generalInfo.text,
+          doctorsIds: doctorsIds,
+        );
+        // call api
+        var result = await GeneralRepository(context).registerCenter(model);
+        if (result == true) {
+          AutoRouter.of(context).pop();
+        }
       }
+      // animate button back
+      btnKey.currentState!.animateReverse();
+      EasyLoading.dismiss();
     }
-
-    // animate button back
-    btnKey.currentState!.animateReverse();
   }
 
   // used to update selected specialization in drop down field

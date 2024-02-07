@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:hwzn_base/general/constants/modals/LoadingDialog.dart';
 import 'package:hwzn_base/general/helper/validator/Validator.dart';
 import 'package:hwzn_base/general/models/dropdown_model/dropdown_model.dart';
@@ -19,6 +20,7 @@ import '../../../general/helper/configration/CustomButtonAnimation.dart';
 import '../../../general/helper/helper_methods/HelperMethods.dart';
 import '../../../general/packages/generic_bloc/generic_cubit.dart';
 import '../../../general/resources/GeneralRepoImports.dart';
+import '../../../general/utilities/utils_functions/LoadingDialog.dart';
 import '../../../general/widgets/LoadingButton.dart';
 
 part 'ProvRegister.dart';

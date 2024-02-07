@@ -48,7 +48,9 @@ class BuildProvRegisterInputs extends StatelessWidget {
                     fieldTypes: FieldTypes.normal,
                     type: TextInputType.text,
                     action: TextInputAction.next,
-                    validate: (value) => value!.noValidate(),
+                    validate: state.data != 1
+                        ? (value) =>  value!.validateEmpty(context)
+                        : (value) => value!.noValidate(),
                     hint: "General Information",
                     margin: const EdgeInsets.symmetric(vertical: 10),
                   ),
@@ -60,7 +62,7 @@ class BuildProvRegisterInputs extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                   controller: provRegisterData.invCode,
                   fieldTypes: FieldTypes.normal,
-                  type: TextInputType.text,
+                  type: TextInputType.number,
                   action: TextInputAction.next,
                   validate: (value) => value!.validateEmpty(context),
                   hint: "Invitation Code",

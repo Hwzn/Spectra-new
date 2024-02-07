@@ -17,11 +17,13 @@ class BuildProvAccRateItem extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              MyText(
-                title: price,
-                size: 30,
-                color: MyColors.black,
-                fontFamily: GoogleFonts.poppins().fontFamily,
+              FittedBox(
+                child: MyText(
+                  title: price,
+                  size: 30,
+                  color: MyColors.black,
+                  fontFamily: GoogleFonts.poppins().fontFamily,
+                ),
               ),
               MyText(
                 title: "SAR",

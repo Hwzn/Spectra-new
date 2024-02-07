@@ -4,6 +4,9 @@ class MainPageData {
   // blocs
   final GenericBloc<HomeModel?> homeBloc = GenericBloc(null);
 
+  // List<String>
+
+
   //
   fetchData(BuildContext context) async {
     var data = await UserRepository(context).getHome();

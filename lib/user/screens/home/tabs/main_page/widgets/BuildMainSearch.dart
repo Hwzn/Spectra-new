@@ -14,7 +14,7 @@ class BuildMainSearch extends StatelessWidget {
         fieldTypes: FieldTypes.normal,
         action: TextInputAction.search,
         type: TextInputType.text,
-        validate: (value) => value?.validateEmpty(context),
+        validate: (value) => value?.noValidate(),
         margin: const EdgeInsets.symmetric(horizontal: 30),
         hint: "Search for a doctor",
         prefixIcon: Icon(

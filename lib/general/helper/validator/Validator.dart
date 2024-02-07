@@ -46,11 +46,11 @@ extension Validator on String {
     return null;
   }
 
-  String? validatePhone(BuildContext context,{String? message}) {
+  String? validatePhone(BuildContext context, {String? message}) {
     if (trim().isEmpty) {
-      return message ?? "Please fill this field";
-    } else if (this.length > 14 || this.length < 9) {
-      return message ?? "Phone must contain at least 9 numbers staring with 05";
+      return message ?? tr(context, 'fillField');
+    } else if (length > 14 || length < 9) {
+      return message ?? "Phone must contain at least 9 numbers";
     }
     return null;
   }

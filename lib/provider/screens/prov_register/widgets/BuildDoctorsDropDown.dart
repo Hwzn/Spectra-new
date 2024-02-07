@@ -13,7 +13,7 @@ class BuildDoctorsDropDown extends StatelessWidget {
           hint: "Specialization",
           selectedItem: provRegisterData.selectedSpecialization,
           margin: const EdgeInsets.symmetric(vertical: 10),
-          validate: (value) => value.noValidate(),
+          validate: (value){},
           onChange: (DropDownModel? model) =>
               provRegisterData.setSelectISpecialization(model),
           useName: true,
@@ -27,7 +27,7 @@ class BuildDoctorsDropDown extends StatelessWidget {
           hint: "Center name if you have",
           selectedItem: provRegisterData.selectedCenter,
           margin: const EdgeInsets.symmetric(vertical: 10),
-          validate: (value) => value.noValidate(),
+          validate: (value){},
           onChange: (DropDownModel? model) =>
               provRegisterData.setSelectCenter(model),
           useName: true,

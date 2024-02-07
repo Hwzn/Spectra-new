@@ -77,6 +77,7 @@ class BuildDrDetailsAppBar extends StatelessWidget {
                 splashColor: Colors.transparent,
                 color: Colors.transparent,
                 hoverColor: Colors.transparent,
+                focusColor: Colors.transparent,
                 icon: Icon(
                   Icons.favorite,
                   color: state.data ? Colors.red : MyColors.white,

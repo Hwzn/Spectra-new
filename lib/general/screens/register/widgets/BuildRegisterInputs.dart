@@ -46,7 +46,7 @@ class BuildRegisterFields extends StatelessWidget {
               onSaved: (PhoneNumber number) {
                 print('On Saved: $number');
               },
-              validator: (value) => value?.validatePhone(context),
+              validator: (value) => (value)!.validatePhone(context),
             ),
           ),
           GenericTextField(
@@ -73,7 +73,7 @@ class BuildRegisterFields extends StatelessWidget {
             contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 7),
             controller: registerData.codeController,
             fieldTypes: FieldTypes.normal,
-            type: TextInputType.text,
+            type: TextInputType.number,
             action: TextInputAction.next,
             validate: (value) => value?.validateEmpty(context),
             hint: "Invitation Code",

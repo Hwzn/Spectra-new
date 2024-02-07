@@ -5,6 +5,7 @@ class ProvProfileData {
   final GlobalKey<CustomButtonState> btnKey = GlobalKey();
   final GlobalKey<DropdownSearchState> specDropKey = GlobalKey();
   final GlobalKey<DropdownSearchState> centerDropKey = GlobalKey();
+  final GlobalKey<FormState> formKey = GlobalKey();
 
   // bloc
   final GenericBloc<File?> imageCubit = GenericBloc(null);
@@ -53,25 +54,27 @@ class ProvProfileData {
   }
 
   updateProfile(BuildContext context) async {
-    if (selectedSpec?.id == null) {
-      CustomToast.showSimpleToast(msg: "Please select specialization");
-      return;
-    }
-    btnKey.currentState?.animateForward();
-    UpdateDoctorProfileModel model = UpdateDoctorProfileModel(
-      phone: phone.text,
-      name: name.text,
-      email: email.text,
-      description: description.text,
-      centerId: selectedCenter?.id ?? 0,
-      specId: selectedSpec?.id ?? 0,
-      cv: uploadPdfBloc.state.data.isNotEmpty
-          ? uploadPdfBloc.state.data.first
-          : null,
-      image: imageCubit.state.data,
-    );
-    await DoctorRepository(context).updateDoctorProfile(model);
-    btnKey.currentState?.animateReverse();
+   if(formKey.currentState!.validate()){
+     if (selectedSpec?.id == null) {
+       CustomToast.showSimpleToast(msg: "Please select specialization");
+       return;
+     }
+     btnKey.currentState?.animateForward();
+     UpdateDoctorProfileModel model = UpdateDoctorProfileModel(
+       phone: phone.text,
+       name: name.text,
+       email: email.text,
+       description: description.text,
+       centerId: selectedCenter?.id ?? 0,
+       specId: selectedSpec?.id ?? 0,
+       cv: uploadPdfBloc.state.data.isNotEmpty
+           ? uploadPdfBloc.state.data.first
+           : null,
+       image: imageCubit.state.data,
+     );
+     await DoctorRepository(context).updateDoctorProfile(model);
+     btnKey.currentState?.animateReverse();
+   }
   }
 
   Future<List<DropDownModel>> getSpecs(BuildContext context) async {
