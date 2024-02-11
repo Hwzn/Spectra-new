@@ -26,7 +26,7 @@ class BuildProvAccRateItem extends StatelessWidget {
                 ),
               ),
               MyText(
-                title: "SAR",
+                title: tr(context,'sar'),
                 size: 14,
                 color: MyColors.black,
               ),

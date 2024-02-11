@@ -18,7 +18,7 @@ class BuildPetsSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 MyText(
-                  title: "My Pets",
+                  title: tr(context, 'myPets'),
                   color: MyColors.black,
                   size: 14,
                 ),
@@ -30,7 +30,7 @@ class BuildPetsSection extends StatelessWidget {
                     }
                   },
                   child: MyText(
-                    title: "+ add a pet",
+                    title: "+ ${tr(context, 'addPet')}",
                     color: MyColors.primary,
                     size: 14,
                   ),
@@ -48,7 +48,7 @@ class BuildPetsSection extends StatelessWidget {
                     height: 150,
                     alignment: Alignment.center,
                     child: MyText(
-                      title: "No Pets",
+                      title: tr(context, 'noPets'),
                       size: 16,
                       color: MyColors.primary,
                     ),

@@ -79,7 +79,7 @@ class BuildGoogleMapView extends StatelessWidget {
                 BuildMainMarker(locationAddressData: locationAddressData),
               ],
             ),
-            BuildAddressContainer(),
+            const BuildAddressContainer(),
             BuildMapExtensions(locationAddressData: locationAddressData)
           ],
         );

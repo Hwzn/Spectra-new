@@ -10,6 +10,7 @@ import 'package:hwzn_base/general/widgets/DefaultButton.dart';
 
 import '../../../constants/MyColors.dart';
 import '../../../packages/generic_bloc/generic_cubit.dart';
+import '../../../packages/localization/Localizations.dart';
 import '../../../widgets/MyText.dart';
 
 part 'BuildSliderImage.dart';

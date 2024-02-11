@@ -5,6 +5,7 @@ import 'package:hwzn_base/general/widgets/MyText.dart';
 
 import '../../../../../../../general/constants/MyColors.dart';
 import '../../../../../../../general/packages/generic_bloc/generic_cubit.dart';
+import '../../../../../../../general/packages/localization/Localizations.dart';
 import '../../../../../../models/reservation_model.dart';
 import '../../ReservationsImports.dart';
 import '../../widgets/ReservationsWidgetsImports.dart';

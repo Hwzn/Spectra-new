@@ -8,6 +8,7 @@ import 'package:hwzn_base/user/resources/UserRepositoryImports.dart';
 import 'package:hwzn_base/user/screens/home/tabs/reservations/widgets/ReservationsWidgetsImports.dart';
 import 'package:hwzn_base/user/screens/review_session/widgets/ReviewSessionWidgetsImports.dart';
 
+import '../../../general/packages/localization/Localizations.dart';
 import '../../../general/widgets/DefaultButton.dart';
 import '../../../general/widgets/MyText.dart';
 import '../../models/reservation_model.dart';

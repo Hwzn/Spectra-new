@@ -15,7 +15,7 @@ class BuildChangeTimeBottomSheet extends StatelessWidget {
       child: Column(
         children: [
           MyText(
-            title: "Change Time",
+            title: tr(context, 'changeTime'),
             color: MyColors.black,
             size: 16,
           ),
@@ -29,7 +29,7 @@ class BuildChangeTimeBottomSheet extends StatelessWidget {
             ),
           ),
           DefaultButton(
-            title: "Change Time",
+            title: tr(context, 'changeTime'),
             margin: const EdgeInsets.all(20),
             onTap: () => sessionData.changeSessionTime(
               context,

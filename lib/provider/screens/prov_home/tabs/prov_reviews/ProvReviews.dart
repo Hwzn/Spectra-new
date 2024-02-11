@@ -20,8 +20,8 @@ class _ProvReviewsState extends State<ProvReviews> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.bg,
-      appBar: const DefaultAppBar(
-        title: "Reviews",
+      appBar: DefaultAppBar(
+        title: tr(context, 'reviews'),
         showLeading: false,
       ),
       body: BlocBuilder<GenericBloc<List<ReviewModel>>,
@@ -59,7 +59,7 @@ class _ProvReviewsState extends State<ProvReviews> {
                       visible: state.data.isNotEmpty,
                       replacement: Center(
                         child: MyText(
-                          title: "No Reviews Available",
+                          title: tr(context, 'noReviews'),
                           color: MyColors.blackOpacity,
                           size: 12,
                         ),

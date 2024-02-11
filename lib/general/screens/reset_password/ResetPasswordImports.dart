@@ -12,6 +12,7 @@ import 'package:stop_watch_timer/stop_watch_timer.dart';
 
 import '../../../res.dart';
 import '../../constants/MyColors.dart';
+import '../../packages/localization/Localizations.dart';
 import '../../widgets/AuthScaffold.dart';
 import '../../widgets/BuildHeaderTitle.dart';
 import '../../widgets/MyText.dart';

@@ -30,7 +30,6 @@ class BuildCommentItem extends StatelessWidget {
               backgroundColor: Colors.green,
               foregroundColor: MyColors.white,
               icon: Icons.edit,
-              // label: 'Edit',
               padding: EdgeInsets.zero,
             ),
             SlidableAction(
@@ -38,7 +37,6 @@ class BuildCommentItem extends StatelessWidget {
               backgroundColor: Colors.red,
               foregroundColor: MyColors.white,
               icon: Icons.delete,
-              // label: 'Delete',
               borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(20),
                 bottomRight: Radius.circular(20),
@@ -54,7 +52,6 @@ class BuildCommentItem extends StatelessWidget {
               children: [
                 CachedImage(
                   url: model.userImage,
-                  // "https://www.humanesociety.org/sites/default/files/styles/1240x698/public/2020-07/kitten-510651.jpg?h=f54c7448&itok=ZhplzyJ9",
                   height: 30,
                   width: 30,
                   haveRadius: false,
@@ -80,7 +77,6 @@ class BuildCommentItem extends StatelessWidget {
               margin: const EdgeInsets.only(top: 10),
               child: MyText(
                 title: model.comment,
-                // "Comment content here, Comment content here, Comment content here, Comment content here,.",
                 color: MyColors.blackOpacity,
                 size: 10,
               ),

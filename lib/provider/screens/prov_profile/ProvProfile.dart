@@ -20,7 +20,7 @@ class _ProvProfileState extends State<ProvProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.bg,
-      appBar: const DefaultAppBar(title: "My Account"),
+      appBar: DefaultAppBar(title: tr(context, 'myAccount')),
       body: BlocBuilder<GenericBloc<bool>, GenericState<bool>>(
         bloc: provProfileData.loadedBloc,
         builder: (context, state) {
@@ -39,7 +39,7 @@ class _ProvProfileState extends State<ProvProfile> {
       bottomNavigationBar: SizedBox(
         height: 90,
         child: LoadingButton(
-          title: "Save Changes",
+          title: tr(context, 'saveChanges'),
           margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
           borderRadius: 15,
           btnKey: provProfileData.btnKey,

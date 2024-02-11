@@ -19,6 +19,7 @@ import '../../../general/constants/custom_ drop_down/CustomDropDown.dart';
 import '../../../general/helper/configration/CustomButtonAnimation.dart';
 import '../../../general/helper/helper_methods/HelperMethods.dart';
 import '../../../general/packages/generic_bloc/generic_cubit.dart';
+import '../../../general/packages/localization/Localizations.dart';
 import '../../../general/resources/GeneralRepoImports.dart';
 import '../../../general/utilities/utils_functions/LoadingDialog.dart';
 import '../../../general/widgets/LoadingButton.dart';

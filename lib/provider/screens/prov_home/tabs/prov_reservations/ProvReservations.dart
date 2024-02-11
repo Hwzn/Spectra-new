@@ -24,8 +24,8 @@ class _ProvReservationsState extends State<ProvReservations>
       length: 2,
       child: Scaffold(
         backgroundColor: MyColors.bg,
-        appBar: const DefaultAppBar(
-          title: "My Reservations",
+        appBar: DefaultAppBar(
+          title: tr(context, "myReservations"),
           showLeading: false,
         ),
         body: Column(

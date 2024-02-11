@@ -24,7 +24,7 @@ class BuildSessionDoctorInfo extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           MyText(
-            title: "Doctor Info",
+            title: tr(context, 'doctorInfo'),
             color: MyColors.black,
             size: 13,
           ),
@@ -32,7 +32,7 @@ class BuildSessionDoctorInfo extends StatelessWidget {
           Visibility(
             visible: info != '',
             replacement: MyText(
-              title: "No Data Available",
+              title: tr(context, 'noData'),
               color: MyColors.blackOpacity,
               size: 12,
             ),

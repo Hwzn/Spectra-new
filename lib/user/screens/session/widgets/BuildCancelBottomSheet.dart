@@ -16,7 +16,7 @@ class BuildCancelBottomSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           MyText(
-            title: "Cancel Session",
+            title: tr(context, 'cancelSession'),
             color: MyColors.black,
             size: 20,
           ),
@@ -31,7 +31,7 @@ class BuildCancelBottomSheet extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: MyText(
-                title: "Cancel Session",
+                title: tr(context, 'cancelSession'),
                 color: MyColors.grey,
                 size: 14,
                 fontWeight: FontWeight.normal,
@@ -49,7 +49,7 @@ class BuildCancelBottomSheet extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: MyText(
-                title: "Change Time",
+                title: tr(context, 'changeTime'),
                 color: MyColors.grey,
                 size: 14,
                 fontWeight: FontWeight.normal,
@@ -57,7 +57,7 @@ class BuildCancelBottomSheet extends StatelessWidget {
             ),
           ),
           DefaultButton(
-            title: "Next",
+            title: tr(context, 'next'),
             margin: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
           ),
         ],

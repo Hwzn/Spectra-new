@@ -13,7 +13,7 @@ class _AboutState extends State<About> with AboutData {
   Widget build(BuildContext context) {
     var about = context.read<SettingCubit>().state.model.about;
     return AuthScaffold(
-      appBar: const DefaultAppBar(title: 'عن التطبيق'),
+      appBar: DefaultAppBar(title: tr(context, 'aboutApp')),
       showTitle: false,
       body:BuildAboutView(text: about??"")
     );

@@ -12,7 +12,7 @@ class BuildSpecializationSection extends StatelessWidget {
         Container(
           margin: const EdgeInsets.only(top: 15, bottom: 10),
           child: MyText(
-            title: "Top Specialization",
+            title: tr(context, 'topSpecializations'),
             color: MyColors.black,
             size: 13,
             fontWeight: FontWeight.bold,

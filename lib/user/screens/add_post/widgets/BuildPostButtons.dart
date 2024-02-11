@@ -25,7 +25,7 @@ class BuildPostButtons extends StatelessWidget {
               Image.asset(Res.locator, width: 18),
               const SizedBox(width: 10),
               MyText(
-                title: "Share Location",
+                title: tr(context, 'shareLocation'),
                 color: MyColors.blackOpacity,
                 size: 11,
                 fontFamily: GoogleFonts.poppins().fontFamily,
@@ -46,7 +46,7 @@ class BuildPostButtons extends StatelessWidget {
               Icon(MdiIcons.imagePlusOutline, color: MyColors.white),
               const SizedBox(width: 10),
               MyText(
-                title: "Upload photo",
+                title: tr(context, 'uploadPhoto'),
                 color: MyColors.white,
                 size: 11,
                 fontFamily: GoogleFonts.poppins().fontFamily,
@@ -55,7 +55,7 @@ class BuildPostButtons extends StatelessWidget {
           ),
         ),
         DefaultButton(
-          title: "Post",
+          title: tr(context, 'postNow'),
           onTap: () => addPostData.postBlog(context),
           borderRadius: BorderRadius.circular(15),
           margin:

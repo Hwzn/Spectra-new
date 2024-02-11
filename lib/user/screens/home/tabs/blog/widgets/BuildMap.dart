@@ -49,7 +49,7 @@ class BuildMap extends StatelessWidget {
                 Image.asset(Res.locator, height: 15, width: 15),
                 const SizedBox(width: 10),
                 MyText(
-                  title: "View Location",
+                  title: tr(context, 'viewLocation'),
                   color: MyColors.blackOpacity,
                   size: 10,
                   fontFamily: GoogleFonts.poppins().fontFamily,

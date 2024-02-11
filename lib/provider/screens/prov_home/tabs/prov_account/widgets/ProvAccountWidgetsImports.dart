@@ -10,6 +10,7 @@ import '../../../../../../general/blocks/user_cubit/user_cubit.dart';
 import '../../../../../../general/constants/MyColors.dart';
 import '../../../../../../general/packages/generic_bloc/generic_cubit.dart';
 import '../../../../../../general/packages/input_fields/GenericTextField.dart';
+import '../../../../../../general/packages/localization/Localizations.dart';
 import '../../../../../../general/widgets/MyText.dart';
 
 part 'BuildProvAccRateItem.dart';

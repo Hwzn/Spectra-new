@@ -38,14 +38,14 @@ class BuildDoctorDateTime extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             MyText(
-              title: "Available Days",
+              title: tr(context, 'availableDays'),
               color: MyColors.black,
               size: 13,
             ),
             Visibility(
               visible: daysList.isNotEmpty,
               replacement: MyText(
-                title: "No Days Available",
+                title: tr(context, 'noAvailableTimes'),
                 color: MyColors.primary,
                 size: 12,
               ),

@@ -14,7 +14,7 @@ class BuildDoctorsSection extends StatelessWidget {
         Container(
           margin: const EdgeInsets.only(top: 20, bottom: 10),
           child: MyText(
-            title: "Popular Doctors",
+            title: tr(context, 'popularDoctors'),
             color: MyColors.black,
             size: 13,
             fontWeight: FontWeight.bold,

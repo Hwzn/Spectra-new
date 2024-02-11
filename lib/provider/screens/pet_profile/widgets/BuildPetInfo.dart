@@ -12,14 +12,14 @@ class BuildPetInfo extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           MyText(
-            title: "Pet Info",
+            title: tr(context, 'petInfo'),
             color: MyColors.black,
             size: 12,
             fontWeight: FontWeight.bold,
           ),
           const SizedBox(height: 5),
           MyText(
-            title: info.isNotEmpty ? info : "No information available.",
+            title: info.isNotEmpty ? info : tr(context, 'noInfo'),
             color: MyColors.blackOpacity,
             size: 12,
             fontWeight: FontWeight.normal,

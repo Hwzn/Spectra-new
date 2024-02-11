@@ -16,7 +16,7 @@ class BuildMyRatesSection extends StatelessWidget {
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 20),
             child: MyText(
-              title: "My Rates",
+              title: tr(context, 'myRates'),
               color: MyColors.black,
               size: 14,
             ),
@@ -32,7 +32,7 @@ class BuildMyRatesSection extends StatelessWidget {
                     builder: (context, state) {
                       return BuildProvAccRateItem(
                         price: state.data,
-                        title: "Hour Rate",
+                        title: tr(context, 'hourRate'),
                         onTap: () => provAccountData.editRate(context),
                       );
                     },
@@ -42,7 +42,7 @@ class BuildMyRatesSection extends StatelessWidget {
                     builder: (context, state) {
                       return BuildProvAccRateItem(
                         price: state.data,
-                        title: "Rescue Cases",
+                        title: tr(context, 'rescueCases'),
                         onTap: () => provAccountData.editCases(context),
                       );
                     },

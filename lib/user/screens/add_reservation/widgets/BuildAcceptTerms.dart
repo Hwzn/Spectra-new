@@ -24,7 +24,7 @@ class BuildAcceptTerms extends StatelessWidget {
             },
           ),
           MyText(
-            title: "Accept Terms and Conditions",
+            title: tr(context, 'acceptTerms'),
             color: MyColors.black,
             size: 12,
             fontWeight: FontWeight.normal,

@@ -10,7 +10,7 @@ class BuildContactSocial extends StatelessWidget {
         child:  Column(
           children: [
             MyText(
-              title: " او باستخدام",
+              title: tr(context, 'orVia'),
               color: MyColors.black,
               size: 12,
               fontWeight: FontWeight.bold,

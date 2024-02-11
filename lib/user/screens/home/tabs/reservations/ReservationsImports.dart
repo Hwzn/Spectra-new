@@ -7,6 +7,7 @@ import 'package:hwzn_base/user/screens/home/tabs/reservations/tabs/previous/Prev
 import 'package:hwzn_base/user/screens/home/tabs/reservations/tabs/upcoming/UpcomingTabImports.dart';
 import 'package:hwzn_base/user/screens/home/tabs/reservations/widgets/ReservationsWidgetsImports.dart';
 
+import '../../../../../general/packages/localization/Localizations.dart';
 import '../../../../models/reservation_model.dart';
 
 part 'Reservations.dart';

@@ -7,6 +7,7 @@ import 'package:hwzn_base/general/widgets/LoadingButton.dart';
 import 'package:hwzn_base/general/widgets/MyText.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 
+import '../../../packages/localization/Localizations.dart';
 import '../../../widgets/BuildPinField.dart';
 
 part 'BuildVerifyButton.dart';

@@ -48,7 +48,7 @@ class ProvRegisterData {
     if (formKey.currentState!.validate()) {
       if (typeBloc.state.data == 1) {
         if (selectedSpecialization == null) {
-          CustomToast.showSimpleToast(msg: "Please select specialization");
+          CustomToast.showSimpleToast(msg: tr(context, 'selectSpecialization'));
           return;
         }
         LoadingDialog.showLoadingDialog();
@@ -71,7 +71,7 @@ class ProvRegisterData {
         await GeneralRepository(context).registerDoctor(model);
       } else {
         if(doctorsIds.isEmpty){
-          CustomToast.showSimpleToast(msg: "Please add doctors");
+          CustomToast.showSimpleToast(msg: tr(context, 'pleaseAddDoctors'));
           return;
         }
         LoadingDialog.showLoadingDialog();
@@ -159,13 +159,13 @@ class ProvRegisterData {
     chosenDoctorsBloc.state.data.add(model);
     chosenDoctorsBloc.onUpdateData(chosenDoctorsBloc.state.data);
     doctorsIds.add(model.id ?? 0);
-    CustomToast.showSimpleToast(msg: "Added Successfully");
+    CustomToast.showSimpleToast(msg: tr(context, 'addSuccess'));
   }
 
   removeDoctor(BuildContext context, DropDownModel model) {
     chosenDoctorsBloc.state.data.remove(model);
     chosenDoctorsBloc.onUpdateData(chosenDoctorsBloc.state.data);
     doctorsIds.remove(model.id ?? 0);
-    CustomToast.showSimpleToast(msg: "Removed");
+    CustomToast.showSimpleToast(msg: tr(context, 'removed'));
   }
 }

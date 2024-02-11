@@ -10,28 +10,28 @@ class BuildDoctorsDropDown extends StatelessWidget {
       children: [
         DropdownTextField<DropDownModel>(
           dropKey: provRegisterData.specialization,
-          hint: "Specialization",
+          hint: tr(context, 'specialization'),
           selectedItem: provRegisterData.selectedSpecialization,
           margin: const EdgeInsets.symmetric(vertical: 10),
           validate: (value){},
           onChange: (DropDownModel? model) =>
               provRegisterData.setSelectISpecialization(model),
           useName: true,
-          searchHint: "Search",
+          searchHint: tr(context, 'search'),
           finData: (data) => provRegisterData.getSpecs(context),
           enableColor: MyColors.greyWhite,
           fillColor: MyColors.white,
         ),
         DropdownTextField<DropDownModel>(
           dropKey: provRegisterData.centerName,
-          hint: "Center name if you have",
+          hint: "${tr(context, 'centerName')} (${tr(context, 'ifYouHave')})",
           selectedItem: provRegisterData.selectedCenter,
           margin: const EdgeInsets.symmetric(vertical: 10),
           validate: (value){},
           onChange: (DropDownModel? model) =>
               provRegisterData.setSelectCenter(model),
           useName: true,
-          searchHint: "Search",
+          searchHint: tr(context, 'search'),
           finData: (data) => provRegisterData.getCenters(context),
           enableColor: MyColors.greyWhite,
           fillColor: MyColors.white,

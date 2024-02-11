@@ -26,7 +26,7 @@ class BuildSaveButton extends StatelessWidget {
               child: Row(
                 children: [
                   MyText(
-                    title: "My Location",
+                    title: tr(context, 'myLocation'),
                     size: 10,
                     color: MyColors.white,
                     fontWeight: FontWeight.bold,
@@ -54,7 +54,7 @@ class BuildSaveButton extends StatelessWidget {
               child: Row(
                 children: [
                   MyText(
-                    title: "Save Location",
+                    title: tr(context,'saveLocation'),
                     size: 12,
                     color: MyColors.white,
                     fontWeight: FontWeight.bold,

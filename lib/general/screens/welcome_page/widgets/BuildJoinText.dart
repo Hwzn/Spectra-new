@@ -11,7 +11,7 @@ class BuildJoinText extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 10),
         child: MyText(
-          title: "JOIN AS A PROVIDER",
+          title: tr(context, 'joinProvider'),
           color: MyColors.secondary,
           size: 12,
           fontWeight: FontWeight.bold,

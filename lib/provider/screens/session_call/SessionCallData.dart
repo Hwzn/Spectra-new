@@ -36,7 +36,7 @@ class SessionCallData {
     time = data;
     handleStopWatchConfig(context, model);
     if (data <= 0) {
-      CustomToast.showSimpleToast(msg: "Time out");
+      CustomToast.showSimpleToast(msg: tr(context, 'timeOut'));
       AutoRouter.of(context).popAndPush(ReviewSessionRoute(model: model));
     }
     loadingBloc.onUpdateData(true);
@@ -45,11 +45,11 @@ class SessionCallData {
   onDisconnect(BuildContext context, ReservationModel model,
       {bool? timeOut}) async {
     if (timeOut == true) {
-      CustomToast.showSimpleToast(msg: "Time out");
+      CustomToast.showSimpleToast(msg: tr(context, 'timeOut'));
       AutoRouter.of(context).popAndPush(ReviewSessionRoute(model: model));
     } else {
       // stopWatchTimer!.onExecute.add(StopWatchExecute.stop);
-      CustomToast.showSimpleToast(msg: "Session Ended");
+      CustomToast.showSimpleToast(msg: tr(context, 'sessionEnded'));
       AutoRouter.of(context).popAndPush(ReviewSessionRoute(model: model));
     }
   }

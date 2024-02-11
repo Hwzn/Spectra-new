@@ -14,7 +14,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
   Widget build(BuildContext context) {
     return AuthScaffold(
       appBar: const BuildAuthAppBar(haveLeading: false),
-      title: "Forget Password",
+      title: tr(context, 'forgetPassword'),
       showLogo: false,
       logo: Padding(
         padding: const EdgeInsets.only(bottom: 20),
@@ -28,7 +28,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
         child: Column(
           children: [
             MyText(
-              title: "Enter your phone number \n to reset password",
+              title: tr(context, 'enterPhoneResetPass'),
               color: MyColors.grey,
               size: 10,
               alien: TextAlign.center,

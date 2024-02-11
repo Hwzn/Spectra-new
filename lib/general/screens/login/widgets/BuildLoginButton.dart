@@ -9,7 +9,7 @@ class BuildLoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return LoadingButton(
       borderColor: MyColors.primary,
-      title: "SIGN IN",
+      title: tr(context, 'signIn'),
       onTap: () => loginData.userLogin(context),
       color: MyColors.primary,
       textColor: MyColors.white,

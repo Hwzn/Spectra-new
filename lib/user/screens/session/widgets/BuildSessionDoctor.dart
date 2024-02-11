@@ -2,6 +2,7 @@ part of 'SessionWidgetsImports.dart';
 
 class BuildSessionDoctor extends StatelessWidget {
   final DoctorModel model;
+
   const BuildSessionDoctor({Key? key, required this.model}) : super(key: key);
 
   @override
@@ -70,7 +71,7 @@ class BuildSessionDoctor extends StatelessWidget {
                         Visibility(
                           visible: model.centerImage != null,
                           child: CachedImage(
-                            url: model.centerImage??'',
+                            url: model.centerImage ?? '',
                             height: 25,
                             width: 25,
                             haveRadius: false,
@@ -80,7 +81,7 @@ class BuildSessionDoctor extends StatelessWidget {
                         ),
                         SizedBox(width: model.centerImage != null ? 5 : 0),
                         MyText(
-                          title: model.centerName??'',
+                          title: model.centerName ?? '',
                           color: MyColors.primary,
                           size: 12,
                         ),
@@ -107,7 +108,9 @@ class BuildSessionDoctor extends StatelessWidget {
               Expanded(
                 flex: 2,
                 child: MyText(
-                  title: "${model.sessionPrice} SAR/Hour",
+                  title:
+                      "${model.sessionPrice} "
+                          "${tr(context, 'sar')}/${tr(context, 'hour')}",
                   color: MyColors.lightGrey,
                   size: 12,
                 ),

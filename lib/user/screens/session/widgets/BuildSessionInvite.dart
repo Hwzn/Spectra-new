@@ -23,7 +23,7 @@ class BuildSessionInvite extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           MyText(
-            title: "Invite a translator",
+            title: tr(context, 'inviteTranslator'),
             color: MyColors.black,
             size: 12,
           ),
@@ -53,7 +53,7 @@ class BuildSessionInvite extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: MyText(
-                    title: "Share",
+                    title: tr(context, 'share'),
                     color: MyColors.white,
                     size: 8,
                     fontFamily: GoogleFonts.poppins().fontFamily,

@@ -13,6 +13,7 @@ import '../../../general/helper/configration/CustomButtonAnimation.dart';
 import '../../../general/helper/storage/Storage.dart';
 import '../../../general/models/UserModel.dart';
 import '../../../general/packages/generic_bloc/generic_cubit.dart';
+import '../../../general/packages/localization/Localizations.dart';
 import '../../../general/widgets/DefaultButton.dart';
 import '../../../general/widgets/MyText.dart';
 import '../../../user/models/available_day_model.dart';

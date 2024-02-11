@@ -7,6 +7,7 @@ import 'package:hwzn_base/general/widgets/MyText.dart';
 import '../../constants/MyColors.dart';
 import '../../models/FaqModel.dart';
 import '../../packages/generic_bloc/generic_cubit.dart';
+import '../../packages/localization/Localizations.dart';
 import '../../utilities/utils_functions/LoadingDialog.dart';
 import '../../widgets/DefaultAppBar.dart';
 

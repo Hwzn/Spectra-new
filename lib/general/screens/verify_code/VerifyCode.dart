@@ -4,7 +4,8 @@ class VerifyCode extends StatefulWidget {
   final String email;
   final bool? fromRegister;
 
-  const VerifyCode({Key? key, required this.email, this.fromRegister}) : super(key: key);
+  const VerifyCode({Key? key, required this.email, this.fromRegister})
+      : super(key: key);
 
   @override
   _VerifyCodeState createState() => _VerifyCodeState();
@@ -32,7 +33,7 @@ class _VerifyCodeState extends State<VerifyCode> {
       onWillPop: () async => true,
       child: AuthScaffold(
         appBar: const BuildAuthAppBar(),
-        title: "Enter Verification Code",
+        title: tr(context, 'enterCode'),
         showLogo: false,
         logo: Padding(
           padding: const EdgeInsets.only(bottom: 20),
@@ -49,8 +50,7 @@ class _VerifyCodeState extends State<VerifyCode> {
                 Container(
                   margin: const EdgeInsets.symmetric(vertical: 10),
                   child: MyText(
-                    title:
-                        "Please enter verification code sent to \n your mobile number",
+                    title: tr(context, 'pleaseEnterCode'),
                     color: MyColors.grey,
                     size: 10,
                     alien: TextAlign.center,

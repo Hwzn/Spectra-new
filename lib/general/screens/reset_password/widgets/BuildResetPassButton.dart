@@ -16,7 +16,7 @@ class BuildResetPasswordButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return LoadingButton(
       borderColor: MyColors.primary,
-      title: "Update Password",
+      title: tr(context, 'updatePassword'),
       onTap: () => resetPasswordData.onResetPassword(context, email),
       color: MyColors.primary,
       textColor: MyColors.white,

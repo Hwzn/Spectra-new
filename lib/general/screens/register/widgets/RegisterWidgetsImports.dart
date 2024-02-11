@@ -12,6 +12,8 @@ import 'package:hwzn_base/general/widgets/LoadingButton.dart';
 import 'package:hwzn_base/general/widgets/MyText.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
+import '../../../packages/localization/Localizations.dart';
+
 
 part 'BuildHaveAccount.dart';
 part 'BuildRegisterButton.dart';

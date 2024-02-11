@@ -30,15 +30,24 @@ class BuildPaymentInfo extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               MyText(
-                title: "Payment Information",
+                title: tr(context, 'paymentInfo'),
                 color: MyColors.black,
                 size: 13,
               ),
               const SizedBox(height: 10),
-              BuildPaymentItem(title: "Amount", detail: "${state.data.sessionPrices} SAR"),
-              const BuildPaymentItem(title: "Taxes", detail: "0 SAR"),
+              BuildPaymentItem(
+                title: tr(context, 'amount'),
+                detail: "${state.data.sessionPrices} ${tr(context, 'sar')}",
+              ),
+              BuildPaymentItem(
+                title: tr(context, 'taxes'),
+                detail: "0 ${tr(context, 'sar')}",
+              ),
               const Divider(thickness: 1),
-              BuildPaymentItem(title: "Total", detail: "${state.data.total} SAR"),
+              BuildPaymentItem(
+                title: tr(context, 'total'),
+                detail: "${state.data.total} ${tr(context, 'sar')}",
+              ),
             ],
           ),
         );

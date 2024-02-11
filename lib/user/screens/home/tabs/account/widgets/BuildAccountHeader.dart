@@ -22,7 +22,7 @@ class BuildAccountHeader extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               MyText(
-                title: "Hello",
+                title: tr(context, 'hello'),
                 color: MyColors.white,
                 size: 12,
                 fontWeight: FontWeight.normal,

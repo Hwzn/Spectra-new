@@ -4,6 +4,7 @@ import 'package:hwzn_base/user/models/toJson/ReservationPricesModel.dart';
 import 'package:hwzn_base/user/screens/add_reservation/AddReservationImports.dart';
 import '../../../../general/constants/MyColors.dart';
 import '../../../../general/packages/generic_bloc/generic_cubit.dart';
+import '../../../../general/packages/localization/Localizations.dart';
 import '../../../../general/widgets/CachedImage.dart';
 import '../../../../general/widgets/MyText.dart';
 import '../../../models/available_day_model.dart';

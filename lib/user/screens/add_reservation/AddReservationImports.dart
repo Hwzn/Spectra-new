@@ -16,6 +16,7 @@ import 'package:hwzn_base/user/models/toJson/ReservationTypeModel.dart';
 import 'package:hwzn_base/user/resources/UserRepositoryImports.dart';
 import 'package:hwzn_base/user/screens/add_reservation/widgets/AddReservationWidgetsImports.dart';
 
+import '../../../general/packages/localization/Localizations.dart';
 import '../../../general/widgets/CachedImage.dart';
 import '../../../general/widgets/MyText.dart';
 import '../../models/available_day_model.dart';

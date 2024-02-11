@@ -17,6 +17,7 @@ import 'package:hwzn_base/user/screens/add_post/widgets/AddPostWidgetsImports.da
 import 'package:jumping_dot/jumping_dot.dart';
 
 import '../../../general/packages/input_fields/GenericTextField.dart';
+import '../../../general/packages/localization/Localizations.dart';
 import '../../../general/screens/location_address/location_cubit/location_cubit.dart';
 
 part 'AddPost.dart';

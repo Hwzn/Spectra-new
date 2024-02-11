@@ -9,6 +9,7 @@ import 'package:hwzn_base/user/screens/home/widgets/HomeWidgetsImports.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../../../general/constants/MyColors.dart';
 import '../../../general/packages/generic_bloc/generic_cubit.dart';
+import '../../../general/packages/localization/Localizations.dart';
 import '../../models/BottomTabModel.dart';
 
 part 'Home.dart';

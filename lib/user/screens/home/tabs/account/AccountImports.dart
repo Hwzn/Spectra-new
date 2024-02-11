@@ -15,6 +15,7 @@ import '../../../../../general/blocks/user_cubit/user_cubit.dart';
 import '../../../../../general/constants/MyColors.dart';
 import '../../../../../general/helper/storage/Storage.dart';
 import '../../../../../general/models/UserModel.dart';
+import '../../../../../general/packages/localization/Localizations.dart';
 import '../../../../../general/widgets/CachedImage.dart';
 import '../../../../../general/widgets/MyText.dart';
 

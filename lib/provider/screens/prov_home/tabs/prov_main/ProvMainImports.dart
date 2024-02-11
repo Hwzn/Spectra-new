@@ -9,6 +9,7 @@ import 'package:hwzn_base/provider/resources/DoctorRepositoryImports.dart';
 import 'package:hwzn_base/res.dart';
 
 import '../../../../../general/constants/MyColors.dart';
+import '../../../../../general/packages/localization/Localizations.dart';
 import '../../../../../general/utilities/routers/RouterImports.gr.dart';
 import '../../../../../general/widgets/MyText.dart';
 import '../../../../models/prov_home_model.dart';

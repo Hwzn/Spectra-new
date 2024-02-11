@@ -8,25 +8,24 @@ class Terms extends StatefulWidget {
 }
 
 class _TermsState extends State<Terms> with TermsData {
-
   @override
   void initState() {
-   fetchData(context);
+    fetchData(context);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const DefaultAppBar(title: "Terms and conditions"),
+      appBar: DefaultAppBar(title: tr(context, 'terms')),
       body: BlocBuilder<GenericBloc<String>, GenericState<String>>(
         bloc: termsBloc,
         builder: (context, state) {
-         if(state is GenericUpdateState) {
-           return BuildTermsView(text: state.data);
-         } else {
-           return LoadingDialog.showLoadingView();
-         }
+          if (state is GenericUpdateState) {
+            return BuildTermsView(text: state.data);
+          } else {
+            return LoadingDialog.showLoadingView();
+          }
         },
       ),
     );

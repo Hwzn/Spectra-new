@@ -10,7 +10,7 @@ class BuildRegisterButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return LoadingButton(
       borderColor: MyColors.primary,
-      title: "SIGN UP",
+      title: tr(context, 'signUp'),
       onTap: () => registerDate.onRegister(context),
       color: MyColors.primary,
       textColor: MyColors.white,

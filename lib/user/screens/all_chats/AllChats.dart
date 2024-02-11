@@ -19,7 +19,7 @@ class _AllChatsState extends State<AllChats> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const DefaultAppBar(title: "Chats"),
+      appBar: DefaultAppBar(title: tr(context, 'chats')),
       body: BlocBuilder<GenericBloc<List<ChatModel>>,
           GenericState<List<ChatModel>>>(
         bloc: allChatsData.chatsBloc,
@@ -29,7 +29,7 @@ class _AllChatsState extends State<AllChats> {
               visible: state.data.isNotEmpty,
               replacement: Center(
                 child: MyText(
-                  title: "No Chats Available",
+                  title: tr(context, 'noChats'),
                   color: MyColors.primary,
                   size: 12,
                 ),

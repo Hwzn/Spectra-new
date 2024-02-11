@@ -11,9 +11,12 @@ import 'package:hwzn_base/user/screens/home/tabs/account/AccountImports.dart';
 import 'package:jumping_dot/jumping_dot.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../../../../../../general/blocks/lang_cubit/lang_cubit.dart';
 import '../../../../../../general/blocks/user_cubit/user_cubit.dart';
 import '../../../../../../general/constants/MyColors.dart';
 import '../../../../../../general/packages/generic_bloc/generic_cubit.dart';
+import '../../../../../../general/packages/localization/Localizations.dart';
+import '../../../../../../general/utilities/utils_functions/UtilsImports.dart';
 import '../../../../../../general/widgets/CachedImage.dart';
 import '../../../../../../general/widgets/DefaultButton.dart';
 import '../../../../../../general/widgets/MyText.dart';

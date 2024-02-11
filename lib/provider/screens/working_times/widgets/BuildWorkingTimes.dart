@@ -24,7 +24,7 @@ class BuildWorkingTimes extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           MyText(
-            title: "Select available time slots",
+            title: tr(context, 'selectTime'),
             color: MyColors.blackOpacity,
             size: 12,
           ),
@@ -37,7 +37,7 @@ class BuildWorkingTimes extends StatelessWidget {
                 return Visibility(
                   visible: state.data.isNotEmpty,
                   replacement: MyText(
-                    title: "No Available Times",
+                    title: tr(context, 'noAvailableTimes'),
                     color: MyColors.blackOpacity,
                     size: 12,
                   ),
@@ -72,7 +72,7 @@ class BuildWorkingTimes extends StatelessWidget {
                   ),
                 );
               } else {
-                return SizedBox();
+                return const SizedBox();
               }
             },
           ),

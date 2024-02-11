@@ -45,10 +45,10 @@ class _BuildCommentsBottomSheetState extends State<BuildCommentsBottomSheet> {
                       children: [
                         BuildBlogActions(
                             icon: Icons.favorite,
-                            title: "${widget.likesCount}  Likes"),
+                            title: "${widget.likesCount}  ${tr(context, 'likes')}"),
                         BuildBlogActions(
                             icon: Icons.comment,
-                            title: "${state.data.length}  Comments"),
+                            title: "${state.data.length}  ${tr(context, 'comments')}"),
                       ],
                     ),
                   ),
@@ -58,7 +58,7 @@ class _BuildCommentsBottomSheetState extends State<BuildCommentsBottomSheet> {
                     visible: state.data.isNotEmpty,
                     replacement: Center(
                       child: MyText(
-                        title: "No Comments",
+                        title: tr(context, 'noComments'),
                         color: MyColors.primary,
                         size: 12,
                       ),
@@ -81,7 +81,7 @@ class _BuildCommentsBottomSheetState extends State<BuildCommentsBottomSheet> {
                     Expanded(
                       child: GenericTextField(
                         fieldTypes: FieldTypes.normal,
-                        hint: "Write a comment",
+                        hint: tr(context, 'writeComment'),
                         controller: widget.blogData.comment,
                         margin: const EdgeInsets.symmetric(vertical: 10),
                         action: TextInputAction.done,

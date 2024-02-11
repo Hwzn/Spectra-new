@@ -22,7 +22,7 @@ class BuildPasswordsView extends StatelessWidget {
                 type: TextInputType.text,
                 action: TextInputAction.next,
                 validate: (value) => value?.validatePassword(context),
-                hint: "Password",
+                hint: tr(context, 'password'),
                 margin: const EdgeInsets.symmetric(vertical: 7),
                 suffixIcon: IconButton(
                   onPressed: () => provRegisterData.passwordCubit
@@ -49,7 +49,7 @@ class BuildPasswordsView extends StatelessWidget {
                 validate: (value) => value?.validatePasswordConfirm(
                     context,
                     pass: provRegisterData.pass.text),
-                hint: "Re-enter Password",
+                hint: tr(context, 'reEnterPassword'),
                 margin: const EdgeInsets.symmetric(vertical: 7),
                 suffixIcon: IconButton(
                   onPressed: () => provRegisterData.confirmPassCubit

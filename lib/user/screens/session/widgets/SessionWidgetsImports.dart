@@ -13,6 +13,7 @@ import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'dart:math' as math;
 import '../../../../general/constants/MyColors.dart';
 import '../../../../general/packages/generic_bloc/generic_cubit.dart';
+import '../../../../general/packages/localization/Localizations.dart';
 import '../../../../general/widgets/CachedImage.dart';
 import '../../../../general/widgets/DefaultButton.dart';
 import '../../../../general/widgets/MyText.dart';

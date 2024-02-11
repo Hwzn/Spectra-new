@@ -61,7 +61,7 @@ class BlogData {
         id: 0,
         userId: user.id,
         userName: user.name,
-        createdAt: "Just now",
+        createdAt: tr(context, 'justNow'),
         comment: comment.text,
         likesCount: 0,
         userImage: user.image,
@@ -69,7 +69,7 @@ class BlogData {
       commentsBloc.onUpdateData(commentsBloc.state.data);
       comment.clear();
     } else {
-      CustomToast.showSimpleToast(msg: "Add comment please");
+      CustomToast.showSimpleToast(msg: tr(context, 'addComment'));
     }
   }
 
@@ -106,7 +106,7 @@ class BlogData {
       isEditComment = false;
       commentId = 0;
     } else {
-      CustomToast.showSimpleToast(msg: "Comment cannot be empty");
+      CustomToast.showSimpleToast(msg: tr(context, 'emptyComment'));
     }
   }
 

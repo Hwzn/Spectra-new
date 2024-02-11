@@ -18,7 +18,7 @@ class BuildForgetForm extends StatelessWidget {
         type: TextInputType.phone,
         action: TextInputAction.next,
         validate: (value) => value?.validateEmpty(context),
-        hint: "Phone Number",
+        hint: tr(context, 'phone'),
         margin: const EdgeInsets.only(top: 20),
       ),
     );

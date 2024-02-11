@@ -17,7 +17,7 @@ class BuildForgetPasswordView extends StatelessWidget {
               Image.asset(Res.forgetPass, width: 15),
               const SizedBox(width: 10),
               MyText(
-                title: "Forgot password ?",
+                title: tr(context, 'forgotPassword'),
                 color: MyColors.grey,
                 size: 12,
               ),

@@ -25,7 +25,7 @@ class AddPostData {
 
   postBlog(BuildContext context) async {
     if(post.text.isEmpty){
-      CustomToast.showSimpleToast(msg: "Please add content to your blog");
+      CustomToast.showSimpleToast(msg: tr(context, 'addBlogContent'));
       return;
     }
     var selectedCat =

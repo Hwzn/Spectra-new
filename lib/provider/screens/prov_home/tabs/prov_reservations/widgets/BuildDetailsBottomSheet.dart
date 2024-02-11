@@ -15,7 +15,7 @@ class BuildDetailsBottomSheet extends StatelessWidget {
       child: ListView(
         children: [
           MyText(
-            title: "Fill Session Details",
+            title: tr(context, 'fillSessionDetails'),
             color: MyColors.black,
             size: 16,
             alien: TextAlign.center,
@@ -33,12 +33,12 @@ class BuildDetailsBottomSheet extends StatelessWidget {
             margin: const EdgeInsets.only(top: 20),
           ),
           DefaultButton(
-            title: "Save",
+            title: tr(context, 'save'),
             margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
             onTap: () => data.fillSessionDetails(context, reservationId),
           ),
           DefaultButton(
-            title: "Cancel",
+            title: tr(context, 'cancel'),
             onTap: () {
               data.detailsController.clear();
               AutoRouter.of(context).pop();

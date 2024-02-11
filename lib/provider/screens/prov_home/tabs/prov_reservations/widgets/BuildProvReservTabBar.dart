@@ -49,9 +49,9 @@ class BuildProvReservTabBar extends StatelessWidget {
             indicatorColor: MyColors.greyWhite,
             labelColor: MyColors.white,
             unselectedLabelColor: MyColors.grey,
-            tabs: const [
-              Tab(text: "Upcoming"),
-              Tab(text: "Previous"),
+            tabs: [
+              Tab(text: tr(context, 'upcoming')),
+              Tab(text: tr(context, 'previous')),
             ],
           ),
         );

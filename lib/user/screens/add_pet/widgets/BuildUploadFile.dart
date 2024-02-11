@@ -13,7 +13,7 @@ class BuildUploadFile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           MyText(
-            title: "Upload files",
+            title: tr(context, 'uploadFiles'),
             color: MyColors.black,
             size: 12,
           ),
@@ -121,7 +121,7 @@ class BuildUploadFile extends StatelessWidget {
                     ),
                     alignment: Alignment.center,
                     child: MyText(
-                      title: "+  Upload file name",
+                      title: "+  ${tr(context, 'uploadFileName')}",
                       color: MyColors.blackOpacity,
                       size: 14,
                     ),

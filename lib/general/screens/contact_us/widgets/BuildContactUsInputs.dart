@@ -15,15 +15,15 @@ class BuildContactUsInputs extends StatelessWidget {
         children: [
           Container(
             margin: const EdgeInsets.only(top: 10),
-            child: const MyText(
-              title: "الاسم",
+            child: MyText(
+              title: tr(context, 'name'),
               color: Colors.black,
               size: 12,
             ),
           ),
           GenericTextField(
             fieldTypes: FieldTypes.normal,
-            hint: "الاسم",
+            hint: tr(context, 'name'),
             controller: contactUsData.name,
             margin: const EdgeInsets.symmetric(vertical: 10),
             action: TextInputAction.next,
@@ -32,13 +32,13 @@ class BuildContactUsInputs extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           MyText(
-            title: tr(context, "mail"),
+            title: tr(context, "email"),
             color: Colors.black,
             size: 12,
           ),
           GenericTextField(
             fieldTypes: FieldTypes.normal,
-            hint: "ادخل البريد الالكتروني",
+            hint: tr(context, 'enterEmail'),
             controller: contactUsData.email,
             margin: const EdgeInsets.symmetric(vertical: 10),
             action: TextInputAction.next,
@@ -46,16 +46,11 @@ class BuildContactUsInputs extends StatelessWidget {
             validate: (value) => value!.validateEmail(context),
           ),
           const SizedBox(height: 10),
-          const MyText(
-            title: "الملاحظات",
-            color: Colors.black,
-            size: 12
-          ),
+          MyText(title: tr(context, 'notes'), color: Colors.black, size: 12),
           GenericTextField(
             fieldTypes: FieldTypes.rich,
             max: 3,
-            hint: "ادخل ملاحظاتك هنا",
-            // label: tr(context, "phone"),
+            hint: tr(context, 'enterNotes'),
             controller: contactUsData.notes,
             margin: const EdgeInsets.symmetric(vertical: 10),
             action: TextInputAction.done,

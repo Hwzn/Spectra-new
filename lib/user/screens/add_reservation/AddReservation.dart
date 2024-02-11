@@ -33,7 +33,7 @@ class _AddReservationState extends State<AddReservation> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.bg,
-      appBar: const DefaultAppBar(title: "Make a reservation"),
+      appBar: DefaultAppBar(title: tr(context, 'makeReservation')),
       body: ListView(
         padding: const EdgeInsets.only(top: 10),
         children: [
@@ -46,7 +46,7 @@ class _AddReservationState extends State<AddReservation> {
         ],
       ),
       bottomNavigationBar: DefaultButton(
-        title: "Make a reservation",
+        title: tr(context, 'makeReservation'),
         borderRadius: BorderRadius.circular(15),
         margin: const EdgeInsets.all(20),
         onTap: () => addReservationData.addReservation(context),

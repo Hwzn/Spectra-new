@@ -20,7 +20,7 @@ class _AddPostState extends State<AddPost> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.white,
-      appBar: const DefaultAppBar(title: "Post"),
+      appBar: DefaultAppBar(title: tr(context, "post")),
       body: ListView(
         padding: const EdgeInsets.only(top: 20),
         children: [
@@ -28,7 +28,7 @@ class _AddPostState extends State<AddPost> {
           GenericTextField(
             fieldTypes: FieldTypes.rich,
             max: 12,
-            hint: "What's on your mind ?",
+            hint: tr(context, 'whatsOnYourMind'),
             controller: addPostData.post,
             margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
             action: TextInputAction.done,
@@ -51,7 +51,7 @@ class _AddPostState extends State<AddPost> {
                   margin: const EdgeInsets.symmetric
                     (horizontal: 20, vertical: 10),
                   child: MyText(
-                    title: "Location: ${state.model?.address ?? ""}",
+                    title: "${tr(context, 'location')}: ${state.model?.address ?? ""}",
                     color: MyColors.black,
                     size: 12,
                   ),

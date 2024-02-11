@@ -1,5 +1,4 @@
-part of'LocationWidgetsImports.dart';
-
+part of 'LocationWidgetsImports.dart';
 
 class BuildMapExtensions extends StatelessWidget {
   const BuildMapExtensions({
@@ -29,15 +28,16 @@ class BuildMapExtensions extends StatelessWidget {
                     color: Colors.white,
                     boxShadow: [
                       BoxShadow(
-                          color: Colors.grey,
-                          blurRadius: 1,
-                          spreadRadius: 1)
+                        color: Colors.grey,
+                        blurRadius: 1,
+                        spreadRadius: 1,
+                      )
                     ],
                     shape: BoxShape.circle,
                   ),
                   child: InkWell(
-                    onTap: () => locationAddressData.mapType.onUpdateData(
-                        !locationAddressData.mapType.state.data),
+                    onTap: () => locationAddressData.mapType
+                        .onUpdateData(!locationAddressData.mapType.state.data),
                     child: Icon(
                       !state.data ? Icons.satellite : Icons.map,
                       size: 25,
@@ -52,4 +52,3 @@ class BuildMapExtensions extends StatelessWidget {
     );
   }
 }
-

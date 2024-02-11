@@ -13,6 +13,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import '../../../../general/constants/MyColors.dart';
 import '../../../../general/models/dropdown_model/dropdown_model.dart';
 import '../../../../general/packages/generic_bloc/generic_cubit.dart';
+import '../../../../general/packages/localization/Localizations.dart';
 import '../../../../general/utilities/utils_functions/UtilsImports.dart';
 import '../../../../general/widgets/CachedImage.dart';
 import '../../../../general/widgets/MyText.dart';

@@ -25,7 +25,7 @@ class BuildTermsAndPolicy extends StatelessWidget {
                 //onTap: () => AutoRouter.of(context).push(const AboutRoute()),
                 onTap: () => AutoRouter.of(context).push(const ContactUsRoute()),
                 child: MyText(
-                  title: "الموافقه علي الشروط والاحكام",
+                  title: tr(context, 'acceptTerms'),
                   color: MyColors.black,
                   size: 14,
                   decoration: TextDecoration.underline,

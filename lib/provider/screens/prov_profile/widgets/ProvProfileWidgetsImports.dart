@@ -12,6 +12,7 @@ import '../../../../general/constants/custom_ drop_down/DropDownTextField.dart';
 import '../../../../general/models/dropdown_model/dropdown_model.dart';
 import '../../../../general/packages/generic_bloc/generic_cubit.dart';
 import '../../../../general/packages/input_fields/GenericTextField.dart';
+import '../../../../general/packages/localization/Localizations.dart';
 import '../../../../general/widgets/CachedImage.dart';
 import '../../../../general/widgets/MyText.dart';
 import '../../../../user/screens/profile/widgets/ProfileWidgetsImports.dart';

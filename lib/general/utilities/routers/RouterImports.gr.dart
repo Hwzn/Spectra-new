@@ -25,8 +25,6 @@ import 'package:hwzn_base/general/screens/register/RegisterImports.dart'
     as _i13;
 import 'package:hwzn_base/general/screens/reset_password/ResetPasswordImports.dart'
     as _i6;
-import 'package:hwzn_base/general/screens/select_user/SelectUserImports.dart'
-    as _i3;
 import 'package:hwzn_base/general/screens/splash/SplashImports.dart' as _i1;
 import 'package:hwzn_base/general/screens/terms/TermsImports.dart' as _i7;
 import 'package:hwzn_base/general/screens/verify_code/VerifyCodeImports.dart'
@@ -87,16 +85,6 @@ class AppRouter extends _i34.RootStackRouter {
         routeData: routeData,
         child: const _i2.WelcomePage(),
         opaque: true,
-      );
-    },
-    SelectUserRoute.name: (routeData) {
-      return _i34.CustomPage<dynamic>(
-        routeData: routeData,
-        child: const _i3.SelectUser(),
-        transitionsBuilder: _i34.TransitionsBuilders.fadeIn,
-        durationInMilliseconds: 1500,
-        opaque: true,
-        barrierDismissible: false,
       );
     },
     LoginRoute.name: (routeData) {

@@ -23,7 +23,7 @@ class _SpecializationState extends State<Specialization> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const DefaultAppBar(title: "Specialization"),
+      appBar: DefaultAppBar(title: tr(context, 'specialization')),
       body: BlocBuilder<GenericBloc<List<DoctorModel>>,
           GenericState<List<DoctorModel>>>(
         bloc: specializationData.doctorsBloc,
@@ -33,7 +33,7 @@ class _SpecializationState extends State<Specialization> {
               visible: state.data.isNotEmpty,
               replacement: Center(
                 child: MyText(
-                  title: "No Doctors Available",
+                  title: tr(context, 'noDoctors'),
                   color: MyColors.primary,
                   size: 12,
                 ),

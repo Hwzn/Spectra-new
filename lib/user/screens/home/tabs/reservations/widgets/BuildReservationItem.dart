@@ -138,7 +138,7 @@ class BuildReservationItem extends StatelessWidget {
               visible: !ended,
               replacement: endButton ?? const SizedBox(height: 10),
               child: DefaultButton(
-                title: "Join Session",
+                title: tr(context, 'joinSession'),
                 height: 40,
                 fontSize: 12,
                 borderRadius: BorderRadius.circular(15),

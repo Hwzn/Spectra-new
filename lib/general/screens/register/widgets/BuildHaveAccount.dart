@@ -12,7 +12,7 @@ class BuildHaveAccount extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           MyText(
-            title: "Already user ?",
+            title: tr(context, 'alreadyUser'),
             color: MyColors.grey,
             size: 13,
           ),
@@ -20,7 +20,7 @@ class BuildHaveAccount extends StatelessWidget {
           InkWell(
             onTap: () => AutoRouter.of(context).pop(),
             child: MyText(
-              title: "Sign in now",
+              title: tr(context, 'signInNow'),
               color: MyColors.primary,
               size: 13,
             ),

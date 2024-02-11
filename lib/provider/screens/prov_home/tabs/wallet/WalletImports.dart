@@ -9,6 +9,7 @@ import 'package:hwzn_base/provider/screens/prov_home/tabs/wallet/widgets/WalletW
 import 'package:hwzn_base/provider/widgets/DefaultContainer.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
+import '../../../../../general/packages/localization/Localizations.dart';
 import '../../../../../general/widgets/DefaultAppBar.dart';
 import '../../../../../general/widgets/MyText.dart';
 import '../../../../models/wallet_model.dart';

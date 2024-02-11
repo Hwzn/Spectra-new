@@ -15,7 +15,7 @@ class BuildProvProfileInputs extends StatelessWidget {
           BuildProfileInputItem(
             title: '',
             showTitle: false,
-            hint: "Name",
+            hint: tr(context, 'name'),
             controller: provProfileData.name,
             validate: (value) => value!.validateEmpty(context),
             fieldMargin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
@@ -23,7 +23,7 @@ class BuildProvProfileInputs extends StatelessWidget {
           BuildProfileInputItem(
             title: '',
             showTitle: false,
-            hint: "Phone",
+            hint: tr(context, 'phone'),
             controller: provProfileData.phone,
             validate: (value) => value!.validatePhone(context),
             fieldMargin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
@@ -31,7 +31,7 @@ class BuildProvProfileInputs extends StatelessWidget {
           BuildProfileInputItem(
             title: '',
             showTitle: false,
-            hint: "E-mail",
+            hint: tr(context, 'email'),
             controller: provProfileData.email,
             validate: (value) => value!.validateEmail(context),
             fieldMargin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
@@ -44,7 +44,7 @@ class BuildProvProfileInputs extends StatelessWidget {
             onChange: (DropDownModel? model) =>
                 provProfileData.setSelectSpec(model),
             useName: true,
-            searchHint: "Search",
+            searchHint: tr(context, 'search'),
             enableColor: MyColors.greyWhite,
             fillColor: MyColors.white,
             finData: (data) => provProfileData.getSpecs(context),
@@ -57,7 +57,7 @@ class BuildProvProfileInputs extends StatelessWidget {
             onChange: (DropDownModel? model) =>
                 provProfileData.setSelectCenter(model),
             useName: true,
-            searchHint: "Search",
+            searchHint: tr(context, 'search'),
             enableColor: MyColors.greyWhite,
             fillColor: MyColors.white,
             finData: (data) => provProfileData.getCenters(context),
@@ -75,7 +75,7 @@ class BuildProvProfileInputs extends StatelessWidget {
                 type: TextInputType.text,
                 action: TextInputAction.next,
                 validate: (value) => value!.validateEmpty(context),
-                hint: "Upload CV",
+                hint: tr(context, 'uploadCV'),
                 margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
                 suffixIcon: Container(
                   width: 20,
@@ -112,7 +112,7 @@ class BuildProvProfileInputs extends StatelessWidget {
             type: TextInputType.text,
             action: TextInputAction.next,
             validate: (value) => value!.validateEmpty(context),
-            hint: "Doctor Description",
+            hint: tr(context, 'doctorDescription'),
             margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
           ),
         ],

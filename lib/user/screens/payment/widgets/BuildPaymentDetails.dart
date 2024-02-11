@@ -23,7 +23,7 @@ class BuildPaymentDetails extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           MyText(
-            title: "Payment details",
+            title: tr(context, 'paymentDetails'),
             color: MyColors.black,
             size: 13,
           ),
@@ -31,7 +31,7 @@ class BuildPaymentDetails extends StatelessWidget {
             margin: const EdgeInsets.symmetric(vertical: 10),
             alignment: Alignment.center,
             child: MyText(
-              title: "Pay Full Fees",
+              title: tr(context, 'payFullFees'),
               color: MyColors.grey,
               size: 12,
             ),
@@ -39,7 +39,7 @@ class BuildPaymentDetails extends StatelessWidget {
           Align(
             alignment: Alignment.center,
             child: MyText(
-              title: "400 SAR",
+              title: "400 ${tr(context, 'sar')}",
               color: MyColors.black,
               size: 20,
             ),

@@ -56,7 +56,7 @@ class ProvProfileData {
   updateProfile(BuildContext context) async {
    if(formKey.currentState!.validate()){
      if (selectedSpec?.id == null) {
-       CustomToast.showSimpleToast(msg: "Please select specialization");
+       CustomToast.showSimpleToast(msg: tr(context, 'selectSpecialization'));
        return;
      }
      btnKey.currentState?.animateForward();

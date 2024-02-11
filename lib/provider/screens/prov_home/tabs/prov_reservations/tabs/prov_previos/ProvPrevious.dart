@@ -17,7 +17,7 @@ class ProvPrevious extends StatelessWidget {
             visible: state.data.isNotEmpty,
             replacement: Center(
               child: MyText(
-                title: "No Reservations",
+                title: tr(context, 'noReservations'),
                 color: MyColors.blackOpacity,
                 size: 12,
               ),
@@ -33,9 +33,10 @@ class ProvPrevious extends StatelessWidget {
                   model: state.data[index],
                   fromDoctorHome: true,
                   endButton: Visibility(
-                    visible: !state.data[index].hasSessionDetails && state.data[index].status != "cancelled",
+                    visible: !state.data[index].hasSessionDetails &&
+                        state.data[index].status != "cancelled",
                     child: DefaultButton(
-                      title: "Fill session details",
+                      title: tr(context, 'fillSessionDetails'),
                       height: 40,
                       fontSize: 12,
                       borderRadius: BorderRadius.circular(15),

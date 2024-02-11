@@ -1,13 +1,11 @@
 part of 'RouterImports.dart';
 
-
 @AdaptiveAutoRouter(
   routes: <AutoRoute>[
     //general routes
     AdaptiveRoute(page: Splash, initial: true),
     AdaptiveRoute(page: WelcomePage),
-    CustomRoute(page: SelectUser,transitionsBuilder: TransitionsBuilders.fadeIn,durationInMilliseconds: 1500),
-    CustomRoute(page: Login,),
+    CustomRoute(page: Login),
     AdaptiveRoute(page: ForgetPassword),
     AdaptiveRoute(page: ResetPassword),
     AdaptiveRoute(page: Terms),
@@ -41,8 +39,6 @@ part of 'RouterImports.dart';
     AdaptiveRoute(page: PetProfile),
     AdaptiveRoute(page: WorkingTimes),
     AdaptiveRoute(page: SessionCall),
-
-
   ],
 )
 class $AppRouter {}

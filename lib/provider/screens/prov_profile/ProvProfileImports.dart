@@ -18,6 +18,7 @@ import '../../../general/helper/configration/CustomButtonAnimation.dart';
 import '../../../general/helper/helper_methods/HelperMethods.dart';
 import '../../../general/models/dropdown_model/dropdown_model.dart';
 import '../../../general/packages/generic_bloc/generic_cubit.dart';
+import '../../../general/packages/localization/Localizations.dart';
 import '../../../general/resources/GeneralRepoImports.dart';
 import '../../../general/widgets/DefaultButton.dart';
 

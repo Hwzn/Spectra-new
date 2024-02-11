@@ -12,13 +12,11 @@ class BuildAddressContainer extends StatelessWidget {
         return Visibility(
           visible: state.model!.address != '',
           child: TranslateAnimation(
-            duration: Duration(milliseconds: 300),
+            duration: const Duration(milliseconds: 300),
             child: Container(
               width: double.infinity,
-              margin: const EdgeInsets.symmetric(
-                  horizontal: 20, vertical: 10),
-              padding:
-              const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
@@ -28,12 +26,12 @@ class BuildAddressContainer extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(top: 7, left: 5),
-                    child: Icon(Icons.circle,
-                        color: MyColors.primary, size: 12),
+                    child:
+                        Icon(Icons.circle, color: MyColors.primary, size: 12),
                   ),
                   Expanded(
                     child: MyText(
-                      title: "${state.model!.address}",
+                      title: state.model!.address,
                       size: 12,
                       color: MyColors.black,
                     ),

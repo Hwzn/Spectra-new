@@ -60,7 +60,7 @@ class BuildUploadCv extends StatelessWidget {
               type: TextInputType.text,
               action: TextInputAction.next,
               validate: (value) => value!.validateEmpty(context),
-              hint: "Upload CV",
+              hint: tr(context, 'uploadCV'),
               margin: const EdgeInsets.symmetric(vertical: 10),
               suffixIcon: Container(
                 width: 20,

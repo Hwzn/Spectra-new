@@ -30,7 +30,7 @@ class BuildReservationType extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               MyText(
-                title: "Reservation Type",
+                title: tr(context, 'reservationType'),
                 color: MyColors.blackOpacity,
                 size: 12,
               ),

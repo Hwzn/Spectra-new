@@ -36,7 +36,6 @@ class BuildDoctorItem extends StatelessWidget {
                   margin: const EdgeInsets.symmetric(vertical: 10),
                   child: CachedImage(
                     url: model.image,
-                    // "https://www.freshpondanimalhospital.com/uploads/SiteAssets/17/images/staff/804198.jpg",
                     height: 50,
                     width: 50,
                     haveRadius: false,
@@ -100,7 +99,8 @@ class BuildDoctorItem extends StatelessWidget {
                 Expanded(
                   flex: 2,
                   child: MyText(
-                    title: "${model.sessionPrice} SAR/Hour",
+                    title: "${model.sessionPrice} "
+                        "${tr(context, 'sar')}/${tr(context, 'hour')}",
                     color: MyColors.lightGrey,
                     size: 12,
                   ),

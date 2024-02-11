@@ -17,7 +17,7 @@ class PreviousTab extends StatelessWidget {
             visible: state.data.isNotEmpty,
             replacement: Center(
               child: MyText(
-                title: "No Reservations",
+                title: tr(context, 'noReservations'),
                 color: MyColors.blackOpacity,
                 size: 12,
               ),

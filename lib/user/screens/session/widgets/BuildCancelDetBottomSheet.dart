@@ -13,28 +13,28 @@ class BuildCancelDetBottomSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           MyText(
-            title: "Cancel Session",
+            title: tr(context, 'cancelSession'),
             color: MyColors.black,
             size: 20,
           ),
           Container(
             margin: const EdgeInsets.symmetric(vertical: 10),
             child: MyText(
-              title: "By cancelling session you will lose refund",
+              title: tr(context, 'cancelWarning'),
               color: MyColors.grey,
               size: 14,
               fontWeight: FontWeight.normal,
             ),
           ),
           DefaultButton(
-            title: "Cancel Session",
+            title: tr(context, 'cancelSession'),
             color: MyColors.greyWhite,
             textColor: MyColors.grey,
             margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
             onTap: ()=> sessionData.onCancelSession(context, resId),
           ),
           DefaultButton(
-            title: "Go Back",
+            title: tr(context, 'goBack'),
             onTap: ()=>AutoRouter.of(context).pop(),
             margin: const EdgeInsets.only(
               top: 10,

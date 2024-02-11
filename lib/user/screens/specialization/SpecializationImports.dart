@@ -9,6 +9,7 @@ import 'package:hwzn_base/user/resources/UserRepositoryImports.dart';
 import 'package:hwzn_base/user/screens/home/tabs/main_page/widgets/MainWidgetsImports.dart';
 
 import '../../../general/packages/generic_bloc/generic_cubit.dart';
+import '../../../general/packages/localization/Localizations.dart';
 import '../../models/doctor_model.dart';
 
 part 'Specialization.dart';

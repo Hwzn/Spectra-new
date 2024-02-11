@@ -15,6 +15,7 @@ import 'package:stop_watch_timer/stop_watch_timer.dart';
 
 
 import '../../constants/MyColors.dart';
+import '../../packages/localization/Localizations.dart';
 import '../../utilities/utils_functions/LoadingDialog.dart';
 import '../../widgets/BuildHeaderTitle.dart';
 import '../../widgets/MyText.dart';

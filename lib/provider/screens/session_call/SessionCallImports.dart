@@ -18,6 +18,7 @@ import 'package:stop_watch_timer/stop_watch_timer.dart';
 
 import '../../../general/constants/MyColors.dart';
 import '../../../general/packages/generic_bloc/generic_cubit.dart';
+import '../../../general/packages/localization/Localizations.dart';
 import '../../../general/widgets/MyText.dart';
 import '../../../user/models/reservation_model.dart';
 import '../../../user/screens/session/widgets/SessionWidgetsImports.dart';

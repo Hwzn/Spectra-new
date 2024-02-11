@@ -20,8 +20,8 @@ class _WalletState extends State<Wallet> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.bg,
-      appBar: const DefaultAppBar(
-        title: "Wallet",
+      appBar: DefaultAppBar(
+        title: tr(context, 'wallet'),
         showLeading: false,
       ),
       body: BlocBuilder<GenericBloc<WalletModel?>, GenericState<WalletModel?>>(

@@ -30,7 +30,7 @@ class BuildNotificationItem extends StatelessWidget {
               backgroundColor: Colors.red,
               foregroundColor: MyColors.white,
               icon: Icons.delete,
-              label: 'Delete',
+              label: tr(context, 'delete'),
               borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(20),
                 bottomRight: Radius.circular(20),

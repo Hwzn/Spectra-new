@@ -18,7 +18,7 @@ class _ReviewsState extends State<Reviews> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.bg,
-      appBar: const DefaultAppBar(title: "Reviews"),
+      appBar: DefaultAppBar(title: tr(context, 'reviews')),
       body: Container(
         margin: const EdgeInsets.all(10),
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),

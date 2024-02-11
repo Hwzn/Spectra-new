@@ -6,6 +6,7 @@ import 'package:hwzn_base/res.dart';
 import 'package:images_picker/images_picker.dart';
 
 import '../../../../general/constants/MyColors.dart';
+import '../../../../general/packages/localization/Localizations.dart';
 import '../../../../general/widgets/CachedImage.dart';
 import '../../../../general/widgets/MyText.dart';
 import '../../../models/pet_info_model.dart';

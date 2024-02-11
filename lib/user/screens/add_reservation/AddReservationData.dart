@@ -12,10 +12,15 @@ class AddReservationData {
 
   // lists
   List<int> timesList = [];
-  List<ReservationTypeModel> typesList = [
-    ReservationTypeModel(name: "My Pet", value: "session", selected: true),
-    ReservationTypeModel(name: "Rescue Case", value: "rescue"),
-  ];
+
+  List<ReservationTypeModel> typesList(BuildContext context) => [
+        ReservationTypeModel(
+          name: tr(context, 'myPet'),
+          value: "session",
+          selected: true,
+        ),
+        ReservationTypeModel(name: tr(context, 'rescueCase'), value: "rescue"),
+      ];
 
   // variables
   num sessionPrice = 0;
@@ -26,26 +31,28 @@ class AddReservationData {
     var data = await UserRepository(context).getPets();
     petsBloc.onUpdateData(data);
     getDays(daysList);
-    typesBloc.onUpdateData(typesList);
+    typesBloc.onUpdateData(typesList(context));
   }
 
   addReservation(BuildContext context) async {
     var selectedPets = petsBloc.state.data.where((e) => e.selected).isEmpty;
     var selectedTime = timesBloc.state.data.where((e) => e.selected).isEmpty;
     var selectedType = typesBloc.state.data.firstWhere((e) => e.selected).value;
-    if(termsBloc.state.data == false){
-      CustomToast.showSimpleToast(msg: "Please accept terms");
+    if (termsBloc.state.data == false) {
+      CustomToast.showSimpleToast(
+          msg: "${tr(context, 'please')} ${tr(context, 'acceptTerms')}");
       return;
     }
-    if(selectedTime){
-      CustomToast.showSimpleToast(msg: "Please select a time");
+    if (selectedTime) {
+      CustomToast.showSimpleToast(msg: tr(context, 'pleaseSelectTime'));
       return;
     }
-    if(selectedType == "session" && selectedPets){
-      CustomToast.showSimpleToast(msg: "Please select a pet");
+    if (selectedType == "session" && selectedPets) {
+      CustomToast.showSimpleToast(msg: tr(context, 'pleaseSelectPet'));
       return;
     }
-    var petsList = petsBloc.state.data.where((element) => element.selected).toList();
+    var petsList =
+        petsBloc.state.data.where((element) => element.selected).toList();
     AddReservationModel model = AddReservationModel(
       doctorId: doctorId,
       petId: petsList.isNotEmpty ? petsList.first.id : null,
@@ -54,7 +61,7 @@ class AddReservationData {
       reservationType: selectedType,
     );
     var result = await UserRepository(context).addReservation(model);
-    if(result){
+    if (result) {
       AutoRouter.of(context).popAndPush(PaymentRoute());
     }
   }

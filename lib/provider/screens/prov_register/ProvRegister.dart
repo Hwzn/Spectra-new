@@ -20,7 +20,7 @@ class _ProvRegisterState extends State<ProvRegister> {
   Widget build(BuildContext context) {
     return AuthScaffold(
       logoTopPadding: 30,
-      title: "Create New Account",
+      title: tr(context, 'createAccount'),
       body: Column(
         children: [
           BlocBuilder<GenericBloc<int>, GenericState<int>>(
@@ -33,13 +33,13 @@ class _ProvRegisterState extends State<ProvRegister> {
                   children: [
                     BuildProviderType(
                       provRegisterData: provRegisterData,
-                      title: "Doctor",
+                      title: tr(context, "doctor"),
                       type: 1,
                       selected: state.data == 1,
                     ),
                     BuildProviderType(
                       provRegisterData: provRegisterData,
-                      title: "Center",
+                      title: tr(context, 'center'),
                       type: 2,
                       selected: state.data == 2,
                     ),
@@ -53,7 +53,7 @@ class _ProvRegisterState extends State<ProvRegister> {
           ),
           LoadingButton(
             btnKey: provRegisterData.btnKey,
-            title: "SIGN UP",
+            title: tr(context, 'signUp'),
             textColor: MyColors.white,
             onTap: ()=> provRegisterData.onRegister(context),
           ),

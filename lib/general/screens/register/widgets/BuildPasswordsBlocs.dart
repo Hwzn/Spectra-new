@@ -20,7 +20,7 @@ class BuildPasswordsBloc extends StatelessWidget {
                 type: TextInputType.text,
                 action: TextInputAction.next,
                 validate: (value) => value?.validatePassword(context),
-                hint: "Password",
+                hint: tr(context,'password'),
                 margin: const EdgeInsets.symmetric(vertical: 7),
                 suffixIcon: IconButton(
                   onPressed: () =>
@@ -44,7 +44,7 @@ class BuildPasswordsBloc extends StatelessWidget {
                 type: TextInputType.text,
                 action: TextInputAction.done,
                 validate: (value) => value?.validatePasswordConfirm(context, pass: registerData.passwordController.text),
-                hint: "Re-enter Password",
+                hint: tr(context, 'reEnterPassword'),
                 margin: const EdgeInsets.symmetric(vertical: 7),
                 suffixIcon: IconButton(
                   onPressed: () =>

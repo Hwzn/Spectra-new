@@ -52,7 +52,7 @@ class BuildDoctorItem extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 color: MyColors.primary,
                 child: MyText(
-                  title: 'Add',
+                  title: tr(context, 'add'),
                   color: MyColors.white,
                   size: 12,
                   fontWeight: FontWeight.bold,

@@ -11,6 +11,7 @@ import 'package:hwzn_base/general/widgets/HeaderLogo.dart';
 import 'package:hwzn_base/general/widgets/MyText.dart';
 
 import '../../../res.dart';
+import '../../packages/localization/Localizations.dart';
 import '../../widgets/AuthScaffold.dart';
 import '../../widgets/BuildHeaderTitle.dart';
 

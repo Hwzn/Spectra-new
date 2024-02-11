@@ -17,7 +17,7 @@ class BuildDoctorsBottomSheet extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.only(top: 30, bottom: 20),
                 child: MyText(
-                  title: "Choose Doctors",
+                  title: tr(context, 'chooseDoctors'),
                   color: MyColors.black,
                   size: 12,
                   fontWeight: FontWeight.bold,
@@ -37,7 +37,7 @@ class BuildDoctorsBottomSheet extends StatelessWidget {
                 ),
               ),
               DefaultButton(
-                title: "Done",
+                title: tr(context, 'done'),
                 width: MediaQuery.of(context).size.width * 0.5,
                 onTap: () => Navigator.pop(context),
               ),

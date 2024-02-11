@@ -31,7 +31,7 @@ class SessionData {
 
   changeSessionTime(BuildContext context, int resId, int doctorId) async {
     if (timesBloc.state.data.where((e) => e.selected).isEmpty) {
-      CustomToast.showSimpleToast(msg: "Please select time");
+      CustomToast.showSimpleToast(msg: tr(context, 'pleaseSelectTime'));
       return;
     }
     var data = await UserRepository(context).changeSessionTime(

@@ -13,7 +13,7 @@ class BuildPetSessions extends StatelessWidget {
         Container(
           margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
           child: MyText(
-            title: "Sessions",
+            title: tr(context, 'sessions'),
             color: MyColors.black,
             size: 14,
             fontWeight: FontWeight.bold,
@@ -24,7 +24,7 @@ class BuildPetSessions extends StatelessWidget {
           replacement: DefaultContainer(
             width: MediaQuery.of(context).size.width,
             child: MyText(
-              title: "No Attachments",
+              title: tr(context, 'noAttachments'),
               color: MyColors.blackOpacity,
               size: 12,
             ),

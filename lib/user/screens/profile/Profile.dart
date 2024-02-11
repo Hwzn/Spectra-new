@@ -19,7 +19,7 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.bg,
-      appBar: const DefaultAppBar(title: "My Account"),
+      appBar: DefaultAppBar(title: tr(context, 'myAccount')),
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         children: [
@@ -28,7 +28,7 @@ class _ProfileState extends State<Profile> {
         ],
       ),
       bottomNavigationBar: DefaultButton(
-        title: "Save",
+        title: tr(context, 'save'),
         margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
         borderRadius: BorderRadius.circular(15),
         onTap: ()=> profileData.updateProfile(context),

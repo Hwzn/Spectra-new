@@ -7,6 +7,7 @@ import 'package:hwzn_base/general/packages/generic_bloc/generic_cubit.dart';
 import 'package:hwzn_base/user/screens/doctor_details/DoctorDetailsImports.dart';
 
 import '../../../../general/constants/MyColors.dart';
+import '../../../../general/packages/localization/Localizations.dart';
 import '../../../../general/utilities/routers/RouterImports.gr.dart';
 import '../../../../general/widgets/CachedImage.dart';
 import '../../../../general/widgets/MyText.dart';

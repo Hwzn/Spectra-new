@@ -3,34 +3,37 @@ part of 'ResetPasswordWidgetsInputs.dart';
 class BuildResendCode extends StatelessWidget {
   final ResetPasswordData resetPasswordData;
   final String email;
-  const BuildResendCode({Key? key, required this.resetPasswordData, required this.email}) : super(key: key);
+
+  const BuildResendCode(
+      {Key? key, required this.resetPasswordData, required this.email})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return  BlocBuilder<GenericBloc<String>, GenericState<String>>(
+    return BlocBuilder<GenericBloc<String>, GenericState<String>>(
         bloc: resetPasswordData.timeCubit,
         builder: (context, state) {
-          if(resetPasswordData.stopWatchTimer!.isRunning){
+          if (resetPasswordData.stopWatchTimer!.isRunning) {
             return Container(
-              padding:
-              const EdgeInsets.symmetric(horizontal: 5, vertical: 50),
+              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 50),
               child: MyText(
-                title: " اعاده ارسال الكود بعد ${state.data} ثانيه ",
+                title: " ${tr(context, 'resendCodeAfter')} ${state.data}"
+                    " ${tr(context, 'seconds')} ",
                 color: MyColors.black,
                 size: 13,
                 decoration: TextDecoration.underline,
               ),
             );
-          }else{
+          } else {
             return GestureDetector(
               onTap: () {
-                resetPasswordData.onResendCode(context,email);
+                resetPasswordData.onResendCode(context, email);
               },
               child: Container(
                 padding:
-                const EdgeInsets.symmetric(horizontal: 5, vertical: 50),
+                    const EdgeInsets.symmetric(horizontal: 5, vertical: 50),
                 child: MyText(
-                  title:"Resend Code",
+                  title: tr(context, 'resendCode'),
                   color: MyColors.black,
                   size: 13,
                   decoration: TextDecoration.underline,

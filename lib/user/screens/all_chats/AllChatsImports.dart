@@ -6,6 +6,7 @@ import 'package:hwzn_base/user/screens/all_chats/widgets/AllChatsWidgetsImports.
 
 import '../../../general/constants/MyColors.dart';
 import '../../../general/packages/generic_bloc/generic_cubit.dart';
+import '../../../general/packages/localization/Localizations.dart';
 import '../../../general/widgets/DefaultAppBar.dart';
 import '../../../general/widgets/MyText.dart';
 import '../../models/chat_model.dart';

@@ -4,6 +4,7 @@ import 'package:hwzn_base/user/models/reservation_model.dart';
 import 'package:hwzn_base/user/screens/review_session/ReviewSessionImports.dart';
 
 import '../../../../general/constants/MyColors.dart';
+import '../../../../general/packages/localization/Localizations.dart';
 import '../../../../general/widgets/MyText.dart';
 
 part 'BuildSessionDoctorInfo.dart';

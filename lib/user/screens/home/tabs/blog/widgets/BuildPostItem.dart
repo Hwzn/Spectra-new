@@ -58,13 +58,13 @@ class BuildPostItem extends StatelessWidget {
                   onTap: () => blogData.likeOrUnlike(context, model.id),
                   child: BuildBlogActions(
                     icon: Icons.favorite,
-                    title: "${model.likesCount}  Likes",
+                    title: "${model.likesCount}  ${tr(context, 'likes')}",
                     likeColor: model.isLiked ? Colors.red : MyColors.grey,
                   ),
                 ),
                 BuildBlogActions(
                     icon: Icons.comment,
-                    title: "${model.commentsCount}  Comments"),
+                    title: "${model.commentsCount}  ${tr(context, 'comments')}"),
               ],
             ),
           )

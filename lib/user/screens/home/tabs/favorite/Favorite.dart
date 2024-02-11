@@ -19,8 +19,8 @@ class _FavoriteState extends State<Favorite> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const DefaultAppBar(
-        title: "My Favorites",
+      appBar: DefaultAppBar(
+        title: tr(context, 'myFavorites'),
         showLeading: false,
       ),
       body: BlocBuilder<GenericBloc<List<DoctorModel>>, GenericState<List<DoctorModel>>>(
@@ -31,7 +31,7 @@ class _FavoriteState extends State<Favorite> {
               visible: state.data.isNotEmpty,
               replacement: Center(
                 child: MyText(
-                  title: "No Favorites",
+                  title: tr(context, 'noFavorites'),
                   color: MyColors.primary,
                   size: 12,
                 ),

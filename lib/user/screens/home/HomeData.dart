@@ -11,7 +11,7 @@ class HomeData {
   late TabController tabController;
 
   // lists
-  List<Widget> tabsView = [
+  List<Widget> tabsView = const [
     MainPage(),
     Reservations(),
     Blog(),
@@ -19,13 +19,25 @@ class HomeData {
     Account(),
   ];
 
-  List<BottomTabModel> tabs = [
-    BottomTabModel(iconData: Icons.home, title: "Home"),
-    BottomTabModel(iconData: MdiIcons.calendarMonthOutline, title: "Reservations"),
-    BottomTabModel(iconData: MdiIcons.commentEdit, title: "Blog"),
-    BottomTabModel(iconData: Icons.favorite, title: "Favorite"),
-    BottomTabModel(iconData: MdiIcons.accountCircleOutline, title: "Account"),
-  ];
+  List<BottomTabModel> tabs(BuildContext context) => [
+        BottomTabModel(iconData: Icons.home, title: tr(context, 'home')),
+        BottomTabModel(
+          iconData: MdiIcons.calendarMonthOutline,
+          title: tr(context, 'reservations'),
+        ),
+        BottomTabModel(
+          iconData: MdiIcons.commentEdit,
+          title: tr(context, 'blog'),
+        ),
+        BottomTabModel(
+          iconData: Icons.favorite,
+          title: tr(context, 'favorites'),
+        ),
+        BottomTabModel(
+          iconData: MdiIcons.accountCircleOutline,
+          title: tr(context, 'account'),
+        ),
+      ];
 
   // methods
   void initController(TickerProvider tickerProvider, int index) {

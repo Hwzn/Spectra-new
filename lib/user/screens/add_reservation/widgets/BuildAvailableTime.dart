@@ -35,7 +35,7 @@ class BuildAvailableTime extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 MyText(
-                  title: "Available Times",
+                  title: tr(context, 'availableTimes'),
                   color: MyColors.blackOpacity,
                   size: 12,
                 ),
@@ -43,7 +43,7 @@ class BuildAvailableTime extends StatelessWidget {
                 Visibility(
                   visible: state.data.isNotEmpty,
                   replacement: MyText(
-                    title: "No Available Times",
+                    title: tr(context, 'noAvailableTimes'),
                     color: MyColors.blackOpacity,
                     size: 12,
                   ),
@@ -73,7 +73,6 @@ class BuildAvailableTime extends StatelessWidget {
                                 ),
                                 alignment: Alignment.center,
                                 child: MyText(
-                                  // title: state.data[index].hour,
                                   title: state.data[index].hour.substring(0,5),
                                   color: MyColors.white,
                                   size: 10,

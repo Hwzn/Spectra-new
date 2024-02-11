@@ -31,7 +31,7 @@ class _ResetPasswordState extends State<ResetPassword> {
   Widget build(BuildContext context) {
     return AuthScaffold(
       appBar: const BuildAuthAppBar(),
-      title: "Recreate New Password",
+      title: tr(context, 'recreatePassword'),
       showLogo: false,
       logo: Padding(
         padding: const EdgeInsets.only(bottom: 20),
@@ -45,7 +45,7 @@ class _ResetPasswordState extends State<ResetPassword> {
         child: Column(
           children: [
             MyText(
-              title: "Please create new password",
+              title: tr(context, 'createNewPassword'),
               color: MyColors.grey,
               size: 10,
               alien: TextAlign.center,

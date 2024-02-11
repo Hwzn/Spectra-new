@@ -7,7 +7,6 @@ class ContactUs extends StatefulWidget {
   _ContactUsState createState() => _ContactUsState();
 }
 
-
 class _ContactUsState extends State<ContactUs> {
   final ContactUsData contactUsData = ContactUsData();
 
@@ -15,13 +14,12 @@ class _ContactUsState extends State<ContactUs> {
   Widget build(BuildContext context) {
     return AuthScaffold(
         appBar: const BuildAuthAppBar(haveLeading: true),
-        title: "تواصل معنا",
+        title: tr(context, 'contactUs'),
         body: Column(
           children: [
             BuildContactUsInputs(contactUsData: contactUsData),
             const BuildContactSocial(),
             LoadingButton(
-
               borderColor: MyColors.primary,
               title: tr(context, "send"),
               onTap: () => contactUsData.addContactUs(context),

@@ -29,14 +29,14 @@ class BuildSuccessDialog extends StatelessWidget {
           Container(
             margin: const EdgeInsets.symmetric(vertical: 15),
             child: MyText(
-              title: "Success Payment",
+              title: tr(context, 'successPayment'),
               color: MyColors.black,
               size: 16,
               fontWeight: FontWeight.normal,
             ),
           ),
           DefaultButton(
-            title: "Go to session",
+            title: tr(context, 'goToSession'),
             margin: EdgeInsets.zero,
             onTap: ()=> AutoRouter.of(context).pop(),
           ),

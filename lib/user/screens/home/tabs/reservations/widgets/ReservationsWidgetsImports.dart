@@ -10,6 +10,7 @@ import 'package:hwzn_base/user/models/reservation_model.dart';
 import 'package:hwzn_base/user/screens/home/tabs/reservations/ReservationsImports.dart';
 
 import '../../../../../../general/constants/MyColors.dart';
+import '../../../../../../general/packages/localization/Localizations.dart';
 import '../../../../../../general/widgets/CachedImage.dart';
 import '../../../../../../general/widgets/MyText.dart';
 

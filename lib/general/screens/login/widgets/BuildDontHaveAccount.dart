@@ -12,16 +12,16 @@ class BuildDontHaveAccount extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           MyText(
-            title: "Don't have account yet ? ",
+            title: tr(context, "don'tHaveAcc"),
             color: MyColors.grey,
             size: 13,
           ),
           InkWell(
-            onTap: () => AutoRouter.of(context).push(RegisterRoute()),
+            onTap: () => AutoRouter.of(context).push(const RegisterRoute()),
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 5),
               child: MyText(
-                title: "Sign up now",
+                title: tr(context, 'signUpNow'),
                 color: MyColors.secondary,
                 size: 13,
                 // decoration: TextDecoration.underline,

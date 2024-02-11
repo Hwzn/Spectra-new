@@ -11,18 +11,17 @@ class BuildSignOutSheet extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           MyText(
-            title: "Are you sure you want to sign out ?",
+            title: tr(context, 'confirmSignOut'),
             color: MyColors.black,
             size: 16,
           ),
           DefaultButton(
-            title: "No",
+            title: tr(context, 'no'),
             margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
             onTap: ()=>AutoRouter.of(context).pop(),
           ),
           DefaultButton(
-            title: "Yes, Sign Out",
-            // onTap: ()=> Phoenix.rebirth(context),
+            title: "${tr(context, 'yes')}, ${tr(context, 'signOut')}",
             onTap: ()=> GeneralRepository(context).logOut(),
             margin: const EdgeInsets.only(
               right: 20,

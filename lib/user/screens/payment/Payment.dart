@@ -14,7 +14,7 @@ class _PaymentState extends State<Payment> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.bg,
-      appBar: const DefaultAppBar(title: "Payment"),
+      appBar: DefaultAppBar(title: tr(context, 'payment')),
       body: ListView(
         children: [
           Container(
@@ -29,7 +29,7 @@ class _PaymentState extends State<Payment> {
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 10),
                 child: MyText(
-                  title: "Secure Payment",
+                  title: tr(context, 'securePayment'),
                   color: MyColors.blackOpacity,
                   size: 12,
                 ),
@@ -41,7 +41,7 @@ class _PaymentState extends State<Payment> {
         ],
       ),
       bottomNavigationBar: DefaultButton(
-        title: "Pay",
+        title: tr(context, 'pay'),
         borderRadius: BorderRadius.circular(15),
         margin: const EdgeInsets.all(20),
         onTap: ()=> paymentData.successDialog(context),

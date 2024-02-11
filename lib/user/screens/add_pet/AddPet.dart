@@ -14,14 +14,14 @@ class _AddPetState extends State<AddPet> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.bg,
-      appBar: const DefaultAppBar(title: "Add Pet"),
+      appBar: DefaultAppBar(title: tr(context, 'addPet')),
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         children: [
           BuildAddPetPhoto(addPetData: addPetData),
           GenericTextField(
             fieldTypes: FieldTypes.normal,
-            hint: "Pet Name",
+            hint: tr(context, 'petName'),
             controller: addPetData.petName,
             margin: const EdgeInsets.symmetric(vertical: 8),
             action: TextInputAction.done,
@@ -31,7 +31,7 @@ class _AddPetState extends State<AddPet> {
           ),
           GenericTextField(
             fieldTypes: FieldTypes.rich,
-            hint: "Pet Details",
+            hint: tr(context, 'petDetails'),
             max: 4,
             controller: addPetData.details,
             margin: const EdgeInsets.symmetric(vertical: 8),
@@ -44,7 +44,7 @@ class _AddPetState extends State<AddPet> {
         ],
       ),
       bottomNavigationBar: DefaultButton(
-        title: "Add Pet",
+        title: tr(context, 'addPet'),
         onTap: ()=> addPetData.addPet(context),
         margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
         borderRadius: BorderRadius.circular(15),

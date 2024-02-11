@@ -19,7 +19,7 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     return AuthScaffold(
       appBar: const BuildAuthAppBar(haveLeading: false),
-      title: "Create New Account",
+      title: tr(context, 'createAccount'),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
         child: SingleChildScrollView(

@@ -22,7 +22,7 @@ class _WorkingTimesState extends State<WorkingTimes> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DefaultAppBar(
-        title: "Working Times",
+        title: tr(context, 'workingTimes'),
         leading: InkWell(
           onTap: () {
             AutoRouter.of(context).pop();
@@ -46,7 +46,7 @@ class _WorkingTimesState extends State<WorkingTimes> {
         height: 80,
         child: LoadingButton(
           btnKey: workingTimesData.btnKey,
-          title: "Save Times",
+          title: tr(context, 'saveTimes'),
           textColor: MyColors.white,
           margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
           onTap: () => workingTimesData.saveTimes(context),

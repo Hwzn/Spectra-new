@@ -52,7 +52,7 @@ class _AccountState extends State<Account> {
             child: Container(
               margin: const EdgeInsets.only(top: 25, bottom: 15),
               child: MyText(
-                title: "Sign out",
+                title: tr(context, 'signOut'),
                 color: MyColors.grey,
                 size: 14,
                 alien: TextAlign.center,

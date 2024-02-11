@@ -10,7 +10,7 @@ class BuildWalletBalance extends StatelessWidget {
       child: Row(
         children: [
           MyText(
-            title: "Balance",
+            title: tr(context, 'balance'),
             size: 16,
             color: MyColors.black,
             fontFamily: GoogleFonts.poppins().fontFamily,
@@ -26,7 +26,7 @@ class BuildWalletBalance extends StatelessWidget {
                   fontFamily: GoogleFonts.poppins().fontFamily,
                 ),
                 MyText(
-                  title: "SAR",
+                  title: tr(context, 'sar'),
                   size: 10,
                   color: MyColors.grey,
                   fontFamily: GoogleFonts.poppins().fontFamily,

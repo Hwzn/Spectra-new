@@ -6,6 +6,7 @@ import 'package:hwzn_base/provider/screens/prov_home/tabs/prov_reservations/widg
 
 import '../../../../../general/constants/MyColors.dart';
 import '../../../../../general/packages/generic_bloc/generic_cubit.dart';
+import '../../../../../general/packages/localization/Localizations.dart';
 import '../../../../../user/models/reservation_model.dart';
 import 'tabs/prov_previos/ProvPreviousImports.dart';
 import 'tabs/prov_upcoming/ProvUpcomingImports.dart';

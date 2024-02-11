@@ -21,7 +21,7 @@ class BuildDoctorsView extends StatelessWidget {
               type: TextInputType.text,
               action: TextInputAction.next,
               validate: (value) => value!.noValidate(),
-              hint: "Add Doctors",
+              hint: tr(context, 'addDoctors'),
               margin: const EdgeInsets.symmetric(vertical: 10),
               suffixIcon: Container(
                 width: 20,

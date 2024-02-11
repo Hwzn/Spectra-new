@@ -62,7 +62,7 @@ class _SessionCallState extends State<SessionCall> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               MyText(
-                                title: "Remaining Time",
+                                title: tr(context, 'remainingTime'),
                                 color: Colors.red,
                                 size: 9,
                                 fontFamily: GoogleFonts.poppins().fontFamily,
@@ -81,7 +81,7 @@ class _SessionCallState extends State<SessionCall> {
                           padding: const EdgeInsets.symmetric(horizontal: 5),
                           alignment: Alignment.center,
                           child: MyText(
-                            title: "Session Ended",
+                            title: tr(context, 'sessionEnded'),
                             color: MyColors.primary,
                             size: 15,
                           ),

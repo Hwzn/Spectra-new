@@ -9,21 +9,21 @@ class BuildProfileInputs extends StatelessWidget {
     return Column(
       children: [
         BuildProfileInputItem(
-          title: "User name",
-          hint: "Aya Hamed",
+          title: tr(context, 'name'),
+          hint: profileData.name.text,
           controller: profileData.name,
           validate: (value)=> value!.validateEmpty(context),
         ),
         BuildProfileInputItem(
-          title: "Phone Number",
-          hint: "+9661234567890",
+          title: tr(context, 'phone'),
+          hint: profileData.phone.text,
           controller: profileData.phone,
           validate: (value)=> value!.validatePhone(context),
           textInputType: TextInputType.phone,
         ),
         BuildProfileInputItem(
-          title: "E-mail",
-          hint: "aya@gmail.com",
+          title: tr(context, 'email'),
+          hint: profileData.email.text,
           controller: profileData.email,
           validate: (value)=> value!.validateEmail(context),
           textInputType: TextInputType.emailAddress,

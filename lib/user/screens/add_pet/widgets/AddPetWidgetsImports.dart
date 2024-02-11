@@ -8,6 +8,7 @@ import 'package:hwzn_base/user/models/PetFilesModel.dart';
 import 'package:hwzn_base/user/screens/add_pet/AddPetImports.dart';
 
 import '../../../../general/constants/MyColors.dart';
+import '../../../../general/packages/localization/Localizations.dart';
 import '../../../../general/widgets/CachedImage.dart';
 import '../../../../general/widgets/DefaultButton.dart';
 

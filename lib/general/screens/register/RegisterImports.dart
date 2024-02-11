@@ -16,6 +16,7 @@ import 'package:hwzn_base/general/screens/register/widgets/RegisterWidgetsImport
 import 'package:hwzn_base/general/widgets/AuthAppBar.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import '../../constants/custom_ drop_down/CustomDropDown.dart';
+import '../../packages/localization/Localizations.dart';
 import '../../utilities/routers/RouterImports.gr.dart';
 import '../../widgets/AuthScaffold.dart';
 

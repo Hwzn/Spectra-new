@@ -24,7 +24,9 @@ class BuildProvRegisterInputs extends StatelessWidget {
                   type: TextInputType.text,
                   action: TextInputAction.next,
                   validate: (value) => value!.validateEmpty(context),
-                  hint: state.data == 1 ? "Name" : "Center Name",
+                  hint: state.data == 1
+                      ? tr(context, 'name')
+                      : tr(context, 'centerName'),
                   margin: const EdgeInsets.symmetric(vertical: 10),
                 ),
                 BuildCountryPhone(provRegisterData: provRegisterData),
@@ -36,7 +38,7 @@ class BuildProvRegisterInputs extends StatelessWidget {
                   type: TextInputType.emailAddress,
                   action: TextInputAction.next,
                   validate: (value) => value!.validateEmail(context),
-                  hint: "E-mail",
+                  hint: tr(context, 'email'),
                   margin: const EdgeInsets.symmetric(vertical: 10),
                 ),
                 Visibility(
@@ -49,9 +51,9 @@ class BuildProvRegisterInputs extends StatelessWidget {
                     type: TextInputType.text,
                     action: TextInputAction.next,
                     validate: state.data != 1
-                        ? (value) =>  value!.validateEmpty(context)
+                        ? (value) => value!.validateEmpty(context)
                         : (value) => value!.noValidate(),
-                    hint: "General Information",
+                    hint: tr(context, 'generalInfo'),
                     margin: const EdgeInsets.symmetric(vertical: 10),
                   ),
                   child:
@@ -65,7 +67,7 @@ class BuildProvRegisterInputs extends StatelessWidget {
                   type: TextInputType.number,
                   action: TextInputAction.next,
                   validate: (value) => value!.validateEmpty(context),
-                  hint: "Invitation Code",
+                  hint: tr(context, 'invitationCode'),
                   margin: const EdgeInsets.symmetric(vertical: 10),
                 ),
                 BuildUploadCv(

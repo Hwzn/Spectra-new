@@ -10,25 +10,25 @@ class AccountData {
     return [
       BuildSettingItem(
         icon: Icons.person_outline,
-        title: "My Account",
+        title: tr(context, 'myAccount'),
         onTap: () => AutoRouter.of(context).push(ProfileRoute()),
       ),
       BuildSettingItem(
         icon: Icons.language,
-        title: "Language",
+        title: tr(context, 'language'),
         onTap: ()=> changeLang(context),
       ),
       BuildSettingItem(
         icon: MdiIcons.tooltipOutline,
-        title: "FAQ",
+        title: tr(context, 'faq'),
         onTap: () => AutoRouter.of(context).push(FAQRoute()),
       ),
       BuildSettingItem(
         icon: Icons.assignment_sharp,
-        title: "Terms & Conditions",
+        title: tr(context, 'terms'),
         onTap: () => AutoRouter.of(context).push(TermsRoute()),
       ),
-      const BuildSettingItem(icon: Icons.share, title: "Share App"),
+      BuildSettingItem(icon: Icons.share, title: tr(context, 'shareApp')),
     ];
   }
 

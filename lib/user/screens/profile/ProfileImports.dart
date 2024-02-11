@@ -17,6 +17,7 @@ import 'package:hwzn_base/user/screens/profile/widgets/ProfileWidgetsImports.dar
 
 import '../../../general/blocks/user_cubit/user_cubit.dart';
 import '../../../general/constants/custom_ drop_down/CustomDropDown.dart';
+import '../../../general/packages/localization/Localizations.dart';
 
 part 'Profile.dart';
 part 'ProfileData.dart';

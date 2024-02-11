@@ -9,6 +9,7 @@ import 'package:hwzn_base/provider/resources/DoctorRepositoryImports.dart';
 import 'package:hwzn_base/user/screens/notifications/widgets/NotificationsWidgetsImports.dart';
 
 import '../../../general/constants/MyColors.dart';
+import '../../../general/packages/localization/Localizations.dart';
 import '../../../general/widgets/DefaultAppBar.dart';
 import '../../../provider/models/notifications_model.dart';
 

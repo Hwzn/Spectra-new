@@ -11,6 +11,7 @@ import 'package:hwzn_base/general/widgets/DefaultButton.dart';
 import 'package:hwzn_base/general/widgets/MyText.dart';
 import 'package:hwzn_base/user/screens/home/tabs/main_page/MainPageImports.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import '../../../../../../general/packages/localization/Localizations.dart';
 import '../../../../../../res.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'dart:math' as math;

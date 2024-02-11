@@ -31,7 +31,7 @@ class BuildSessionChangeDay extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 MyText(
-                  title: "Available Days",
+                  title: tr(context, 'availableDays'),
                   color: MyColors.blackOpacity,
                   size: 12,
                 ),
@@ -39,7 +39,7 @@ class BuildSessionChangeDay extends StatelessWidget {
                 Visibility(
                   visible: state.data.isNotEmpty,
                   replacement: MyText(
-                    title: "No Available Times",
+                    title: tr(context, 'noAvailableTimes'),
                     color: MyColors.blackOpacity,
                     size: 12,
                   ),

@@ -6,7 +6,7 @@ class BuildButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultButton(
-      title: "SIGN IN",
+      title: tr(context, 'signIn'),
       onTap: () => AutoRouter.of(context).push(LoginRoute()),
     );
   }

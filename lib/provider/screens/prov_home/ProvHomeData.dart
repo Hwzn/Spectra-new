@@ -19,13 +19,22 @@ class ProvHomeData {
     ProvAccount(),
   ];
 
-  List<BottomTabModel> tabs = [
-    BottomTabModel(iconData: Icons.home, title: "Home"),
-    BottomTabModel(iconData: MdiIcons.calendarMonthOutline, title: "Reservations"),
-    BottomTabModel(iconData: MdiIcons.commentEdit, title: "Reviews"),
-    BottomTabModel(iconData: MdiIcons.wallet, title: "Wallet"),
-    BottomTabModel(iconData: MdiIcons.accountCircleOutline, title: "Account"),
-  ];
+  List<BottomTabModel> tabs(BuildContext context) => [
+        BottomTabModel(iconData: Icons.home, title: tr(context, 'home')),
+        BottomTabModel(
+          iconData: MdiIcons.calendarMonthOutline,
+          title: tr(context, 'reservations'),
+        ),
+        BottomTabModel(
+          iconData: MdiIcons.commentEdit,
+          title: tr(context, 'reviews'),
+        ),
+        BottomTabModel(iconData: MdiIcons.wallet, title: tr(context, 'wallet')),
+        BottomTabModel(
+          iconData: MdiIcons.accountCircleOutline,
+          title: tr(context, 'account'),
+        ),
+      ];
 
   // methods
   void initController(TickerProvider tickerProvider, int index) {

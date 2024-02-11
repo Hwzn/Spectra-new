@@ -30,7 +30,7 @@ class BuildDoctorReviews extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               MyText(
-                title: "Reviews",
+                title: tr(context, 'reviews'),
                 color: MyColors.black,
                 size: 12,
               ),
@@ -41,7 +41,7 @@ class BuildDoctorReviews extends StatelessWidget {
                     ReviewsRoute(avgReviews: avgRate, reviewsList: reviewsList),
                   ),
                   child: MyText(
-                    title: "See more",
+                    title: tr(context, 'seeMore'),
                     color: MyColors.blackOpacity,
                     size: 10,
                   ),
@@ -73,7 +73,7 @@ class BuildDoctorReviews extends StatelessWidget {
             replacement: Container(
               margin: const EdgeInsets.only(top: 20, bottom: 10),
               child: MyText(
-                title: "No Reviews Available",
+                title: tr(context, 'noReviews'),
                 color: MyColors.primary,
                 size: 12,
               ),

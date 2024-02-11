@@ -21,7 +21,7 @@ class _BlogState extends State<Blog> {
     return Scaffold(
       backgroundColor: MyColors.bg,
       appBar: DefaultAppBar(
-        title: "Blog",
+        title: tr(context, 'blog'),
         showLeading: false,
         actions: [
           IconButton(
@@ -44,7 +44,7 @@ class _BlogState extends State<Blog> {
               visible: state.data.isNotEmpty,
               replacement: Center(
                 child: MyText(
-                  title: "No Blogs",
+                  title: tr(context, 'noBlogs'),
                   color: MyColors.primary,
                   size: 12,
                 ),

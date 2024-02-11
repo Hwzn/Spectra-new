@@ -12,7 +12,7 @@ class BuildPetPdf extends StatelessWidget {
       replacement: DefaultContainer(
         width: MediaQuery.of(context).size.width,
         child: MyText(
-          title: "No Attachments",
+          title: tr(context, 'noAttachments'),
           color: MyColors.blackOpacity,
           size: 12,
         ),
@@ -24,7 +24,7 @@ class BuildPetPdf extends StatelessWidget {
             margin:
                 const EdgeInsets.only(top: 15, right: 20, left: 20, bottom: 5),
             child: MyText(
-              title: "Attachments",
+              title: tr(context, 'attachments'),
               color: MyColors.black,
               size: 14,
               fontWeight: FontWeight.bold,

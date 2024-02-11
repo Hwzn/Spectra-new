@@ -10,7 +10,7 @@ class BuildForgetPasswordButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return LoadingButton(
       borderColor: MyColors.primary,
-      title: "Reset Password",
+      title: tr(context, 'resetPassword'),
       onTap: () => forgetPasswordData.resetPassword(context),
       color: MyColors.primary,
       textColor: MyColors.white,

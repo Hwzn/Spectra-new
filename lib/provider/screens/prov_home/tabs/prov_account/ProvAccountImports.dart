@@ -20,6 +20,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import '../../../../../general/helper/dio/utils/GlobalState.dart';
 import '../../../../../general/helper/storage/Storage.dart';
 import '../../../../../general/models/UserModel.dart';
+import '../../../../../general/packages/localization/Localizations.dart';
 import '../../../../../general/utilities/routers/RouterImports.gr.dart';
 import '../../../../../general/widgets/DefaultAppBar.dart';
 import '../../../../../general/widgets/MyText.dart';

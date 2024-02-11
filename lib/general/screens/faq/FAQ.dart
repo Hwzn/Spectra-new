@@ -20,7 +20,7 @@ class _FAQState extends State<FAQ> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.bg,
-      appBar: const DefaultAppBar(title: "FAQ"),
+      appBar: DefaultAppBar(title: tr(context, 'faq')),
       body: BlocBuilder<GenericBloc<List<QuestionModel>>,
           GenericState<List<QuestionModel>>>(
         bloc: faqData.faqBloc,
@@ -29,9 +29,11 @@ class _FAQState extends State<FAQ> {
             return Visibility(
               visible: state.data.isNotEmpty,
               replacement: Center(
-                child: MyText(title: "No Questions Available",
+                child: MyText(
+                  title: tr(context, 'noQuestions'),
                   color: MyColors.primary,
-                  size: 12,),
+                  size: 12,
+                ),
               ),
               child: ListView.builder(
                 padding: const EdgeInsets.only(top: 20),

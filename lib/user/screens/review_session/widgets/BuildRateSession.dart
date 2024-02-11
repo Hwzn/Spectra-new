@@ -25,14 +25,14 @@ class BuildRateSession extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           MyText(
-            title: "Rate Session",
+            title: tr(context, 'rateSession'),
             color: MyColors.black,
             size: 13,
           ),
           Container(
             margin: const EdgeInsets.symmetric(vertical: 10),
             child: MyText(
-              title: "Rating helps us improve the provided services",
+              title: tr(context, 'ratingHelpImprovement'),
               color: MyColors.grey,
               size: 12,
             ),

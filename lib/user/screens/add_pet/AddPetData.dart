@@ -16,15 +16,15 @@ class AddPetData {
   // methods
   addPet(BuildContext context) async {
     if(imageBloc.state.data == null){
-      CustomToast.showSimpleToast(msg: "Please add pet image");
+      CustomToast.showSimpleToast(msg: tr(context, 'pleaseAddPetImage'));
       return;
     }
     if(petName.text.isEmpty){
-      CustomToast.showSimpleToast(msg: "Please add pet name");
+      CustomToast.showSimpleToast(msg: tr(context, 'pleaseAddPetName'));
       return;
     }
     if(details.text.isEmpty){
-      CustomToast.showSimpleToast(msg: "Please add pet details");
+      CustomToast.showSimpleToast(msg: tr(context, 'pleaseAddPetDetails'));
       return;
     }
     AddPetModel model = AddPetModel(

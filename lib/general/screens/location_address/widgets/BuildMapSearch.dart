@@ -20,14 +20,12 @@ class BuildMapSearch extends StatelessWidget {
         decoration: const BoxDecoration(
           color: Colors.white,
           boxShadow: [
-            BoxShadow(
-                color: Colors.grey, blurRadius: 1, spreadRadius: 1)
+            BoxShadow(color: Colors.grey, blurRadius: 1, spreadRadius: 1)
           ],
           shape: BoxShape.circle,
         ),
         child: InkWell(
-          onTap: () =>
-              locationAddressData.onSearchPressed(context),
+          onTap: () => locationAddressData.onSearchPressed(context),
           child: const Icon(
             Icons.search,
             size: 25,

@@ -32,7 +32,7 @@ class BuildPriceItem extends StatelessWidget {
             ],
           ),
           MyText(
-            title: "SAR",
+            title: tr(context, 'sar'),
             size: 11,
             color: MyColors.grey,
           ),

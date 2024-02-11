@@ -20,7 +20,7 @@ class _NotificationsState extends State<Notifications> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.bg,
-      appBar: const DefaultAppBar(title: "Notifications"),
+      appBar: DefaultAppBar(title: tr(context, 'notifications')),
       body: BlocBuilder<GenericBloc<List<NotificationsModel>>,
           GenericState<List<NotificationsModel>>>(
         bloc: notificationsData.notificationsBloc,
@@ -38,8 +38,8 @@ class _NotificationsState extends State<Notifications> {
                       left: 20,
                       bottom: 10,
                     ),
-                    child: const MyText(
-                      title: "Delete All",
+                    child: MyText(
+                      title: tr(context, 'deleteAll'),
                       color: Colors.red,
                       size: 12,
                       fontWeight: FontWeight.bold,
@@ -51,7 +51,7 @@ class _NotificationsState extends State<Notifications> {
                     visible: state.data.isNotEmpty,
                     replacement: Center(
                       child: MyText(
-                        title: "No Notifications",
+                        title: tr(context, 'noNotifications'),
                         color: MyColors.blackOpacity,
                         size: 12,
                       ),

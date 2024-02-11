@@ -69,7 +69,7 @@ class _ProvMainState extends State<ProvMain> {
                             ),
                             const SizedBox(height: 10),
                             MyText(
-                              title: "Total \nRatings",
+                              title: tr(context, 'totalRatings'),
                               size: 16,
                               color: MyColors.black,
                               alien: TextAlign.center,
@@ -95,7 +95,7 @@ class _ProvMainState extends State<ProvMain> {
                             ),
                             const SizedBox(height: 10),
                             MyText(
-                              title: "Total \nReservations",
+                              title: tr(context, 'totalReservations'),
                               size: 16,
                               color: MyColors.black,
                               alien: TextAlign.center,
@@ -114,7 +114,7 @@ class _ProvMainState extends State<ProvMain> {
                     children: [
                       Expanded(
                         child: MyText(
-                          title: "Total Balance",
+                          title: tr(context, 'totalBalance'),
                           size: 16,
                           color: MyColors.black,
                         ),
@@ -129,7 +129,7 @@ class _ProvMainState extends State<ProvMain> {
                             fontFamily: GoogleFonts.poppins().fontFamily,
                           ),
                           MyText(
-                            title: "SAR",
+                            title: tr(context, 'sar'),
                             size: 12,
                             color: MyColors.grey,
                             fontWeight: FontWeight.normal,

@@ -45,7 +45,7 @@ class BuildSessionTimer extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       MyText(
-                        title: "Remaining time for the session",
+                        title: tr(context, 'remainingTimeForSession'),
                         color: MyColors.black,
                         size: 12,
                       ),
@@ -57,7 +57,9 @@ class BuildSessionTimer extends StatelessWidget {
                         fontFamily: GoogleFonts.poppins().fontFamily,
                       ),
                       MyText(
-                        title: "H      M      S",
+                        title:
+                            "${tr(context, 'h')}      "
+                                "${tr(context, 'm')}      ${tr(context, 's')}",
                         color: MyColors.black,
                         size: 20,
                         fontFamily: GoogleFonts.poppins().fontFamily,
@@ -73,7 +75,7 @@ class BuildSessionTimer extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 5),
                     alignment: Alignment.center,
                     child: MyText(
-                      title: "Join Session Now",
+                      title: tr(context, 'joinSessionNow'),
                       color: MyColors.primary,
                       size: 15,
                     ),

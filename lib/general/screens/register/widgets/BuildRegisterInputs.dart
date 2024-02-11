@@ -56,7 +56,7 @@ class BuildRegisterFields extends StatelessWidget {
             type: TextInputType.text,
             action: TextInputAction.next,
             validate: (value) => value?.validateEmpty(context),
-            hint: "Name",
+            hint: tr(context, 'name'),
             margin: const EdgeInsets.symmetric(vertical: 7),
           ),
           GenericTextField(
@@ -66,7 +66,7 @@ class BuildRegisterFields extends StatelessWidget {
             type: TextInputType.emailAddress,
             action: TextInputAction.next,
             validate: (value) => value?.validateEmail(context),
-            hint: "E-mail",
+            hint: tr(context, 'email'),
             margin: const EdgeInsets.symmetric(vertical: 7),
           ),
           GenericTextField(
@@ -76,7 +76,7 @@ class BuildRegisterFields extends StatelessWidget {
             type: TextInputType.number,
             action: TextInputAction.next,
             validate: (value) => value?.validateEmpty(context),
-            hint: "Invitation Code",
+            hint: tr(context, 'invitationCode'),
             margin: const EdgeInsets.symmetric(vertical: 7),
           ),
           BuildPasswordsBloc(registerData: registerData),

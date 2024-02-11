@@ -7,6 +7,7 @@ import 'package:hwzn_base/general/widgets/DefaultAppBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../packages/localization/Localizations.dart';
 import 'widgets/AboutWidgetsImports.dart';
 
 part 'About.dart';

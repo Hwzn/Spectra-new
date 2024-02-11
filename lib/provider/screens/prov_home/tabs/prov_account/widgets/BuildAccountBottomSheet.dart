@@ -36,7 +36,7 @@ class BuildAccountBottomSheet extends StatelessWidget {
             enableBorderColor: MyColors.grey,
           ),
           DefaultButton(
-            title: "Submit",
+            title: tr(context, 'submit'),
             onTap: onSubmit,
             borderRadius: BorderRadius.circular(20),
             margin: const EdgeInsets.symmetric(vertical: 20),
@@ -44,7 +44,7 @@ class BuildAccountBottomSheet extends StatelessWidget {
           InkWell(
             onTap: ()=> Navigator.pop(context),
             child: MyText(
-              title: "Cancel",
+              title: tr(context, 'cancel'),
               color: MyColors.grey,
               size: 12,
               alien: TextAlign.center,

@@ -9,7 +9,7 @@ extension Validator on String {
 
   String? validateEmpty(BuildContext context,{String? message}) {
     if (trim().isEmpty) {
-      return message ?? "Please fill this field";
+      return message ?? tr(context, 'fillField');
     }
     return null;
   }
@@ -19,7 +19,7 @@ extension Validator on String {
       return message ?? tr(context,'fillField');
     } else if (!RegExp(r'^(?=.*?[a-z])(?=.*?[0-9]).{6,}$')
         .hasMatch(this)) {
-      return message ?? "Enter at least 6 characters containing numbers and letters";
+      return message ?? tr(context, 'passValidation');
     }
     return null;
   }
@@ -50,14 +50,14 @@ extension Validator on String {
     if (trim().isEmpty) {
       return message ?? tr(context, 'fillField');
     } else if (length > 14 || length < 9) {
-      return message ?? "Phone must contain at least 9 numbers";
+      return message ?? tr(context, 'phoneValidation');
     }
     return null;
   }
 
   String? validatePasswordConfirm(BuildContext context,{required String pass, String? message}) {
     if (trim().isEmpty) {
-      return message ?? "Please fill this field";
+      return message ?? tr(context, 'fillField');
     } else if (this != pass) {
       return message ?? tr(context,"confirmValidation");
     }
@@ -68,7 +68,7 @@ extension Validator on String {
 extension ValidatorDrop<DataType> on DataType {
   String? validateDropDown(BuildContext context,{String? message}) {
     if (this == null) {
-      return message ?? "Please fill this field";
+      return message ?? tr(context, 'fillField');
     }
     return null;
   }

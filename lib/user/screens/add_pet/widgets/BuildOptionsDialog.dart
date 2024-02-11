@@ -14,19 +14,19 @@ class BuildOptionsDialog extends StatelessWidget {
           Container(
             margin: const EdgeInsets.only(top: 15, bottom: 10),
             child: MyText(
-              title: "Choose attachment type",
+              title: tr(context, 'chooseAttachmentType'),
               size: 15,
               color: MyColors.black,
             ),
           ),
           DefaultButton(
-            title: "Images",
+            title: tr(context, 'images'),
             width: MediaQuery.of(context).size.width * .4,
             margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
             onTap: () => addPetData.uploadImages(context),
           ),
           DefaultButton(
-            title: "Files",
+            title: tr(context, 'files'),
             width: MediaQuery.of(context).size.width * .4,
             margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
             onTap: () => addPetData.uploadFiles(context),

@@ -20,7 +20,7 @@ class BuildResetPasswordInputs extends StatelessWidget {
             action: TextInputAction.next,
             controller: resetPasswordData.password,
             validate: (value) => value?.validatePassword(context),
-            hint: "New Password",
+            hint: tr(context, 'newPassword'),
             margin: const EdgeInsets.only(top: 20),
           ),
           GenericTextField(
@@ -30,7 +30,7 @@ class BuildResetPasswordInputs extends StatelessWidget {
             type: TextInputType.text,
             action: TextInputAction.done,
             validate: (value) => value?.validatePasswordConfirm(context, pass: resetPasswordData.password.text),
-            hint: "Re-enter New Password",
+            hint: tr(context, 'reEnterNewPassword'),
             margin: const EdgeInsets.only(top: 20),
             controller: resetPasswordData.confirmPassword,
           ),

@@ -25,7 +25,7 @@ class BuildCardDetails extends StatelessWidget {
       child: Column(
         children: [
           BuildProfileInputItem(
-            title: "Card Number *",
+            title: "${tr(context, 'cardNumber')} *",
             hint: "XXXX - XXXX - XXXX - XXXX",
             controller: paymentData.cardNumber,
             validate: (value) => value!.validateEmpty(context),
@@ -38,7 +38,7 @@ class BuildCardDetails extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: BuildProfileInputItem(
-                  title: "Ending date *",
+                  title: "${tr(context, 'endingDate')} *",
                   hint: "dd/yy",
                   controller: paymentData.endDate,
                   validate: (value) => value!.validateEmpty(context),
@@ -62,8 +62,8 @@ class BuildCardDetails extends StatelessWidget {
             ],
           ),
           BuildProfileInputItem(
-            title: "Card holder number *",
-            hint: "Enter card holder number",
+            title: "${tr(context, 'cardHolderNumber')} *",
+            hint: tr(context, 'enterCardHolderNumber'),
             controller: paymentData.cardHolderNumber,
             validate: (value) => value!.validateEmpty(context),
             textInputType: TextInputType.number,

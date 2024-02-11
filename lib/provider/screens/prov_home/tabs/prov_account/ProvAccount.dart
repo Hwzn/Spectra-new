@@ -52,7 +52,7 @@ class _ProvAccountState extends State<ProvAccount> {
             child: Container(
               margin: const EdgeInsets.only(top: 20, bottom: 15),
               child: MyText(
-                title: "Sign out",
+                title: tr(context, "signOut"),
                 color: MyColors.grey,
                 size: 14,
                 alien: TextAlign.center,
