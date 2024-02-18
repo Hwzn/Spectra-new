@@ -277,14 +277,13 @@ class UserHttpMethods {
     return data != null;
   }
 
-
   Future<int> getRemainingTime(int resId) async {
     dynamic data = await GenericHttp<dynamic>(context).callApi(
       name: ApiNames.remainedSessionTime + "/$resId",
       returnType: ReturnType.type,
       methodType: MethodType.get,
       showLoader: false,
-      returnDataFun: (data)=> data['data']['number_of_minutes'],
+      returnDataFun: (data) => data['data']['number_of_minutes'],
     );
     return data;
   }
@@ -318,4 +317,27 @@ class UserHttpMethods {
     }
   }
 
+  Future<List<DoctorModel>> addFilter(AddFilterModel model) async {
+    return await GenericHttp<DoctorModel>(context).callApi(
+      name: ApiNames.searchForDoctors,
+      returnType: ReturnType.list,
+      json: model.toJson(),
+      methodType: MethodType.post,
+      showLoader: true,
+      returnDataFun: (data) => data["data"],
+      toJsonFunc: (json) => DoctorModel.fromJson(json),
+    ) as List<DoctorModel>;
+  }
+
+  Future<List<DoctorModel>> searchForDoctors(String searchName) async {
+    return await GenericHttp<DoctorModel>(context).callApi(
+      name: ApiNames.searchForDoctors,
+      returnType: ReturnType.list,
+      json: {"search_name": searchName},
+      methodType: MethodType.post,
+      showLoader: true,
+      returnDataFun: (data) => data["data"],
+      toJsonFunc: (json) => DoctorModel.fromJson(json),
+    ) as List<DoctorModel>;
+  }
 }

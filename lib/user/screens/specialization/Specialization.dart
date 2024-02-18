@@ -23,7 +23,7 @@ class _SpecializationState extends State<Specialization> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: DefaultAppBar(title: tr(context, 'specialization')),
+      appBar: DefaultAppBar(title: widget.specName),
       body: BlocBuilder<GenericBloc<List<DoctorModel>>,
           GenericState<List<DoctorModel>>>(
         bloc: specializationData.doctorsBloc,

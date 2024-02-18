@@ -50,6 +50,7 @@ class ApiNames{
   static const String changeReservationTime = "changeReservationTime";
   static const String cancelReservation = "cancelReservation";
   static const String remainedSessionTime = "remainedSessionTime";
+  static const String searchForDoctors = "searchForDoctors";
 
   // doctor
   static const String registerDoctor = "registerNewDoctor";

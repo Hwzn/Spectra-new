@@ -196,5 +196,18 @@
   "changeTime": "Change Time",
   "next": "Next",
   "cancelWarning": "By cancelling session you will lose refund",
-  "noDoctors": "No Doctors Available"
+  "noDoctors": "No Doctors Available",
+  "filter": "Filter",
+  "showResults": "Show Results",
+  "topRated": "Highest Rated",
+  "lowRated": "Lowest Rated",
+  "highPrice": "Highest Price",
+  "lowPrice": "Lowest Price",
+  "ascAlphabetical": "A-Z",
+  "descAlphabetical": "Z-A",
+  "highOrders": "Highest Orders",
+  "lowOrders": "Lowest Orders",
+  "enterDoctorName": "Please enter doctor name",
+
+  "": ""
 }

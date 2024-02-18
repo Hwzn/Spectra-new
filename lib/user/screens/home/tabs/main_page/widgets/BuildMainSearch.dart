@@ -17,10 +17,12 @@ class BuildMainSearch extends StatelessWidget {
         validate: (value) => value?.noValidate(),
         margin: const EdgeInsets.symmetric(horizontal: 30),
         hint: tr(context, 'searchDoctor'),
+        controller: mainPageData.searchController,
         prefixIcon: Icon(
           Icons.search,
           color: MyColors.primary,
         ),
+        onSubmit: ()=> mainPageData.searchForDoctor(context),
         suffixIcon: InkWell(
           onTap: ()=> mainPageData.openFilter(context),
           child: Container(

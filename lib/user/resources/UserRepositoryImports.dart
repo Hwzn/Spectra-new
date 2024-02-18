@@ -13,6 +13,7 @@ import 'package:hwzn_base/user/models/home_model.dart';
 import 'package:hwzn_base/user/models/pet_model.dart';
 import 'package:hwzn_base/user/models/reservation_model.dart';
 import 'package:hwzn_base/user/models/toJson/AddBlogModel.dart';
+import 'package:hwzn_base/user/models/toJson/AddFilterModel.dart';
 import 'package:hwzn_base/user/models/toJson/AddReservationModel.dart';
 import 'package:hwzn_base/user/screens/doctor_details/DoctorDetailsImports.dart';
 

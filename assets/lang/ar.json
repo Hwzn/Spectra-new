@@ -197,7 +197,20 @@
   "changeTime": "تغيير الوقت",
   "next": "التالي",
   "cancelWarning": "عند إلغاء الجلسة سوف تفقد المبلغ",
-  "noDoctors": "لا يوجد أطباء متاحين"
+  "noDoctors": "لا يوجد أطباء متاحين",
+  "filter": "الفلتر",
+  "showResults": "أظهر النتائج",
+  "topRated": "الأعلى تقييما",
+  "lowRated": "الأقل تقييما",
+  "highPrice": "الأعلى سعرا",
+  "lowPrice": "الأقل سعرا",
+  "ascAlphabetical": "ترتيب أبجدي تصاعدي",
+  "descAlphabetical": "ترتيب أبجدي تنازلي",
+  "highOrders": "الأعلى طلبا",
+  "lowOrders": "الأقل طلبا",
+  "enterDoctorName": "رجاء ادخال اسم الطبيب",
+
+  "": ""
 }
 
 

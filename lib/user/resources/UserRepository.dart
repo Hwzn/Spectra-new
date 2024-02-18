@@ -74,4 +74,11 @@ class UserRepository {
       userHttpMethods.editComment(id, comment);
 
   Future<bool> deleteComment(int id) => userHttpMethods.deleteComment(id);
+
+  Future<List<DoctorModel>> addFilter(AddFilterModel model) =>
+      userHttpMethods.addFilter(model);
+
+  Future<List<DoctorModel>> searchForDoctors(String searchName) =>
+      userHttpMethods.searchForDoctors(searchName);
+
 }
