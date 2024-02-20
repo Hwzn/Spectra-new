@@ -24,7 +24,7 @@ ReservationModel _$ReservationModelFromJson(Map<String, dynamic> json) =>
           ? null
           : ReservationReviewModel.fromJson(
               json['review'] as Map<String, dynamic>),
-      hasSessionDetails: json['has_session_details'] as bool,
+      hasSessionDetails: json['has_session_details'] as bool?,
       tempToken: json['temp_token'] as String,
     );
 

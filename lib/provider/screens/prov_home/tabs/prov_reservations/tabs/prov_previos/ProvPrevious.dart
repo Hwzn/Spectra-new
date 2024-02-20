@@ -33,7 +33,7 @@ class ProvPrevious extends StatelessWidget {
                   model: state.data[index],
                   fromDoctorHome: true,
                   endButton: Visibility(
-                    visible: !state.data[index].hasSessionDetails &&
+                    visible: state.data[index].hasSessionDetails == false &&
                         state.data[index].status != "cancelled",
                     child: DefaultButton(
                       title: tr(context, 'fillSessionDetails'),

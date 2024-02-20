@@ -5,6 +5,7 @@ class RateSessionModel {
   int duration;
   double rate;
   String? comment;
+  int petId;
 
   RateSessionModel({
     required this.reservationId,
@@ -12,6 +13,7 @@ class RateSessionModel {
     required this.duration,
     required this.rate,
     this.comment,
+    required this.petId,
   });
 
   Map<String, dynamic> toJson() => {
@@ -20,5 +22,6 @@ class RateSessionModel {
     "duration": duration,
     "rate": rate,
     "comment": comment,
+    "pet_id": petId,
   };
 }

@@ -29,7 +29,7 @@ class ReservationModel {
   @JsonKey(name: 'review_before')
   bool reviewBefore;
   @JsonKey(name: 'has_session_details')
-  bool hasSessionDetails;
+  bool? hasSessionDetails;
   @JsonKey(name: 'review')
   ReservationReviewModel? review;
   @JsonKey(name: 'temp_token')
@@ -49,7 +49,7 @@ class ReservationModel {
     required this.doctorDetails,
     required this.reviewBefore,
     this.review,
-    required this.hasSessionDetails,
+    this.hasSessionDetails,
     required this.tempToken,
   });
 

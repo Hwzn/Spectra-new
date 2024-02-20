@@ -16,7 +16,8 @@ class _ReviewSessionState extends State<ReviewSession> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.bg,
-      appBar: DefaultAppBar(title: "${tr(context, 'session')} #${widget.model.id}"),
+      appBar:
+          DefaultAppBar(title: "${tr(context, 'session')} #${widget.model.id}"),
       body: ListView(
         padding: const EdgeInsets.only(top: 10),
         children: [
@@ -39,7 +40,11 @@ class _ReviewSessionState extends State<ReviewSession> {
             child: DefaultButton(
               title: tr(context, 'submit'),
               margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-              onTap: () => reviewSessionData.submitRate(context, widget.model.id),
+              onTap: () => reviewSessionData.submitRate(
+                context,
+                widget.model.id,
+                widget.model.petId,
+              ),
             ),
           ),
         ],
