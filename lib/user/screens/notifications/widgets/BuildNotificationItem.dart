@@ -17,16 +17,21 @@ class BuildNotificationItem extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
       child: Slidable(
+        enabled: model.data?.dataId != null,
         endActionPane: ActionPane(
           extentRatio: 0.25,
           motion: const DrawerMotion(),
           children: [
             SlidableAction(
-              onPressed: (v) => notificationsData.deleteItem(
-                context: context,
-                id: model.data.dataId.toString(),
-                index: index,
-              ),
+              onPressed: (v) {
+                if(model.data?.dataId != null){
+                  notificationsData.deleteItem(
+                    context: context,
+                    id: model.data?.dataId.toString() ?? '0',
+                    index: index,
+                  );
+                }
+              },
               backgroundColor: Colors.red,
               foregroundColor: MyColors.white,
               icon: Icons.delete,

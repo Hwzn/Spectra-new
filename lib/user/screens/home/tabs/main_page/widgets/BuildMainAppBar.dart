@@ -49,8 +49,13 @@ class BuildMainAppBar extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: ()=> AutoRouter.of(context).push(NotificationsRoute()),
+            onPressed: ()=> AutoRouter.of(context).push(const NotificationsRoute()),
             padding: const EdgeInsets.symmetric(horizontal: 20),
+            highlightColor: Colors.transparent,
+            splashColor: Colors.transparent,
+            color: Colors.transparent,
+            hoverColor: Colors.transparent,
+            focusColor: Colors.transparent,
             icon: Icon(
               Icons.notifications_rounded,
               color: MyColors.white,

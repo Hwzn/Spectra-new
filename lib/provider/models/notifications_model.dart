@@ -15,7 +15,7 @@ class NotificationsModel {
   @JsonKey(name: 'body')
   String body;
   @JsonKey(name: 'data')
-  NotificationDataModel data;
+  NotificationDataModel? data;
   @JsonKey(name: 'status')
   String status;
   @JsonKey(name: 'time')
@@ -26,7 +26,7 @@ class NotificationsModel {
     required this.type,
     required this.title,
     required this.body,
-    required this.data,
+    this.data,
     required this.status,
     required this.time,
   });

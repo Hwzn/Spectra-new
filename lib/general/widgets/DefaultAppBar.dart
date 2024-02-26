@@ -45,6 +45,10 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: leading ??
               InkWell(
                 onTap: () => AutoRouter.of(context).pop(),
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                focusColor: Colors.transparent,
                 child: Icon(
                   Icons.arrow_back_ios,
                   color: MyColors.white,

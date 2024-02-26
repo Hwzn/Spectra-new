@@ -12,8 +12,10 @@ NotificationsModel _$NotificationsModelFromJson(Map<String, dynamic> json) =>
       type: json['type'] as String,
       title: json['title'] as String,
       body: json['body'] as String,
-      data:
-          NotificationDataModel.fromJson(json['data'] as Map<String, dynamic>),
+      data: json['data'] == null
+          ? null
+          : NotificationDataModel.fromJson(
+              json['data'] as Map<String, dynamic>),
       status: json['status'] as String,
       time: json['time'] as String,
     );

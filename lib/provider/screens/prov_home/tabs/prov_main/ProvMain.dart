@@ -23,7 +23,11 @@ class _ProvMainState extends State<ProvMain> {
         title: '',
         centerTitle: true,
         leading: InkWell(
-          onTap: () => AutoRouter.of(context).push(AllChatsRoute()),
+          onTap: () => AutoRouter.of(context).push(const AllChatsRoute()),
+          highlightColor: Colors.transparent,
+          splashColor: Colors.transparent,
+          hoverColor: Colors.transparent,
+          focusColor: Colors.transparent,
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 12),
             child: Image.asset(Res.chat),
@@ -31,8 +35,13 @@ class _ProvMainState extends State<ProvMain> {
         ),
         actions: [
           IconButton(
-            onPressed: () => AutoRouter.of(context).push(NotificationsRoute()),
+            onPressed: () => AutoRouter.of(context).push(const NotificationsRoute()),
             padding: const EdgeInsets.symmetric(horizontal: 20),
+            highlightColor: Colors.transparent,
+            splashColor: Colors.transparent,
+            color: Colors.transparent,
+            hoverColor: Colors.transparent,
+            focusColor: Colors.transparent,
             icon: Icon(
               Icons.notifications_rounded,
               color: MyColors.white,
