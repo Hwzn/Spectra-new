@@ -38,6 +38,10 @@ class BuildMainAppBar extends StatelessWidget {
         leadingWidth: 70,
         leading: InkWell(
           onTap: () => AutoRouter.of(context).push(AllChatsRoute()),
+          highlightColor: Colors.transparent,
+          splashColor: Colors.transparent,
+          hoverColor: Colors.transparent,
+          focusColor: Colors.transparent,
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 20),
             child: Image.asset(Res.chat),

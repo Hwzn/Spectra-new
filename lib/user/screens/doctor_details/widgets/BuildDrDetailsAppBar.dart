@@ -43,6 +43,10 @@ class BuildDrDetailsAppBar extends StatelessWidget {
         leadingWidth: 30,
         leading: InkWell(
           onTap: () => AutoRouter.of(context).pop(),
+          highlightColor: Colors.transparent,
+          splashColor: Colors.transparent,
+          hoverColor: Colors.transparent,
+          focusColor: Colors.transparent,
           child: Container(
             height: 28,
             width: 28,
@@ -60,6 +64,10 @@ class BuildDrDetailsAppBar extends StatelessWidget {
         actions: [
           InkWell(
             onTap: () => AutoRouter.of(context).push(AllChatsRoute()),
+            highlightColor: Colors.transparent,
+            splashColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            focusColor: Colors.transparent,
             child: Container(
               height: 28,
               width: 28,
